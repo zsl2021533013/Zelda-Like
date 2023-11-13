@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "com.alelievr.node-graph-processor": "file:E:/Dev/Unity/Project/NodeGraphProcessor/Assets/com.alelievr.NodeGraphProcessor",
+    "com.alelievr.node-graph-processor": "file:D:/Dev/Unity Hub/Project/NodeGraphProcessor/Assets/com.alelievr.NodeGraphProcessor",
     "com.unity.collab-proxy": "1.17.7",
     "com.unity.ide.rider": "3.0.16",
     "com.unity.ide.visualstudio": "2.0.16",

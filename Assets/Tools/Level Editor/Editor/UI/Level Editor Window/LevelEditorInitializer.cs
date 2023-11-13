@@ -18,8 +18,8 @@ namespace Level_Editor.Editor
         
         static LevelEditorInitializer()
         {
-            EditorSceneManager.sceneSaved += SaveLevel;
-            EditorSceneManager.sceneSaved += scene => LevelEditorUtil.SaveLevelEditorData();
+            /*EditorSceneManager.sceneSaved += SaveLevel;
+            EditorSceneManager.sceneSaved += scene => LevelEditorUtil.SaveLevelEditorData();*/
         }
         
         #endif

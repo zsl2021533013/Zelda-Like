@@ -1,7 +1,7 @@
 {
   "dependencies": {
     "com.alelievr.node-graph-processor": {
-      "version": "file:E:/Dev/Unity/Project/NodeGraphProcessor/Assets/com.alelievr.NodeGraphProcessor",
+      "version": "file:D:/Dev/Unity Hub/Project/NodeGraphProcessor/Assets/com.alelievr.NodeGraphProcessor",
       "depth": 0,
       "source": "local",
       "dependencies": {}
