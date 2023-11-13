@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 435115682a004cdfaaa647b81e793d2d, type: 3}
+  m_Name: LevelEditorData
+  m_EditorClassIdentifier: 
+  levelDatas:
+  - sceneField:
+      sceneAsset: {fileID: 102900000, guid: 9ff187ea90dc8bb4b96f40b39588a1a2, type: 3}
+      sceneName: New Scene 1
+      scenePath: Assets/Tools/Level Editor/Resources/Scenes/New Scene 1.unity
+    bounds:
+      serializedVersion: 2
+      x: -7
+      y: -10
+      width: 15
+      height: 6
+  - sceneField:
+      sceneAsset: {fileID: 102900000, guid: 1992d42a95e487047a4bdfdd62c2365c, type: 3}
+      sceneName: New Scene 2
+      scenePath: Assets/Tools/Level Editor/Resources/Scenes/New Scene 2.unity
+    bounds:
+      serializedVersion: 2
+      x: 8
+      y: -10
+      width: 14
+      height: 6
+  - sceneField:
+      sceneAsset: {fileID: 102900000, guid: f888895854045fd4d93ea8313a3a18a6, type: 3}
+      sceneName: New Scene 3
+      scenePath: Assets/Tools/Level Editor/Resources/Scenes/New Scene 3.unity
+    bounds:
+      serializedVersion: 2
+      x: -22
+      y: -10
+      width: 15
+      height: 6
+  - sceneField:
+      sceneAsset: {fileID: 102900000, guid: 1693741ec28f03a44a45388963ae6532, type: 3}
+      sceneName: New Scene 4
+      scenePath: Assets/Tools/Level Editor/Resources/Scenes/New Scene 4.unity
+    bounds:
+      serializedVersion: 2
+      x: -31
+      y: -2
+      width: 22
+      height: 15
+  - sceneField:
+      sceneAsset: {fileID: 102900000, guid: f5062c41dfb7fa640b19277b513fbc5e, type: 3}
+      sceneName: New Scene 5
+      scenePath: Assets/Tools/Level Editor/Resources/Scenes/New Scene 5.unity
+    bounds:
+      serializedVersion: 2
+      x: -14
+      y: 7
+      width: 11
+      height: 2
