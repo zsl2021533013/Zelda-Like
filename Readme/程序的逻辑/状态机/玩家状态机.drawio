@@ -1,0 +1,29 @@
+<mxfile host="Electron" modified="2023-11-14T02:13:20.003Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/21.6.8 Chrome/114.0.5735.289 Electron/25.5.0 Safari/537.36" etag="tMTL507S6EOZuo7UfPTz" version="21.6.8" type="device">
+  <diagram id="W1BwmWzLlPHiCO6JRswT" name="第 1 页">
+    <mxGraphModel dx="989" dy="1782" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1920" pageHeight="1200" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="LBKLZH5YYMk8-vjrodIQ-34" value="Ground State" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;align=left;verticalAlign=top;" parent="1" vertex="1">
+          <mxGeometry x="620" y="-690" width="320" height="240" as="geometry" />
+        </mxCell>
+        <mxCell id="LBKLZH5YYMk8-vjrodIQ-21" value="move.x != 0" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;labelBorderColor=default;" parent="1" source="LBKLZH5YYMk8-vjrodIQ-1" target="LBKLZH5YYMk8-vjrodIQ-2" edge="1">
+          <mxGeometry x="0.3333" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="LBKLZH5YYMk8-vjrodIQ-1" value="Idle&amp;nbsp;State" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;fontStyle=1;verticalAlign=middle;strokeColor=#6c8ebf;" parent="1" vertex="1">
+          <mxGeometry x="720" y="-650" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="LBKLZH5YYMk8-vjrodIQ-22" value="move.x == 0&lt;br&gt;&amp;amp;&amp;amp; velocity.x == 0" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.75;exitY=0;exitDx=0;exitDy=0;entryX=0.75;entryY=1;entryDx=0;entryDy=0;labelBorderColor=default;" parent="1" source="LBKLZH5YYMk8-vjrodIQ-2" target="LBKLZH5YYMk8-vjrodIQ-1" edge="1">
+          <mxGeometry x="0.3333" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="LBKLZH5YYMk8-vjrodIQ-2" value="Move State" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;fontStyle=1;verticalAlign=middle;strokeColor=#6c8ebf;" parent="1" vertex="1">
+          <mxGeometry x="720" y="-500" width="120" height="40" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
