@@ -13,7 +13,6 @@ namespace Script.View_Controller.Character_System.HFSM.States
 
 		private Animator mAnimator;
 		private string mAnimationName;
-		private AnimationCurve mCurve;
 
 		public AnimationTimer timer;
 
@@ -64,7 +63,16 @@ namespace Script.View_Controller.Character_System.HFSM.States
 
 			if (!isGhostState)
 			{
-				mAnimator.Play(mAnimationName);
+				var animatorInfo = mAnimator.GetCurrentAnimatorStateInfo(0);
+            
+				if (animatorInfo.IsName(mAnimationName))
+				{
+					mAnimator.Play(mAnimationName, 0, 0f); 
+				} // 若要重复播放正在播放的动画，则必须调用该方法
+				else
+				{
+					mAnimator.CrossFade(mAnimationName, 0.1f);
+				}
 			}
 
 			// Debug.Log(name);

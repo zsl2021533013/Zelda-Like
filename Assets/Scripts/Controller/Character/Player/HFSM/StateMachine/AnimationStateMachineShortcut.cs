@@ -1,8 +1,8 @@
 ﻿using System;
-using System.Linq;
 using Script.View_Controller.Character_System.HFSM.Base;
 using Script.View_Controller.Character_System.HFSM.States;
 using Script.View_Controller.Character_System.HFSM.Transitions;
+using UnityEditor.Animations;
 using UnityEngine;
 
 namespace Script.View_Controller.Character_System.HFSM.StateMachine
@@ -69,13 +69,37 @@ namespace Script.View_Controller.Character_System.HFSM.StateMachine
         /// <param name="animator"></param>
         /// <param name="animationName"></param>
         /// <returns></returns>
-        public static float GetAnimationLength(this Animator animator, string animationName)
+        public static float GetAnimationLength(this Animator animator, string animationStateName)
         {
-            var clips = animator.runtimeAnimatorController.animationClips;
-            return clips.Where(clip => clip.name
-                    .Equals(animationName))
-                .Select(clip => clip.length)
-                .FirstOrDefault();
+            var controller = animator.runtimeAnimatorController as AnimatorController;
+
+            if (controller != null)
+            {
+                foreach (var layer in controller.layers)
+                {
+                    foreach (var state in layer.stateMachine.states)
+                    {
+                        if (state.state.name == animationStateName)
+                        {
+                            var clip = state.state.motion as AnimationClip;
+                            
+                            if (!clip)
+                            {
+                                return 0;
+                            }
+                            
+                            Debug.Log($"{clip.name} {clip.length}");
+                            return clip.length;
+                        }
+                    }
+                }
+            }
+
+            return 0;
+            // var clips = animator.runtimeAnimatorController.animationClips;
+            // return clips.Where(clip => clip.name.Equals(animationName))
+            //     .Select(clip => clip.length)
+            //     .FirstOrDefault();
         }
         
         /// <summary>

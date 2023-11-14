@@ -14,3 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   walkSpeed: 1.976832
   runSpeed: 4.213921
+  slopDetectFrontOffset: 0.2
+  slopDetectFrontDistance: 1.2
+  groundDetectDistance: 1.2
+  flatGroundMaxAngle: 10
+  slopMaxAngle: 0
+  groundLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  fullFrictionMat: {fileID: 13400000, guid: 9b0273fffcaea404ab5954d04d697a3e, type: 2}
+  zeroFrictionMat: {fileID: 13400000, guid: 6787c631d780b374687ba4e402e9259d, type: 2}
+  jumpForce: 4

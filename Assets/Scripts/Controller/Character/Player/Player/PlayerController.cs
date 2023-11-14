@@ -9,26 +9,24 @@ namespace Controller.Character.Player.Player
 {
     public partial class PlayerController : MonoBehaviour
     {
+        private bool _applyRootMotion;
+        
         public StateMachine<Type, Type, Type> FSM { get; private set; }
 
         private void Awake()
         {
-            FSM = new StateMachine<Type, Type, Type>();
-
-            var groundFSM = new StateMachine<Type, Type, Type>();
-
-            FSM.AddState(typeof(GroundSubFSM), groundFSM);
-
-            // groundFSM.AddState<IdleState>(
-            //     animator,
-            //     "Idle",
-            //     onEnter: state => { rb.velocity = Vector2.zero; });
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
             
-            groundFSM.AddState<MoveState>(
+            FSM = new StateMachine<Type, Type, Type>();
+            
+            FSM.AddState<MoveState>(
                 animator,
                 "Ground",
                 onLogic: state =>
                 {
+                    #region Move
+
                     var movement = InputKit.Instance.move.Value.normalized;
                     var targetSpeed = movement.magnitude * 
                                       (InputKit.Instance.run ? config.runSpeed : config.walkSpeed);
@@ -36,7 +34,55 @@ namespace Controller.Character.Player.Player
                     var nextSpeed = 0.05f.Lerp(currentSpeed, targetSpeed);
                     
                     animator.SetFloat(SpeedXZParam, nextSpeed);
+
+                    #endregion
                     
+                    #region Slop Detect
+
+                    var isRaycastHitFront = Physics.Raycast(
+                        transform.position + Vector3.up + config.slopDetectFrontOffset * transform.forward, 
+                        Vector3.down, 
+                        out var frontHit, 
+                        config.slopDetectFrontDistance, 
+                        config.groundLayerMask);
+                    var frontAngle = isRaycastHitFront ? Vector3.Angle(frontHit.normal, Vector3.up) : float.MaxValue;
+            
+                    var isRaycastHitDown = Physics.Raycast(
+                        transform.position + Vector3.up, 
+                        Vector3.down, 
+                        out var downHit, 
+                        config.groundDetectDistance, 
+                        config.groundLayerMask);
+                    var downAngle = isRaycastHitDown ? Vector3.Angle(downHit.normal, Vector3.up) : float.MaxValue;
+
+                    var slopeNormalPerp = 
+                        isRaycastHitFront ? Vector3.Cross(transform.right, frontHit.normal) : transform.forward; 
+                    // 在空中就直接向前，不做额外处理
+            
+                    var velocity = animator.velocity.magnitude * slopeNormalPerp;
+                    velocity.y = isRaycastHitDown ? velocity.y : rb.velocity.y; // 如果在空中，就不改变 velocity.y
+            
+                    if (downAngle < config.flatGroundMaxAngle && velocity.y < 0f) 
+                        // 在平面上且下一瞬的速度是向下的
+                    {
+                        velocity.y = 0f;
+                    }
+            
+                    rb.velocity = velocity;
+
+                    #endregion
+
+                    #region Physical Material
+
+                    moveCollider.material = downAngle < config.flatGroundMaxAngle || 
+                                            frontAngle > config.slopMaxAngle || 
+                                            InputKit.Instance.move.Value.magnitude > 0.1f ? 
+                        config.zeroFrictionMat : config.fullFrictionMat;
+
+                    #endregion
+                    
+                    #region Rotate
+
                     if (InputKit.Instance.move.Value.magnitude >= 0.1f)
                     {
                         var right = cam.transform.right;
@@ -46,13 +92,67 @@ namespace Controller.Character.Player.Player
                         var targetRotation = Quaternion.LookRotation(targetDir, Vector3.up);
                         transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, 0.05f);
                     }
-                });
+
+                    #endregion
+                    
+                }
+            );
             
-            // groundFSM.AddTransition<MoveState, IdleState> 
-            //     (transition => InputKit.Instance.move.Value.magnitude < 0.1f && rb.velocity.magnitude < 0.1f);
-			         //
-            // groundFSM.AddTransition<IdleState, MoveState> 
-            //     (transition => InputKit.Instance.move.Value.magnitude >= 0.1f);
+            FSM.AddState<JumpState>(
+                animator,
+                "Jump",
+                onEnter: state =>
+                {
+                    _applyRootMotion = false;
+
+                    moveCollider.material = config.zeroFrictionMat;
+                    
+                    InputKit.Instance.jump.Reset();
+					
+                    rb.AddForce(new Vector3(0, config.jumpForce, 0), ForceMode.Impulse);
+                },
+                onExit: state =>
+                {
+                    _applyRootMotion = true;
+                },
+                canExit: state => state.timer.IsAnimatorFinish,
+                needsExitTime: true
+            );
+            
+            FSM.AddState<FallState>(
+                animator,
+                "Fall",
+                onEnter: state =>
+                {
+                    _applyRootMotion = false;
+                },
+                onExit: state =>
+                {
+                    _applyRootMotion = true;
+                }
+            );
+            
+            FSM.AddState<LandState>(
+                animator,
+                "Land",
+                canExit: state => state.timer.IsAnimatorFinish,
+                needsExitTime: true
+            );
+            
+            FSM.AddTransition<MoveState, JumpState>
+                (transition => InputKit.Instance.jump);
+			         
+            FSM.AddTransition<MoveState, FallState>
+                (transition => !sensorController.groundSensor);
+            
+            FSM.AddTransition<JumpState, FallState>
+                (transition => true);
+            
+            FSM.AddTransition<JumpState, MoveState>
+                (transition => sensorController.groundSensor);
+            
+            FSM.AddTransition<FallState, MoveState>
+                (transition => sensorController.groundSensor);
         }
 
         private void Start()
@@ -63,6 +163,18 @@ namespace Controller.Character.Player.Player
         private void Update()
         {
             FSM.OnLogic();
+        }
+        
+        private void OnAnimatorMove()
+        {
+            if (!_applyRootMotion)
+            {
+                return;
+            }
+            
+            var velocity = animator.velocity;
+            velocity.y = rb.velocity.y;
+            rb.velocity = velocity;
         }
     }
 }
