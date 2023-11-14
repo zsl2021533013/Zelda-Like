@@ -88,7 +88,6 @@ namespace Script.View_Controller.Character_System.HFSM.StateMachine
                                 return 0;
                             }
                             
-                            Debug.Log($"{clip.name} {clip.length}");
                             return clip.length;
                         }
                     }
