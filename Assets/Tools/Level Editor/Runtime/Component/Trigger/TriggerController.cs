@@ -12,17 +12,23 @@ namespace Level_Editor.Runtime
 {
     public enum TriggerState
     {
-        Untriggered,
-        Triggering,
-        Triggered
+        Pending,
+        Perform,
+        Finish
     }
     
     public class TriggerController : MonoBehaviour
     {
         #region Main Property
 
-        [Tooltip("The amount this trigger will work, set -1 if you want it trigger forever")]
-        public int triggerTime;
+        [FoldoutGroup("Config")]
+        [Tooltip("Click if you want limit the trigger times")]
+        public bool hasTriggerAmount;
+        
+        [FoldoutGroup("Config")]
+        [Tooltip("The amount this trigger will work")]
+        [ShowIf("hasTriggerAmount", true)]
+        public int triggerAmount;
 
         [Space(5)]
         [SerializeReference, LabelText("Events")]
@@ -38,7 +44,7 @@ namespace Level_Editor.Runtime
 
         #endregion
         
-        private TriggerState _state = TriggerState.Untriggered;
+        private TriggerState _state = TriggerState.Pending;
         
         public TriggerState State
         {
@@ -48,7 +54,7 @@ namespace Level_Editor.Runtime
             }
             set
             {
-                if (value == TriggerState.Triggered)
+                if (value == TriggerState.Finish)
                 {
                     onTriggerFinish?.Invoke();
                 }
@@ -59,7 +65,10 @@ namespace Level_Editor.Runtime
         #region Callback
 
         [HideInInspector]
-        public UnityEvent onTriggerFinish;
+        public UnityEvent onTriggerFinish; 
+        
+        [HideInInspector]
+        public UnityEvent onTriggerDisable; 
 
         #endregion
         
@@ -76,16 +85,40 @@ namespace Level_Editor.Runtime
 
         public void TryTrigger()
         {
-            if (State != TriggerState.Untriggered)
+            if (State != TriggerState.Pending)
             {
                 return;
             }
             
             if (triggerConditions.All(condition => condition.Satisfied()))
             {
-                triggerActions.ForEach(action => action.Perform(this));
-                State = TriggerState.Triggering;
+                triggerActions.ForEach(action => action.StartAction(this));
+                State = TriggerState.Perform;
             }
+        }
+
+        public void TryFinishTrigger()
+        {
+            if (triggerActions.Any(action => action.State != ActionState.Finish))
+            {
+                return;
+            }
+            
+            State = TriggerState.Finish;
+
+            if (!hasTriggerAmount)
+            {
+                return;
+            }
+            
+            triggerAmount--;
+            if (triggerAmount > 0)
+            {
+                State = TriggerState.Pending;
+                return;
+            }
+                    
+            Debug.Log($"{transform.name} Trigger Finish");
         }
     }
 }

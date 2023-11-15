@@ -4,6 +4,7 @@ using QFramework;
 using Script.View_Controller.Character_System.HFSM.StateMachine;
 using Script.View_Controller.Input_System;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Controller.Character.Player.Player
 {
@@ -13,6 +14,13 @@ namespace Controller.Character.Player.Player
 
         public StateMachine<Type, Type, Type> FSM { get; private set; }
 
+        #region Callback
+
+        [HideInInspector]
+        public UnityEvent onUpdate = new UnityEvent();
+
+        #endregion
+        
         private void Awake()
         {
             FSM = new StateMachine<Type, Type, Type>();
@@ -241,6 +249,8 @@ namespace Controller.Character.Player.Player
         private void Update()
         {
             FSM.OnLogic();
+            
+            onUpdate?.Invoke();
         }
 
         private void FixedUpdate()

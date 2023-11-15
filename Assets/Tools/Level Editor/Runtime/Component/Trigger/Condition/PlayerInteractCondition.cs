@@ -6,7 +6,7 @@ namespace Level_Editor.Runtime
     {
         public override bool Satisfied()
         {
-            return Input.GetKeyDown(KeyCode.T);
+            return Input.GetKeyDown(KeyCode.E);
         }
     }
 }

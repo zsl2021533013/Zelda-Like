@@ -17,12 +17,12 @@ namespace Level_Editor.Runtime.Event
 
         public void Register(TriggerController controller)
         {
-            callbacks.ForEach(callback => callback.AddListener(controller.TryTrigger));
+            callbacks.ForEach(callback => callback?.AddListener(controller.TryTrigger));
         }
 
         public void Unregister(TriggerController controller)
         {
-            callbacks.ForEach(callback => callback.RemoveListener(controller.TryTrigger));
+            callbacks.ForEach(callback => callback?.RemoveListener(controller.TryTrigger));
         }
     }
 }
