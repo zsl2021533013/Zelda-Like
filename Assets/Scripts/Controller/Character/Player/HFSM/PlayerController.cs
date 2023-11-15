@@ -17,10 +17,19 @@ namespace Controller.Character.Player.Player
         {
             FSM = new StateMachine<Type, Type, Type>();
             
+            var attackTime = 0;
+            var comboFlag = false;
+            
             FSM.AddState<MoveState>(
                 animator,
                 "Ground",
-                onEnter: state => _applyRootMotion = false,
+                onEnter: state =>
+                {
+                    _applyRootMotion = false;
+                    
+                    InputKit.Instance.attack.Reset();
+                    comboFlag = false;
+                },
                 onFixedLogic: state =>
                 {
                     #region Move
@@ -138,9 +147,7 @@ namespace Controller.Character.Player.Player
                 canExit: state => state.timer.IsAnimatorFinish,
                 needsExitTime: true
             );
-
-            var attackTime = 0;
-            var comboFlag = false;
+            
             FSM.AddState<AttackState>(
                 animator,
                 "Attack Select",
@@ -160,6 +167,37 @@ namespace Controller.Character.Player.Player
                 needsExitTime: true
             );
             
+            FSM.AddState<BlockState>(
+                animator,
+                "Block",
+                onEnter: state =>
+                {
+                    InputKit.Instance.block.Reset();
+                    
+                    var velocity = new Vector3(0, rb.velocity.y, 0) ;
+                    rb.velocity = velocity;
+                },
+                canExit: state => state.timer > config.blockTime,
+                needsExitTime: true
+            );
+            
+            FSM.AddState<DodgeState>(
+                animator,
+                "Dodge",
+                onEnter: state =>
+                {
+                    InputKit.Instance.dodge.Reset();
+                    
+                    var velocity = new Vector3(0, rb.velocity.y, 0) ;
+                    rb.velocity = velocity;
+                },
+                canExit: state => state.timer.IsAnimatorFinish,
+                needsExitTime: true
+            );
+            
+            FSM.AddTransition<MoveState, DodgeState>
+                (transition => InputKit.Instance.dodge);
+            
             FSM.AddTransition<MoveState, JumpState>
                 (transition => InputKit.Instance.jump);
 			         
@@ -168,6 +206,9 @@ namespace Controller.Character.Player.Player
             
             FSM.AddTransition<MoveState, AttackState>
                 (transition => InputKit.Instance.attack);
+            
+            FSM.AddTransition<MoveState, BlockState>
+                (transition => InputKit.Instance.block);
             
             FSM.AddTransition<JumpState, FallState>
                 (transition => true);
@@ -178,12 +219,18 @@ namespace Controller.Character.Player.Player
             FSM.AddTransition<FallState, MoveState>
                 (transition => sensorController.groundSensor);
             
-            FSM.AddTransition<AttackState, AttackState>
-                (transition => InputKit.Instance.attack,
-                    onTransition: transition => comboFlag = true);
-            
             FSM.AddTransition<AttackState, MoveState>
-                (transition => !InputKit.Instance.attack);
+                (transition => InputKit.Instance.move.Value.magnitude > 0.1f);
+            
+            FSM.AddTransition<AttackState, AttackState>
+            (transition => InputKit.Instance.attack,
+                onTransition: transition => comboFlag = true);
+            
+            FSM.AddTransition<BlockState, MoveState>
+                (transition => true);
+            
+            FSM.AddTransition<DodgeState, MoveState>
+                (transition => true);
         }
 
         private void Start()

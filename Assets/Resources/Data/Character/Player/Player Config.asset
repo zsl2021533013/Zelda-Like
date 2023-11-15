@@ -25,3 +25,4 @@ MonoBehaviour:
   fullFrictionMat: {fileID: 13400000, guid: 9b0273fffcaea404ab5954d04d697a3e, type: 2}
   zeroFrictionMat: {fileID: 13400000, guid: 6787c631d780b374687ba4e402e9259d, type: 2}
   jumpForce: 6
+  blockTime: 0.25

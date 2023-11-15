@@ -44,8 +44,6 @@ namespace Script.View_Controller.Input_System
 
     public class InputKit : Singleton<InputKit>
     {
-        private InputKit() {}
-
         private InputControls mControls;
 
         public InputProperty<Vector2> move;
@@ -53,8 +51,11 @@ namespace Script.View_Controller.Input_System
         public InputProperty<bool> run;
         public InputProperty<bool> jump;
         public InputProperty<bool> attack;
+        public InputProperty<bool> dodge;
+        public InputProperty<bool> block;
         
-
+        private InputKit() {}
+        
         public override void OnSingletonInit()
         {
             base.OnSingletonInit();
@@ -85,6 +86,16 @@ namespace Script.View_Controller.Input_System
             attack = new InputProperty<bool>(
                 mControls.Player.Attack,
                 performedSetter: context => true);
+            
+            block = new InputProperty<bool>(
+                mControls.Player.Block,
+                performedSetter: context => true,
+                canceledSetter: context => false);
+            
+            dodge = new InputProperty<bool>(
+                mControls.Player.Dodge,
+                performedSetter: context => true,
+                canceledSetter: context => false);
         }
     }
 }

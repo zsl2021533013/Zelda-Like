@@ -19,5 +19,7 @@ namespace Controller.Character.Player.Player
         [FoldoutGroup("Ground/Slop")] public PhysicMaterial zeroFrictionMat;
 
         [FoldoutGroup("Jump")] public float jumpForce;
+        
+        [FoldoutGroup("Combat")] public float blockTime;
     }
 }

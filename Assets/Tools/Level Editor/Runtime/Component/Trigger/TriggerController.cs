@@ -21,6 +21,9 @@ namespace Level_Editor.Runtime
     {
         #region Main Property
 
+        [Tooltip("The amount this trigger will work, set -1 if you want it trigger forever")]
+        public int triggerTime;
+
         [Space(5)]
         [SerializeReference, LabelText("Events")]
         public List<EventBase> triggerEvents = new List<EventBase>();
