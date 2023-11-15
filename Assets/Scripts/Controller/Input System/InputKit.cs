@@ -49,8 +49,10 @@ namespace Script.View_Controller.Input_System
         private InputControls mControls;
 
         public InputProperty<Vector2> move;
+        public InputProperty<Vector2> rotate;
         public InputProperty<bool> run;
         public InputProperty<bool> jump;
+        public InputProperty<bool> attack;
         
 
         public override void OnSingletonInit()
@@ -64,16 +66,25 @@ namespace Script.View_Controller.Input_System
                 mControls.Player.Move,
                 performedSetter: context => context.ReadValue<Vector2>(),
                 canceledSetter: context => Vector2.zero);
-
-            jump = new InputProperty<bool>(
-                mControls.Player.Jump,
-                performedSetter: context => true,
-                canceledSetter: context => false);
+            
+            rotate = new InputProperty<Vector2>(
+                mControls.Player.Rotate,
+                performedSetter: context => context.ReadValue<Vector2>(),
+                canceledSetter: context => Vector2.zero);
             
             run = new InputProperty<bool>(
                 mControls.Player.Run,
                 performedSetter: context => true,
                 canceledSetter: context => false);
+            
+            jump = new InputProperty<bool>(
+                mControls.Player.Jump,
+                performedSetter: context => true,
+                canceledSetter: context => false);
+            
+            attack = new InputProperty<bool>(
+                mControls.Player.Attack,
+                performedSetter: context => true);
         }
     }
 }
