@@ -380,6 +380,15 @@ namespace GraphProcessor
         public override object value { get => val; set => val = (GameObject)value; }
         public override Type GetValueType() => typeof(GameObject);
     }
+    
+    [System.Serializable]
+    public class AnimatorParameter : ExposedParameter
+    {
+        [SerializeField] Animator val;
+
+        public override object value { get => val; set => val = (Animator)value; }
+        public override Type GetValueType() => typeof(Animator);
+    }
 
     [System.Serializable]
     public class BoolParameter : ExposedParameter

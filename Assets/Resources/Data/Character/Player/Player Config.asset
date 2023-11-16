@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a10bb18682543bdacdbbeec117ada16, type: 3}
   m_Name: Player Config
   m_EditorClassIdentifier: 
-  walkSpeed: 2.140218
-  runSpeed: 4.252958
+  walkSpeed: 1.950353
+  runSpeed: 3.942105
   slopDetectFrontOffset: 0.2
   slopDetectFrontDistance: 1.2
   groundDetectDistance: 1.2
@@ -25,4 +25,5 @@ MonoBehaviour:
   fullFrictionMat: {fileID: 13400000, guid: 9b0273fffcaea404ab5954d04d697a3e, type: 2}
   zeroFrictionMat: {fileID: 13400000, guid: 6787c631d780b374687ba4e402e9259d, type: 2}
   jumpForce: 6
+  hardLandSpeed: 10
   blockTime: 0.25

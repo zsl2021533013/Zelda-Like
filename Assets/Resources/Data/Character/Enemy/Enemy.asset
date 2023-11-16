@@ -1,0 +1,150 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aeef43cecd454916a8eca40b1b4a8e0f, type: 3}
+  m_Name: Enemy
+  m_EditorClassIdentifier: 
+  serializedNodes: []
+  nodes:
+  - rid: 2677926903935139882
+  - rid: 2677926903935139884
+  - rid: 2677926903935139898
+  edges:
+  - GUID: edb36ab7-7b11-46b0-924b-b5d8da27e547
+    owner: {fileID: 11400000}
+    inputNodeGUID: 35b642d3-f144-46bc-a9e8-b125b2b122ea
+    outputNodeGUID: f851ab38-a278-4630-a621-1b0d336ddfdf
+    inputFieldName: parent
+    outputFieldName: child
+    inputPortIdentifier: 
+    outputPortIdentifier: 
+  - GUID: ce44202d-570f-43b9-8b09-813529411a2d
+    owner: {fileID: 11400000}
+    inputNodeGUID: 35b642d3-f144-46bc-a9e8-b125b2b122ea
+    outputNodeGUID: 86555aa5-5d01-4609-93bf-fa1be0a284cf
+    inputFieldName: animator
+    outputFieldName: output
+    inputPortIdentifier: 
+    outputPortIdentifier: output
+  groups: []
+  stackNodes: []
+  pinnedElements:
+  - position:
+      serializedVersion: 2
+      x: 10
+      y: 26.999996
+      width: 167
+      height: 235
+    opened: 1
+    editorType:
+      serializedType: GraphProcessor.ExposedParameterView, com.alelievr.NodeGraphProcessor.Editor,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  exposedParameters:
+  - rid: 2677926903935139894
+  - rid: 2677926903935139909
+  serializedParameterList: []
+  stickyNotes: []
+  nodeInspectorReference: {fileID: 0}
+  position: {x: 178.4, y: 21.6, z: 0}
+  scale: {x: 1.15, y: 1.15, z: 1}
+  references:
+    version: 2
+    RefIds:
+    - rid: 2677926903935139882
+      type: {class: RootNode, ns: Behaviour_Tree.Node.Runtime.Root, asm: Assembly-CSharp}
+      data:
+        nodeCustomName: 
+        GUID: f851ab38-a278-4630-a621-1b0d336ddfdf
+        computeOrder: 0
+        position:
+          serializedVersion: 2
+          x: 10
+          y: 200
+          width: 100
+          height: 100
+        expanded: 0
+        debug: 0
+        nodeLock: 0
+    - rid: 2677926903935139884
+      type: {class: PlayAnimationNode, ns: Behaviour_Tree.Node.Runtime.Action, asm: Assembly-CSharp}
+      data:
+        nodeCustomName: 
+        GUID: 35b642d3-f144-46bc-a9e8-b125b2b122ea
+        computeOrder: 2
+        position:
+          serializedVersion: 2
+          x: 346.91116
+          y: 199.99997
+          width: 154.4
+          height: 99.2
+        expanded: 0
+        debug: 0
+        nodeLock: 0
+        animator: {fileID: 0}
+        animationName: Idle
+    - rid: 2677926903935139894
+      type: {class: AnimatorParameter, ns: GraphProcessor, asm: com.alelievr.NodeGraphProcessor.Runtime}
+      data:
+        guid: f114260e-b576-4253-91d3-35a16870d866
+        name: Animator
+        type: 
+        serializedValue:
+          serializedType: 
+          serializedName: 
+          serializedValue: 
+        input: 1
+        settings:
+          rid: 2677926903935139895
+        val: {fileID: 0}
+    - rid: 2677926903935139895
+      type: {class: ExposedParameter/Settings, ns: GraphProcessor, asm: com.alelievr.NodeGraphProcessor.Runtime}
+      data:
+        isHidden: 1
+        expanded: 0
+        guid: f114260e-b576-4253-91d3-35a16870d866
+    - rid: 2677926903935139898
+      type: {class: ParameterNode, ns: GraphProcessor, asm: com.alelievr.NodeGraphProcessor.Runtime}
+      data:
+        nodeCustomName: 
+        GUID: 86555aa5-5d01-4609-93bf-fa1be0a284cf
+        computeOrder: 1
+        position:
+          serializedVersion: 2
+          x: 217.06013
+          y: 262.4
+          width: 86.399994
+          height: 36.799988
+        expanded: 0
+        debug: 0
+        nodeLock: 0
+        parameterGUID: f114260e-b576-4253-91d3-35a16870d866
+        accessor: 0
+    - rid: 2677926903935139909
+      type: {class: ColorParameter, ns: GraphProcessor, asm: com.alelievr.NodeGraphProcessor.Runtime}
+      data:
+        guid: e822fadb-c7eb-425f-ac2b-87b566e6590c
+        name: New Color
+        type: 
+        serializedValue:
+          serializedType: 
+          serializedName: 
+          serializedValue: 
+        input: 1
+        settings:
+          rid: 2677926903935139910
+        val: {r: 0, g: 0, b: 0, a: 0}
+    - rid: 2677926903935139910
+      type: {class: ColorParameter/ColorSettings, ns: GraphProcessor, asm: com.alelievr.NodeGraphProcessor.Runtime}
+      data:
+        isHidden: 1
+        expanded: 1
+        guid: e822fadb-c7eb-425f-ac2b-87b566e6590c
+        mode: 0

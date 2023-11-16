@@ -171,13 +171,13 @@ namespace Controller.Character.Player.Player
                     
                     animator.SetInteger(Attack, attackTime);
                 },
-                canExit: state => state.timer > 1.2f,
+                canExit: state => state.timer > 0.7f,
                 needsExitTime: true
             );
             
-            FSM.AddState<BlockState>(
+            FSM.AddState<ParryState>(
                 animator,
-                "Block",
+                "Parry",
                 onEnter: state =>
                 {
                     InputKit.Instance.block.Reset();
@@ -185,7 +185,7 @@ namespace Controller.Character.Player.Player
                     var velocity = new Vector3(0, rb.velocity.y, 0) ;
                     rb.velocity = velocity;
                 },
-                canExit: state => state.timer > config.blockTime,
+                canExit: state => state.timer > 0.7f,
                 needsExitTime: true
             );
             
@@ -215,7 +215,7 @@ namespace Controller.Character.Player.Player
             FSM.AddTransition<MoveState, AttackState>
                 (transition => InputKit.Instance.attack);
             
-            FSM.AddTransition<MoveState, BlockState>
+            FSM.AddTransition<MoveState, ParryState>
                 (transition => InputKit.Instance.block);
             
             FSM.AddTransition<JumpState, FallState>
@@ -224,8 +224,14 @@ namespace Controller.Character.Player.Player
             FSM.AddTransition<JumpState, MoveState>
                 (transition => sensorController.groundSensor);
             
+            FSM.AddTransition<FallState, LandState>
+                (transition => Mathf.Abs(rb.velocity.y) > config.hardLandSpeed && sensorController.groundSensor);
+            
             FSM.AddTransition<FallState, MoveState>
                 (transition => sensorController.groundSensor);
+            
+            FSM.AddTransition<LandState, FallState>
+                (transition => true);
             
             FSM.AddTransition<AttackState, MoveState>
                 (transition => InputKit.Instance.move.Value.magnitude > 0.1f);
@@ -234,7 +240,7 @@ namespace Controller.Character.Player.Player
             (transition => InputKit.Instance.attack,
                 onTransition: transition => comboFlag = true);
             
-            FSM.AddTransition<BlockState, MoveState>
+            FSM.AddTransition<ParryState, MoveState>
                 (transition => true);
             
             FSM.AddTransition<DodgeState, MoveState>
