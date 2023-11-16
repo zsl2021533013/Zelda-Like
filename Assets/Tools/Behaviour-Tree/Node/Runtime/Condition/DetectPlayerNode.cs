@@ -20,6 +20,13 @@ namespace Tools.Behaviour_Tree.Node.Runtime.Condition
         public override void OnAwake()
         {
             _transform = components.Get<Transform>();
+            
+            _transform.GizmosComp()
+                .RegisterDrawGizmos(() =>
+                {
+                    Gizmos.color = Color.red;
+                    Gizmos.DrawWireSphere(_transform.position, radius);
+                });
         }
 
         public override Status OnUpdate()

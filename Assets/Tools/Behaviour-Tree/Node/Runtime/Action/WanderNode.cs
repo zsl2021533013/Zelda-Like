@@ -2,25 +2,26 @@
 using System.Linq;
 using Behaviour_Tree.Node.Runtime.Core;
 using GraphProcessor;
+using Script.View_Controller.Character_System.HFSM.StateMachine;
+using Script.View_Controller.Character_System.HFSM.Util;
 using Tools.Behaviour_Tree.Utils;
 using UnityEngine;
 using UnityEngine.AI;
 
 namespace Behaviour_Tree.Node.Runtime.Action
 {
-    [Serializable, NodeMenuItem("Behaviour/Action/Chase")]
-    public class ChaseNode : ActionNode
+    [Serializable, NodeMenuItem("Behaviour/Action/Wander")]
+    public class WanderNode : ActionNode
     {
         [ShowInInspector]
-        public float attackRadius;
-        
-        [ShowInInspector]
-        public float chaseRadius;
+        public string animationName;
         
         private Transform _transform;
         private Transform _playerTrans;
         private Animator _animator;
         private NavMeshAgent _agent;
+
+        private AnimationTimer _timer;
 
         public override void OnAwake()
         {
@@ -28,18 +29,14 @@ namespace Behaviour_Tree.Node.Runtime.Action
             _animator = components.Get<Animator>();
             _agent = components.Get<NavMeshAgent>();
             
-            _transform.GizmosComp()
-                .RegisterDrawGizmos(() =>
-                {
-                    Gizmos.color = Color.red;
-                    Gizmos.DrawWireSphere(_transform.position, attackRadius);
-                    Gizmos.DrawWireSphere(_transform.position, chaseRadius);
-                });
+            _timer = new AnimationTimer(_animator.GetAnimationLength(animationName));
         }
 
         public override void OnStart()
         {
-            _animator.CrossFade("Chase", 0.1f);
+            _timer.Reset();
+            
+            _animator.CrossFade(animationName, 0.1f);
             
             _agent.updateRotation = true;
         }
@@ -47,30 +44,19 @@ namespace Behaviour_Tree.Node.Runtime.Action
         public override Status OnUpdate()
         {
             _playerTrans = GetPlayer()?.transform;
+            _agent.SetDestination(_playerTrans.position);
             
-            if (_playerTrans)
-            {
-                _agent.SetDestination(_playerTrans.position);
-                
-                if (Vector3.Distance(_transform.position, _playerTrans.position) < attackRadius)
-                {
-                    return Status.Success;
-                }
-
-                return Status.Running;
-            }
-
-            return Status.Failure;
+            return _timer.IsAnimatorFinish ? Status.Success : Status.Running;
         }
 
         public override void OnStop()
         {
             _agent.updateRotation = false;
         }
-
+        
         private Collider GetPlayer()
         {
-            var colliders = Physics.OverlapSphere(_transform.position, chaseRadius);
+            var colliders = Physics.OverlapSphere(_transform.position, 100);
 
             return colliders.FirstOrDefault(collider => collider.CompareTag("Player"));
         }

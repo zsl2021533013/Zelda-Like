@@ -19,6 +19,8 @@ MonoBehaviour:
   - rid: 2677926909231235090
   - rid: 2677926911586861056
   - rid: 2677926911586861057
+  - rid: 1029879910148603909
+  - rid: 1029879910148603910
   edges:
   - GUID: 3ff52bb7-4f87-470f-a55f-c791efebaf77
     owner: {fileID: 11400000}
@@ -52,6 +54,22 @@ MonoBehaviour:
     outputFieldName: child
     inputPortIdentifier: 
     outputPortIdentifier: 
+  - GUID: 857d404f-116e-4374-b3c7-c0672cd87fb6
+    owner: {fileID: 11400000}
+    inputNodeGUID: 81f3d2c2-6391-4c41-b9dd-19094d845fcb
+    outputNodeGUID: 364ab132-efc7-4c37-8070-5c5c802cb287
+    inputFieldName: parent
+    outputFieldName: child
+    inputPortIdentifier: 
+    outputPortIdentifier: 
+  - GUID: 85c6be1f-b328-4fa5-a365-4fd487604f2a
+    owner: {fileID: 11400000}
+    inputNodeGUID: 1cecd354-deb7-4567-a155-9f0fce43da50
+    outputNodeGUID: 364ab132-efc7-4c37-8070-5c5c802cb287
+    inputFieldName: parent
+    outputFieldName: child
+    inputPortIdentifier: 
+    outputPortIdentifier: 
   groups: []
   stackNodes: []
   pinnedElements:
@@ -69,11 +87,43 @@ MonoBehaviour:
   serializedParameterList: []
   stickyNotes: []
   nodeInspectorReference: {fileID: 0}
-  position: {x: 231.2, y: -79.2, z: 0}
-  scale: {x: 0.7561437, y: 0.7561437, z: 1}
+  position: {x: 334, y: -106, z: 0}
+  scale: {x: 0.375937, y: 0.375937, z: 1}
   references:
     version: 2
     RefIds:
+    - rid: 1029879910148603909
+      type: {class: AttackNode, ns: Behaviour_Tree.Node.Runtime.Action, asm: Assembly-CSharp}
+      data:
+        nodeCustomName: 
+        GUID: 81f3d2c2-6391-4c41-b9dd-19094d845fcb
+        computeOrder: 5
+        position:
+          serializedVersion: 2
+          x: 498.66666
+          y: 530.6667
+          width: 84
+          height: 77.33331
+        expanded: 0
+        debug: 0
+        nodeLock: 0
+        animationName: Attack
+    - rid: 1029879910148603910
+      type: {class: WanderNode, ns: Behaviour_Tree.Node.Runtime.Action, asm: Assembly-CSharp}
+      data:
+        nodeCustomName: 
+        GUID: 1cecd354-deb7-4567-a155-9f0fce43da50
+        computeOrder: 6
+        position:
+          serializedVersion: 2
+          x: 498.66666
+          y: 687.6785
+          width: 91.33331
+          height: 77.33331
+        expanded: 0
+        debug: 0
+        nodeLock: 0
+        animationName: Wander
     - rid: 2677926903935139882
       type: {class: RootNode, ns: Behaviour_Tree.Node.Runtime.Root, asm: Assembly-CSharp}
       data:
@@ -105,7 +155,7 @@ MonoBehaviour:
         expanded: 0
         debug: 0
         nodeLock: 0
-        radius: 6
+        radius: 4
     - rid: 2677926909231235090
       type: {class: SequenceNode, ns: Behaviour_Tree.Node.Runtime.Composite, asm: Assembly-CSharp}
       data:
@@ -152,4 +202,4 @@ MonoBehaviour:
         debug: 0
         nodeLock: 0
         attackRadius: 2
-        chaseRadius: 6
+        chaseRadius: 4

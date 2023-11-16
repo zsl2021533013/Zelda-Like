@@ -12,8 +12,6 @@ public class Test : MonoBehaviour
     
     private void OnDrawGizmos()
     {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, attackRadius);
-        Gizmos.DrawWireSphere(transform.position, chaseRadius);
+        
     }
 }
