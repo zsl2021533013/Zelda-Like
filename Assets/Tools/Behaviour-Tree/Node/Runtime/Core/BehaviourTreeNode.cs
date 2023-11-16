@@ -1,14 +1,30 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using GraphProcessor;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
 namespace Behaviour_Tree.Node.Runtime.Core
 {
     [Serializable]
     public abstract class BehaviourTreeNode : BaseNode, IBehaviourTreeNode
     {
+        public override string name
+        {
+            get
+            {
+                var ans = GetType().Name;
+
+                ans = ans[..^4];
+
+                return Regex.Replace(ans, @"([A-Z])", " $1");
+            }
+        }
+
+        public Dictionary<Type, Component> components;
+        
         // 我们希望状态的初始值能在运行中修改，同时不在运行中保存，故使用 [NonSerialized]
         [NonSerialized] private Status _status = Status.Running;
         public Status status
@@ -95,7 +111,7 @@ namespace Behaviour_Tree.Node.Runtime.Core
         }
 
         public virtual void OnAwake() { }
-        
+
         public virtual void OnStart() { }
 
         public abstract Status OnUpdate();

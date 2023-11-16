@@ -23,6 +23,8 @@ namespace Controller.Character.Player.Player
         
         private void Awake()
         {
+            Cursor.lockState = CursorLockMode.Locked;
+            
             FSM = new StateMachine<Type, Type, Type>();
             
             var attackTime = 0;

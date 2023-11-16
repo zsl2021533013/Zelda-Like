@@ -1,12 +1,19 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+
 public class Test : MonoBehaviour
 {
-    void Start()
+    public float attackRadius;
+    public float chaseRadius;
+    
+    private void OnDrawGizmos()
     {
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, attackRadius);
+        Gizmos.DrawWireSphere(transform.position, chaseRadius);
     }
 }

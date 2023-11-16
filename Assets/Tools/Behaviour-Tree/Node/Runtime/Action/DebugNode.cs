@@ -9,9 +9,8 @@ namespace Behaviour_Tree.Node.Runtime.Action
     [Serializable, NodeMenuItem("Behaviour/Action/Debug")]
     public class DebugNode : ActionNode
     {
-        [Input("text", false)] public string text;
-        
-        public override string name => "Debug";
+        [ShowInInspector]
+        public string text;
         
         public override Status OnUpdate()
         {

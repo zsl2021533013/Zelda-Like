@@ -11,9 +11,7 @@ namespace Behaviour_Tree.Node.Runtime.Action
         [ShowInInspector] public float waitTime;
         
         private float _startTime;
-
-        public override string name => "wait";
-
+        
         public override void OnStart()
         {
             _startTime = Time.time;

@@ -9,8 +9,6 @@ namespace Behaviour_Tree.Node.Runtime.Composite
     {
         private int _index;
         
-        public override string name => "Sequence";
-
         public override void OnStart()
         {
             _index = 0;

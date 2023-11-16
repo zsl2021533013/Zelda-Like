@@ -15,25 +15,43 @@ MonoBehaviour:
   serializedNodes: []
   nodes:
   - rid: 2677926903935139882
-  - rid: 2677926903935139884
-  - rid: 2677926903935139898
+  - rid: 2677926909231235089
+  - rid: 2677926909231235090
+  - rid: 2677926911586861056
+  - rid: 2677926911586861057
   edges:
-  - GUID: edb36ab7-7b11-46b0-924b-b5d8da27e547
+  - GUID: 3ff52bb7-4f87-470f-a55f-c791efebaf77
     owner: {fileID: 11400000}
-    inputNodeGUID: 35b642d3-f144-46bc-a9e8-b125b2b122ea
+    inputNodeGUID: 364ab132-efc7-4c37-8070-5c5c802cb287
     outputNodeGUID: f851ab38-a278-4630-a621-1b0d336ddfdf
     inputFieldName: parent
     outputFieldName: child
     inputPortIdentifier: 
     outputPortIdentifier: 
-  - GUID: ce44202d-570f-43b9-8b09-813529411a2d
+  - GUID: 7f9ddd5e-94d0-43b0-9fc1-1215d254ad88
     owner: {fileID: 11400000}
-    inputNodeGUID: 35b642d3-f144-46bc-a9e8-b125b2b122ea
-    outputNodeGUID: 86555aa5-5d01-4609-93bf-fa1be0a284cf
-    inputFieldName: animator
-    outputFieldName: output
+    inputNodeGUID: 28d50512-21c4-44b8-a8ec-d6e1f3c460ee
+    outputNodeGUID: 364ab132-efc7-4c37-8070-5c5c802cb287
+    inputFieldName: parent
+    outputFieldName: child
     inputPortIdentifier: 
-    outputPortIdentifier: output
+    outputPortIdentifier: 
+  - GUID: 83834cd1-3070-4e5b-ab1f-7dcfd8840e49
+    owner: {fileID: 11400000}
+    inputNodeGUID: 743267b3-4dd1-4a40-825c-3b48f2d29b03
+    outputNodeGUID: 364ab132-efc7-4c37-8070-5c5c802cb287
+    inputFieldName: parent
+    outputFieldName: child
+    inputPortIdentifier: 
+    outputPortIdentifier: 
+  - GUID: 22234b90-991e-4676-b3c0-eab407daa1ce
+    owner: {fileID: 11400000}
+    inputNodeGUID: 84211c0f-352f-4a8d-9303-f9ec01fc590e
+    outputNodeGUID: 364ab132-efc7-4c37-8070-5c5c802cb287
+    inputFieldName: parent
+    outputFieldName: child
+    inputPortIdentifier: 
+    outputPortIdentifier: 
   groups: []
   stackNodes: []
   pinnedElements:
@@ -43,18 +61,16 @@ MonoBehaviour:
       y: 26.999996
       width: 167
       height: 235
-    opened: 1
+    opened: 0
     editorType:
       serializedType: GraphProcessor.ExposedParameterView, com.alelievr.NodeGraphProcessor.Editor,
         Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-  exposedParameters:
-  - rid: 2677926903935139894
-  - rid: 2677926903935139909
+  exposedParameters: []
   serializedParameterList: []
   stickyNotes: []
   nodeInspectorReference: {fileID: 0}
-  position: {x: 178.4, y: 21.6, z: 0}
-  scale: {x: 1.15, y: 1.15, z: 1}
+  position: {x: 230.4, y: -42.4, z: 0}
+  scale: {x: 0.7561437, y: 0.7561437, z: 1}
   references:
     version: 2
     RefIds:
@@ -73,78 +89,67 @@ MonoBehaviour:
         expanded: 0
         debug: 0
         nodeLock: 0
-    - rid: 2677926903935139884
-      type: {class: PlayAnimationNode, ns: Behaviour_Tree.Node.Runtime.Action, asm: Assembly-CSharp}
+    - rid: 2677926909231235089
+      type: {class: DetectPlayerNode, ns: Tools.Behaviour_Tree.Node.Runtime.Condition,
+        asm: Assembly-CSharp}
       data:
         nodeCustomName: 
-        GUID: 35b642d3-f144-46bc-a9e8-b125b2b122ea
+        GUID: 28d50512-21c4-44b8-a8ec-d6e1f3c460ee
         computeOrder: 2
         position:
           serializedVersion: 2
-          x: 346.91116
-          y: 199.99997
-          width: 154.4
-          height: 99.2
+          x: 499.20004
+          y: 237.6
+          width: 124
+          height: 75.20001
         expanded: 0
         debug: 0
         nodeLock: 0
-        animator: {fileID: 0}
-        animationName: Idle
-    - rid: 2677926903935139894
-      type: {class: AnimatorParameter, ns: GraphProcessor, asm: com.alelievr.NodeGraphProcessor.Runtime}
-      data:
-        guid: f114260e-b576-4253-91d3-35a16870d866
-        name: Animator
-        type: 
-        serializedValue:
-          serializedType: 
-          serializedName: 
-          serializedValue: 
-        input: 1
-        settings:
-          rid: 2677926903935139895
-        val: {fileID: 0}
-    - rid: 2677926903935139895
-      type: {class: ExposedParameter/Settings, ns: GraphProcessor, asm: com.alelievr.NodeGraphProcessor.Runtime}
-      data:
-        isHidden: 1
-        expanded: 0
-        guid: f114260e-b576-4253-91d3-35a16870d866
-    - rid: 2677926903935139898
-      type: {class: ParameterNode, ns: GraphProcessor, asm: com.alelievr.NodeGraphProcessor.Runtime}
+        radius: 6
+    - rid: 2677926909231235090
+      type: {class: SequenceNode, ns: Behaviour_Tree.Node.Runtime.Composite, asm: Assembly-CSharp}
       data:
         nodeCustomName: 
-        GUID: 86555aa5-5d01-4609-93bf-fa1be0a284cf
+        GUID: 364ab132-efc7-4c37-8070-5c5c802cb287
         computeOrder: 1
         position:
           serializedVersion: 2
-          x: 217.06013
-          y: 262.4
-          width: 86.399994
-          height: 36.799988
+          x: 198.05754
+          y: 200.00002
+          width: 132
+          height: 75.2
         expanded: 0
         debug: 0
         nodeLock: 0
-        parameterGUID: f114260e-b576-4253-91d3-35a16870d866
-        accessor: 0
-    - rid: 2677926903935139909
-      type: {class: ColorParameter, ns: GraphProcessor, asm: com.alelievr.NodeGraphProcessor.Runtime}
+    - rid: 2677926911586861056
+      type: {class: IdleNode, ns: Behaviour_Tree.Node.Runtime.Action, asm: Assembly-CSharp}
       data:
-        guid: e822fadb-c7eb-425f-ac2b-87b566e6590c
-        name: New Color
-        type: 
-        serializedValue:
-          serializedType: 
-          serializedName: 
-          serializedValue: 
-        input: 1
-        settings:
-          rid: 2677926903935139910
-        val: {r: 0, g: 0, b: 0, a: 0}
-    - rid: 2677926903935139910
-      type: {class: ColorParameter/ColorSettings, ns: GraphProcessor, asm: com.alelievr.NodeGraphProcessor.Runtime}
+        nodeCustomName: 
+        GUID: 743267b3-4dd1-4a40-825c-3b48f2d29b03
+        computeOrder: 3
+        position:
+          serializedVersion: 2
+          x: 499.25
+          y: 124.80007
+          width: 74.39996
+          height: 75.2
+        expanded: 0
+        debug: 0
+        nodeLock: 0
+    - rid: 2677926911586861057
+      type: {class: ChaseNode, ns: Behaviour_Tree.Node.Runtime.Action, asm: Assembly-CSharp}
       data:
-        isHidden: 1
-        expanded: 1
-        guid: e822fadb-c7eb-425f-ac2b-87b566e6590c
-        mode: 0
+        nodeCustomName: 
+        GUID: 84211c0f-352f-4a8d-9303-f9ec01fc590e
+        computeOrder: 4
+        position:
+          serializedVersion: 2
+          x: 499.20004
+          y: 384.51788
+          width: 83.20001
+          height: 75.19998
+        expanded: 0
+        debug: 0
+        nodeLock: 0
+        attackRadius: 2
+        chaseRadius: 6
