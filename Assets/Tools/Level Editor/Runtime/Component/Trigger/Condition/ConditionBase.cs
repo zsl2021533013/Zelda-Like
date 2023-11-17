@@ -11,6 +11,7 @@ namespace Level_Editor.Runtime
     
     public interface ICondition
     {
+        public void OnEnable();
         public bool Satisfied();
     }
     
@@ -19,6 +20,8 @@ namespace Level_Editor.Runtime
     [Serializable]
     public abstract class ConditionBase : ICondition
     {
+        public virtual void OnEnable() { }
+
         public abstract bool Satisfied();
     }
 }

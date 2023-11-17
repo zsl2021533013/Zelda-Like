@@ -15,6 +15,7 @@ namespace Level_Editor.Runtime.Action
     public interface IAction
     {
         public ActionState State { get; }
+        public void OnEnable();
         public void OnEnter();
         public void OnUpdate();
         public void OnExit();
@@ -27,17 +28,13 @@ namespace Level_Editor.Runtime.Action
     {
         public ActionState State { get; private set; } = ActionState.Pending;
 
-        public virtual void OnEnter()
-        {
-        }
+        public virtual void OnEnable() { }
 
-        public virtual void OnUpdate()
-        {
-        }
+        public virtual void OnEnter() { }
 
-        public virtual void OnExit()
-        {
-        }
+        public virtual void OnUpdate() { }
+
+        public virtual void OnExit() { }
 
         public virtual bool CanExit()
         {

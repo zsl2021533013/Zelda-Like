@@ -11,6 +11,8 @@ namespace Level_Editor.Runtime.Event
         public IEnumerable<UnityEvent> callbacks { get; }
         
         public IEnumerable<Transform> connections { get; }
+        
+        public void OnEnable();
     }
     
     [Serializable]
@@ -19,6 +21,8 @@ namespace Level_Editor.Runtime.Event
         public abstract IEnumerable<UnityEvent> callbacks { get; }
         
         public virtual IEnumerable<Transform> connections { get; }
+        
+        public virtual void OnEnable() { }
 
         public void Register(TriggerController controller)
         {

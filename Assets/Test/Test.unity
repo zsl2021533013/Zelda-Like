@@ -13364,7 +13364,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh33252
+  m_Name: pb_Mesh227094
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -16525,6 +16525,7 @@ MonoBehaviour:
   - rid: 1029879910148603908
   triggerConditions:
   - rid: 1029879910148603906
+  - rid: 1029879910148603911
   triggerActions:
   - rid: 1029879910148603907
   onTriggerFinish:
@@ -16545,6 +16546,11 @@ MonoBehaviour:
         animationName: Move Up
     - rid: 1029879910148603908
       type: {class: InteractEvent, ns: Level_Editor.Runtime.Event, asm: Assembly-CSharp}
+    - rid: 1029879910148603911
+      type: {class: PlayerInAreaCondition, ns: Level_Editor.Runtime, asm: Assembly-CSharp}
+      data:
+        transform: {fileID: 497040147}
+        radius: 3
 --- !u!95 &497040149
 Animator:
   serializedVersion: 5

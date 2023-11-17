@@ -75,6 +75,10 @@ namespace Level_Editor.Runtime
 
         private void OnEnable()
         {
+            triggerEvents.ForEach(@event =>  @event.OnEnable());
+            triggerConditions.ForEach(condition => condition.OnEnable());
+            triggerActions.ForEach(action =>  action.OnEnable());
+            
             triggerEvents.ForEach(@event =>  @event.Register(this));
         }
 
