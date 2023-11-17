@@ -83,6 +83,19 @@ namespace Level_Editor.Runtime
             triggerEvents.ForEach(@event =>  @event.Unregister(this));
         }
 
+        private void OnDrawGizmos()
+        {
+            var connections = triggerEvents.SelectMany(@event => @event.connections);
+            connections.ForEach(connection =>
+            {
+                if (connection != null)
+                {
+                    Gizmos.color = Color.green;
+                    Gizmos.DrawLine(transform.position, connection.position);
+                }
+            });
+        }
+
         public void TryTrigger()
         {
             if (State != TriggerState.Pending)

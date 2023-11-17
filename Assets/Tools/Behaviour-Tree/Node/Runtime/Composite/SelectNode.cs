@@ -4,8 +4,8 @@ using GraphProcessor;
 
 namespace Behaviour_Tree.Node.Runtime.Composite
 {
-    [Serializable, NodeMenuItem("Behaviour/Composite/Sequence")]
-    public class SequenceNode : CompositeNode
+    [Serializable, NodeMenuItem("Behaviour/Composite/Select")]
+    public class SelectNode: CompositeNode
     {
         private int index;
         
@@ -22,15 +22,15 @@ namespace Behaviour_Tree.Node.Runtime.Composite
             switch (childNode.Update())
             {
                 case Status.Success:
-                    index++;
-                    break;
+                    return Status.Success;
                 case Status.Running:
                     return Status.Running;
                 case Status.Failure:
-                    return Status.Failure;
+                    index++;
+                    break;
             }
 
-            return index == children.Count ? Status.Success : Status.Running;
+            return index == children.Count ? Status.Failure : Status.Running;
         }
     }
 }

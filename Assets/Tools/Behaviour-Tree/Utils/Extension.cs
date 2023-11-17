@@ -9,14 +9,13 @@ namespace Tools.Behaviour_Tree.Utils
 {
     public static class DictionaryExtension
     {
-        public static Dictionary<Type, Component> Add<T>(this Dictionary<Type, Component> dict, Component component) 
-            where T : Component
+        public static Dictionary<Type, Object> Add<T>(this Dictionary<Type, Object> dict, Object component) where T : Object
         {
             dict[typeof(T)] = component;
             return dict;
         }
         
-        public static T Get<T>(this Dictionary<Type, Component> dict) where T : Component
+        public static T Get<T>(this Dictionary<Type, Object> dict) where T : Object
         {
             if (dict.TryGetValue(typeof(T), out var comp))
             {

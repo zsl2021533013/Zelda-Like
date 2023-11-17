@@ -9,6 +9,9 @@ namespace Level_Editor.Runtime.Event
     {
         public override IEnumerable<UnityEvent> callbacks 
             => new[] { Object.FindObjectOfType<PlayerController>()?.onUpdate };
+
+        public override IEnumerable<Transform> connections
+            => new[] { GameObject.FindGameObjectWithTag("Player")?.transform };
     }
 }
 

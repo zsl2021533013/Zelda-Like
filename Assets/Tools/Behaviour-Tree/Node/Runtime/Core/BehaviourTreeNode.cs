@@ -23,7 +23,7 @@ namespace Behaviour_Tree.Node.Runtime.Core
             }
         }
 
-        public Dictionary<Type, Component> components;
+        public Dictionary<Type, Object> components;
         
         // 我们希望状态的初始值能在运行中修改，同时不在运行中保存，故使用 [NonSerialized]
         [NonSerialized] private Status _status = Status.Running;

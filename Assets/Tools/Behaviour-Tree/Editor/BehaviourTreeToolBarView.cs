@@ -12,10 +12,6 @@ namespace Behaviour_Tree.Editor
     
         protected override void AddButtons()
         {
-            var exposedParamsVisible = 
-                graphView.GetPinnedElementStatus<ExposedParameterView>() != DropdownMenuAction.Status.Hidden;
-            AddToggle("Show Parameters", exposedParamsVisible, (v) => 
-                graphView.ToggleView<ExposedParameterView>());
         }
     }
 }

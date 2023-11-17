@@ -2,6 +2,7 @@
 using System.Linq;
 using Behaviour_Tree.Node.Runtime.Core;
 using GraphProcessor;
+using Script.View_Controller.Character_System.HFSM.Util;
 using Tools.Behaviour_Tree.Utils;
 using UnityEngine;
 using UnityEngine.AI;
@@ -9,26 +10,36 @@ using UnityEngine.AI;
 namespace Behaviour_Tree.Node.Runtime.Action
 {
     [Serializable, NodeMenuItem("Behaviour/Action/Idle")]
-    public class IdleNode : ActionNode
+    public class IdleNode : EnemyActionNode
     {
-        private Transform _transform;
-        private Animator _animator;
-        private NavMeshAgent _agent;
+        private AnimationTimer timer;
 
         public override void OnAwake()
         {
-            _transform = components.Get<Transform>();
-            _animator = components.Get<Animator>();
-            _agent = components.Get<NavMeshAgent>();
+            base.OnAwake();
+
+            timer = new AnimationTimer();
         }
-        
+
+        public override void OnStart()
+        {
+            base.OnStart();
+            
+            timer.Reset();
+
+            animator.CrossFade("Idle", 0.1f);
+        }
+
         public override Status OnUpdate()
         {
-            _agent.SetDestination(_transform.position);
-            
-            _animator.CrossFade("Idle", 0.1f);
+            agent.SetDestination(transform.position);
 
-            return Status.Success;
+            if (timer > 0.15f) // 需要等待动画转态完成，否则不断的请求会导致卡住
+            {
+                return Status.Success;
+            }
+            
+            return Status.Running;
         }
     }
 }

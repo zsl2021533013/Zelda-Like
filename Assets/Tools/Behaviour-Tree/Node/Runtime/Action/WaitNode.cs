@@ -10,16 +10,16 @@ namespace Behaviour_Tree.Node.Runtime.Action
     {
         [ShowInInspector] public float waitTime;
         
-        private float _startTime;
+        private float startTime;
         
         public override void OnStart()
         {
-            _startTime = Time.time;
+            startTime = Time.time;
         }
 
         public override Status OnUpdate()
         {
-            if (_startTime + waitTime < Time.time)
+            if (startTime + waitTime < Time.time)
             {
                 return Status.Success;
             }

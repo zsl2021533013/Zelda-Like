@@ -92,7 +92,7 @@ namespace Script.View_Controller.Character_System.HFSM.StateMachine
                                 return 0;
                             }
                             
-                            return clip.length;
+                            return clip.length / state.state.speed;
                         }
                     }
                 }

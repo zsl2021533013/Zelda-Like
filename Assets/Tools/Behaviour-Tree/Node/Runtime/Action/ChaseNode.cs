@@ -9,70 +9,39 @@ using UnityEngine.AI;
 namespace Behaviour_Tree.Node.Runtime.Action
 {
     [Serializable, NodeMenuItem("Behaviour/Action/Chase")]
-    public class ChaseNode : ActionNode
+    public class ChaseNode : EnemyActionNode
     {
-        [ShowInInspector]
-        public float attackRadius;
-        
-        [ShowInInspector]
-        public float chaseRadius;
-        
-        private Transform _transform;
-        private Transform _playerTrans;
-        private Animator _animator;
-        private NavMeshAgent _agent;
-
-        public override void OnAwake()
-        {
-            _transform = components.Get<Transform>();
-            _animator = components.Get<Animator>();
-            _agent = components.Get<NavMeshAgent>();
-            
-            _transform.GizmosComp()
-                .RegisterDrawGizmos(() =>
-                {
-                    Gizmos.color = Color.red;
-                    Gizmos.DrawWireSphere(_transform.position, attackRadius);
-                    Gizmos.DrawWireSphere(_transform.position, chaseRadius);
-                });
-        }
+        private Transform playerTrans;
 
         public override void OnStart()
         {
-            _animator.CrossFade("Chase", 0.1f);
+            animator.CrossFade("Chase", 0.1f);
             
-            _agent.updateRotation = true;
+            agent.updateRotation = true;
+            
+            playerTrans = GameObject.FindGameObjectWithTag("Player").transform;
         }
 
         public override Status OnUpdate()
         {
-            _playerTrans = GetPlayer()?.transform;
-            
-            if (_playerTrans)
-            {
-                _agent.SetDestination(_playerTrans.position);
+            agent.SetDestination(playerTrans.position);
                 
-                if (Vector3.Distance(_transform.position, _playerTrans.position) < attackRadius)
-                {
-                    return Status.Success;
-                }
-
-                return Status.Running;
+            if (Vector3.Distance(transform.position, playerTrans.position) <= config.attackDist - 0.1f)
+            {
+                return Status.Success;
+            }
+            
+            if (Vector3.Distance(transform.position, playerTrans.position) > config.povDist)
+            {
+                return Status.Failure;
             }
 
-            return Status.Failure;
+            return Status.Running;
         }
 
         public override void OnStop()
         {
-            _agent.updateRotation = false;
-        }
-
-        private Collider GetPlayer()
-        {
-            var colliders = Physics.OverlapSphere(_transform.position, chaseRadius);
-
-            return colliders.FirstOrDefault(collider => collider.CompareTag("Player"));
+            agent.updateRotation = false;
         }
     }
 }
