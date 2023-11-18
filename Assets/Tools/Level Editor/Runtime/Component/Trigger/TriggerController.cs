@@ -23,12 +23,12 @@ namespace Level_Editor.Runtime
 
         [FoldoutGroup("Config")]
         [Tooltip("Click if you want limit the trigger times")]
-        public bool hasTriggerAmount;
+        public bool triggerForever = false;
         
         [FoldoutGroup("Config")]
         [Tooltip("The amount this trigger will work")]
-        [ShowIf("hasTriggerAmount", true)]
-        public int triggerAmount;
+        [HideIf("triggerForever", true)]
+        public int triggerAmount = 1;
 
         [Space(5)]
         [SerializeReference, LabelText("Events")]
@@ -123,7 +123,7 @@ namespace Level_Editor.Runtime
             
             State = TriggerState.Finish;
 
-            if (!hasTriggerAmount)
+            if (triggerForever)
             {
                 return;
             }

@@ -28,14 +28,4 @@ namespace Tools.Behaviour_Tree.Utils
             }
         }
     }
-    
-    public static class TransformExtension
-    {
-        public static BehaviourTreeGizmosComp GizmosComp(this Transform transform)
-        {
-            var comp = transform.GetComponent<BehaviourTreeGizmosComp>() ?? 
-                       transform.AddComponent<BehaviourTreeGizmosComp>();
-            return comp;
-        }
-    }
 }

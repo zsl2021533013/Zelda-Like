@@ -7,21 +7,20 @@ namespace Level_Editor.Runtime
     public class PlayerInAreaCondition : ConditionBase
     {
         public Transform transform;
-        public float radius;
 
         public override void OnEnable()
         {
-            transform.GizmosComp()
+            transform.MonoInterface()
                 .RegisterDrawGizmos(() =>
                 {
                     Gizmos.color = Satisfied() ? Color.green : Color.red;
-                    Gizmos.DrawWireSphere(transform.position, radius);
+                    Gizmos.DrawWireCube(transform.position, transform.localScale);
                 });
         }
 
         public override bool Satisfied()
         {
-            var colliders = Physics.OverlapSphere(transform.position, radius);
+            var colliders = Physics.OverlapBox(transform.position, transform.localScale);
             return colliders.FirstOrDefault(collider => collider.CompareTag("Player"));
         }
     }
