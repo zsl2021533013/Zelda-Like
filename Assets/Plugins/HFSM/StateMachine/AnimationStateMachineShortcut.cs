@@ -42,7 +42,30 @@ namespace Script.View_Controller.Character_System.HFSM.StateMachine
             }
             
             fsm.AddState(typeof(TState), new AnimationState<Type, Type>
-            (animator, animationName, animator.GetAnimationLength(animationName),
+            (animator, () => animationName, animator.GetAnimationLength(animationName),
+                onEnter, onLogic, onFixedLogic, onExit, canExit, needsExitTime, isGhostState));
+        }
+        
+        public static void AddState<TState>(
+            this StateMachine<Type, Type, Type> fsm,
+            Animator animator = null,
+            Func<string> animationNameFunc = null,
+            Action<AnimationState<Type, Type>> onEnter = null,
+            Action<AnimationState<Type, Type>> onLogic = null,
+            Action<AnimationState<Type, Type>> onFixedLogic = null,
+            Action<AnimationState<Type, Type>> onExit = null,
+            Func<AnimationState<Type, Type>, bool> canExit = null,
+            bool needsExitTime = false,
+            bool isGhostState = false)
+        {
+            if (animator == null || animationNameFunc == null)
+            {
+                fsm.AddState(typeof(TState), new StateBase<Type>(needsExitTime));
+                return;
+            }
+            
+            fsm.AddState(typeof(TState), new AnimationState<Type, Type>
+            (animator, animationNameFunc, animator.GetAnimationLength(animationNameFunc()),
                 onEnter, onLogic, onFixedLogic, onExit, canExit, needsExitTime, isGhostState));
         }
 

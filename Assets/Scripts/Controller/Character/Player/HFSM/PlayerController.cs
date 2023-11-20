@@ -43,7 +43,7 @@ namespace Controller.Character.Player.Player
                 onFixedLogic: state =>
                 {
                     #region Move
-
+                    
                     var movement = InputKit.Instance.move.Value.normalized;
                     var targetSpeed = movement.magnitude * 
                                       (InputKit.Instance.run ? config.runSpeed : config.walkSpeed);
@@ -63,7 +63,7 @@ namespace Controller.Character.Player.Player
                         config.slopDetectFrontDistance, 
                         config.groundLayerMask);
                     var frontAngle = isRaycastHitFront ? Vector3.Angle(frontHit.normal, Vector3.up) : float.MaxValue;
-            
+                    
                     var isRaycastHitDown = Physics.Raycast(
                         transform.position + Vector3.up, 
                         Vector3.down, 
@@ -75,10 +75,10 @@ namespace Controller.Character.Player.Player
                     var slopeNormalPerp = 
                         isRaycastHitFront ? Vector3.Cross(transform.right, frontHit.normal) : transform.forward; 
                     // 在空中就直接向前，不做额外处理
-            
+                    
                     var velocity = animator.velocity.magnitude * slopeNormalPerp;
                     velocity.y = isRaycastHitDown ? velocity.y : rb.velocity.y; // 如果在空中，就不改变 velocity.y
-            
+                    
                     if (downAngle < config.flatGroundMaxAngle && velocity.y < 0f) 
                         // 在平面上且下一瞬的速度是向下的
                     {
@@ -86,8 +86,6 @@ namespace Controller.Character.Player.Player
                     }
 
                     var deltaForce = velocity - rb.velocity;
-                    
-                    rb.AddForce(deltaForce, ForceMode.VelocityChange);
                     
                     #endregion
 
@@ -99,6 +97,8 @@ namespace Controller.Character.Player.Player
                         config.zeroFrictionMat : config.fullFrictionMat;
 
                     #endregion
+                    
+                    rb.AddForce(deltaForce, ForceMode.VelocityChange);
                     
                     #region Rotate
 
@@ -114,8 +114,11 @@ namespace Controller.Character.Player.Player
 
                     #endregion
                 },
-                onExit: state => _applyRootMotion = true
-            );
+                onExit: state =>
+                {
+                    animator.SetFloat(SpeedXZParam, 0f);
+                    _applyRootMotion = true;
+                });
             
             FSM.AddState<JumpState>(
                 animator,
@@ -160,34 +163,20 @@ namespace Controller.Character.Player.Player
             
             FSM.AddState<AttackState>(
                 animator,
-                "Attack Select",
+                () =>
+                {
+                    attackTime = comboFlag ? (attackTime + 1) % 3 : 0;
+                    comboFlag = false;
+                    return $"Attack {attackTime}";
+                },
                 onEnter: state =>
                 {
                     InputKit.Instance.attack.Reset();
 
                     var velocity = new Vector3(0, rb.velocity.y, 0) ;
                     rb.velocity = velocity;
-                    
-                    attackTime = comboFlag ? (attackTime + 1) % 3 : 0;
-                    comboFlag = false;
-                    
-                    animator.SetInteger(Attack, attackTime);
                 },
-                canExit: state => state.timer > 0.7f,
-                needsExitTime: true
-            );
-            
-            FSM.AddState<ParryState>(
-                animator,
-                "Parry",
-                onEnter: state =>
-                {
-                    InputKit.Instance.block.Reset();
-                    
-                    var velocity = new Vector3(0, rb.velocity.y, 0) ;
-                    rb.velocity = velocity;
-                },
-                canExit: state => state.timer > 0.7f,
+                canExit: state => state.timer > 0.65f,
                 needsExitTime: true
             );
             
@@ -205,6 +194,107 @@ namespace Controller.Character.Player.Player
                 needsExitTime: true
             );
             
+            FSM.AddState<FocusState>(
+                animator,
+                "Focus",
+                onEnter: state =>
+                {
+                    _applyRootMotion = false;
+                    animator.ResetTrigger(Boost);
+                },
+                onLogic: state =>
+                {
+                    if (InputKit.Instance.attack)
+                    {
+                        InputKit.Instance.attack.Reset();
+                        animator.SetTrigger(Boost);
+                    }
+                },
+                onFixedLogic: state =>
+                {
+                    #region Move
+
+                    var input = InputKit.Instance.move.Value;
+                    var movement = input.normalized;
+                    var targetSpeedX = movement.x;
+                    var targetSpeedZ = movement.y;
+                    var currentSpeedX = animator.GetFloat(SpeedXParam);
+                    var currentSpeedZ = animator.GetFloat(SpeedZParam);
+                    var nextSpeedX = 0.1f.Lerp(currentSpeedX, targetSpeedX);
+                    var nextSpeedZ = 0.1f.Lerp(currentSpeedZ, targetSpeedZ);
+                    
+                    animator.SetFloat(SpeedXParam, nextSpeedX);
+                    animator.SetFloat(SpeedZParam, nextSpeedZ);
+
+                    #endregion
+                    
+                    #region Slop Detect
+
+                    var isRaycastHitFront = Physics.Raycast(
+                        transform.position + Vector3.up + config.slopDetectFrontOffset * transform.forward, 
+                        Vector3.down, 
+                        out var frontHit, 
+                        config.slopDetectFrontDistance, 
+                        config.groundLayerMask);
+                    var frontAngle = isRaycastHitFront ? Vector3.Angle(frontHit.normal, Vector3.up) : float.MaxValue;
+                    
+                    var isRaycastHitDown = Physics.Raycast(
+                        transform.position + Vector3.up, 
+                        Vector3.down, 
+                        out var downHit, 
+                        config.groundDetectDistance, 
+                        config.groundLayerMask);
+                    var downAngle = isRaycastHitDown ? Vector3.Angle(downHit.normal, Vector3.up) : float.MaxValue;
+                    
+                    var inputAngle = Vector2.SignedAngle(input, Vector2.up);
+                    var playerAngle = transform.eulerAngles.y;
+                    var rotateQuat = Quaternion.Euler(0f, inputAngle + playerAngle, 0f);
+                    var rightQuat = Quaternion.Euler(0f, -90f, 0f);
+                    var right = rightQuat * rotateQuat * Vector3.forward;
+            
+                    var slopeNormalPerp = 
+                        isRaycastHitFront ? Vector3.Cross(frontHit.normal, right) : transform.forward; 
+                    // 在空中就直接向前，不做额外处理
+                    
+                    var velocity = animator.velocity.magnitude * slopeNormalPerp;
+                    velocity.y = isRaycastHitDown ? velocity.y : rb.velocity.y; // 如果在空中，就不改变 velocity.y
+                    
+                    if (downAngle < config.flatGroundMaxAngle && velocity.y < 0f) 
+                        // 在平面上且下一瞬的速度是向下的
+                    {
+                        velocity.y = 0f;
+                    }
+
+                    var deltaForce = velocity - rb.velocity;
+                    
+                    #endregion
+
+                    #region Physical Material
+
+                    moveCollider.material = downAngle < config.flatGroundMaxAngle || 
+                                            frontAngle > config.slopMaxAngle || 
+                                            InputKit.Instance.move.Value.magnitude > 0.1f ? 
+                        config.zeroFrictionMat : config.fullFrictionMat;
+                    
+                    #endregion
+                    
+                    rb.AddForce(deltaForce, ForceMode.VelocityChange);
+                    
+                    #region Rotate
+
+                    var targetRot = new Vector3(0f, cam.transform.eulerAngles.y, 0f);
+                    transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(targetRot), 0.1f);
+
+                    #endregion
+                },
+                onExit: state =>
+                {
+                    animator.SetFloat(SpeedXParam, 0f);
+                    animator.SetFloat(SpeedZParam, 0f);
+
+                    _applyRootMotion = true;
+                });
+            
             FSM.AddTransition<MoveState, DodgeState>
                 (transition => InputKit.Instance.dodge);
             
@@ -216,9 +306,9 @@ namespace Controller.Character.Player.Player
             
             FSM.AddTransition<MoveState, AttackState>
                 (transition => InputKit.Instance.attack);
-            
-            FSM.AddTransition<MoveState, ParryState>
-                (transition => InputKit.Instance.block);
+                
+            FSM.AddTransition<MoveState, FocusState>
+                (transition => InputKit.Instance.focus);
             
             FSM.AddTransition<JumpState, FallState>
                 (transition => true);
@@ -235,18 +325,18 @@ namespace Controller.Character.Player.Player
             FSM.AddTransition<LandState, FallState>
                 (transition => true);
             
-            FSM.AddTransition<AttackState, MoveState>
-                (transition => InputKit.Instance.move.Value.magnitude > 0.1f);
-            
             FSM.AddTransition<AttackState, AttackState>
             (transition => InputKit.Instance.attack,
                 onTransition: transition => comboFlag = true);
             
-            FSM.AddTransition<ParryState, MoveState>
-                (transition => true);
+            FSM.AddTransition<AttackState, MoveState>
+                (transition => InputKit.Instance.move.Value.magnitude > 0.1f);
             
             FSM.AddTransition<DodgeState, MoveState>
                 (transition => true);
+            
+            FSM.AddTransition<FocusState, MoveState>
+                (transition => !InputKit.Instance.focus);
         }
 
         private void Start()

@@ -9,6 +9,8 @@ namespace Controller.Character.Player.Player
         public CameraConfig config;
 
         public Transform cameraPoint;
+
+        public bool enableCameraPoint = true;
         
         private Transform _follow;
         private Vector3 _offset;
@@ -31,6 +33,16 @@ namespace Controller.Character.Player.Player
 
         private void LateUpdate()
         {
+            UpdateCameraPoint();
+        }
+
+        private void UpdateCameraPoint()
+        {
+            if (!enableCameraPoint)
+            {
+                return;
+            }
+            
             var rotate = InputKit.Instance.rotate.Value;
             // if there is an input and camera position is not fixed
             if (rotate.sqrMagnitude >= 0.01f)

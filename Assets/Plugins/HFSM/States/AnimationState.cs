@@ -12,8 +12,8 @@ namespace Script.View_Controller.Character_System.HFSM.States
 		private Action<AnimationState<TStateId, TEvent>> onExit;
 		private Func<AnimationState<TStateId, TEvent>, bool> canExit;
 
-		private Animator mAnimator;
-		private string mAnimationName;
+		private Animator animator;
+		private Func<string> animationNameFunc;
 
 		public AnimationTimer timer;
 
@@ -21,7 +21,7 @@ namespace Script.View_Controller.Character_System.HFSM.States
 		/// Initialises a new instance of the State class
 		/// </summary>
 		/// <param name="animator">The character's animator</param>
-		/// <param name="animationName">Animation name in the character animator</param>
+		/// <param name="animationNameFunc">Animation name in the character animator</param>
 		/// <param name="animationLength">The animation length in the animator</param>
 		/// <param name="onEnter">A function that is called when the state machine enters this state</param>
 		/// <param name="onLogic">A function that is called by the logic function of the state machine if this state is active</param>
@@ -39,7 +39,7 @@ namespace Script.View_Controller.Character_System.HFSM.States
 		/// 	and not wait until the next OnLogic call.</param>
 		public AnimationState(
 			Animator animator,
-			string animationName,
+			Func<string> animationNameFunc,
 			float animationLength,
 			Action<AnimationState<TStateId, TEvent>> onEnter = null,
 			Action<AnimationState<TStateId, TEvent>> onLogic = null,
@@ -49,8 +49,8 @@ namespace Script.View_Controller.Character_System.HFSM.States
 			bool needsExitTime = false,
 			bool isGhostState = false) : base(needsExitTime, isGhostState)
 		{
-			mAnimator = animator;
-			mAnimationName = animationName;
+			this.animator = animator;
+			this.animationNameFunc = animationNameFunc;
 			this.onEnter = onEnter;
 			this.onLogic = onLogic;
 			this.onFixedLogic = onFixedLogic;
@@ -64,17 +64,19 @@ namespace Script.View_Controller.Character_System.HFSM.States
 		{
 			timer.Reset();
 
+			var animationName = animationNameFunc();
+
 			if (!isGhostState)
 			{
-				var animatorInfo = mAnimator.GetCurrentAnimatorStateInfo(0);
+				var animatorInfo = animator.GetCurrentAnimatorStateInfo(0);
             
-				if (animatorInfo.IsName(mAnimationName))
+				if (animatorInfo.IsName(animationName))
 				{
-					mAnimator.Play(mAnimationName, 0, 0f); 
+					animator.Play(animationName, 0, 0f); 
 				} // 若要重复播放正在播放的动画，则必须调用该方法
 				else
 				{
-					mAnimator.CrossFade(mAnimationName, 0.1f);
+					animator.CrossFade(animationName, 0.1f);
 				}
 			}
 

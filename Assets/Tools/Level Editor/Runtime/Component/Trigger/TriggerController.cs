@@ -125,6 +125,7 @@ namespace Level_Editor.Runtime
 
             if (triggerForever)
             {
+                State = TriggerState.Pending;
                 return;
             }
             

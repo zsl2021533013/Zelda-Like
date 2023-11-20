@@ -47,7 +47,7 @@ namespace Level_Editor.Runtime.Action
 
         private void DetectPlayer()
         {
-            var colliders = Physics.OverlapBox(platformArea.position, platformArea.localScale);
+            var colliders = Physics.OverlapBox(platformArea.position, platformArea.localScale / 2f);
             var player = colliders.FirstOrDefault(collider => collider.CompareTag("Player"));
 
             playerTrans.SetParent(player ? animator.transform : null);

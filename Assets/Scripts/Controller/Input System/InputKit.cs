@@ -52,7 +52,7 @@ namespace Script.View_Controller.Input_System
         public InputProperty<bool> jump;
         public InputProperty<bool> attack;
         public InputProperty<bool> dodge;
-        public InputProperty<bool> block;
+        public InputProperty<bool> focus;
         
         private InputKit() {}
         
@@ -87,13 +87,13 @@ namespace Script.View_Controller.Input_System
                 mControls.Player.Attack,
                 performedSetter: context => true);
             
-            block = new InputProperty<bool>(
-                mControls.Player.Block,
+            dodge = new InputProperty<bool>(
+                mControls.Player.Dodge,
                 performedSetter: context => true,
                 canceledSetter: context => false);
             
-            dodge = new InputProperty<bool>(
-                mControls.Player.Dodge,
+            focus = new InputProperty<bool>(
+                mControls.Player.Focus,
                 performedSetter: context => true,
                 canceledSetter: context => false);
         }

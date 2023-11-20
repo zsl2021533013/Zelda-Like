@@ -20,7 +20,7 @@ namespace Level_Editor.Runtime
 
         public override bool Satisfied()
         {
-            var colliders = Physics.OverlapBox(transform.position, transform.localScale);
+            var colliders = Physics.OverlapBox(transform.position, transform.localScale / 2f);
             return colliders.FirstOrDefault(collider => collider.CompareTag("Player"));
         }
     }

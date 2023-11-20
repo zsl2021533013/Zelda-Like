@@ -42,7 +42,7 @@ namespace Controller.Character.Player.Player
             groundSensor = new SensorProperty<Collider[]>(
                 () => Physics.OverlapBox(
                     groundSensorTrans.position,
-                    groundSensorTrans.localScale,
+                    groundSensorTrans.localScale / 2f,
                     Quaternion.identity,
                     LayerMask.GetMask("Ground")),
                 values => values.Length > 0

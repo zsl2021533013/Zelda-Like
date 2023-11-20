@@ -60,7 +60,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Block",
+                    "name": "Focus",
                     "type": "Button",
                     "id": "ed07d09b-4b64-4fcc-aec5-5e3f47ca100b",
                     "expectedControlType": "Button",
@@ -284,7 +284,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Block",
+                    "action": "Focus",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
