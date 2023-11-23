@@ -7,8 +7,8 @@ using UnityEngine;
 namespace Tools.Behaviour_Tree.Node.Runtime.Condition
 {
     
-    [Serializable, NodeMenuItem("Behaviour/Condition/Check Distance To Player")]
-    public class CheckDistanceToPlayerNode : EnemyConditionNode
+    [Serializable, NodeMenuItem("Behaviour/Condition/Check Distance")]
+    public class CheckDistanceNode : EnemyConditionNode
     {
         public enum CheckDistanceType
         {

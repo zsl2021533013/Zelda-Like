@@ -8,9 +8,9 @@ namespace Behaviour_Tree.Node.Runtime.Root
     [Serializable]
     public class RootNode : BehaviourTreeNode
     {
-        [Output("child", false)] public BehaviourTreeLink child;
+        [Output("child", false), Vertical] public BehaviourTreeLink child;
 
-        // public override Color color => Color.yellow;
+        public override string layoutStyle => "RootNodeStyle";
 
         public override Status OnUpdate()
         {

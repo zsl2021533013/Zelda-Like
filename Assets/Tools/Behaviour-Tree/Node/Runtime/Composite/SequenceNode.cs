@@ -1,6 +1,7 @@
 ﻿using System;
 using Behaviour_Tree.Node.Runtime.Core;
 using GraphProcessor;
+using Tools.Behaviour_Tree.Utils;
 
 namespace Behaviour_Tree.Node.Runtime.Composite
 {
@@ -16,7 +17,6 @@ namespace Behaviour_Tree.Node.Runtime.Composite
 
         public override Status OnUpdate()
         {
-            var children = GetChildren();
             var childNode = children[index];
 
             switch (childNode.Update())

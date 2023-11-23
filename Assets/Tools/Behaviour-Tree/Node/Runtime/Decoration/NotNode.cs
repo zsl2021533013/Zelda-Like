@@ -3,6 +3,7 @@ using System.Linq;
 using Behaviour_Tree.Node.Runtime.Core;
 using Behaviour_Tree.Node.Runtime.Decoration;
 using GraphProcessor;
+using Tools.Behaviour_Tree.Utils;
 
 namespace Tools.Behaviour_Tree.Node.Runtime.Decoration
 {
@@ -11,7 +12,7 @@ namespace Tools.Behaviour_Tree.Node.Runtime.Decoration
     {
         public override Status OnUpdate()
         {
-            var child = GetChildren().FirstOrDefault();
+            var child = this.GetChildren().FirstOrDefault();
 
             if (child is null)
             {

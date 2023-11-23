@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 using GraphProcessor;
+using Tools.Behaviour_Tree.Utils;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
@@ -117,6 +118,16 @@ namespace Behaviour_Tree.Node.Runtime.Core
         public abstract Status OnUpdate();
 
         public virtual void OnStop() { }
+        
+        public void Abort() 
+        {
+            this.Traverse(node => 
+            {
+                node._hasStarted = false;
+                node._status = Status.Running;
+                node.OnStop();
+            });
+        }
 
         private Color GetLerpColor(Color targetColor)
         {
@@ -126,16 +137,6 @@ namespace Behaviour_Tree.Node.Runtime.Core
             passTime = Mathf.Clamp01(passTime);
 
             return Color.Lerp(_color, targetColor, passTime);
-        }
-
-        protected List<BehaviourTreeNode> GetChildren()
-        {
-            var outputNodes = GetOutputNodes().Cast<BehaviourTreeNode>().ToList();
-            
-            // 编辑器内，y 越大，位置越靠下
-            outputNodes.Sort((node1, node2) => node1.position.position.y > node2.position.position.y ? 1 : -1);
-
-            return outputNodes;
         }
     }
 }
