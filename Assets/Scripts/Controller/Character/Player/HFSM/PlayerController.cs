@@ -1,5 +1,8 @@
 using System;
+using Command;
 using Controller.Character.Player.Player.State.Ground_State;
+using DG.Tweening;
+using Model.Interface;
 using QFramework;
 using Script.View_Controller.Character_System.HFSM.StateMachine;
 using Script.View_Controller.Input_System;
@@ -8,7 +11,7 @@ using UnityEngine.Events;
 
 namespace Controller.Character.Player.Player
 {
-    public partial class PlayerController : MonoBehaviour
+    public partial class PlayerController : MonoBehaviour, IController
     {
         private bool _applyRootMotion;
 
@@ -24,6 +27,9 @@ namespace Controller.Character.Player.Player
         private void Awake()
         {
             Cursor.lockState = CursorLockMode.Locked;
+            
+            var model = this.GetModel<IPlayerModel>();
+            model.RegisterPlayer(transform);
             
             FSM = new StateMachine<Type, Type, Type>();
             
@@ -295,6 +301,26 @@ namespace Controller.Character.Player.Player
                     _applyRootMotion = true;
                 });
             
+            FSM.AddState<StabState>(
+                animator,
+                "Stab",
+                onEnter: state =>
+                {
+                    InputKit.Instance.attack.Reset();
+
+                    var enemy = sensorController.backStabSensor.Value.transform;
+                    transform.DOMove(enemy.position - enemy.forward, 0.2f);
+                    transform.DORotate(enemy.rotation.eulerAngles, 0.2f);
+                    
+                    var velocity = new Vector3(0, rb.velocity.y, 0) ;
+                    rb.velocity = velocity;
+
+                    this.SendCommand(new StabEnemyCommand() { enemy = enemy });
+                },
+                canExit: state => state.timer.IsAnimatorFinish,
+                needsExitTime: true
+            );
+            
             FSM.AddTransition<MoveState, DodgeState>
                 (transition => InputKit.Instance.dodge);
             
@@ -303,6 +329,9 @@ namespace Controller.Character.Player.Player
 			         
             FSM.AddTransition<MoveState, FallState>
                 (transition => !sensorController.groundSensor);
+            
+            FSM.AddTransition<MoveState, StabState>
+                (transition => sensorController.backStabSensor && InputKit.Instance.attack);
             
             FSM.AddTransition<MoveState, AttackState>
                 (transition => InputKit.Instance.attack);
@@ -337,6 +366,21 @@ namespace Controller.Character.Player.Player
             
             FSM.AddTransition<FocusState, MoveState>
                 (transition => !InputKit.Instance.focus);
+            
+            FSM.AddTransition<StabState, MoveState>
+                (transition => true);
+        }
+
+        private void OnEnable()
+        {
+            var model = this.GetModel<IPlayerModel>();
+            model.RegisterPlayer(transform);
+        }
+        
+        private void OnDisable()
+        {
+            var model = this.GetModel<IPlayerModel>();
+            model.UnregisterPlayer();
         }
 
         private void Start()
@@ -366,6 +410,11 @@ namespace Controller.Character.Player.Player
             var velocity = animator.velocity;
             velocity.y = rb.velocity.y;
             rb.velocity = velocity;
+        }
+
+        public IArchitecture GetArchitecture()
+        {
+            return ZeldaLike.Interface;
         }
     }
 }

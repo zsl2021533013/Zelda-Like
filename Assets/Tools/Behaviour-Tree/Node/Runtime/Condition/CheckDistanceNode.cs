@@ -1,6 +1,8 @@
 ﻿using System;
 using Behaviour_Tree.Node.Runtime.Core;
 using GraphProcessor;
+using Model.Interface;
+using QFramework;
 using Tools.Behaviour_Tree.Utils;
 using UnityEngine;
 
@@ -55,7 +57,7 @@ namespace Tools.Behaviour_Tree.Node.Runtime.Condition
 
         public override void OnStart()
         {
-            playerTrans = GameObject.FindGameObjectWithTag("Player").transform;
+            playerTrans = this.GetModel<IPlayerModel>().transform;
         }
 
         public override Status OnUpdate()

@@ -1,13 +1,24 @@
 using System;
+using Data.Character.Enemy;
+using Model.Interface;
+using QFramework;
 using UnityEngine;
 
-public class Test : MonoBehaviour
+public class Test : MonoBehaviour, IController
 {
-    public Animator animator;
+    public Transform enemy;
 
-    private void OnAnimatorMove()
+    private void Update()
     {
-        transform.position += animator.deltaPosition;
-        Debug.Log(animator.deltaPosition);
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            var status = this.GetModel<IEnemyModel>().GetComponents(enemy).Get<EnemyStatus>();
+            status.isStabbed.Value = true;
+        }
+    }
+
+    public IArchitecture GetArchitecture()
+    {
+        return ZeldaLike.Interface;
     }
 }

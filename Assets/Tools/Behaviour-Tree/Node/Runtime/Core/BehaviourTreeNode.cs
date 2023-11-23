@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 using GraphProcessor;
+using QFramework;
 using Tools.Behaviour_Tree.Utils;
 using UnityEngine;
 using Object = UnityEngine.Object;
@@ -10,7 +11,7 @@ using Object = UnityEngine.Object;
 namespace Behaviour_Tree.Node.Runtime.Core
 {
     [Serializable]
-    public abstract class BehaviourTreeNode : BaseNode, IBehaviourTreeNode
+    public abstract class BehaviourTreeNode : BaseNode, IBehaviourTreeNode, IController
     {
         public override string name
         {
@@ -24,7 +25,7 @@ namespace Behaviour_Tree.Node.Runtime.Core
             }
         }
 
-        public Dictionary<Type, Object> components;
+        [NonSerialized] public Transform transform;
         
         // 我们希望状态的初始值能在运行中修改，同时不在运行中保存，故使用 [NonSerialized]
         [NonSerialized] private Status _status = Status.Running;
@@ -40,7 +41,7 @@ namespace Behaviour_Tree.Node.Runtime.Core
                 {
                     if (value == Status.Success)
                     {
-                        _color = Color.green;
+                        _color = Color.yellow;
                     }
                     
                     _lastStatusChangeTime = Time.time;
@@ -69,7 +70,7 @@ namespace Behaviour_Tree.Node.Runtime.Core
                 switch (status)
                 {
                     case Status.Success:
-                        return _color = GetLerpColor(Color.grey);
+                        return _color = GetLerpColor(Color.yellow);
                     case Status.Running:
                         return _color = Color.green;
                     case Status.Failure:
@@ -137,6 +138,11 @@ namespace Behaviour_Tree.Node.Runtime.Core
             passTime = Mathf.Clamp01(passTime);
 
             return Color.Lerp(_color, targetColor, passTime);
+        }
+
+        public IArchitecture GetArchitecture()
+        {
+            return ZeldaLike.Interface;
         }
     }
 }

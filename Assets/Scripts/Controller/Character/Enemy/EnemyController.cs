@@ -4,6 +4,8 @@ using Behaviour_Tree.Node.Runtime.Core;
 using Behaviour_Tree.Runtime;
 using Behaviour_Tree.Runtime.Processor;
 using Data.Character.Enemy;
+using Model.Interface;
+using QFramework;
 using Sirenix.OdinInspector;
 using Tools.Behaviour_Tree.Utils;
 using UnityEngine;
@@ -12,7 +14,7 @@ using Object = UnityEngine.Object;
 
 namespace Controller.Character.Enemy
 {
-    public class EnemyController : MonoBehaviour
+    public class EnemyController : MonoBehaviour, IController
     {
         [BoxGroup("Behaviour Tree")] public BehaviourTreeGraph graph;
 
@@ -22,29 +24,36 @@ namespace Controller.Character.Enemy
         [BoxGroup("Components")] public NavMeshAgent agent;
         
         private BehaviourTreeProcess _process;
-    
-        private Dictionary<Type, Object> components = new Dictionary<Type, Object>();
-
+        
         private void Awake()
         {
             agent.updatePosition = false;
             agent.updateRotation = false;
             agent.angularSpeed = 1000f;
-        
-            components
-                .Add<Transform>(transform)
-                .Add<Animator>(animator)
-                .Add<NavMeshAgent>(agent)
-                .Add<EnemyConfig>(config);
+            
+            var model = this.GetModel<IEnemyModel>();
+            model.RegisterEnemy(transform, animator, agent, config);
         
             graph.nodes.ForEach(node =>
             {
                 if (node is BehaviourTreeNode treeNode)
                 {
-                    treeNode.components = components;
+                    treeNode.transform = transform;
                     treeNode.OnAwake();
                 }
             });
+        }
+        
+        private void OnEnable()
+        {
+            var model = this.GetModel<IEnemyModel>();
+            model.RegisterEnemy(transform, animator, agent, config);
+        }
+        
+        private void OnDisable()
+        {
+            var model = this.GetModel<IEnemyModel>();
+            model.UnregisterEnemy(transform);
         }
     
         private void Start()
@@ -81,6 +90,11 @@ namespace Controller.Character.Enemy
             Gizmos.color = Color.yellow;
             Gizmos.DrawFrustum(Vector3.up, config.povAngle, config.povDist, 0, 1);
             Gizmos.matrix = Matrix4x4.identity;
+        }
+
+        public IArchitecture GetArchitecture()
+        {
+            return ZeldaLike.Interface;
         }
     }
 }

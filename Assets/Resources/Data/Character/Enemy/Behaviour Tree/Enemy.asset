@@ -17,7 +17,6 @@ MonoBehaviour:
   - rid: 2677926903935139882
   - rid: 2677926927549071360
   - rid: 2677926927549071363
-  - rid: 2677926927549071364
   - rid: 2677926927549071365
   - rid: 2677926927549071366
   - rid: 2677926927549071368
@@ -25,31 +24,20 @@ MonoBehaviour:
   - rid: 2677926927549071399
   - rid: 2677926927549071400
   - rid: 2677926927549071402
-  - rid: 2677926927549071403
   - rid: 2677926927549071409
-  - rid: 2677926927549071410
-  - rid: 2677926927549071411
+  - rid: 2677927065272188934
+  - rid: 2677927065272188935
+  - rid: 2677927065272188936
+  - rid: 2677927065272188937
+  - rid: 2677927065272188938
+  - rid: 2677927065272188939
+  - rid: 2677927065272188940
+  - rid: 2677927065272188941
   edges:
-  - GUID: f17b57db-5bc3-4f71-8172-fbf1e0692a86
-    owner: {fileID: 11400000}
-    inputNodeGUID: 3fa0a099-33ce-4c69-aaec-05aea84c3469
-    outputNodeGUID: f851ab38-a278-4630-a621-1b0d336ddfdf
-    inputFieldName: parent
-    outputFieldName: child
-    inputPortIdentifier: 
-    outputPortIdentifier: 
   - GUID: dadae43c-2f67-43d3-b117-81a840a580d1
     owner: {fileID: 11400000}
     inputNodeGUID: 9f9202ed-0b07-4e82-a49a-76bd0857f070
     outputNodeGUID: 3fa0a099-33ce-4c69-aaec-05aea84c3469
-    inputFieldName: parent
-    outputFieldName: child
-    inputPortIdentifier: 
-    outputPortIdentifier: 
-  - GUID: 7888244f-b968-4566-a52e-4e64558fe53f
-    owner: {fileID: 11400000}
-    inputNodeGUID: 15d3bb1f-d50c-4443-83ee-3be4f2b2232a
-    outputNodeGUID: 9f9202ed-0b07-4e82-a49a-76bd0857f070
     inputFieldName: parent
     outputFieldName: child
     inputPortIdentifier: 
@@ -66,14 +54,6 @@ MonoBehaviour:
     owner: {fileID: 11400000}
     inputNodeGUID: f2182d0c-0dad-4d11-beab-26e130967cb9
     outputNodeGUID: 3fa0a099-33ce-4c69-aaec-05aea84c3469
-    inputFieldName: parent
-    outputFieldName: child
-    inputPortIdentifier: 
-    outputPortIdentifier: 
-  - GUID: f06908b8-323d-434d-be6e-93cf19102f62
-    owner: {fileID: 11400000}
-    inputNodeGUID: 5f9fbf95-9399-477e-8611-8de38d45b7f6
-    outputNodeGUID: f2182d0c-0dad-4d11-beab-26e130967cb9
     inputFieldName: parent
     outputFieldName: child
     inputPortIdentifier: 
@@ -110,14 +90,6 @@ MonoBehaviour:
     outputFieldName: child
     inputPortIdentifier: 
     outputPortIdentifier: 
-  - GUID: 369bc9d0-39be-4791-b130-1ee5db6eb95f
-    owner: {fileID: 11400000}
-    inputNodeGUID: 01d515be-9fd3-4f51-a423-ca5f2ba2ab06
-    outputNodeGUID: 6d53c2c6-07eb-4e3e-bf08-e7705593246b
-    inputFieldName: parent
-    outputFieldName: child
-    inputPortIdentifier: 
-    outputPortIdentifier: 
   - GUID: a6548197-2f09-4c05-9b69-97d8d09f570a
     owner: {fileID: 11400000}
     inputNodeGUID: abd8feed-1778-4fcd-b890-973af85a8f6f
@@ -126,18 +98,82 @@ MonoBehaviour:
     outputFieldName: child
     inputPortIdentifier: 
     outputPortIdentifier: 
-  - GUID: ef429855-178b-45d5-8f2e-e1e545230cb0
+  - GUID: db7ee95e-3528-41ae-b9c8-e142eba335bf
     owner: {fileID: 11400000}
-    inputNodeGUID: 4eb77c9c-a76f-41d2-aa28-813524769307
+    inputNodeGUID: 5f9fbf95-9399-477e-8611-8de38d45b7f6
+    outputNodeGUID: f2182d0c-0dad-4d11-beab-26e130967cb9
+    inputFieldName: parent
+    outputFieldName: child
+    inputPortIdentifier: 
+    outputPortIdentifier: 
+  - GUID: 6bd06299-12d1-46f3-a8df-5cd3e97ddff3
+    owner: {fileID: 11400000}
+    inputNodeGUID: cc59b83b-69cd-43f1-8552-c29629bbb292
+    outputNodeGUID: 9f9202ed-0b07-4e82-a49a-76bd0857f070
+    inputFieldName: parent
+    outputFieldName: child
+    inputPortIdentifier: 
+    outputPortIdentifier: 
+  - GUID: bd1a9f0c-3f2c-4a13-8516-028e545595eb
+    owner: {fileID: 11400000}
+    inputNodeGUID: fe657745-a7d8-48e2-8360-248b1878a31e
+    outputNodeGUID: 6d53c2c6-07eb-4e3e-bf08-e7705593246b
+    inputFieldName: parent
+    outputFieldName: child
+    inputPortIdentifier: 
+    outputPortIdentifier: 
+  - GUID: 7dd23ee4-c40b-4ada-a505-620cfeebf44f
+    owner: {fileID: 11400000}
+    inputNodeGUID: 350a19cf-0bf0-4e5c-8f84-160de1c41b70
     outputNodeGUID: abd8feed-1778-4fcd-b890-973af85a8f6f
     inputFieldName: parent
     outputFieldName: child
     inputPortIdentifier: 
     outputPortIdentifier: 
-  - GUID: b0465215-fa23-4a61-b331-0cf30d7c85ab
+  - GUID: ef590c05-e5f6-4b69-a82b-435c094df673
     owner: {fileID: 11400000}
-    inputNodeGUID: 062dd2ee-21eb-4d11-96b4-a1b1c7ae3833
+    inputNodeGUID: 53574b51-6696-4303-8c79-f33bb3ebafa3
     outputNodeGUID: abd8feed-1778-4fcd-b890-973af85a8f6f
+    inputFieldName: parent
+    outputFieldName: child
+    inputPortIdentifier: 
+    outputPortIdentifier: 
+  - GUID: f212a814-8358-4c37-a936-05d06ae904a1
+    owner: {fileID: 11400000}
+    inputNodeGUID: 7d2e9ced-e266-4b5e-b33b-5fc38ea7cbb8
+    outputNodeGUID: f851ab38-a278-4630-a621-1b0d336ddfdf
+    inputFieldName: parent
+    outputFieldName: child
+    inputPortIdentifier: 
+    outputPortIdentifier: 
+  - GUID: 11911b66-098f-457d-9cbd-cfa3d3c4acad
+    owner: {fileID: 11400000}
+    inputNodeGUID: 3fa0a099-33ce-4c69-aaec-05aea84c3469
+    outputNodeGUID: 7d2e9ced-e266-4b5e-b33b-5fc38ea7cbb8
+    inputFieldName: parent
+    outputFieldName: child
+    inputPortIdentifier: 
+    outputPortIdentifier: 
+  - GUID: e054641f-b724-4f3f-9ece-ca8b9fd81864
+    owner: {fileID: 11400000}
+    inputNodeGUID: 971f1dd3-c375-49f6-8bd0-f254cd4462b2
+    outputNodeGUID: 7d2e9ced-e266-4b5e-b33b-5fc38ea7cbb8
+    inputFieldName: parent
+    outputFieldName: child
+    inputPortIdentifier: 
+    outputPortIdentifier: 
+  - GUID: 0cd8f644-f253-4d5c-975e-8d88294dffde
+    owner: {fileID: 11400000}
+    inputNodeGUID: 312befac-d2aa-46fa-ac6c-b16c860431ad
+    outputNodeGUID: 971f1dd3-c375-49f6-8bd0-f254cd4462b2
+    inputFieldName: parent
+    outputFieldName: child
+    inputPortIdentifier: 
+    outputPortIdentifier: 
+  - GUID: fd20327f-d228-46b0-9520-6fb43e74ab7e
+    owner: {fileID: 11400000}
+    inputNodeGUID: 9d83447e-f952-4a41-be17-60eb02d7eed6
+    outputNodeGUID: 971f1dd3-c375-49f6-8bd0-f254cd4462b2
     inputFieldName: parent
     outputFieldName: child
     inputPortIdentifier: 
@@ -159,8 +195,8 @@ MonoBehaviour:
   serializedParameterList: []
   stickyNotes: []
   nodeInspectorReference: {fileID: 0}
-  position: {x: 375.2, y: 260, z: 0}
-  scale: {x: 0.375937, y: 0.375937, z: 1}
+  position: {x: 472, y: 414.4, z: 0}
+  scale: {x: 0.7561437, y: 0.7561437, z: 1}
   references:
     version: 2
     RefIds:
@@ -172,10 +208,10 @@ MonoBehaviour:
         computeOrder: 0
         position:
           serializedVersion: 2
-          x: 10
-          y: 200
-          width: 100
-          height: 100
+          x: 151.03008
+          y: -411.84244
+          width: 0
+          height: 0
         expanded: 0
         debug: 0
         nodeLock: 0
@@ -184,13 +220,13 @@ MonoBehaviour:
       data:
         nodeCustomName: 
         GUID: 3fa0a099-33ce-4c69-aaec-05aea84c3469
-        computeOrder: 1
+        computeOrder: 2
         position:
           serializedVersion: 2
-          x: 181.14784
-          y: 200.00005
-          width: 132.00002
-          height: 75.2
+          x: 629.4337
+          y: -134.22783
+          width: 82.400024
+          height: 54.399998
         expanded: 0
         debug: 0
         nodeLock: 0
@@ -199,34 +235,16 @@ MonoBehaviour:
       data:
         nodeCustomName: 
         GUID: 9f9202ed-0b07-4e82-a49a-76bd0857f070
-        computeOrder: 2
-        position:
-          serializedVersion: 2
-          x: 407.2
-          y: 200
-          width: 132
-          height: 75.2
-        expanded: 0
-        debug: 0
-        nodeLock: 0
-    - rid: 2677926927549071364
-      type: {class: CheckDistanceToPlayerNode, ns: Tools.Behaviour_Tree.Node.Runtime.Condition,
-        asm: Assembly-CSharp}
-      data:
-        nodeCustomName: 
-        GUID: 15d3bb1f-d50c-4443-83ee-3be4f2b2232a
         computeOrder: 3
         position:
           serializedVersion: 2
-          x: 615.2
-          y: -137.6
-          width: 192.79999
-          height: 75.200005
+          x: 619.0337
+          y: 48.172195
+          width: 103.20001
+          height: 54.4
         expanded: 0
         debug: 0
         nodeLock: 0
-        type: 1
-        value: 1
     - rid: 2677926927549071365
       type: {class: AttackNode, ns: Behaviour_Tree.Node.Runtime.Action, asm: Assembly-CSharp}
       data:
@@ -235,14 +253,13 @@ MonoBehaviour:
         computeOrder: 4
         position:
           serializedVersion: 2
-          x: 615.2
-          y: 34.399994
+          x: 627.83374
+          y: 236.9722
           width: 84
-          height: 75.2
+          height: 48.799988
         expanded: 0
         debug: 0
         nodeLock: 0
-        animationName: Attack
     - rid: 2677926927549071366
       type: {class: SequenceNode, ns: Behaviour_Tree.Node.Runtime.Composite, asm: Assembly-CSharp}
       data:
@@ -251,10 +268,10 @@ MonoBehaviour:
         computeOrder: 5
         position:
           serializedVersion: 2
-          x: 407.19998
-          y: 714.43176
-          width: 132
-          height: 75.20001
+          x: 924.63367
+          y: 48.172195
+          width: 103.20001
+          height: 54.4
         expanded: 0
         debug: 0
         nodeLock: 0
@@ -266,10 +283,10 @@ MonoBehaviour:
         computeOrder: 6
         position:
           serializedVersion: 2
-          x: 615.2001
-          y: 714.43176
-          width: 83.20001
-          height: 75.20001
+          x: 1110.2336
+          y: 235.37222
+          width: 83.19995
+          height: 48.80002
         expanded: 0
         debug: 0
         nodeLock: 0
@@ -281,14 +298,13 @@ MonoBehaviour:
         computeOrder: 7
         position:
           serializedVersion: 2
-          x: 615.2
-          y: 200
+          x: 788.6337
+          y: 235.37222
           width: 91.20001
-          height: 75.2
+          height: 48.80002
         expanded: 0
         debug: 0
         nodeLock: 0
-        animationName: Wander
     - rid: 2677926927549071399
       type: {class: SequenceNode, ns: Behaviour_Tree.Node.Runtime.Composite, asm: Assembly-CSharp}
       data:
@@ -297,10 +313,10 @@ MonoBehaviour:
         computeOrder: 8
         position:
           serializedVersion: 2
-          x: 407.2001
-          y: -363.67444
-          width: 132
-          height: 75.19998
+          x: 304.63376
+          y: 48.172195
+          width: 103.20001
+          height: 54.4
         expanded: 0
         debug: 0
         nodeLock: 0
@@ -312,10 +328,10 @@ MonoBehaviour:
         computeOrder: 9
         position:
           serializedVersion: 2
-          x: 615.2001
-          y: -364.47443
-          width: 74.39996
-          height: 75.20001
+          x: 321.43365
+          y: 242.57213
+          width: 67.19998
+          height: 48.799988
         expanded: 0
         debug: 0
         nodeLock: 0
@@ -327,26 +343,10 @@ MonoBehaviour:
         computeOrder: 10
         position:
           serializedVersion: 2
-          x: 615.2001
-          y: -502.87442
-          width: 132
-          height: 75.20001
-        expanded: 0
-        debug: 0
-        nodeLock: 0
-    - rid: 2677926927549071403
-      type: {class: CheckPlayerInPovNode, ns: Tools.Behaviour_Tree.Node.Runtime.Condition,
-        asm: Assembly-CSharp}
-      data:
-        nodeCustomName: 
-        GUID: 01d515be-9fd3-4f51-a423-ca5f2ba2ab06
-        computeOrder: 11
-        position:
-          serializedVersion: 2
-          x: 859.20013
-          y: -502.87442
-          width: 160
-          height: 75.20001
+          x: 164.63373
+          y: 242.57213
+          width: 67.2
+          height: 54.399994
         expanded: 0
         debug: 0
         nodeLock: 0
@@ -355,49 +355,146 @@ MonoBehaviour:
       data:
         nodeCustomName: 
         GUID: abd8feed-1778-4fcd-b890-973af85a8f6f
-        computeOrder: 12
+        computeOrder: 11
         position:
           serializedVersion: 2
-          x: 615.2001
-          y: 557.63196
-          width: 132
-          height: 75.19995
+          x: 924.63367
+          y: 236.9722
+          width: 103.20001
+          height: 54.399994
         expanded: 0
         debug: 0
         nodeLock: 0
-    - rid: 2677926927549071410
-      type: {class: CheckDistanceToPlayerNode, ns: Tools.Behaviour_Tree.Node.Runtime.Condition,
+    - rid: 2677927065272188934
+      type: {class: CheckDistanceNode, ns: Tools.Behaviour_Tree.Node.Runtime.Condition,
         asm: Assembly-CSharp}
       data:
         nodeCustomName: 
-        GUID: 4eb77c9c-a76f-41d2-aa28-813524769307
+        GUID: cc59b83b-69cd-43f1-8552-c29629bbb292
+        computeOrder: 12
+        position:
+          serializedVersion: 2
+          x: 436.63367
+          y: 236.9722
+          width: 136
+          height: 48.799988
+        expanded: 0
+        debug: 0
+        nodeLock: 0
+        type: 1
+        value: 1
+    - rid: 2677927065272188935
+      type: {class: CheckPovNode, ns: Tools.Behaviour_Tree.Node.Runtime.Condition,
+        asm: Assembly-CSharp}
+      data:
+        nodeCustomName: 
+        GUID: fe657745-a7d8-48e2-8360-248b1878a31e
         computeOrder: 13
         position:
           serializedVersion: 2
-          x: 859.19995
-          y: 408.80002
-          width: 192.79999
-          height: 75.19998
+          x: 143.83374
+          y: 378.5722
+          width: 108
+          height: 48.799988
+        expanded: 0
+        debug: 0
+        nodeLock: 0
+    - rid: 2677927065272188936
+      type: {class: CheckDistanceNode, ns: Tools.Behaviour_Tree.Node.Runtime.Condition,
+        asm: Assembly-CSharp}
+      data:
+        nodeCustomName: 
+        GUID: 350a19cf-0bf0-4e5c-8f84-160de1c41b70
+        computeOrder: 14
+        position:
+          serializedVersion: 2
+          x: 907.8337
+          y: 394.57224
+          width: 136
+          height: 48.799988
         expanded: 0
         debug: 0
         nodeLock: 0
         type: 1
         value: 2
-    - rid: 2677926927549071411
-      type: {class: CheckDistanceToPlayerNode, ns: Tools.Behaviour_Tree.Node.Runtime.Condition,
+    - rid: 2677927065272188937
+      type: {class: CheckDistanceNode, ns: Tools.Behaviour_Tree.Node.Runtime.Condition,
         asm: Assembly-CSharp}
       data:
         nodeCustomName: 
-        GUID: 062dd2ee-21eb-4d11-96b4-a1b1c7ae3833
-        computeOrder: 14
+        GUID: 53574b51-6696-4303-8c79-f33bb3ebafa3
+        computeOrder: 15
         position:
           serializedVersion: 2
-          x: 859.2
-          y: 557.63196
-          width: 192.79999
-          height: 75.19995
+          x: 1193.4336
+          y: 395.37222
+          width: 136
+          height: 48.80002
         expanded: 0
         debug: 0
         nodeLock: 0
         type: 0
         value: 1
+    - rid: 2677927065272188938
+      type: {class: InterruptSelectNode, ns: Behaviour_Tree.Node.Runtime.Composite,
+        asm: Assembly-CSharp}
+      data:
+        nodeCustomName: 
+        GUID: 7d2e9ced-e266-4b5e-b33b-5fc38ea7cbb8
+        computeOrder: 1
+        position:
+          serializedVersion: 2
+          x: 120.75011
+          y: -296.24997
+          width: 135.2
+          height: 54.399994
+        expanded: 0
+        debug: 0
+        nodeLock: 0
+    - rid: 2677927065272188939
+      type: {class: SequenceNode, ns: Behaviour_Tree.Node.Runtime.Composite, asm: Assembly-CSharp}
+      data:
+        nodeCustomName: 
+        GUID: 971f1dd3-c375-49f6-8bd0-f254cd4462b2
+        computeOrder: 16
+        position:
+          serializedVersion: 2
+          x: -240.92673
+          y: -134.39998
+          width: 103.2
+          height: 54.399998
+        expanded: 0
+        debug: 0
+        nodeLock: 0
+    - rid: 2677927065272188940
+      type: {class: CheckStatusNode, ns: Tools.Behaviour_Tree.Node.Runtime.Condition,
+        asm: Assembly-CSharp}
+      data:
+        nodeCustomName: 
+        GUID: 312befac-d2aa-46fa-ac6c-b16c860431ad
+        computeOrder: 17
+        position:
+          serializedVersion: 2
+          x: -454.4
+          y: 48
+          width: 122.400024
+          height: 48.799995
+        expanded: 0
+        debug: 0
+        nodeLock: 0
+        property: 1
+    - rid: 2677927065272188941
+      type: {class: StabbedNode, ns: Behaviour_Tree.Node.Runtime.Action, asm: Assembly-CSharp}
+      data:
+        nodeCustomName: 
+        GUID: 9d83447e-f952-4a41-be17-60eb02d7eed6
+        computeOrder: 18
+        position:
+          serializedVersion: 2
+          x: -240.79999
+          y: 48
+          width: 95.2
+          height: 48.799995
+        expanded: 0
+        debug: 0
+        nodeLock: 0

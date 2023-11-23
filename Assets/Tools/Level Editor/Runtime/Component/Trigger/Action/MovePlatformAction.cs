@@ -1,4 +1,6 @@
 ﻿using System.Linq;
+using Model.Interface;
+using QFramework;
 using Script.View_Controller.Character_System.HFSM.StateMachine;
 using Script.View_Controller.Character_System.HFSM.Util;
 using UnityEngine;
@@ -23,7 +25,7 @@ namespace Level_Editor.Runtime.Action
             
             timer = new AnimationTimer(animator.GetAnimationLength(animationName));
 
-            playerTrans = GameObject.FindGameObjectWithTag("Player")?.transform;
+            playerTrans = this.GetModel<IPlayerModel>().transform;
             
             DetectPlayer();
         }

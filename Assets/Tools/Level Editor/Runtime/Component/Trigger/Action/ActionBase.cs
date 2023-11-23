@@ -1,4 +1,5 @@
 ﻿using System;
+using QFramework;
 using Sirenix.OdinInspector;
 using UniRx;
 using UnityEngine;
@@ -24,7 +25,7 @@ namespace Level_Editor.Runtime.Action
     }
     
     [Serializable]
-    public abstract class ActionBase : IAction
+    public abstract class ActionBase : IAction, IController
     {
         public ActionState State { get; private set; } = ActionState.Pending;
 
@@ -62,6 +63,11 @@ namespace Level_Editor.Runtime.Action
                 OnExit(); 
                 controller.TryFinishTrigger();
             }).AddTo(controller);
+        }
+
+        public IArchitecture GetArchitecture()
+        {
+            return ZeldaLike.Interface;
         }
     }
 }

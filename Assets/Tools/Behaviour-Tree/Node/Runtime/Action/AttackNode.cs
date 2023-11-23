@@ -2,6 +2,8 @@
 using System.Linq;
 using Behaviour_Tree.Node.Runtime.Core;
 using GraphProcessor;
+using Model.Interface;
+using QFramework;
 using Script.View_Controller.Character_System.HFSM.StateMachine;
 using Script.View_Controller.Character_System.HFSM.Util;
 using Tools.Behaviour_Tree.Utils;
@@ -13,8 +15,7 @@ namespace Behaviour_Tree.Node.Runtime.Action
     [Serializable, NodeMenuItem("Behaviour/Action/Attack")]
     public class AttackNode : EnemyActionNode
     {
-        [ShowInInspector]
-        public string animationName;
+        private string animationName = "Attack";
         
         private Transform playerTrans;
 
@@ -35,7 +36,7 @@ namespace Behaviour_Tree.Node.Runtime.Action
             
             agent.updateRotation = true;
             
-            playerTrans = GameObject.FindGameObjectWithTag("Player")?.transform;
+            playerTrans = this.GetModel<IPlayerModel>().transform;
         }
 
         public override Status OnUpdate()

@@ -1,10 +1,9 @@
 ﻿using System;
-using System.Linq;
 using Behaviour_Tree.Node.Runtime.Core;
 using GraphProcessor;
-using Tools.Behaviour_Tree.Utils;
+using Model.Interface;
+using QFramework;
 using UnityEngine;
-using UnityEngine.AI;
 
 namespace Behaviour_Tree.Node.Runtime.Action
 {
@@ -19,7 +18,7 @@ namespace Behaviour_Tree.Node.Runtime.Action
             
             agent.updateRotation = true;
             
-            playerTrans = GameObject.FindGameObjectWithTag("Player").transform;
+            playerTrans = this.GetModel<IPlayerModel>().transform;
         }
 
         public override Status OnUpdate()

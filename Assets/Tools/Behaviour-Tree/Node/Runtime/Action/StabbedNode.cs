@@ -1,23 +1,19 @@
 ﻿using System;
-using System.Linq;
 using Behaviour_Tree.Node.Runtime.Core;
+using Data.Character.Enemy;
 using GraphProcessor;
 using Model.Interface;
 using QFramework;
 using Script.View_Controller.Character_System.HFSM.StateMachine;
 using Script.View_Controller.Character_System.HFSM.Util;
-using Tools.Behaviour_Tree.Utils;
 using UnityEngine;
-using UnityEngine.AI;
 
 namespace Behaviour_Tree.Node.Runtime.Action
 {
-    [Serializable, NodeMenuItem("Behaviour/Action/Wander")]
-    public class WanderNode : EnemyActionNode
+    [Serializable, NodeMenuItem("Behaviour/Action/Stabbed")]
+    public class StabbedNode : EnemyActionNode
     {
-        private string animationName = "Wander";
-        
-        private Transform playerTrans;
+        private string animationName = "Stabbed";
 
         private AnimationTimer timer;
 
@@ -34,21 +30,13 @@ namespace Behaviour_Tree.Node.Runtime.Action
             
             animator.CrossFade(animationName, 0.1f);
             
-            agent.updateRotation = true;
-            
-            playerTrans = this.GetModel<IPlayerModel>().transform;
+            var enemyStatus = this.GetModel<IEnemyModel>().GetComponents(transform).Get<EnemyStatus>();
+            enemyStatus.isStabbed.Reset();
         }
 
         public override Status OnUpdate()
         {
-            agent.SetDestination(playerTrans.position);
-            
             return timer.IsAnimatorFinish ? Status.Success : Status.Running;
-        }
-
-        public override void OnStop()
-        {
-            agent.updateRotation = false;
         }
     }
 }

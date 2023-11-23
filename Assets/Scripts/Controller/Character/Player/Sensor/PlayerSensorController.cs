@@ -36,6 +36,8 @@ namespace Controller.Character.Player.Player
     public partial class PlayerSensorController : MonoBehaviour
     {
         public SensorProperty<Collider[]> groundSensor;
+
+        public SensorProperty<Collider> backStabSensor;
         
         private void Start()
         {
@@ -47,11 +49,42 @@ namespace Controller.Character.Player.Player
                     LayerMask.GetMask("Ground")),
                 values => values.Length > 0
             );
+            
+            backStabSensor = new SensorProperty<Collider>(
+                () => Physics.OverlapBox(backStabSensorTrans.position,
+                        backStabSensorTrans.localScale / 2f,
+                        backStabSensorTrans.rotation)
+                    .FirstOrDefault(collider => collider.CompareTag("Enemy")), 
+                value =>
+                {
+                    if (value == null)
+                    {
+                        return false;
+                    }
+
+                    var enemy = value.transform;
+                    var enemySensorPos = enemy.position - backStabSensorTrans.localPosition;
+                    var player = Physics.OverlapBox(
+                            enemySensorPos, 
+                            backStabSensorTrans.localScale / 2f,
+                            enemy.rotation)
+                        .FirstOrDefault(collider => collider.CompareTag("Player"));
+
+                    return player;
+                }
+            );
         }
 
         private void FixedUpdate()
         {
             groundSensor.Detect();
+            
+            backStabSensor.Detect();
+
+            if (backStabSensor)
+            {
+                Debug.Log("Stab Ready");
+            }
         }
     }
 }
