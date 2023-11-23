@@ -12,6 +12,8 @@ namespace Behaviour_Tree.Node.Runtime.Action
     [Serializable, NodeMenuItem("Behaviour/Action/Idle")]
     public class IdleNode : EnemyActionNode
     {
+        private string animationName = "Idle";
+        
         private AnimationTimer timer;
 
         public override void OnAwake()
@@ -27,14 +29,19 @@ namespace Behaviour_Tree.Node.Runtime.Action
             
             timer.Reset();
 
-            animator.CrossFade("Idle", 0.1f);
+            if (animator.GetCurrentAnimatorStateInfo(0).IsName(animationName))
+            {
+                return;
+            }
+
+            animator.CrossFade(animationName, 0.1f);
         }
 
         public override Status OnUpdate()
         {
             agent.SetDestination(transform.position);
 
-            if (timer > 0.15f) // 需要等待动画转态完成，否则不断的请求会导致卡住
+            if (timer > 0.2f) // 需要等待动画转态完成，否则不断的请求会导致卡住
             {
                 return Status.Success;
             }

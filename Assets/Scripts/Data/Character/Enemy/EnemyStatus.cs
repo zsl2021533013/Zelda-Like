@@ -19,9 +19,18 @@ namespace Data.Character.Enemy
         public static implicit operator T(StatusProperty<T> statusProperty) => statusProperty.Value;
     }
     
+    public enum EnemyStatusProperty
+    {
+        None,
+        Stabbed,
+        Dead,
+        Alert
+    }
+    
     public class EnemyStatus : ScriptableObject
     {
         public StatusProperty<bool> isStabbed = new StatusProperty<bool>();
         public StatusProperty<bool> isDead = new StatusProperty<bool>();
+        public StatusProperty<bool> isAlert = new StatusProperty<bool>();
     }
 }

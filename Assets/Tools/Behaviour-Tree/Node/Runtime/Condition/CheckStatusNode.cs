@@ -11,13 +11,6 @@ namespace Tools.Behaviour_Tree.Node.Runtime.Condition
     [Serializable, NodeMenuItem("Behaviour/Condition/Check Status")]
     public class CheckStatusNode : ConditionNode
     {
-        public enum EnemyStatusProperty
-        {
-            None,
-            Stabbed,
-            Dead
-        }
-        
         [ShowInInspector] 
         public EnemyStatusProperty property = EnemyStatusProperty.None;
 
@@ -36,6 +29,8 @@ namespace Tools.Behaviour_Tree.Node.Runtime.Condition
                     return enemyStatus.isStabbed ? Status.Success : Status.Failure;
                 case EnemyStatusProperty.Dead:
                     return enemyStatus.isDead ? Status.Success : Status.Failure;
+                case EnemyStatusProperty.Alert:
+                    return enemyStatus.isAlert ? Status.Success : Status.Failure;
             }
 
             return Status.Failure;

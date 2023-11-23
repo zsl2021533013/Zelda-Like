@@ -9,6 +9,8 @@ namespace Data.Character.Enemy
     {
         [FoldoutGroup("Sensor")] public float povAngle;
         [FoldoutGroup("Sensor")] public float povDist;
-        [FoldoutGroup("Sensor")] public float attackDist;
+        
+        [FoldoutGroup("Combat")] public float attackDist;
+        [FoldoutGroup("Combat")] public float alertDist;
     }
 }
