@@ -55,17 +55,17 @@ namespace GraphProcessor
 		[System.NonSerialized]
 		List< IconBadge >						badges = new List< IconBadge >();
 
-		private List<Node> selectedNodes = new List<Node>();
-		private float      selectedNodesFarLeft;
-		private float      selectedNodesNearLeft;
-		private float      selectedNodesFarRight;
-		private float      selectedNodesNearRight;
-		private float      selectedNodesFarTop;
-		private float      selectedNodesNearTop;
-		private float      selectedNodesFarBottom;
-		private float      selectedNodesNearBottom;
-		private float      selectedNodesAvgHorizontal;
-		private float      selectedNodesAvgVertical;
+		protected List<Node> selectedNodes = new List<Node>();
+		protected float      selectedNodesFarLeft;
+		protected float      selectedNodesNearLeft;
+		protected float      selectedNodesFarRight;
+		protected float      selectedNodesNearRight;
+		protected float      selectedNodesFarTop;
+		protected float      selectedNodesNearTop;
+		protected float      selectedNodesFarBottom;
+		protected float      selectedNodesNearBottom;
+		protected float      selectedNodesAvgHorizontal;
+		protected float      selectedNodesAvgVertical;
 		
 		#region  Initialization
 		
@@ -433,8 +433,8 @@ namespace GraphProcessor
 			portsPerFieldName.TryGetValue(p.fieldName, out ports);
 			ports.Remove(p);
 		}
-		
-		private void SetValuesForSelectedNodes()
+
+		protected void SetValuesForSelectedNodes()
 		{
 			selectedNodes = new List<Node>();
 			owner.nodes.ForEach(node =>

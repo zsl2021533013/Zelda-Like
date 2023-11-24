@@ -686,7 +686,7 @@ namespace GraphProcessor
 
 		#region Initialization
 
-		void ReloadView()
+		protected void ReloadView()
 		{
 			// Force the graph to reload his data (Undo have updated the serialized properties of the graph
 			// so the one that are not serialized need to be synchronized)

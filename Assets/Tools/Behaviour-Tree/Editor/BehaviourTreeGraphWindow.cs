@@ -51,11 +51,19 @@ namespace Behaviour_Tree.Editor
 
         protected override void InitializeGraphView(BaseGraphView view)
         {
-            var root = graph.nodes.FirstOrDefault(node => node is RootNode) as RootNode;
-            if (root == null)
+            var behaviourTreeView = (BehaviourTreeGraphView)view;
+            
+            if (behaviourTreeView == null)
             {
-                (view as BehaviourTreeGraphView)?.CreateRootNode();
+                return;
             }
+
+            if (graph.nodes.FirstOrDefault(node => node is RootNode) is not RootNode root)
+            {
+                root = behaviourTreeView.CreateRootNode();
+            }
+
+            behaviourTreeView.root = root;
         }
 
         private void OnInspectorUpdate()
