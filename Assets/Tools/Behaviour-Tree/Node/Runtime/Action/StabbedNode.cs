@@ -29,9 +29,6 @@ namespace Behaviour_Tree.Node.Runtime.Action
             timer.Reset();
             
             animator.CrossFade(animationName, 0.1f);
-            
-            var enemyStatus = this.GetModel<IEnemyModel>().GetComponents(transform).Get<EnemyStatus>();
-            enemyStatus.isStabbed.Reset();
         }
 
         public override Status OnUpdate()

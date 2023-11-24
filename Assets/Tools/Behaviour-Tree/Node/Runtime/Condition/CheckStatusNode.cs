@@ -26,11 +26,29 @@ namespace Tools.Behaviour_Tree.Node.Runtime.Condition
             switch (property)
             {
                 case EnemyStatusProperty.Stabbed:
-                    return enemyStatus.isStabbed ? Status.Success : Status.Failure;
+                    if (enemyStatus.isStabbed)
+                    {
+                        enemyStatus.isStabbed.Reset();
+                        return Status.Success;
+                    }
+
+                    return Status.Failure;
                 case EnemyStatusProperty.Dead:
-                    return enemyStatus.isDead ? Status.Success : Status.Failure;
+                    if (enemyStatus.isDead)
+                    {
+                        enemyStatus.isDead.Reset();
+                        return Status.Success;
+                    }
+
+                    return Status.Failure;
                 case EnemyStatusProperty.Alert:
-                    return enemyStatus.isAlert ? Status.Success : Status.Failure;
+                    if (enemyStatus.isAlert)
+                    {
+                        enemyStatus.isAlert.Reset();
+                        return Status.Success;
+                    }
+
+                    return Status.Failure;
             }
 
             return Status.Failure;

@@ -63,7 +63,7 @@ namespace Controller.Character.Player.Player
                     }
 
                     var enemy = value.transform;
-                    var enemySensorPos = enemy.position - backStabSensorTrans.localPosition;
+                    var enemySensorPos = enemy.position - enemy.forward;
                     var player = Physics.OverlapBox(
                             enemySensorPos, 
                             backStabSensorTrans.localScale / 2f,

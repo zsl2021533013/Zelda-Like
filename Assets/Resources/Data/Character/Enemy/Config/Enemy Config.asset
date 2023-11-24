@@ -15,3 +15,4 @@ MonoBehaviour:
   povAngle: 90
   povDist: 6
   attackDist: 2
+  alertDist: 10
