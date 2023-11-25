@@ -38,7 +38,7 @@ namespace Behaviour_Tree.Editor
 
         protected override void InitializeWindow(BaseGraph graph)
         {
-            titleContent = new GUIContent("Behaviour Tree");
+            titleContent = new GUIContent(graph.name);
 
             if (graphView == null)
             {

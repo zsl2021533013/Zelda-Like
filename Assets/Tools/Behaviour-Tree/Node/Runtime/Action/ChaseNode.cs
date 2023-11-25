@@ -1,5 +1,6 @@
 ﻿using System;
 using Behaviour_Tree.Node.Runtime.Core;
+using Data.Character.Enemy;
 using GraphProcessor;
 using Model.Interface;
 using QFramework;
@@ -32,6 +33,7 @@ namespace Behaviour_Tree.Node.Runtime.Action
             
             if (Vector3.Distance(transform.position, playerTrans.position) > config.povDist)
             {
+                this.GetModel<IEnemyModel>().GetEnemyStatus(transform).state.Value = EnemyState.Safe;
                 return Status.Failure;
             }
 

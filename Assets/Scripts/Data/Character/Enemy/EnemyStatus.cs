@@ -23,7 +23,10 @@ namespace Data.Character.Enemy
     {
         None,
         Stabbed,
-        Dead
+        Dead,
+        State_Safe,
+        State_Alert,
+        State_Combat
     }
 
     public enum EnemyState

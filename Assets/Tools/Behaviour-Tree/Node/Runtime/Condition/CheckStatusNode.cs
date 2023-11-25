@@ -31,7 +31,6 @@ namespace Tools.Behaviour_Tree.Node.Runtime.Condition
                         enemyStatus.isStabbed.Reset();
                         return Status.Success;
                     }
-
                     return Status.Failure;
                 case EnemyStatusProperty.Dead:
                     if (enemyStatus.isDead)
@@ -39,7 +38,24 @@ namespace Tools.Behaviour_Tree.Node.Runtime.Condition
                         enemyStatus.isDead.Reset();
                         return Status.Success;
                     }
-
+                    return Status.Failure;
+                case EnemyStatusProperty.State_Safe:
+                    if (enemyStatus.state == EnemyState.Safe)
+                    {
+                        return Status.Success;
+                    }
+                    return Status.Failure;
+                case EnemyStatusProperty.State_Alert:
+                    if (enemyStatus.state == EnemyState.Alert)
+                    {
+                        return Status.Success;
+                    }
+                    return Status.Failure;
+                case EnemyStatusProperty.State_Combat:
+                    if (enemyStatus.state == EnemyState.Combat)
+                    {
+                        return Status.Success;
+                    }
                     return Status.Failure;
             }
 

@@ -20,15 +20,6 @@ namespace Behaviour_Tree.Runtime.Processor
 
         // 舍弃不用
         public override void Run() { }
-
-        // private void Awake()
-        // {
-        //     foreach (var baseNode in graph.nodes)
-        //     {
-        //         var node = (BehaviourTreeNode)baseNode;
-        //         node.OnAwake();
-        //     }
-        // }
         
         public void Update()
         {

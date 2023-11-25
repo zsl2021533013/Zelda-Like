@@ -15,7 +15,6 @@ namespace Behaviour_Tree.Node.Runtime.Action
         public override Status OnUpdate()
         {
             var enemys = this.GetModel<IEnemyModel>().enemyDict.Keys
-                .Where(enemy => enemy != transform)
                 .Where(enemy => Vector3.Distance(transform.position, enemy.position) < config.alertDist);
 
             enemys.ForEach(enemy =>
@@ -29,11 +28,6 @@ namespace Behaviour_Tree.Node.Runtime.Action
             );
             
             return Status.Success;
-        }
-
-        public override void OnStop()
-        {
-            Debug.Log(status);
         }
     }
 }

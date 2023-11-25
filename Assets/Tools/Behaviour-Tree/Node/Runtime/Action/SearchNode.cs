@@ -1,5 +1,6 @@
 ﻿using System;
 using Behaviour_Tree.Node.Runtime.Core;
+using Data.Character.Enemy;
 using GraphProcessor;
 using Model.Interface;
 using QFramework;
@@ -37,9 +38,15 @@ namespace Behaviour_Tree.Node.Runtime.Action
 
         public override Status OnUpdate()
         {
-            if (Vector3.Distance(transform.position, targetPos) <= 1f || 
-                IsPlayerInSectorRange(playerTrans.position))
+            if(IsPlayerInSectorRange(playerTrans.position))
             {
+                this.GetModel<IEnemyModel>().GetEnemyStatus(transform).state.Value = EnemyState.Combat;
+                return Status.Success;
+            }
+            
+            if (Vector3.Distance(transform.position, targetPos) <= 1f)
+            {
+                this.GetModel<IEnemyModel>().GetEnemyStatus(transform).state.Value = EnemyState.Safe;
                 return Status.Success;
             }
 
