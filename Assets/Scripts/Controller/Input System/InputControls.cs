@@ -96,7 +96,7 @@ public partial class @InputControls : IInputActionCollection2, IDisposable
                     ""id"": ""24e80323-f087-4e31-95eb-d52035916f32"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": """",
+                    ""interactions"": ""Tap"",
                     ""initialStateCheck"": false
                 }
             ],
@@ -302,7 +302,7 @@ public partial class @InputControls : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""feac6388-fa47-49f3-bb3b-f8eb84a146fb"",
-                    ""path"": ""<Keyboard>/e"",
+                    ""path"": ""<Mouse>/rightButton"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Data.Character.Enemy;
 using QFramework;
 using UnityEngine;
 using Object = UnityEngine.Object;
@@ -46,5 +47,7 @@ namespace Model.Interface
         public void UnregisterEnemy(Transform transform);
 
         public Components GetComponents(Transform transform);
+        
+        public EnemyStatus GetEnemyStatus(Transform transform);
     }
 }

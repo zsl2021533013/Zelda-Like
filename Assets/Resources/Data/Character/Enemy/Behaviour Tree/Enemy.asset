@@ -38,7 +38,6 @@ MonoBehaviour:
   - rid: 2677927088251994147
   - rid: 2677927093556477952
   - rid: 2677927093556477957
-  - rid: 2677927093556477958
   edges:
   - GUID: dadae43c-2f67-43d3-b117-81a840a580d1
     owner: {fileID: 11400000}
@@ -208,14 +207,6 @@ MonoBehaviour:
     outputFieldName: child
     inputPortIdentifier: 
     outputPortIdentifier: 
-  - GUID: ffe34c79-bff6-4a9f-8934-9fd1d7e6a609
-    owner: {fileID: 11400000}
-    inputNodeGUID: 41c68586-ea2a-4b68-9d6d-401ca11ebd4c
-    outputNodeGUID: 6d53c2c6-07eb-4e3e-bf08-e7705593246b
-    inputFieldName: parent
-    outputFieldName: child
-    inputPortIdentifier: 
-    outputPortIdentifier: 
   - GUID: faaad3a4-239f-454a-823d-d4058b587796
     owner: {fileID: 11400000}
     inputNodeGUID: fe657745-a7d8-48e2-8360-248b1878a31e
@@ -224,10 +215,10 @@ MonoBehaviour:
     outputFieldName: child
     inputPortIdentifier: 
     outputPortIdentifier: 
-  - GUID: 5bc0e8ca-d7ff-4399-8c56-4c0545293c2f
+  - GUID: 433f0ff8-86de-43c3-a8f1-12012e678eff
     owner: {fileID: 11400000}
-    inputNodeGUID: 76153ac5-2028-4d7b-a39c-c5d8af84d3ee
-    outputNodeGUID: 41c68586-ea2a-4b68-9d6d-401ca11ebd4c
+    inputNodeGUID: 41c68586-ea2a-4b68-9d6d-401ca11ebd4c
+    outputNodeGUID: 6d53c2c6-07eb-4e3e-bf08-e7705593246b
     inputFieldName: parent
     outputFieldName: child
     inputPortIdentifier: 
@@ -249,8 +240,8 @@ MonoBehaviour:
   serializedParameterList: []
   stickyNotes: []
   nodeInspectorReference: {fileID: 0}
-  position: {x: 138.4, y: 132, z: 0}
-  scale: {x: 0.49717674, y: 0.49717674, z: 1}
+  position: {x: 407.2, y: 73.6, z: 0}
+  scale: {x: 0.57175326, y: 0.57175326, z: 1}
   references:
     version: 2
     RefIds:
@@ -262,10 +253,10 @@ MonoBehaviour:
         computeOrder: 0
         position:
           serializedVersion: 2
-          x: 384.65002
+          x: 365.40002
           y: 0
-          width: 73.600006
-          height: 48.799988
+          width: 73.599976
+          height: 48
         expanded: 0
         debug: 0
         nodeLock: 0
@@ -277,7 +268,7 @@ MonoBehaviour:
         computeOrder: 3
         position:
           serializedVersion: 2
-          x: 1091
+          x: 1014
           y: 360
           width: 82.400024
           height: 54.400024
@@ -292,7 +283,7 @@ MonoBehaviour:
         computeOrder: 4
         position:
           serializedVersion: 2
-          x: 1458.0001
+          x: 1380.9999
           y: 480
           width: 103.19995
           height: 54.400024
@@ -307,10 +298,10 @@ MonoBehaviour:
         computeOrder: 5
         position:
           serializedVersion: 2
-          x: 1478.7999
+          x: 1401.7999
           y: 600
-          width: 84
-          height: 48.799988
+          width: 84.00012
+          height: 48.80005
         expanded: 0
         debug: 0
         nodeLock: 0
@@ -322,7 +313,7 @@ MonoBehaviour:
         computeOrder: 6
         position:
           serializedVersion: 2
-          x: 1078
+          x: 1001
           y: 480
           width: 103.19995
           height: 54.400024
@@ -337,10 +328,10 @@ MonoBehaviour:
         computeOrder: 7
         position:
           serializedVersion: 2
-          x: 1159.6
+          x: 1082.6
           y: 600
-          width: 83.20007
-          height: 48.799988
+          width: 83.19995
+          height: 48.80005
         expanded: 0
         debug: 0
         nodeLock: 0
@@ -352,10 +343,10 @@ MonoBehaviour:
         computeOrder: 8
         position:
           serializedVersion: 2
-          x: 1612.7999
+          x: 1535.7999
           y: 600
-          width: 91.20007
-          height: 48.799988
+          width: 91.19995
+          height: 48.80005
         expanded: 0
         debug: 0
         nodeLock: 0
@@ -367,7 +358,7 @@ MonoBehaviour:
         computeOrder: 9
         position:
           serializedVersion: 2
-          x: 703.2
+          x: 626.2
           y: 480
           width: 103.20001
           height: 54.400024
@@ -382,7 +373,7 @@ MonoBehaviour:
         computeOrder: 10
         position:
           serializedVersion: 2
-          x: 779.80005
+          x: 702.80005
           y: 600
           width: 67.19995
           height: 48.799988
@@ -397,7 +388,7 @@ MonoBehaviour:
         computeOrder: 11
         position:
           serializedVersion: 2
-          x: 662.6
+          x: 585.6
           y: 600
           width: 67.20001
           height: 54.400024
@@ -412,10 +403,10 @@ MonoBehaviour:
         computeOrder: 12
         position:
           serializedVersion: 2
-          x: 1006.4
+          x: 929.4
           y: 600
-          width: 103.20001
-          height: 54.400024
+          width: 103.19995
+          height: 54.399902
         expanded: 0
         debug: 0
         nodeLock: 0
@@ -428,7 +419,7 @@ MonoBehaviour:
         computeOrder: 13
         position:
           serializedVersion: 2
-          x: 1292.7999
+          x: 1215.7999
           y: 600
           width: 136
           height: 48.799988
@@ -462,10 +453,10 @@ MonoBehaviour:
         computeOrder: 16
         position:
           serializedVersion: 2
-          x: 897
+          x: 820
           y: 720
           width: 136
-          height: 48.799988
+          height: 48.799927
         expanded: 0
         debug: 0
         nodeLock: 0
@@ -480,10 +471,10 @@ MonoBehaviour:
         computeOrder: 17
         position:
           serializedVersion: 2
-          x: 1083
+          x: 1006
           y: 720
           width: 136
-          height: 48.799988
+          height: 48.799927
         expanded: 0
         debug: 0
         nodeLock: 0
@@ -498,7 +489,7 @@ MonoBehaviour:
         computeOrder: 1
         position:
           serializedVersion: 2
-          x: 353.85
+          x: 334.6
           y: 120.00001
           width: 135.2
           height: 54.40001
@@ -513,10 +504,10 @@ MonoBehaviour:
         computeOrder: 18
         position:
           serializedVersion: 2
-          x: 27.799995
-          y: 240
-          width: 103.2
-          height: 54.400024
+          x: 27.799988
+          y: 240.00002
+          width: 103.20001
+          height: 54.399998
         expanded: 0
         debug: 0
         nodeLock: 0
@@ -532,7 +523,7 @@ MonoBehaviour:
           x: -61.199997
           y: 360
           width: 122.399994
-          height: 48.799988
+          height: 48
         expanded: 0
         debug: 0
         nodeLock: 0
@@ -561,7 +552,7 @@ MonoBehaviour:
         computeOrder: 2
         position:
           serializedVersion: 2
-          x: 695.9
+          x: 657.39996
           y: 240
           width: 135.20001
           height: 54.400024
@@ -623,25 +614,10 @@ MonoBehaviour:
         computeOrder: 14
         position:
           serializedVersion: 2
-          x: 644.6
+          x: 567.6
           y: 720
           width: 103.20001
           height: 54.400024
-        expanded: 0
-        debug: 0
-        nodeLock: 0
-    - rid: 2677927093556477958
-      type: {class: AlertNode, ns: Behaviour_Tree.Node.Runtime.Action, asm: Assembly-CSharp}
-      data:
-        nodeCustomName: 
-        GUID: 76153ac5-2028-4d7b-a39c-c5d8af84d3ee
-        computeOrder: 24
-        position:
-          serializedVersion: 2
-          x: 723.2001
-          y: 840
-          width: 100
-          height: 100
         expanded: 0
         debug: 0
         nodeLock: 0

@@ -19,10 +19,21 @@ namespace Behaviour_Tree.Node.Runtime.Action
                 .Where(enemy => Vector3.Distance(transform.position, enemy.position) < config.alertDist);
 
             enemys.ForEach(enemy =>
-                    this.GetModel<IEnemyModel>().GetComponents(transform).Get<EnemyStatus>().isAlert.Value = true
+                {
+                    var property = this.GetModel<IEnemyModel>().GetEnemyStatus(enemy).state;
+                    if (property == EnemyState.Safe)
+                    {
+                        property.Value = EnemyState.Alert;
+                    }
+                }
             );
             
             return Status.Success;
+        }
+
+        public override void OnStop()
+        {
+            Debug.Log(status);
         }
     }
 }

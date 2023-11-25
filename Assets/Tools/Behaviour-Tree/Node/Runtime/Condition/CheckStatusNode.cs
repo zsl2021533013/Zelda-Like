@@ -41,14 +41,6 @@ namespace Tools.Behaviour_Tree.Node.Runtime.Condition
                     }
 
                     return Status.Failure;
-                case EnemyStatusProperty.Alert:
-                    if (enemyStatus.isAlert)
-                    {
-                        enemyStatus.isAlert.Reset();
-                        return Status.Success;
-                    }
-
-                    return Status.Failure;
             }
 
             return Status.Failure;

@@ -16,10 +16,13 @@ namespace Controller.Character.Enemy
 {
     public class EnemyController : MonoBehaviour, IController
     {
+        [Tooltip("Debug mode can show more color result, but can only use for singleton")]
+        [BoxGroup("Behaviour Tree")] public bool debugMode;
         [BoxGroup("Behaviour Tree")] public BehaviourTreeGraph graph;
-
+        private BehaviourTreeGraph runtimeGraph;
+        
         [BoxGroup("Config")] public EnemyConfig config;
-    
+        
         [BoxGroup("Components")] public Animator animator;
         [BoxGroup("Components")] public NavMeshAgent agent;
         
@@ -27,14 +30,23 @@ namespace Controller.Character.Enemy
         
         private void Awake()
         {
+            var model = this.GetModel<IEnemyModel>();
+            model.RegisterEnemy(transform, animator, agent, config);
+        }
+        
+        private void OnEnable()
+        {
             agent.updatePosition = false;
             agent.updateRotation = false;
             agent.angularSpeed = 1000f;
             
             var model = this.GetModel<IEnemyModel>();
             model.RegisterEnemy(transform, animator, agent, config);
-        
-            graph.nodes.ForEach(node =>
+            
+            runtimeGraph = debugMode ? graph : Instantiate(graph);
+            _process = new BehaviourTreeProcess(runtimeGraph);
+            
+            runtimeGraph.nodes.ForEach(node =>
             {
                 if (node is BehaviourTreeNode treeNode)
                 {
@@ -44,21 +56,10 @@ namespace Controller.Character.Enemy
             });
         }
         
-        private void OnEnable()
-        {
-            var model = this.GetModel<IEnemyModel>();
-            model.RegisterEnemy(transform, animator, agent, config);
-        }
-        
         private void OnDisable()
         {
             var model = this.GetModel<IEnemyModel>();
             model.UnregisterEnemy(transform);
-        }
-    
-        private void Start()
-        {
-            _process ??= new BehaviourTreeProcess(graph);
         }
 
         private void Update()
@@ -80,7 +81,7 @@ namespace Controller.Character.Enemy
             transform.rotation = rotation;
         }
 
-        private void OnDrawGizmos()
+        private void OnDrawGizmosSelected()
         {
             Gizmos.color = Color.red;
             Gizmos.DrawWireSphere(transform.position, config.attackDist);
@@ -90,6 +91,8 @@ namespace Controller.Character.Enemy
             Gizmos.color = Color.yellow;
             Gizmos.DrawFrustum(Vector3.up, config.povAngle, config.povDist, 0, 1);
             Gizmos.matrix = Matrix4x4.identity;
+            
+            Gizmos.DrawWireSphere(transform.position, config.alertDist);
         }
 
         public IArchitecture GetArchitecture()

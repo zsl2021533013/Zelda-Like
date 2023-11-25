@@ -23,14 +23,20 @@ namespace Data.Character.Enemy
     {
         None,
         Stabbed,
-        Dead,
-        Alert
+        Dead
+    }
+
+    public enum EnemyState
+    {
+        Safe,
+        Alert,
+        Combat
     }
     
     public class EnemyStatus : ScriptableObject
     {
         public StatusProperty<bool> isStabbed = new StatusProperty<bool>();
         public StatusProperty<bool> isDead = new StatusProperty<bool>();
-        public StatusProperty<bool> isAlert = new StatusProperty<bool>();
+        public StatusProperty<EnemyState> state = new StatusProperty<EnemyState>();
     }
 }

@@ -49,5 +49,12 @@ namespace Model
             enemyDict.TryGetValue(transform, out var components);
             return components;
         }
+
+        public EnemyStatus GetEnemyStatus(Transform transform)
+        {
+            enemyDict.TryGetValue(transform, out var components);
+            
+            return components?.Get<EnemyStatus>();
+        }
     }
 }

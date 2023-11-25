@@ -13,7 +13,7 @@ public class Test : MonoBehaviour, IController
         if (Input.GetKeyDown(KeyCode.T))
         {
             var status = this.GetModel<IEnemyModel>().GetComponents(enemy).Get<EnemyStatus>();
-            status.isAlert.Value = true;
+            // status.isAlert.Value = true;
         }
     }
 

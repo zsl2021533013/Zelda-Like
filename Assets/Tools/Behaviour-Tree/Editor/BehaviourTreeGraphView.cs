@@ -192,7 +192,7 @@ namespace Behaviour_Tree.Editor
                 //
                 // var newDeltaX = (node.position.x - leftBros[0].position.x);
                 // leftBros.ForEach(bro => newDeltaX -= bro.position.size.x);
-                // newDeltaX /= leftBros.Count;
+                // newDeltaX /= leftBros.Cou    nt;
                 //
                 // for (var j = 1; j < leftBros.Count; j++)
                 // {
