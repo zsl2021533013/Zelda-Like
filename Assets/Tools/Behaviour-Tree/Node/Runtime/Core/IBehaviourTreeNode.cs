@@ -9,7 +9,7 @@
     
     public interface IBehaviourTreeNode
     {
-        public void OnAwake();
+        public void OnEnable();
         public void OnStart();
         public Status OnUpdate();
         public void OnStop();

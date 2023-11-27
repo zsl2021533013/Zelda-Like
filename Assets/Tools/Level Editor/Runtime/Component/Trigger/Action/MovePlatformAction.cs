@@ -25,7 +25,7 @@ namespace Level_Editor.Runtime.Action
             
             timer = new AnimationTimer(animator.GetAnimationLength(animationName));
 
-            playerTrans = this.GetModel<IPlayerModel>().transform;
+            playerTrans = this.GetModel<IPlayerModel>().components.Get<Transform>();
             
             DetectPlayer();
         }

@@ -26,11 +26,6 @@ namespace Controller.Character.Player.Player
         
         private void Awake()
         {
-            Cursor.lockState = CursorLockMode.Locked;
-            
-            var model = this.GetModel<IPlayerModel>();
-            model.RegisterPlayer(transform);
-            
             FSM = new StateMachine<Type, Type, Type>();
             
             var attackTime = 0;
@@ -186,17 +181,17 @@ namespace Controller.Character.Player.Player
                 needsExitTime: true
             );
             
-            FSM.AddState<DodgeState>(
+            FSM.AddState<ParryState>(
                 animator,
-                "Dodge",
+                "Parry",
                 onEnter: state =>
                 {
-                    InputKit.Instance.dodge.Reset();
+                    InputKit.Instance.parry.Reset();
                     
                     var velocity = new Vector3(0, rb.velocity.y, 0) ;
                     rb.velocity = velocity;
                 },
-                canExit: state => state.timer.IsAnimatorFinish,
+                canExit: state => state.timer > 0.7f,
                 needsExitTime: true
             );
             
@@ -321,8 +316,8 @@ namespace Controller.Character.Player.Player
                 needsExitTime: true
             );
             
-            FSM.AddTransition<MoveState, DodgeState>
-                (transition => InputKit.Instance.dodge);
+            FSM.AddTransition<MoveState, ParryState>
+                (transition => InputKit.Instance.parry);
             
             FSM.AddTransition<MoveState, JumpState>
                 (transition => InputKit.Instance.jump);
@@ -361,7 +356,7 @@ namespace Controller.Character.Player.Player
             FSM.AddTransition<AttackState, MoveState>
                 (transition => InputKit.Instance.move.Value.magnitude > 0.1f);
             
-            FSM.AddTransition<DodgeState, MoveState>
+            FSM.AddTransition<ParryState, MoveState>
                 (transition => true);
             
             FSM.AddTransition<FocusState, MoveState>
@@ -373,8 +368,15 @@ namespace Controller.Character.Player.Player
 
         private void OnEnable()
         {
+            Cursor.lockState = CursorLockMode.Locked;
+            
             var model = this.GetModel<IPlayerModel>();
-            model.RegisterPlayer(transform);
+            model.RegisterPlayer(
+                transform, 
+                this, 
+                animator, 
+                rb, 
+                sensorController);
         }
         
         private void OnDisable()

@@ -1,4 +1,5 @@
-﻿using Data.Character.Enemy;
+﻿using Controller.Combat;
+using Data.Character.Enemy;
 using Model.Interface;
 using QFramework;
 using UnityEngine;
@@ -10,14 +11,16 @@ namespace Behaviour_Tree.Node.Runtime.Action
     {
         protected Animator animator;
         protected NavMeshAgent agent;
+        protected WeaponController weapon;
         protected EnemyConfig config;
         
-        public override void OnAwake()
+        public override void OnEnable()
         {
             var components = this.GetModel<IEnemyModel>().GetComponents(transform);
             
             animator = components.Get<Animator>();
             agent = components.Get<NavMeshAgent>();
+            weapon = components.Get<WeaponController>();
             config = components.Get<EnemyConfig>();
         }
     }

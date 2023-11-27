@@ -69,7 +69,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Dodge",
+                    "name": "Parry",
                     "type": "Button",
                     "id": "24e80323-f087-4e31-95eb-d52035916f32",
                     "expectedControlType": "Button",
@@ -295,7 +295,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Dodge",
+                    "action": "Parry",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

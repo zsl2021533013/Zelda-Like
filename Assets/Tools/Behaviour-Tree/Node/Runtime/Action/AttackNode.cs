@@ -21,9 +21,9 @@ namespace Behaviour_Tree.Node.Runtime.Action
 
         private AnimationTimer timer;
 
-        public override void OnAwake()
+        public override void OnEnable()
         {
-            base.OnAwake();
+            base.OnEnable();
             
             timer = new AnimationTimer(animator.GetAnimationLength(animationName));
         }
@@ -36,7 +36,9 @@ namespace Behaviour_Tree.Node.Runtime.Action
             
             agent.updateRotation = true;
             
-            playerTrans = this.GetModel<IPlayerModel>().transform;
+            playerTrans = this.GetModel<IPlayerModel>().components.Get<Transform>();
+
+            weapon.OpenWeapon();
         }
 
         public override Status OnUpdate()
@@ -49,6 +51,8 @@ namespace Behaviour_Tree.Node.Runtime.Action
         public override void OnStop()
         {
             agent.updateRotation = false;
+            
+            weapon.CloseWeapon();
         }
     }
 }

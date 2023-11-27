@@ -12,7 +12,7 @@ namespace Behaviour_Tree.Node.Runtime.Composite
         
         public override string layoutStyle => "CompositeNodeStyle";
 
-        public override void OnAwake()
+        public override void OnEnable()
         {
             children = this.GetChildren();
         }

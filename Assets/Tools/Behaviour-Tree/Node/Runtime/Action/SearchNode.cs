@@ -16,9 +16,9 @@ namespace Behaviour_Tree.Node.Runtime.Action
         private Transform playerTrans;
         private Vector3 targetPos;
 
-        public override void OnAwake()
+        public override void OnEnable()
         {
-            base.OnAwake();
+            base.OnEnable();
             
             angle = config.povAngle;
             distance = config.povDist;
@@ -30,7 +30,7 @@ namespace Behaviour_Tree.Node.Runtime.Action
             
             agent.updateRotation = true;
             
-            playerTrans = this.GetModel<IPlayerModel>().transform;
+            playerTrans = this.GetModel<IPlayerModel>().components.Get<Transform>();
             targetPos = playerTrans.position;
             
             agent.SetDestination(targetPos);

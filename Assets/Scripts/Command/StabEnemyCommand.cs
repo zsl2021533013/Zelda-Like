@@ -12,7 +12,7 @@ namespace Command
         protected override void OnExecute()
         {
             var enemyStatus = this.GetModel<IEnemyModel>().GetComponents(enemy).Get<EnemyStatus>();
-            enemyStatus.isStabbed.Value = true;
+            enemyStatus.isBackStabbed.Value = true;
         }
     }
 }

@@ -19,7 +19,7 @@ namespace Behaviour_Tree.Node.Runtime.Action
             
             agent.updateRotation = true;
             
-            playerTrans = this.GetModel<IPlayerModel>().transform;
+            playerTrans = this.GetModel<IPlayerModel>().components.Get<Transform>();
         }
 
         public override Status OnUpdate()

@@ -7,26 +7,28 @@ namespace Model
 {
     public class PlayerModel : AbstractModel, IPlayerModel
     {
-        public Transform transform { get; private set; }
-        public PlayerController controller { get; private set; }
+        public Components components { get; private set; } = new Components();
         
         protected override void OnInit()
         {
             
         }
-
-        public void RegisterPlayer(Transform transform)
+        
+        public void RegisterPlayer(params Object[] args)
         {
-            this.transform = transform;
-            controller = transform.GetComponent<PlayerController>();
+            args.ForEach(arg =>
+            {
+                components.Add(arg);
+            });
+
+            components.Add(ScriptableObject.CreateInstance<PlayerStatus>());
             
             Debug.Log("Player Has Been Registered!");
         }
         
         public void UnregisterPlayer()
         {
-            transform = null;
-            controller = null;
+            components = null;
             
             Debug.Log("Player Has Been Unregistered!");
         }

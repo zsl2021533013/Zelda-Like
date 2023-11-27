@@ -6,10 +6,9 @@ namespace Model.Interface
 {
     public interface IPlayerModel : IModel
     {
-        public Transform transform { get; }
-        public PlayerController controller { get; }
+        public Components components { get; }
 
-        public void RegisterPlayer(Transform transform);
+        public void RegisterPlayer(params Object[] args);
         public void UnregisterPlayer();
     }
 }

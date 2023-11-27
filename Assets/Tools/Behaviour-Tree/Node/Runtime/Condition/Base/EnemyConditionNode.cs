@@ -13,7 +13,7 @@ namespace Tools.Behaviour_Tree.Node.Runtime.Condition
         protected NavMeshAgent agent;
         protected EnemyConfig config;
         
-        public override void OnAwake()
+        public override void OnEnable()
         {
             var components = this.GetModel<IEnemyModel>().GetComponents(transform);
             animator = components.Get<Animator>();

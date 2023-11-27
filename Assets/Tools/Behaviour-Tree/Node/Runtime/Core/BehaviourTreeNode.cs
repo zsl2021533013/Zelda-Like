@@ -112,7 +112,7 @@ namespace Behaviour_Tree.Node.Runtime.Core
             return status;
         }
 
-        public virtual void OnAwake() { }
+        public virtual void OnEnable() { }
 
         public virtual void OnStart() { }
 

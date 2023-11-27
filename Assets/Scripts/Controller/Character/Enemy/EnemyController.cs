@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using Behaviour_Tree.Node.Runtime.Core;
 using Behaviour_Tree.Runtime;
 using Behaviour_Tree.Runtime.Processor;
+using Controller.Combat;
 using Data.Character.Enemy;
+using DG.Tweening;
 using Model.Interface;
 using QFramework;
 using Sirenix.OdinInspector;
@@ -14,25 +16,9 @@ using Object = UnityEngine.Object;
 
 namespace Controller.Character.Enemy
 {
-    public class EnemyController : MonoBehaviour, IController
+    public partial class EnemyController : MonoBehaviour, IController, IParried
     {
-        [Tooltip("Debug mode can show more color result, but can only use for singleton")]
-        [BoxGroup("Behaviour Tree")] public bool debugMode;
-        [BoxGroup("Behaviour Tree")] public BehaviourTreeGraph graph;
-        private BehaviourTreeGraph runtimeGraph;
-        
-        [BoxGroup("Config")] public EnemyConfig config;
-        
-        [BoxGroup("Components")] public Animator animator;
-        [BoxGroup("Components")] public NavMeshAgent agent;
-        
         private BehaviourTreeProcess _process;
-        
-        private void Awake()
-        {
-            var model = this.GetModel<IEnemyModel>();
-            model.RegisterEnemy(transform, animator, agent, config);
-        }
         
         private void OnEnable()
         {
@@ -41,7 +27,7 @@ namespace Controller.Character.Enemy
             agent.angularSpeed = 1000f;
             
             var model = this.GetModel<IEnemyModel>();
-            model.RegisterEnemy(transform, animator, agent, config);
+            model.RegisterEnemy(transform, this, animator, agent, weapon, config);
             
             runtimeGraph = debugMode ? graph : Instantiate(graph);
             _process = new BehaviourTreeProcess(runtimeGraph);
@@ -51,7 +37,7 @@ namespace Controller.Character.Enemy
                 if (node is BehaviourTreeNode treeNode)
                 {
                     treeNode.transform = transform;
-                    treeNode.OnAwake();
+                    treeNode.OnEnable();
                 }
             });
         }
@@ -98,6 +84,13 @@ namespace Controller.Character.Enemy
         public IArchitecture GetArchitecture()
         {
             return ZeldaLike.Interface;
+        }
+        
+        public void Parried()
+        {
+            // animator.speed = 0.1f;
+            // agent.updateRotation = false;
+            //
         }
     }
 }

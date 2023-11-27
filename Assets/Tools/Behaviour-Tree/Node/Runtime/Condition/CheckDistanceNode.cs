@@ -34,9 +34,9 @@ namespace Tools.Behaviour_Tree.Node.Runtime.Condition
         private float distance;
         private Transform playerTrans;
         
-        public override void OnAwake()
+        public override void OnEnable()
         {
-            base.OnAwake();
+            base.OnEnable();
             
             switch (value)
             {
@@ -57,7 +57,7 @@ namespace Tools.Behaviour_Tree.Node.Runtime.Condition
 
         public override void OnStart()
         {
-            playerTrans = this.GetModel<IPlayerModel>().transform;
+            playerTrans = this.GetModel<IPlayerModel>().components.Get<Transform>();
         }
 
         public override Status OnUpdate()

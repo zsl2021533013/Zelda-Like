@@ -16,9 +16,9 @@ namespace Behaviour_Tree.Node.Runtime.Action
         
         private AnimationTimer timer;
 
-        public override void OnAwake()
+        public override void OnEnable()
         {
-            base.OnAwake();
+            base.OnEnable();
 
             timer = new AnimationTimer();
         }

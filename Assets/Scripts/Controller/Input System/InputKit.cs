@@ -51,7 +51,7 @@ namespace Script.View_Controller.Input_System
         public InputProperty<bool> run;
         public InputProperty<bool> jump;
         public InputProperty<bool> attack;
-        public InputProperty<bool> dodge;
+        public InputProperty<bool> parry;
         public InputProperty<bool> focus;
         
         private InputKit() {}
@@ -87,8 +87,8 @@ namespace Script.View_Controller.Input_System
                 mControls.Player.Attack,
                 performedSetter: context => true);
             
-            dodge = new InputProperty<bool>(
-                mControls.Player.Dodge,
+            parry = new InputProperty<bool>(
+                mControls.Player.Parry,
                 performedSetter: context => true,
                 canceledSetter: context => false);
             
