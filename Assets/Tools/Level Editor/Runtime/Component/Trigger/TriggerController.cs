@@ -4,9 +4,9 @@ using System.Linq;
 using Level_Editor.Runtime.Action;
 using Level_Editor.Runtime.Event;
 using Sirenix.OdinInspector;
-using Sirenix.Utilities;
 using UnityEngine;
 using UnityEngine.Events;
+using Object = UnityEngine.Object;
 
 namespace Level_Editor.Runtime
 {
@@ -69,6 +69,9 @@ namespace Level_Editor.Runtime
         
         [HideInInspector]
         public UnityEvent onTriggerDisable; 
+        
+        [HideInInspector]
+        public UnityEvent tryTrigger; 
 
         #endregion
         
@@ -89,7 +92,11 @@ namespace Level_Editor.Runtime
 
         private void OnDrawGizmos()
         {
-            var connections = triggerEvents.SelectMany(@event => @event.connections);
+            var connections = triggerEvents
+                .Where(@event => @event.connections != null)
+                .SelectMany(@event => @event.connections)
+                .ToList();
+
             connections.ForEach(connection =>
             {
                 if (connection != null)

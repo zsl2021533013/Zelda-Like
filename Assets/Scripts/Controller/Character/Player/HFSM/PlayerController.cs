@@ -161,7 +161,8 @@ namespace Controller.Character.Player.Player
                 canExit: state => state.timer.IsAnimatorFinish,
                 needsExitTime: true
             );
-            
+
+            Transform closestEnemy = null;
             FSM.AddState<AttackState>(
                 animator,
                 () =>
@@ -176,6 +177,21 @@ namespace Controller.Character.Player.Player
 
                     var velocity = new Vector3(0, rb.velocity.y, 0) ;
                     rb.velocity = velocity;
+
+                    closestEnemy = sensorController.GetClosestEnemy();
+                },
+                onFixedLogic: state =>
+                {
+                    if (closestEnemy == null)
+                    {
+                        return;
+                    }
+                    
+                    var targetDir = (closestEnemy.position - transform.position);
+                    targetDir.y = 0f;
+                    targetDir.Normalize();
+                    var targetRotation = Quaternion.LookRotation(targetDir, Vector3.up);
+                    transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, 0.3f);
                 },
                 canExit: state => state.timer > 0.65f,
                 needsExitTime: true
@@ -190,6 +206,21 @@ namespace Controller.Character.Player.Player
                     
                     var velocity = new Vector3(0, rb.velocity.y, 0) ;
                     rb.velocity = velocity;
+                    
+                    closestEnemy = sensorController.GetClosestEnemy();
+                },
+                onFixedLogic: state =>
+                {
+                    if (closestEnemy == null)
+                    {
+                        return;
+                    }
+                    
+                    var targetDir = (closestEnemy.position - transform.position);
+                    targetDir.y = 0f;
+                    targetDir.Normalize();
+                    var targetRotation = Quaternion.LookRotation(targetDir, Vector3.up);
+                    transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, 0.3f);
                 },
                 canExit: state => state.timer > 0.7f,
                 needsExitTime: true
@@ -208,7 +239,12 @@ namespace Controller.Character.Player.Player
                     if (InputKit.Instance.attack)
                     {
                         InputKit.Instance.attack.Reset();
-                        animator.SetTrigger(Boost);
+                        this.SendCommand(new SpawnPlayerFireballCommand()
+                        {
+                            position = transform.position + transform.forward,
+                            rotation = cam.transform.rotation,
+                            target = sensorController.FocusCameraRaycast()
+                        });
                     }
                 },
                 onFixedLogic: state =>
@@ -304,13 +340,35 @@ namespace Controller.Character.Player.Player
                     InputKit.Instance.attack.Reset();
 
                     var enemy = sensorController.backStabSensor.Value.transform;
-                    transform.DOMove(enemy.position - enemy.forward, 0.2f);
-                    transform.DORotate(enemy.rotation.eulerAngles, 0.2f);
+                    DOTween.Sequence()
+                        .Append(transform.DOMove(enemy.position + enemy.forward, 0.2f))
+                        .Append(transform.DOLookAt(enemy.position, 0.2f));
                     
                     var velocity = new Vector3(0, rb.velocity.y, 0) ;
                     rb.velocity = velocity;
 
                     this.SendCommand(new StabEnemyCommand() { enemy = enemy });
+                },
+                canExit: state => state.timer.IsAnimatorFinish,
+                needsExitTime: true
+            );
+            
+            FSM.AddState<BackStabState>(
+                animator,
+                "Back Stab",
+                onEnter: state =>
+                {
+                    InputKit.Instance.attack.Reset();
+
+                    var enemy = sensorController.backStabSensor.Value.transform;
+                    DOTween.Sequence()
+                        .Append(transform.DOMove(enemy.position - enemy.forward, 0.2f))
+                        .Append(transform.DORotate(enemy.rotation.eulerAngles, 0.2f));
+                    
+                    var velocity = new Vector3(0, rb.velocity.y, 0) ;
+                    rb.velocity = velocity;
+
+                    this.SendCommand(new BackStabEnemyCommand() { enemy = enemy });
                 },
                 canExit: state => state.timer.IsAnimatorFinish,
                 needsExitTime: true
@@ -326,6 +384,9 @@ namespace Controller.Character.Player.Player
                 (transition => !sensorController.groundSensor);
             
             FSM.AddTransition<MoveState, StabState>
+                (transition => sensorController.stabSensor && InputKit.Instance.attack);
+            
+            FSM.AddTransition<MoveState, BackStabState>
                 (transition => sensorController.backStabSensor && InputKit.Instance.attack);
             
             FSM.AddTransition<MoveState, AttackState>
@@ -354,13 +415,16 @@ namespace Controller.Character.Player.Player
                 onTransition: transition => comboFlag = true);
             
             FSM.AddTransition<AttackState, MoveState>
-                (transition => InputKit.Instance.move.Value.magnitude > 0.1f);
+                (transition => true);
             
             FSM.AddTransition<ParryState, MoveState>
                 (transition => true);
             
             FSM.AddTransition<FocusState, MoveState>
                 (transition => !InputKit.Instance.focus);
+            
+            FSM.AddTransition<BackStabState, MoveState>
+                (transition => true);
             
             FSM.AddTransition<StabState, MoveState>
                 (transition => true);
@@ -369,6 +433,8 @@ namespace Controller.Character.Player.Player
         private void OnEnable()
         {
             Cursor.lockState = CursorLockMode.Locked;
+
+            cam = Camera.main;
             
             var model = this.GetModel<IPlayerModel>();
             model.RegisterPlayer(
@@ -376,7 +442,8 @@ namespace Controller.Character.Player.Player
                 this, 
                 animator, 
                 rb, 
-                sensorController);
+                sensorController,
+                cam);
         }
         
         private void OnDisable()

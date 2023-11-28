@@ -43,7 +43,7 @@ namespace Controller.Combat
                             .Values
                             .FirstOrDefault(components => components.Get<WeaponController>() == this)
                             ?.Get<EnemyController>(),
-                        type = AttackType.Melee
+                        // type = AttackType.Melee
                     });
                     
                     Debug.Log("Attack Player");

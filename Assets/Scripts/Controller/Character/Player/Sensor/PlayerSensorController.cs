@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Linq;
+using Model.Interface;
+using QFramework;
 using UnityEngine;
 
 namespace Controller.Character.Player.Player
@@ -33,11 +35,13 @@ namespace Controller.Character.Player.Player
         public static implicit operator bool(SensorProperty<T> sensorProperty) => sensorProperty.IsDetected;
     }
 
-    public partial class PlayerSensorController : MonoBehaviour
+    public partial class PlayerSensorController : MonoBehaviour, IController
     {
         public SensorProperty<Collider[]> groundSensor;
 
         public SensorProperty<Collider> backStabSensor;
+        
+        public SensorProperty<Collider> stabSensor;
         
         private void Start()
         {
@@ -50,10 +54,34 @@ namespace Controller.Character.Player.Player
                 values => values.Length > 0
             );
             
+            stabSensor = new SensorProperty<Collider>(
+                () => Physics.OverlapBox(stabSensorTrans.position,
+                        stabSensorTrans.localScale / 2f,
+                        stabSensorTrans.rotation)
+                    .FirstOrDefault(collider => collider.CompareTag("Enemy")), 
+                value =>
+                {
+                    if (value == null)
+                    {
+                        return false;
+                    }
+
+                    var enemy = value.transform;
+                    var enemySensorPos = enemy.position + enemy.forward;
+                    var player = Physics.OverlapBox(
+                            enemySensorPos, 
+                            stabSensorTrans.localScale / 2f,
+                            enemy.rotation)
+                        .FirstOrDefault(collider => collider.CompareTag("Player"));
+
+                    return this.GetModel<IEnemyModel>().GetEnemyStatus(enemy).isParried && player;
+                }
+            );
+            
             backStabSensor = new SensorProperty<Collider>(
-                () => Physics.OverlapBox(backStabSensorTrans.position,
-                        backStabSensorTrans.localScale / 2f,
-                        backStabSensorTrans.rotation)
+                () => Physics.OverlapBox(stabSensorTrans.position,
+                        stabSensorTrans.localScale / 2f,
+                        stabSensorTrans.rotation)
                     .FirstOrDefault(collider => collider.CompareTag("Enemy")), 
                 value =>
                 {
@@ -66,7 +94,7 @@ namespace Controller.Character.Player.Player
                     var enemySensorPos = enemy.position - enemy.forward;
                     var player = Physics.OverlapBox(
                             enemySensorPos, 
-                            backStabSensorTrans.localScale / 2f,
+                            stabSensorTrans.localScale / 2f,
                             enemy.rotation)
                         .FirstOrDefault(collider => collider.CompareTag("Player"));
 
@@ -80,11 +108,66 @@ namespace Controller.Character.Player.Player
             groundSensor.Detect();
             
             backStabSensor.Detect();
+            
+            stabSensor.Detect();
 
-            if (backStabSensor)
+            if (stabSensor)
             {
                 Debug.Log("Stab Ready");
             }
+            
+            if (backStabSensor)
+            {
+                Debug.Log("Back Stab Ready");
+            }
+        }
+        
+        public Transform GetClosestEnemy()
+        {
+            var colliders = Physics.OverlapSphere(transform.position, 10f)
+                .Where(col => col.CompareTag("Enemy"));
+
+            var ans = colliders.FirstOrDefault();
+
+            if (ans == null)
+            {
+                return null;
+            }
+
+            colliders.ForEach(col =>
+            {
+                if (Vector3.Distance(col.transform.position, transform.position) <
+                    Vector3.Distance(ans.transform.position, transform.position))
+                {
+                    ans = col;
+                }
+            });
+
+            return ans.transform;
+        }
+
+        public Vector3 FocusCameraRaycast()
+        {
+            var camera = this.GetModel<IPlayerModel>().components.Get<Camera>().transform;
+            var ray = new Ray(camera.position, camera.forward);
+
+            var info = Physics.RaycastAll(ray)
+                .Where(info => info.collider.transform != this.GetModel<IPlayerModel>().components.Get<Transform>())
+                .OrderBy(info => Vector3.Distance(info.point, transform.position))
+                .FirstOrDefault();
+            
+            if (info.collider)
+            {
+                Debug.Log(info.collider.name);
+                return info.point;
+            }
+            
+            return camera.position + 10f * camera.forward;
+        }
+
+        public IArchitecture GetArchitecture()
+        {
+            return ZeldaLike.Interface;
         }
     }
 }

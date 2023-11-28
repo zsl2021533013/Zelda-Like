@@ -11,7 +11,7 @@ namespace Controller.Character.Player.Animator_Callback
         {
             var model = this.GetModel<IPlayerModel>();
             var status = model.components.Get<PlayerStatus>();
-            status.isParrying.Value = true;
+            status.isParrying.Set(true);
         }
 
         public void EndParry()

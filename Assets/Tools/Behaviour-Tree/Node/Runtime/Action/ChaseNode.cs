@@ -33,7 +33,7 @@ namespace Behaviour_Tree.Node.Runtime.Action
             
             if (Vector3.Distance(transform.position, playerTrans.position) > config.povDist)
             {
-                this.GetModel<IEnemyModel>().GetEnemyStatus(transform).state.Value = EnemyState.Safe;
+                this.GetModel<IEnemyModel>().GetEnemyStatus(transform).state.Set(EnemyState.Safe);
                 return Status.Failure;
             }
 

@@ -1,18 +1,9 @@
-using System;
-using System.Collections.Generic;
 using Behaviour_Tree.Node.Runtime.Core;
-using Behaviour_Tree.Runtime;
 using Behaviour_Tree.Runtime.Processor;
 using Controller.Combat;
-using Data.Character.Enemy;
-using DG.Tweening;
 using Model.Interface;
 using QFramework;
-using Sirenix.OdinInspector;
-using Tools.Behaviour_Tree.Utils;
 using UnityEngine;
-using UnityEngine.AI;
-using Object = UnityEngine.Object;
 
 namespace Controller.Character.Enemy
 {
@@ -88,9 +79,9 @@ namespace Controller.Character.Enemy
         
         public void Parried()
         {
-            // animator.speed = 0.1f;
-            // agent.updateRotation = false;
-            //
+            var model = this.GetModel<IEnemyModel>();
+            var status = model.GetEnemyStatus(transform);
+            status.isParried.Set(true);
         }
     }
 }

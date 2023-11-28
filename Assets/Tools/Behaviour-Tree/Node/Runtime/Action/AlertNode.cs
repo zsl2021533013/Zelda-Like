@@ -22,7 +22,7 @@ namespace Behaviour_Tree.Node.Runtime.Action
                     var property = this.GetModel<IEnemyModel>().GetEnemyStatus(enemy).state;
                     if (property == EnemyState.Safe)
                     {
-                        property.Value = EnemyState.Alert;
+                        property.Set(EnemyState.Alert);
                     }
                 }
             );

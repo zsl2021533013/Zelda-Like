@@ -26,6 +26,19 @@ namespace Tools.Behaviour_Tree.Node.Runtime.Condition
             switch (property)
             {
                 case EnemyStatusProperty.Stabbed:
+                    if (enemyStatus.isStabbed)
+                    {
+                        enemyStatus.isStabbed.Reset();
+                        return Status.Success;
+                    }
+                    return Status.Failure;
+                case EnemyStatusProperty.Parried:
+                    if (enemyStatus.isParried)
+                    {
+                        return Status.Success;
+                    }
+                    return Status.Failure;
+                case EnemyStatusProperty.BackStabbed:
                     if (enemyStatus.isBackStabbed)
                     {
                         enemyStatus.isBackStabbed.Reset();
