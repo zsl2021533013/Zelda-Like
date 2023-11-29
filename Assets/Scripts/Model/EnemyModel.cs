@@ -26,10 +26,7 @@ namespace Model
 
             enemyDict[transform].Add(transform);
             enemyDict[transform].Add(ScriptableObject.CreateInstance<EnemyStatus>());
-            args.ForEach(arg =>
-            {
-                enemyDict[transform].Add(arg);
-            });
+            args.ForEach(arg => enemyDict[transform].Add(arg));
             
             Debug.Log($"{transform.name} Has Been Registered!");
         }

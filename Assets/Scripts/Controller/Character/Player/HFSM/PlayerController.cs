@@ -236,15 +236,43 @@ namespace Controller.Character.Player.Player
                 },
                 onLogic: state =>
                 {
+                    if (InputKit.Instance.changAbility)
+                    {
+                        InputKit.Instance.changAbility.Reset();
+
+                        var status = this.GetModel<IPlayerModel>().components.Get<PlayerStatus>(); 
+                        if (status.specialAbility == SpecialAbilityType.Fireball)
+                        {
+                            status.specialAbility.Set(SpecialAbilityType.TimeStop);
+                            Debug.Log("Time Stop Ability");
+                        }
+                        else
+                        {
+                            status.specialAbility.Set(SpecialAbilityType.Fireball);
+                            Debug.Log("Fireball Ability");
+                        }
+                        
+                        
+                    }
+                    
                     if (InputKit.Instance.attack)
                     {
                         InputKit.Instance.attack.Reset();
-                        this.SendCommand(new SpawnPlayerFireballCommand()
+                        
+                        var status = this.GetModel<IPlayerModel>().components.Get<PlayerStatus>(); 
+                        if (status.specialAbility == SpecialAbilityType.Fireball)
                         {
-                            position = transform.position + transform.forward,
-                            rotation = cam.transform.rotation,
-                            target = sensorController.FocusCameraRaycast()
-                        });
+                            this.SendCommand(new SpawnPlayerFireballCommand()
+                            {
+                                position = transform.position + transform.forward,
+                                rotation = cam.transform.rotation,
+                                target = sensorController.FocusCameraRaycast()
+                            });
+                        }
+                        else
+                        {
+                            this.SendCommand(new TimeStopCommand());
+                        }
                     }
                 },
                 onFixedLogic: state =>

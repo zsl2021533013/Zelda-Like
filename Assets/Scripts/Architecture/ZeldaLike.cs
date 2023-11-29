@@ -11,5 +11,6 @@ public class ZeldaLike : Architecture<ZeldaLike>
     {
         RegisterModel<IEnemyModel>(new EnemyModel());
         RegisterModel<IPlayerModel>(new PlayerModel());
+        RegisterModel<IFireballModel>(new FireballModel());
     }
 }

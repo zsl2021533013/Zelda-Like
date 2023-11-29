@@ -53,6 +53,7 @@ namespace Script.View_Controller.Input_System
         public InputProperty<bool> attack;
         public InputProperty<bool> parry;
         public InputProperty<bool> focus;
+        public InputProperty<bool> changAbility;
         
         private InputKit() {}
         
@@ -94,6 +95,11 @@ namespace Script.View_Controller.Input_System
             
             focus = new InputProperty<bool>(
                 mControls.Player.Focus,
+                performedSetter: context => true,
+                canceledSetter: context => false);
+            
+            changAbility = new InputProperty<bool>(
+                mControls.Player.ChangeAbility,
                 performedSetter: context => true,
                 canceledSetter: context => false);
         }

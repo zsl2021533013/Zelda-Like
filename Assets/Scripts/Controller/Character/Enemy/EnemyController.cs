@@ -7,8 +7,9 @@ using UnityEngine;
 
 namespace Controller.Character.Enemy
 {
-    public partial class EnemyController : MonoBehaviour, IController, IParried
+    public partial class EnemyController : MonoBehaviour, IController, IParried, IStopped
     {
+        private bool enable;
         private BehaviourTreeProcess _process;
         
         private void OnEnable()
@@ -41,6 +42,11 @@ namespace Controller.Character.Enemy
 
         private void Update()
         {
+            if (!enable)
+            {
+                return;
+            }
+            
             _process.Update();
         }
     
@@ -82,6 +88,13 @@ namespace Controller.Character.Enemy
             var model = this.GetModel<IEnemyModel>();
             var status = model.GetEnemyStatus(transform);
             status.isParried.Set(true);
+        }
+
+        public void Stopped()
+        {
+            animator.speed = 0f;
+            agent.updateRotation = false;
+            enable = false;
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Controller.Environment;
+using Model.Interface;
 using QFramework;
 using UnityEngine;
 
@@ -17,7 +18,11 @@ namespace Command
                 .Instantiate()
                 .Position(position)
                 .Rotation(rotation);
-            fireball.GetComponent<EnemyFireballController>().InitFireball(attacker, target);
+
+            var controller = this.GetModel<IFireballModel>()
+                .GetComponents(fireball.transform)
+                .Get<FireballBase>();
+            controller.Init(target, attacker);
         }
     }
 }

@@ -1,71 +1,38 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Command;
 using Controller.Combat;
+using Model.Interface;
 using QFramework;
 using Script.View_Controller.Character_System.HFSM.Util;
 using Sirenix.OdinInspector;
 using Unity.VisualScripting;
 using UnityEngine;
+using Object = UnityEngine.Object;
 using Timer = Script.View_Controller.Character_System.HFSM.Util.Timer;
 
 namespace Controller.Environment
 {
-    public class EnemyFireballController : MonoBehaviour, IController, IParried, IStopped
+    public class EnemyFireballController : FireballBase, IParried
     {
-        [SerializeField, BoxGroup("Config")] private bool enable;
-        [SerializeField, BoxGroup("Config")] private float speed;
-        [SerializeField, BoxGroup("Config")] private Vector3 direction;
         [SerializeField, BoxGroup("Config")] private Transform attacker;
 
-        private Timer timer;
-
-        private void OnEnable()
+        public override void Init(Vector3 target, params Object[] args)
         {
-            timer = new Timer();
+            base.Init(target, args);
+            attacker = (Transform)args[0];
         }
 
-        private void Update()
+        public override void OnCollision(List<Collider> colliders)
         {
-            if (timer > 30f)
+            enable = false;
+            Destroy(gameObject);
+
+            if (colliders.FirstOrDefault(col => col.CompareTag("Player")))
             {
-                Destroy(gameObject);
-                enable = false;
-                return;
-            }
-            
-            if (!enable)
-            {
-                return;
-            }
-            
-            DetectCollision();
-            
-            transform.position += direction * (speed * Time.deltaTime);
-        }
-
-        public void InitFireball(Transform attacker, Vector3 target)
-        {
-            this.attacker = attacker;
-            direction = (target - transform.position).normalized;
-        }
-
-        private void DetectCollision()
-        {
-            var colliders = Physics.OverlapBox(transform.position, transform.localScale / 2f)
-                .Where(col => col.transform != transform)
-                .ToList();
-
-            if (colliders.Count > 0)
-            {
-                enable = false;
-                Destroy(gameObject);
-
-                if (colliders.FirstOrDefault(col => col.CompareTag("Player")))
-                {
-                    this.SendCommand(new TryHurtPlayerCommand() { attacker = this });
-                    Debug.Log("Detect Player");
-                }
+                this.SendCommand(new TryHurtPlayerCommand() { attacker = this });
+                Debug.Log("Detect Player");
             }
         }
 
@@ -79,14 +46,9 @@ namespace Controller.Environment
             });
         }
 
-        public void Stopped()
+        public override void Stopped()
         {
-            
-        }
-        
-        public IArchitecture GetArchitecture()
-        {
-            return ZeldaLike.Interface;
+            enable = false;
         }
     }
 }

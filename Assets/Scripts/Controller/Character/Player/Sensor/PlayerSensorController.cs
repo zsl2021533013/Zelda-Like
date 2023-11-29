@@ -125,7 +125,7 @@ namespace Controller.Character.Player.Player
         public Transform GetClosestEnemy()
         {
             var colliders = Physics.OverlapSphere(transform.position, 10f)
-                .Where(col => col.CompareTag("Enemy"));
+                .Where(col => col.CompareTag("Enemy") || col.CompareTag("Fireball"));
 
             var ans = colliders.FirstOrDefault();
 

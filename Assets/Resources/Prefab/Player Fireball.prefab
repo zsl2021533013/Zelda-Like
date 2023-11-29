@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2692267202719847960}
   m_Layer: 0
   m_Name: Player Fireball
-  m_TagString: Untagged
+  m_TagString: Fireball
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -111,6 +111,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enable: 1
-  speed: 20
+  speed: 12
   direction: {x: 0, y: 0, z: 0}
-  attacker: {fileID: 0}

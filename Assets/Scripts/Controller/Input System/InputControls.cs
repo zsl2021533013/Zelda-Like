@@ -98,6 +98,15 @@ public partial class @InputControls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": ""Tap"",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ChangeAbility"",
+                    ""type"": ""Value"",
+                    ""id"": ""12d99e8d-30a3-4cef-89e8-73bbfe8f9aaf"",
+                    ""expectedControlType"": ""Axis"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -320,6 +329,17 @@ public partial class @InputControls : IInputActionCollection2, IDisposable
                     ""action"": ""Parry"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2b38babe-8d63-416d-9ee3-277bfc3f7769"",
+                    ""path"": ""<Mouse>/scroll/y"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ChangeAbility"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -364,6 +384,7 @@ public partial class @InputControls : IInputActionCollection2, IDisposable
         m_Player_Attack = m_Player.FindAction("Attack", throwIfNotFound: true);
         m_Player_Focus = m_Player.FindAction("Focus", throwIfNotFound: true);
         m_Player_Parry = m_Player.FindAction("Parry", throwIfNotFound: true);
+        m_Player_ChangeAbility = m_Player.FindAction("ChangeAbility", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -431,6 +452,7 @@ public partial class @InputControls : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Attack;
     private readonly InputAction m_Player_Focus;
     private readonly InputAction m_Player_Parry;
+    private readonly InputAction m_Player_ChangeAbility;
     public struct PlayerActions
     {
         private @InputControls m_Wrapper;
@@ -443,6 +465,7 @@ public partial class @InputControls : IInputActionCollection2, IDisposable
         public InputAction @Attack => m_Wrapper.m_Player_Attack;
         public InputAction @Focus => m_Wrapper.m_Player_Focus;
         public InputAction @Parry => m_Wrapper.m_Player_Parry;
+        public InputAction @ChangeAbility => m_Wrapper.m_Player_ChangeAbility;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -476,6 +499,9 @@ public partial class @InputControls : IInputActionCollection2, IDisposable
                 @Parry.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnParry;
                 @Parry.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnParry;
                 @Parry.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnParry;
+                @ChangeAbility.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnChangeAbility;
+                @ChangeAbility.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnChangeAbility;
+                @ChangeAbility.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnChangeAbility;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -504,6 +530,9 @@ public partial class @InputControls : IInputActionCollection2, IDisposable
                 @Parry.started += instance.OnParry;
                 @Parry.performed += instance.OnParry;
                 @Parry.canceled += instance.OnParry;
+                @ChangeAbility.started += instance.OnChangeAbility;
+                @ChangeAbility.performed += instance.OnChangeAbility;
+                @ChangeAbility.canceled += instance.OnChangeAbility;
             }
         }
     }
@@ -536,5 +565,6 @@ public partial class @InputControls : IInputActionCollection2, IDisposable
         void OnAttack(InputAction.CallbackContext context);
         void OnFocus(InputAction.CallbackContext context);
         void OnParry(InputAction.CallbackContext context);
+        void OnChangeAbility(InputAction.CallbackContext context);
     }
 }

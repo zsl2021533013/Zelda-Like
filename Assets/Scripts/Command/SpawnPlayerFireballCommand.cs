@@ -16,7 +16,7 @@ namespace Command
                 .Instantiate()
                 .Position(position)
                 .Rotation(rotation);
-            fireball.GetComponent<PlayerFireballController>().InitFireball(target);
+            fireball.GetComponent<PlayerFireballController>().Init(target);
         }
     }
 }
