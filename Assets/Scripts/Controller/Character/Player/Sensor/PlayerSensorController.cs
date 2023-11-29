@@ -74,7 +74,9 @@ namespace Controller.Character.Player.Player
                             enemy.rotation)
                         .FirstOrDefault(collider => collider.CompareTag("Player"));
 
-                    return this.GetModel<IEnemyModel>().GetEnemyStatus(enemy).isParried && player;
+                    var status = this.GetModel<IEnemyModel>().GetEnemyStatus(enemy);
+                    
+                    return (status.isParried && player) || (status.isStopped && player);
                 }
             );
             

@@ -10,17 +10,17 @@ using Timer = Script.View_Controller.Character_System.HFSM.Util.Timer;
 
 namespace Controller.Environment
 {
-    public abstract class FireballBase : MonoBehaviour, IController, IStopped
+    public abstract class FireballBase : MonoBehaviour, IController, ITimeStop
     {
         [SerializeField, BoxGroup("Config")] protected bool enable;
         [SerializeField, BoxGroup("Config")] protected float speed;
         [SerializeField, BoxGroup("Config")] protected Vector3 direction;
-        
-        protected Timer timer;
 
+        protected Vector3 startPos;
+        
         private void OnEnable()
         {
-            timer = new Timer();
+            startPos = transform.position;
             
             this.GetModel<IFireballModel>()
                 .RegisterFireball(transform);
@@ -42,7 +42,7 @@ namespace Controller.Environment
 
         public void Update()
         {
-            if (timer > 20f)
+            if (Vector3.Distance(transform.position, startPos) > 50f)
             {
                 Destroy(gameObject);
                 enable = false;
@@ -70,8 +70,10 @@ namespace Controller.Environment
         
         public virtual void OnCollision(List<Collider> colliders) {}
 
-        public virtual void Stopped() {}
+        public virtual void TimeStop() {}
         
+        public virtual void TimeReset() {}
+
         private List<Collider> DetectCollision()
         {
             return Physics.OverlapBox(transform.position, transform.localScale / 2f)

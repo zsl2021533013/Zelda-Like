@@ -6,6 +6,7 @@ using Model.Interface;
 using QFramework;
 using Script.View_Controller.Character_System.HFSM.StateMachine;
 using Script.View_Controller.Input_System;
+using UniRx;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -251,8 +252,6 @@ namespace Controller.Character.Player.Player
                             status.specialAbility.Set(SpecialAbilityType.Fireball);
                             Debug.Log("Fireball Ability");
                         }
-                        
-                        
                     }
                     
                     if (InputKit.Instance.attack)
@@ -272,6 +271,11 @@ namespace Controller.Character.Player.Player
                         else
                         {
                             this.SendCommand(new TimeStopCommand());
+                            
+                            Observable
+                                .Timer(TimeSpan.FromSeconds(config.timeStopDuration))
+                                .Subscribe(_ => this.SendCommand(new TimeResetCommand()))
+                                .AddTo(this);
                         }
                     }
                 },

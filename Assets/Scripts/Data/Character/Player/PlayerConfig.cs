@@ -21,6 +21,6 @@ namespace Controller.Character.Player.Player
         [FoldoutGroup("Jump")] public float jumpForce;
         [FoldoutGroup("Jump")] public float hardLandSpeed;
         
-        [FoldoutGroup("Combat")] public float blockTime;
+        [FoldoutGroup("Combat")] public float timeStopDuration;
     }
 }

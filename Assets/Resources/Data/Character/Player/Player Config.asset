@@ -26,4 +26,4 @@ MonoBehaviour:
   zeroFrictionMat: {fileID: 13400000, guid: 6787c631d780b374687ba4e402e9259d, type: 2}
   jumpForce: 6
   hardLandSpeed: 6
-  blockTime: 0.25
+  timeStopDuration: 5

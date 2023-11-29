@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace Controller.Character.Enemy
 {
-    public partial class EnemyController : MonoBehaviour, IController, IParried, IStopped
+    public partial class EnemyController : MonoBehaviour, IController, IParried, ITimeStop
     {
         private bool enable;
         private BehaviourTreeProcess _process;
@@ -90,11 +90,18 @@ namespace Controller.Character.Enemy
             status.isParried.Set(true);
         }
 
-        public void Stopped()
+        public void TimeStop()
         {
             animator.speed = 0f;
             agent.updateRotation = false;
             enable = false;
+        }
+
+        public void TimeReset()
+        {
+            animator.speed = 1f;
+            agent.updateRotation = true;
+            enable = true;
         }
     }
 }

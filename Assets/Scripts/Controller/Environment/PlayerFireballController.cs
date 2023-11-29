@@ -1,14 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using Command;
-using Controller.Combat;
 using Level_Editor.Runtime;
-using Model.Interface;
-using QFramework;
-using Sirenix.OdinInspector;
 using UnityEngine;
-using Timer = Script.View_Controller.Character_System.HFSM.Util.Timer;
 
 namespace Controller.Environment
 {
@@ -27,9 +20,14 @@ namespace Controller.Environment
             }
         }
 
-        public override void Stopped()
+        public override void TimeStop()
         {
             enable = false;
+        }
+
+        public override void TimeReset()
+        {
+            enable = true;
         }
     }
 }
