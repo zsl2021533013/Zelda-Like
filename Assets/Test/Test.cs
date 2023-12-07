@@ -1,8 +1,3 @@
-using System;
-using Command;
-using Controller.Environment;
-using Data.Character.Enemy;
-using Model.Interface;
 using QFramework;
 using Tools.Dialogue_Graph.Runtime.Data;
 using Tools.Dialogue_Graph.Runtime.Manager;
@@ -11,7 +6,7 @@ using UnityEngine;
 public class Test : MonoBehaviour, IController
 {
     public DialogueGraph graph;
-
+    
     private void Awake()
     {
         ResKit.Init();

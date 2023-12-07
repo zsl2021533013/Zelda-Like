@@ -23,7 +23,6 @@ namespace Tools.Dialogue_Graph.Runtime.Manager
             root = graph.nodes.FirstOrDefault(node => node is RootNode) as RootNode;
 
             panel = UIKit.OpenPanel<DialoguePanel>();
-            UIRoot.Instance.ScreenSpaceOverlayRenderMode();
             
             ProcessNode(root);
         }
