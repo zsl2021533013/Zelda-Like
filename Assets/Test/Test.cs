@@ -4,23 +4,24 @@ using Controller.Environment;
 using Data.Character.Enemy;
 using Model.Interface;
 using QFramework;
+using Tools.Dialogue_Graph.Runtime.Data;
+using Tools.Dialogue_Graph.Runtime.Manager;
 using UnityEngine;
 
 public class Test : MonoBehaviour, IController
 {
-    public Transform player;
+    public DialogueGraph graph;
+
+    private void Awake()
+    {
+        ResKit.Init();
+    }
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.T))
         {
-            this.SendCommand(new SpawnEnemyFireballCommand()
-            {
-                position = transform.position,
-                rotation = Quaternion.LookRotation((player.position - transform.position).normalized, Vector3.up),
-                attacker = transform,
-                target = player.position
-            });
+            DialogueManger.Instance.InitGraph(graph);
         }
     }
 

@@ -1,14 +1,11 @@
 ﻿using System;
-using Behaviour_Tree.Node.Runtime.Core;
-using Data.Character.Enemy;
 using GraphProcessor;
-using Model.Interface;
-using QFramework;
 using Script.View_Controller.Character_System.HFSM.StateMachine;
 using Script.View_Controller.Character_System.HFSM.Util;
-using UnityEngine;
+using Tools.Behaviour_Tree.Node.Runtime.Action.Base;
+using Tools.Behaviour_Tree.Node.Runtime.Core;
 
-namespace Behaviour_Tree.Node.Runtime.Action
+namespace Tools.Behaviour_Tree.Node.Runtime.Action
 {
     [Serializable, NodeMenuItem("Behaviour/Action/Back Stabbed")]
     public class BackStabbedNode : EnemyActionNode
@@ -29,6 +26,8 @@ namespace Behaviour_Tree.Node.Runtime.Action
             timer.Reset();
             
             animator.CrossFade(animationName, 0.1f);
+
+            agent.updateRotation = false;
         }
 
         public override Status OnUpdate()

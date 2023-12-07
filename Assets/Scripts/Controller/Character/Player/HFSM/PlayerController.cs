@@ -179,7 +179,7 @@ namespace Controller.Character.Player.Player
                     var velocity = new Vector3(0, rb.velocity.y, 0) ;
                     rb.velocity = velocity;
 
-                    closestEnemy = sensorController.GetClosestEnemy();
+                    closestEnemy = sensorController.GetAttackTarget();
                 },
                 onFixedLogic: state =>
                 {
@@ -208,7 +208,7 @@ namespace Controller.Character.Player.Player
                     var velocity = new Vector3(0, rb.velocity.y, 0) ;
                     rb.velocity = velocity;
                     
-                    closestEnemy = sensorController.GetClosestEnemy();
+                    closestEnemy = sensorController.GetAttackTarget();
                 },
                 onFixedLogic: state =>
                 {
@@ -372,6 +372,7 @@ namespace Controller.Character.Player.Player
                     InputKit.Instance.attack.Reset();
 
                     var enemy = sensorController.backStabSensor.Value.transform;
+                    
                     DOTween.Sequence()
                         .Append(transform.DOMove(enemy.position + enemy.forward, 0.2f))
                         .Append(transform.DOLookAt(enemy.position, 0.2f));
@@ -393,6 +394,7 @@ namespace Controller.Character.Player.Player
                     InputKit.Instance.attack.Reset();
 
                     var enemy = sensorController.backStabSensor.Value.transform;
+                    
                     DOTween.Sequence()
                         .Append(transform.DOMove(enemy.position - enemy.forward, 0.2f))
                         .Append(transform.DORotate(enemy.rotation.eulerAngles, 0.2f));

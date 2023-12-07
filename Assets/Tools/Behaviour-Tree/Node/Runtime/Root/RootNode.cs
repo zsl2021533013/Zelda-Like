@@ -1,16 +1,16 @@
 ﻿using System;
 using System.Linq;
-using Behaviour_Tree.Node.Runtime.Core;
 using GraphProcessor;
+using Tools.Behaviour_Tree.Node.Runtime.Core;
 
-namespace Behaviour_Tree.Node.Runtime.Root
+namespace Tools.Behaviour_Tree.Node.Runtime.Root
 {
     [Serializable]
     public class RootNode : BehaviourTreeNode
     {
         [Output("child", false), Vertical] public BehaviourTreeLink child;
 
-        public override string layoutStyle => "RootNodeStyle";
+        public override string layoutStyle => "Behaviour Tree/RootNodeStyle";
 
         public override Status OnUpdate()
         {

@@ -1,9 +1,10 @@
 ﻿using System;
-using Behaviour_Tree.Node.Runtime.Core;
 using GraphProcessor;
+using Tools.Behaviour_Tree.Node.Runtime.Action.Base;
+using Tools.Behaviour_Tree.Node.Runtime.Core;
 using UnityEngine;
 
-namespace Behaviour_Tree.Node.Runtime.Action
+namespace Tools.Behaviour_Tree.Node.Runtime.Action
 {
     [Serializable, NodeMenuItem("Behaviour/Action/Wait")]
     public class WaitNode : ActionNode

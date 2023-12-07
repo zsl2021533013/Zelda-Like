@@ -6,7 +6,6 @@ TagManager:
   tags:
   - Enemy
   - Trigger
-  - Fireball
   layers:
   - Default
   - TransparentFX

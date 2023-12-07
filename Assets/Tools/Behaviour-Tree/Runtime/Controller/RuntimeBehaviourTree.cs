@@ -1,9 +1,8 @@
-﻿using System;
-using Behaviour_Tree.Runtime.Processor;
-using UnityEditor;
+﻿using Tools.Behaviour_Tree.Runtime.Data;
+using Tools.Behaviour_Tree.Runtime.Processor;
 using UnityEngine;
 
-namespace Behaviour_Tree.Runtime
+namespace Tools.Behaviour_Tree.Runtime.Controller
 {
     public class RuntimeBehaviourTree : MonoBehaviour
     {

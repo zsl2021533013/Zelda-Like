@@ -1,9 +1,9 @@
 ﻿using System;
-using Behaviour_Tree.Node.Runtime.Core;
 using GraphProcessor;
-using Tools.Behaviour_Tree.Utils;
+using Tools.Behaviour_Tree.Node.Runtime.Composite.Base;
+using Tools.Behaviour_Tree.Node.Runtime.Core;
 
-namespace Behaviour_Tree.Node.Runtime.Composite
+namespace Tools.Behaviour_Tree.Node.Runtime.Composite
 {
     [Serializable, NodeMenuItem("Behaviour/Composite/Select")]
     public class SelectNode: CompositeNode

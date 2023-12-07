@@ -1,13 +1,10 @@
 ﻿using System;
-using System.Linq;
-using Behaviour_Tree.Node.Runtime.Core;
 using GraphProcessor;
 using Script.View_Controller.Character_System.HFSM.Util;
-using Tools.Behaviour_Tree.Utils;
-using UnityEngine;
-using UnityEngine.AI;
+using Tools.Behaviour_Tree.Node.Runtime.Action.Base;
+using Tools.Behaviour_Tree.Node.Runtime.Core;
 
-namespace Behaviour_Tree.Node.Runtime.Action
+namespace Tools.Behaviour_Tree.Node.Runtime.Action
 {
     [Serializable, NodeMenuItem("Behaviour/Action/Idle")]
     public class IdleNode : EnemyActionNode

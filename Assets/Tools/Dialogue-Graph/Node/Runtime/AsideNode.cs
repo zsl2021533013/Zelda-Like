@@ -15,6 +15,6 @@ namespace Tools.Dialogue_Graph.Node.Runtime
         
         public override string name => "Aside";
 
-        public override string layoutStyle => "Dialogue-Graph/AsideNodeStyle";
+        public override string layoutStyle => "Dialogue Graph/AsideNodeStyle";
     }
 }

@@ -5,7 +5,7 @@ using QFramework;
 using UnityEngine;
 using UnityEngine.AI;
 
-namespace Behaviour_Tree.Node.Runtime.Action
+namespace Tools.Behaviour_Tree.Node.Runtime.Action.Base
 {
     public abstract class EnemyActionNode : ActionNode
     {

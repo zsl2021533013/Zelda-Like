@@ -1,16 +1,16 @@
 ﻿using System.Collections.Generic;
-using Behaviour_Tree.Node.Runtime.Core;
 using GraphProcessor;
+using Tools.Behaviour_Tree.Node.Runtime.Core;
 using Tools.Behaviour_Tree.Utils;
 
-namespace Behaviour_Tree.Node.Runtime.Composite
+namespace Tools.Behaviour_Tree.Node.Runtime.Composite.Base
 {
     public abstract class CompositeNode : BehaviourTreeNode
     {
         [Input("parent", false), Vertical] public BehaviourTreeLink parent;
         [Output("child", true), Vertical] public BehaviourTreeLink child;
         
-        public override string layoutStyle => "CompositeNodeStyle";
+        public override string layoutStyle => "Behaviour Tree/CompositeNodeStyle";
 
         public override void OnEnable()
         {

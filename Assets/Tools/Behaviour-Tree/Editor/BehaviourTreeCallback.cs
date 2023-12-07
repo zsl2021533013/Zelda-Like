@@ -1,8 +1,8 @@
-﻿using Behaviour_Tree.Runtime;
+﻿using Tools.Behaviour_Tree.Runtime.Data;
 using UnityEditor;
 using UnityEditor.Callbacks;
 
-namespace Behaviour_Tree.Editor
+namespace Tools.Behaviour_Tree.Editor
 {
     public class BehaviourTreeCallback
     {

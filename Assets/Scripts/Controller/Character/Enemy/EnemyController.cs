@@ -1,15 +1,14 @@
-using Behaviour_Tree.Node.Runtime.Core;
-using Behaviour_Tree.Runtime.Processor;
 using Controller.Combat;
 using Model.Interface;
 using QFramework;
+using Tools.Behaviour_Tree.Node.Runtime.Core;
+using Tools.Behaviour_Tree.Runtime.Processor;
 using UnityEngine;
 
 namespace Controller.Character.Enemy
 {
     public partial class EnemyController : MonoBehaviour, IController, IParried, ITimeStop
     {
-        private bool enable;
         private BehaviourTreeProcess _process;
         
         private void OnEnable()

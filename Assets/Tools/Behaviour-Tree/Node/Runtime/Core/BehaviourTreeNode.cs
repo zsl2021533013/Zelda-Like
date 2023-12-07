@@ -1,14 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 using GraphProcessor;
 using QFramework;
 using Tools.Behaviour_Tree.Utils;
 using UnityEngine;
-using Object = UnityEngine.Object;
 
-namespace Behaviour_Tree.Node.Runtime.Core
+namespace Tools.Behaviour_Tree.Node.Runtime.Core
 {
     [Serializable]
     public abstract class BehaviourTreeNode : BaseNode, IBehaviourTreeNode, IController

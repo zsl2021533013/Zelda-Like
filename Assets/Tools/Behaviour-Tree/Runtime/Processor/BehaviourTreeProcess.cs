@@ -1,9 +1,8 @@
 ﻿using System.Linq;
-using Behaviour_Tree.Node.Runtime.Core;
-using Behaviour_Tree.Node.Runtime.Root;
 using GraphProcessor;
+using Tools.Behaviour_Tree.Node.Runtime.Root;
 
-namespace Behaviour_Tree.Runtime.Processor
+namespace Tools.Behaviour_Tree.Runtime.Processor
 {
     public class BehaviourTreeProcess : BaseGraphProcessor
     {

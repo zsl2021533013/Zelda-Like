@@ -1,10 +1,10 @@
 using System;
-using Behaviour_Tree.Node.Runtime.Core;
 using GraphProcessor;
+using Tools.Behaviour_Tree.Node.Runtime.Action.Base;
+using Tools.Behaviour_Tree.Node.Runtime.Core;
 using UnityEngine;
-using UnityEngine.UI;
 
-namespace Behaviour_Tree.Node.Runtime.Action
+namespace Tools.Behaviour_Tree.Node.Runtime.Action
 {
     [Serializable, NodeMenuItem("Behaviour/Action/Debug")]
     public class DebugNode : ActionNode

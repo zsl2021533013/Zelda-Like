@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Linq;
-using Behaviour_Tree.Node.Runtime.Core;
-using Behaviour_Tree.Node.Runtime.Decoration;
 using GraphProcessor;
+using Tools.Behaviour_Tree.Node.Runtime.Core;
+using Tools.Behaviour_Tree.Node.Runtime.Decoration.Base;
 using Tools.Behaviour_Tree.Utils;
 
 namespace Tools.Behaviour_Tree.Node.Runtime.Decoration

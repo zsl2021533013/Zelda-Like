@@ -21,6 +21,8 @@ namespace Level_Editor.Runtime
     public abstract class ConditionBase : ICondition
     {
         public virtual void OnEnable() { }
+        
+        public virtual void OnDisable() { }
 
         public abstract bool Satisfied();
     }

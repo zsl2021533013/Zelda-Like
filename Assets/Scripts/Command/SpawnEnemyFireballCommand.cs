@@ -17,7 +17,8 @@ namespace Command
             var fireball = Resources.Load<GameObject>("Prefab/Enemy Fireball")
                 .Instantiate()
                 .Position(position)
-                .Rotation(rotation);
+                .Rotation(rotation)
+                .Name("Fireball");
 
             var controller = this.GetModel<IFireballModel>()
                 .GetComponents(fireball.transform)

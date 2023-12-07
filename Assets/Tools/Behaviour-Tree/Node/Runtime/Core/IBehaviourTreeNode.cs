@@ -1,4 +1,4 @@
-﻿namespace Behaviour_Tree.Node.Runtime.Core
+﻿namespace Tools.Behaviour_Tree.Node.Runtime.Core
 {
     public enum Status
     {

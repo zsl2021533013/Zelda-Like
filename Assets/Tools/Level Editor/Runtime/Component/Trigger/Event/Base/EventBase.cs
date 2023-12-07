@@ -23,6 +23,8 @@ namespace Level_Editor.Runtime.Event
         public virtual IEnumerable<Transform> connections { get; }
         
         public virtual void OnEnable() { }
+        
+        public virtual void OnDisable() { }
 
         public void Register(TriggerController controller)
         {

@@ -30,6 +30,8 @@ namespace Level_Editor.Runtime.Action
         public ActionState State { get; private set; } = ActionState.Pending;
 
         public virtual void OnEnable() { }
+        
+        public virtual void OnDisable() { }
 
         public virtual void OnEnter() { }
 

@@ -1,16 +1,14 @@
 ﻿using System;
-using System.Linq;
-using Behaviour_Tree.Node.Runtime.Core;
 using GraphProcessor;
 using Model.Interface;
 using QFramework;
 using Script.View_Controller.Character_System.HFSM.StateMachine;
 using Script.View_Controller.Character_System.HFSM.Util;
-using Tools.Behaviour_Tree.Utils;
+using Tools.Behaviour_Tree.Node.Runtime.Action.Base;
+using Tools.Behaviour_Tree.Node.Runtime.Core;
 using UnityEngine;
-using UnityEngine.AI;
 
-namespace Behaviour_Tree.Node.Runtime.Action
+namespace Tools.Behaviour_Tree.Node.Runtime.Action
 {
     [Serializable, NodeMenuItem("Behaviour/Action/Attack")]
     public class AttackNode : EnemyActionNode

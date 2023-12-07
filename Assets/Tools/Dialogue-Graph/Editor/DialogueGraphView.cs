@@ -20,7 +20,7 @@ namespace Tools.Dialogue_Graph.Editor
         
         public DialogueGraphView(EditorWindow window) : base(window)
         {
-            styleSheets.Add(Resources.Load<StyleSheet>("Dialogue Graph View"));
+            styleSheets.Add(Resources.Load<StyleSheet>("Dialogue Graph/DialogueGraphView"));
             
             var grid = new GridBackground();
             Insert(0, grid);

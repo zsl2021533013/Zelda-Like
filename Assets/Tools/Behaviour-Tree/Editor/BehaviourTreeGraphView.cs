@@ -1,15 +1,15 @@
 ﻿using System.Linq;
-using Behaviour_Tree.Node.Editor;
-using Behaviour_Tree.Node.Runtime.Core;
-using Behaviour_Tree.Node.Runtime.Root;
 using GraphProcessor;
+using Tools.Behaviour_Tree.Node.Editor;
+using Tools.Behaviour_Tree.Node.Runtime.Core;
+using Tools.Behaviour_Tree.Node.Runtime.Root;
 using Tools.Behaviour_Tree.Utils;
 using UnityEditor;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-namespace Behaviour_Tree.Editor
+namespace Tools.Behaviour_Tree.Editor
 {
     public class BehaviourTreeGraphView : BaseGraphView
     {
@@ -20,7 +20,7 @@ namespace Behaviour_Tree.Editor
 
         public BehaviourTreeGraphView(EditorWindow window) : base(window)
         {
-            styleSheets.Add(Resources.Load<StyleSheet>("Behaviour Tree Graph View"));
+            styleSheets.Add(Resources.Load<StyleSheet>("Behaviour Tree/BehaviourTreeGraphView"));
             
             var grid = new GridBackground();
             Insert(0, grid);

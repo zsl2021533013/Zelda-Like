@@ -15,6 +15,6 @@ namespace Tools.Dialogue_Graph.Node.Runtime
         
         public override string name => "Player";
 
-        public override string layoutStyle => "Dialogue-Graph/PlayerNodeStyle";
+        public override string layoutStyle => "Dialogue Graph/PlayerNodeStyle";
     }
 }

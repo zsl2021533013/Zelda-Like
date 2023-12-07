@@ -12,7 +12,7 @@ namespace Tools.Dialogue_Graph.Node.Runtime
         
         public override string name => "Root";
 
-        public override string layoutStyle => "Dialogue-Graph/RootNodeStyle";
+        public override string layoutStyle => "Dialogue Graph/RootNodeStyle";
 
         public override bool deletable => false;
     }

@@ -1,11 +1,10 @@
 ﻿using Data.Character.Enemy;
 using Model.Interface;
 using QFramework;
-using Tools.Behaviour_Tree.Utils;
 using UnityEngine;
 using UnityEngine.AI;
 
-namespace Tools.Behaviour_Tree.Node.Runtime.Condition
+namespace Tools.Behaviour_Tree.Node.Runtime.Condition.Base
 {
     public abstract class EnemyConditionNode : ConditionNode
     {

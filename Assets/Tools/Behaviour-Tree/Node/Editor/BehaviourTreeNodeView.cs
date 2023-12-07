@@ -1,10 +1,8 @@
 using System.Linq;
-using Behaviour_Tree.Node.Runtime.Core;
 using GraphProcessor;
-using UnityEngine;
-using UnityEngine.UIElements;
+using Tools.Behaviour_Tree.Node.Runtime.Core;
 
-namespace Behaviour_Tree.Node.Editor
+namespace Tools.Behaviour_Tree.Node.Editor
 {
     [NodeCustomEditor(typeof(BehaviourTreeNode))]
     public class BehaviourTreeNodeView : BaseNodeView

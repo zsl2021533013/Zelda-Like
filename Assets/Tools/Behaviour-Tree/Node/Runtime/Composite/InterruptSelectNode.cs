@@ -1,9 +1,8 @@
 ﻿using System;
-using Behaviour_Tree.Node.Runtime.Core;
 using GraphProcessor;
-using Tools.Behaviour_Tree.Utils;
+using Tools.Behaviour_Tree.Node.Runtime.Core;
 
-namespace Behaviour_Tree.Node.Runtime.Composite
+namespace Tools.Behaviour_Tree.Node.Runtime.Composite
 {
     [Serializable, NodeMenuItem("Behaviour/Composite/Interrupt Select")]
     public class InterruptSelectNode : SelectNode

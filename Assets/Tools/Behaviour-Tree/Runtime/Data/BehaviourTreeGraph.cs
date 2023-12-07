@@ -2,7 +2,7 @@
 using GraphProcessor;
 using UnityEngine;
 
-namespace Behaviour_Tree.Runtime
+namespace Tools.Behaviour_Tree.Runtime.Data
 {
     [Serializable]
     [CreateAssetMenu(menuName = "Behaviour Tree", fileName = "Behaviour Tree")]

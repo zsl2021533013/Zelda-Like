@@ -1,8 +1,8 @@
-﻿using Behaviour_Tree.Runtime;
-using GraphProcessor;
+﻿using GraphProcessor;
+using Tools.Behaviour_Tree.Runtime.Data;
 using UnityEditor;
 
-namespace Behaviour_Tree.Editor
+namespace Tools.Behaviour_Tree.Editor
 {
     [CustomEditor(typeof(BehaviourTreeGraph), false)]
     public class BehaviourTreeInspector : GraphInspector

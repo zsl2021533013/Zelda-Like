@@ -1,13 +1,11 @@
-﻿using System;
-using System.Linq;
-using Behaviour_Tree.Node.Runtime.Root;
-using Behaviour_Tree.Runtime;
+﻿using System.Linq;
 using GraphProcessor;
+using Tools.Behaviour_Tree.Node.Runtime.Root;
+using Tools.Behaviour_Tree.Runtime.Data;
 using UnityEditor;
 using UnityEngine;
-using UnityEngine.PlayerLoop;
 
-namespace Behaviour_Tree.Editor
+namespace Tools.Behaviour_Tree.Editor
 {
     public class BehaviourTreeGraphWindow : BaseGraphWindow
     {

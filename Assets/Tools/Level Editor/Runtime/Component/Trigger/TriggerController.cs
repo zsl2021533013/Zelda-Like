@@ -87,6 +87,10 @@ namespace Level_Editor.Runtime
 
         private void OnDisable()
         {
+            triggerEvents.ForEach(@event =>  @event.OnDisable());
+            triggerConditions.ForEach(condition => condition.OnDisable());
+            triggerActions.ForEach(action =>  action.OnDisable());
+            
             triggerEvents.ForEach(@event =>  @event.Unregister(this));
         }
 
