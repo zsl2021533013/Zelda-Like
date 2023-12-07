@@ -1,26 +1,29 @@
 ﻿using System.Linq;
 using Tools.Behaviour_Tree.Utils;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Level_Editor.Runtime
 {
     public class PlayerInAreaCondition : ConditionBase
     {
-        public Transform transform;
+        public Transform triggerArea;
 
         public override void OnEnable()
         {
-            transform.MonoInterface()
+            triggerArea.MonoInterface()
                 .RegisterDrawGizmos(() =>
                 {
+                    Gizmos.matrix = Matrix4x4.TRS(triggerArea.position, triggerArea.rotation, triggerArea.localScale);
                     Gizmos.color = Satisfied() ? Color.green : Color.red;
-                    Gizmos.DrawWireCube(transform.position, transform.localScale);
+                    Gizmos.DrawWireCube(triggerArea.position, triggerArea.localScale);
+                    Gizmos.matrix = Matrix4x4.identity;
                 });
         }
 
         public override bool Satisfied()
         {
-            var colliders = Physics.OverlapBox(transform.position, transform.localScale / 2f);
+            var colliders = Physics.OverlapBox(triggerArea.position, triggerArea.localScale / 2f, triggerArea.rotation);
             return colliders.FirstOrDefault(collider => collider.CompareTag("Player"));
         }
     }

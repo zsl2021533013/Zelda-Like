@@ -21,7 +21,7 @@ namespace Controller.UI
 		{
 			mData = uiData as DialoguePanelData ?? new DialoguePanelData();
 
-			responseBtnTemplate = Resources.Load<GameObject>("UI/ResponseButton");
+			responseBtnTemplate = Resources.Load<GameObject>("UI Prefab/ResponseButton");
 		}
 		
 		protected override void OnOpen(IUIData uiData = null)
@@ -49,7 +49,7 @@ namespace Controller.UI
 
 		public void InitDialoguePanel(DialogueGraphNode contentNode, List<DialogueGraphNode> responseNodes)
 		{
-			nextDialogueBtn.onClick.RemoveAllListeners();
+			nextDialogueController.onClick.RemoveAllListeners();
 
 			if (contentNode == null && responseNodes is not { Count: > 0 })
 			{
@@ -63,7 +63,7 @@ namespace Controller.UI
 			{
 				dialogueContent.text = "";
 				dialogueContent.DOText(contentNode.text, contentNode.text.Length * 0.1f).SetEase(Ease.Linear);
-				nextDialogueBtn.onClick.AddListener(() =>
+				nextDialogueController.onClick.AddListener(() =>
 				{
 					DialogueManger.Instance.ProcessNode(contentNode);
 				});

@@ -18,13 +18,6 @@ namespace Controller.Character.Player.Player
 
         public StateMachine<Type, Type, Type> FSM { get; private set; }
 
-        #region Callback
-
-        [HideInInspector]
-        public UnityEvent onUpdate = new UnityEvent();
-
-        #endregion
-        
         private void Awake()
         {
             FSM = new StateMachine<Type, Type, Type>();
@@ -494,8 +487,6 @@ namespace Controller.Character.Player.Player
         private void Update()
         {
             FSM.OnLogic();
-            
-            onUpdate?.Invoke();
         }
 
         private void FixedUpdate()

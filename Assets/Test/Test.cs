@@ -6,11 +6,6 @@ using UnityEngine;
 public class Test : MonoBehaviour, IController
 {
     public DialogueGraph graph;
-    
-    private void Awake()
-    {
-        ResKit.Init();
-    }
 
     private void Update()
     {

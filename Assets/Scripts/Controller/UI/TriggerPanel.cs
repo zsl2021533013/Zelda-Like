@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Model.Interface;
 using UnityEngine;
 using UnityEngine.UI;
@@ -14,9 +15,9 @@ namespace QFramework.Example
 	
 	public partial class TriggerPanel : UIPanel, IController
 	{
-		public UnityEvent onUpdate = new UnityEvent();
 		private Transform player;
-		private List<(Transform, Transform)> triggers = new ();
+		private Camera cam;
+		private Dictionary<Transform, Transform> triggerUIDict = new Dictionary<Transform, Transform>();
 
 		protected override void OnInit(IUIData uiData = null)
 		{
@@ -26,6 +27,8 @@ namespace QFramework.Example
 		
 		protected override void OnOpen(IUIData uiData = null)
 		{
+			player = this.GetModel<IPlayerModel>().components.Get<Transform>();
+			cam = Camera.main;
 		}
 		
 		protected override void OnShow()
@@ -42,41 +45,38 @@ namespace QFramework.Example
 
 		private void Update()
 		{
-			player = this.GetModel<IPlayerModel>().components.Get<Transform>();
-			/*onUpdate?.Invoke();*/
 			ShowTriggers();
-		}
-
-		public void AddTrigger(Transform trigger)
-		{
-			triggers.Add((trigger, null));
-			Debug.Log("Add Trigger");
 		}
 
 		public void ShowTriggers()
 		{
-			for (var i = 0; i < triggers.Count; i++)
+			var triggers = TriggerManager.Instance.interactableTriggers;
+
+			foreach (var trigger in triggers)
 			{
-				var (trigger, ui) = triggers[i];
-				
-				if (ui == null)
+				Transform ui = null;
+				if (!triggerUIDict.ContainsKey(trigger))
 				{
-					var tmp = Resources.Load<GameObject>("Prefab/Far Trigger Notice")
+					ui = Resources.Load<GameObject>("Prefab/Far Trigger Notice")
 						.Instantiate()
 						.Parent(transform)
 						.transform;
-					ui = tmp;
 					
-					triggers[i] = (trigger, ui);
+					triggerUIDict.Add(trigger, ui);
+				}
+				else
+				{
+					ui = triggerUIDict[trigger];
 				}
 				
-				var viewportPos = Camera.main.WorldToViewportPoint(trigger.position);
-
+				var viewportPos = cam.WorldToViewportPoint(trigger.position);
+				var inDistance = Vector3.Distance(player.position, trigger.position) < 10f;
+				
 				var isVisible = (viewportPos.x is > 0 and < 1 && 
 				                 viewportPos.y is > 0 and < 1 && 
-				                 viewportPos.z > 0);
-
-				ui.position = Camera.main.WorldToScreenPoint(trigger.position);
+				                 viewportPos.z > 0) && inDistance;
+				
+				ui.position = cam.WorldToScreenPoint(trigger.position);
 				
 				ui.gameObject.SetActive(isVisible);
 			}

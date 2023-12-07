@@ -12,7 +12,7 @@ namespace Controller.UI
 		public CanvasGroup rootCanvasGroup;
 		public CanvasGroup responsePanelCanvasGroup;
 		public TMP_Text dialogueContent;
-		public Button nextDialogueBtn;
+		public NextButtonController nextDialogueController;
 		public Transform responseContainer;
 
 		private DialoguePanelData mPrivateData = null;
