@@ -57,9 +57,10 @@ namespace QFramework.Example
 				Transform ui = null;
 				if (!triggerUIDict.ContainsKey(trigger))
 				{
-					ui = Resources.Load<GameObject>("Prefab/Far Trigger Notice")
+					ui = Resources.Load<GameObject>("UI Prefab/NearTriggerNotice")
 						.Instantiate()
 						.Parent(transform)
+						.Name("FarTriggerNotice")
 						.transform;
 					
 					triggerUIDict.Add(trigger, ui);
@@ -70,11 +71,12 @@ namespace QFramework.Example
 				}
 				
 				var viewportPos = cam.WorldToViewportPoint(trigger.position);
-				var inDistance = Vector3.Distance(player.position, trigger.position) < 10f;
-				
+				var inNearDistance = Vector3.Distance(player.position, trigger.position) < 5f;
+				var inFarDistance = Vector3.Distance(player.position, trigger.position) < 10f;
+
 				var isVisible = (viewportPos.x is > 0 and < 1 && 
 				                 viewportPos.y is > 0 and < 1 && 
-				                 viewportPos.z > 0) && inDistance;
+				                 viewportPos.z > 0) && inFarDistance;
 				
 				ui.position = cam.WorldToScreenPoint(trigger.position);
 				
