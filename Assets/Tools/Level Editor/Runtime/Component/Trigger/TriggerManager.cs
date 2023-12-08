@@ -14,7 +14,7 @@ public class TriggerManager : MonoSingleton<TriggerManager>
 
     #endregion
 
-    public List<Transform> interactableTriggers = new List<Transform>();
+    public Dictionary<Transform, Func<bool>> interactableTriggers = new Dictionary<Transform, Func<bool>>();
 
     private void Start()
     {
@@ -31,9 +31,9 @@ public class TriggerManager : MonoSingleton<TriggerManager>
         onUpdate.RemoveAllListeners();
     }
 
-    public void RegisterInteractableTrigger(Transform trigger)
+    public void RegisterInteractableTrigger(Transform trigger, Func<bool> condition)
     {
-        interactableTriggers.Add(trigger);
+        interactableTriggers.Add(trigger, condition);
         
         Debug.Log("Add Trigger");
     }

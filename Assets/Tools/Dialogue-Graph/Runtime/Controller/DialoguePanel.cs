@@ -17,6 +17,9 @@ namespace Controller.UI
 	
 	public partial class DialoguePanel : UIPanel
 	{
+		private bool initReady = true;
+		private string playingText;
+		
 		protected override void OnInit(IUIData uiData = null)
 		{
 			mData = uiData as DialoguePanelData ?? new DialoguePanelData();
@@ -28,6 +31,8 @@ namespace Controller.UI
 		{
 			rootCanvasGroup.alpha = 0f;
 			rootCanvasGroup.DOFade(1f, 0.3f);
+
+			initReady = true;
 		}
 		
 		protected override void OnShow()
@@ -49,6 +54,15 @@ namespace Controller.UI
 
 		public void InitDialoguePanel(DialogueGraphNode contentNode, List<DialogueGraphNode> responseNodes)
 		{
+			if (!initReady)
+			{
+				dialogueContent.DOKill();
+				dialogueContent.text = playingText;
+				initReady = true;
+				
+				return;
+			}
+			
 			nextDialogueController.onClick.RemoveAllListeners();
 
 			if (contentNode == null && responseNodes is not { Count: > 0 })
@@ -61,8 +75,15 @@ namespace Controller.UI
 
 			if (contentNode != null)
 			{
+				initReady = false;
+				playingText = contentNode.text;
+				
 				dialogueContent.text = "";
-				dialogueContent.DOText(contentNode.text, contentNode.text.Length * 0.1f).SetEase(Ease.Linear);
+				dialogueContent
+					.DOText(contentNode.text, contentNode.text.Length * 0.1f)
+					.SetEase(Ease.Linear)
+					.OnComplete(() => initReady = true);
+				
 				nextDialogueController.onClick.AddListener(() =>
 				{
 					DialogueManger.Instance.ProcessNode(contentNode);

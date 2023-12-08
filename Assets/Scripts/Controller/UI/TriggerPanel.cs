@@ -5,6 +5,7 @@ using Model.Interface;
 using UnityEngine;
 using UnityEngine.UI;
 using QFramework;
+using Tools.Level_Editor.Runtime.Component.Trigger;
 using UnityEngine.Events;
 
 namespace QFramework.Example
@@ -17,7 +18,7 @@ namespace QFramework.Example
 	{
 		private Transform player;
 		private Camera cam;
-		private Dictionary<Transform, Transform> triggerUIDict = new Dictionary<Transform, Transform>();
+		private Dictionary<Transform, TriggerNoticeController> triggerUIDict = new Dictionary<Transform, TriggerNoticeController>();
 
 		protected override void OnInit(IUIData uiData = null)
 		{
@@ -50,37 +51,44 @@ namespace QFramework.Example
 
 		public void ShowTriggers()
 		{
-			var triggers = TriggerManager.Instance.interactableTriggers;
+			var triggers = TriggerManager.Instance.interactableTriggers.Keys;
 
 			foreach (var trigger in triggers)
 			{
-				Transform ui = null;
+				TriggerNoticeController noticeController = null;
 				if (!triggerUIDict.ContainsKey(trigger))
 				{
-					ui = Resources.Load<GameObject>("UI Prefab/NearTriggerNotice")
+					noticeController = Resources.Load<GameObject>("UI Prefab/TriggerNotice")
 						.Instantiate()
 						.Parent(transform)
-						.Name("FarTriggerNotice")
-						.transform;
+						.Name("TriggerNotice")
+						.GetComponent<TriggerNoticeController>();
 					
-					triggerUIDict.Add(trigger, ui);
+					triggerUIDict.Add(trigger, noticeController);
 				}
 				else
 				{
-					ui = triggerUIDict[trigger];
+					noticeController = triggerUIDict[trigger];
 				}
 				
 				var viewportPos = cam.WorldToViewportPoint(trigger.position);
-				var inNearDistance = Vector3.Distance(player.position, trigger.position) < 5f;
-				var inFarDistance = Vector3.Distance(player.position, trigger.position) < 10f;
+				var inDistance = Vector3.Distance(player.position, trigger.position) < 10f;
 
 				var isVisible = (viewportPos.x is > 0 and < 1 && 
 				                 viewportPos.y is > 0 and < 1 && 
-				                 viewportPos.z > 0) && inFarDistance;
-				
-				ui.position = cam.WorldToScreenPoint(trigger.position);
-				
-				ui.gameObject.SetActive(isVisible);
+				                 viewportPos.z > 0) && inDistance;
+
+				if (!isVisible)
+				{
+					noticeController.State = TriggerNoticeState.None;
+				}
+				else
+				{
+					var conditionFunc = TriggerManager.Instance.interactableTriggers[trigger];
+					
+					noticeController.transform.position = cam.WorldToScreenPoint(trigger.position);
+					noticeController.State = conditionFunc() ? TriggerNoticeState.Near :  TriggerNoticeState.Far;
+				}
 			}
 		}
 

@@ -23,7 +23,7 @@ namespace Level_Editor.Runtime
                     Gizmos.matrix = Matrix4x4.identity;
                 });
 
-            TriggerManager.Instance.RegisterInteractableTrigger(trigger);
+            TriggerManager.Instance.RegisterInteractableTrigger(trigger, PlayerInArea);
         }
 
         public override void OnDisable()
