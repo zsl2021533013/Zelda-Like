@@ -329,7 +329,7 @@ namespace GraphProcessor
 		{
             inputPorts = new NodeInputPortContainer(this);
             outputPorts = new NodeOutputPortContainer(this);
-
+            
 			InitializeInOutDatas();
 		}
 

@@ -13,7 +13,7 @@ namespace Tools.Behaviour_Tree.Node.Runtime.Action
     [Serializable, NodeMenuItem("Behaviour/Action/Wander")]
     public class WanderNode : ActionNode
     {
-        private string animationName = "Wander";
+        private const string animationName = "Wander";
         
         private Transform playerTrans;
 

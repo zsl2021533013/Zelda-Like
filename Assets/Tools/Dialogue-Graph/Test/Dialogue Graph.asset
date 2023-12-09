@@ -45,16 +45,16 @@ MonoBehaviour:
       Data: UnityEngine.Rect, UnityEngine.CoreModule
     - Name: 
       Entry: 4
-      Data: 10
+      Data: 31.5555534
     - Name: 
       Entry: 4
-      Data: 200
+      Data: 171.266556
     - Name: 
       Entry: 4
-      Data: 100
+      Data: 89.33333
     - Name: 
       Entry: 4
-      Data: 100
+      Data: 50.22223
     - Name: 
       Entry: 8
       Data: 
@@ -68,7 +68,7 @@ MonoBehaviour:
       Entry: 5
       Data: false
     - Name: text
-      Entry: 6
+      Entry: 1
       Data: 
     - Name: output
       Entry: 7
@@ -170,7 +170,7 @@ MonoBehaviour:
   exposedParameters: []
   serializedParameterList: []
   stickyNotes: []
-  position: {x: 57.333332, y: -96.44444, z: 0}
+  position: {x: 67.111115, y: -112, z: 0}
   scale: {x: 1.3225, y: 1.3225, z: 1}
   references:
     version: 2

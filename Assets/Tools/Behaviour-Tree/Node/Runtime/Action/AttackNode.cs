@@ -13,7 +13,7 @@ namespace Tools.Behaviour_Tree.Node.Runtime.Action
     [Serializable, NodeMenuItem("Behaviour/Action/Attack")]
     public class AttackNode : ActionNode
     {
-        private string animationName = "Attack";
+        private const string animationName = "Attack";
         
         private Transform playerTrans;
 

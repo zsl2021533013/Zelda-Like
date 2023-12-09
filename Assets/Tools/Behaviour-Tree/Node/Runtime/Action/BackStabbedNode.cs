@@ -10,7 +10,7 @@ namespace Tools.Behaviour_Tree.Node.Runtime.Action
     [Serializable, NodeMenuItem("Behaviour/Action/Back Stabbed")]
     public class BackStabbedNode : ActionNode
     {
-        private string animationName = "Back Stabbed";
+        private const string animationName = "Back Stabbed";
 
         private AnimationTimer timer;
 

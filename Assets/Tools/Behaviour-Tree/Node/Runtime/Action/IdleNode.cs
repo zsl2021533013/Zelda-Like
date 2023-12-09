@@ -3,13 +3,14 @@ using GraphProcessor;
 using Script.View_Controller.Character_System.HFSM.Util;
 using Tools.Behaviour_Tree.Node.Runtime.Action.Base;
 using Tools.Behaviour_Tree.Node.Runtime.Core;
+using UnityEngine;
 
 namespace Tools.Behaviour_Tree.Node.Runtime.Action
 {
     [Serializable, NodeMenuItem("Behaviour/Action/Idle")]
     public class IdleNode : ActionNode
     {
-        private string animationName = "Idle";
+        private const string animationName = "Idle";
         
         private AnimationTimer timer;
 
@@ -30,7 +31,7 @@ namespace Tools.Behaviour_Tree.Node.Runtime.Action
             {
                 return;
             }
-
+            
             animator.CrossFade(animationName, 0.1f);
         }
 

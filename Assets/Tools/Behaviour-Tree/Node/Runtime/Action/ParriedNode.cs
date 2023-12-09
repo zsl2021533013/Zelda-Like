@@ -13,7 +13,7 @@ namespace Tools.Behaviour_Tree.Node.Runtime.Action
     [Serializable, NodeMenuItem("Behaviour/Action/Parried")]
     public class ParriedNode : ActionNode
     {
-        private string animationName = "Parried";
+        private const string animationName = "Parried";
 
         private AnimationTimer timer;
 

@@ -20,16 +20,16 @@ namespace Tools.Behaviour_Tree.Node.Runtime.Condition
             StatusProperty
         }
 
-        [Sirenix.OdinInspector.ShowInInspector]
-        private Mode mode = Mode.State;
+        [GraphProcessor.ShowInInspector]
+        public Mode mode = Mode.State;
 
-        [Sirenix.OdinInspector.ShowInInspector] 
+        [GraphProcessor.ShowInInspector] 
         [ShowIf("mode", Mode.State)]
-        private EnemyStatus.State stateType = EnemyStatus.State.Safe;
+        public EnemyStatus.State stateType = EnemyStatus.State.Safe;
         
-        [Sirenix.OdinInspector.ShowInInspector] 
+        [GraphProcessor.ShowInInspector] 
         [ShowIf("mode", Mode.StatusProperty)]
-        private EnemyStatus.StatusProperty propertyType = EnemyStatus.StatusProperty.None;
+        public EnemyStatus.StatusProperty propertyType = EnemyStatus.StatusProperty.None;
 
         public override Status OnUpdate()
         {
