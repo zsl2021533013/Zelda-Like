@@ -17,14 +17,16 @@ namespace Tools.Behaviour_Tree.Node.Runtime.Action
         {
             var enemys = this.GetModel<IEnemyModel>().enemyDict.Keys
                 .Where(enemy => Vector3.Distance(transform.position, enemy.position) < config.alertDist);
-
+            
             enemys.ForEach(enemy =>
                 {
-                    var state = enemyStatus.state;
+                    var state = this.GetModel<IEnemyModel>().GetEnemyStatus(enemy).state;
                     if (state == EnemyStatus.State.Safe)
                     {
                         state.Set(EnemyStatus.State.Alert);
                     }
+                    
+                    Debug.Log(enemy.name);
                 }
             );
             

@@ -19,6 +19,6 @@ namespace Controller.Character.Enemy
         
         [BoxGroup("Components")] public Animator animator;
         [BoxGroup("Components")] public NavMeshAgent agent;
-        [BoxGroup("Components")] public WeaponController weapon;
+        [BoxGroup("Components"), ChildGameObjectsOnly] public WeaponController weapon;
     }
 }
