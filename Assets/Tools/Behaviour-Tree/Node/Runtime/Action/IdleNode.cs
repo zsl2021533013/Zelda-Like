@@ -7,7 +7,7 @@ using Tools.Behaviour_Tree.Node.Runtime.Core;
 namespace Tools.Behaviour_Tree.Node.Runtime.Action
 {
     [Serializable, NodeMenuItem("Behaviour/Action/Idle")]
-    public class IdleNode : EnemyActionNode
+    public class IdleNode : ActionNode
     {
         private string animationName = "Idle";
         

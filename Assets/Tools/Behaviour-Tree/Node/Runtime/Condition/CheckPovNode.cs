@@ -10,7 +10,7 @@ using UnityEngine;
 namespace Tools.Behaviour_Tree.Node.Runtime.Condition
 {
     [Serializable, NodeMenuItem("Behaviour/Condition/Check Pov")]
-    public class CheckPovNode : EnemyConditionNode
+    public class CheckPovNode : ConditionNode
     {
         private float angle;
         private float distance;

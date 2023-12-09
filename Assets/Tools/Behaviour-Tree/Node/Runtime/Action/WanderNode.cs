@@ -11,7 +11,7 @@ using UnityEngine;
 namespace Tools.Behaviour_Tree.Node.Runtime.Action
 {
     [Serializable, NodeMenuItem("Behaviour/Action/Wander")]
-    public class WanderNode : EnemyActionNode
+    public class WanderNode : ActionNode
     {
         private string animationName = "Wander";
         

@@ -11,7 +11,7 @@ namespace Tools.Behaviour_Tree.Node.Runtime.Condition
 {
     
     [Serializable, NodeMenuItem("Behaviour/Condition/Check Distance")]
-    public class CheckDistanceNode : EnemyConditionNode
+    public class CheckDistanceNode : ConditionNode
     {
         public enum CheckDistanceType
         {

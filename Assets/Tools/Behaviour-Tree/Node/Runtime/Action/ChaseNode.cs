@@ -10,7 +10,7 @@ using UnityEngine;
 namespace Tools.Behaviour_Tree.Node.Runtime.Action
 {
     [Serializable, NodeMenuItem("Behaviour/Action/Chase")]
-    public class ChaseNode : EnemyActionNode
+    public class ChaseNode : ActionNode
     {
         private Transform playerTrans;
 
@@ -34,7 +34,7 @@ namespace Tools.Behaviour_Tree.Node.Runtime.Action
             
             if (Vector3.Distance(transform.position, playerTrans.position) > config.povDist)
             {
-                this.GetModel<IEnemyModel>().GetEnemyStatus(transform).state.Set(EnemyState.Safe);
+                this.GetModel<IEnemyModel>().GetEnemyStatus(transform).state.Set(EnemyStatus.State.Safe);
                 return Status.Failure;
             }
 

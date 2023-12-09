@@ -11,7 +11,7 @@ using Tools.Behaviour_Tree.Node.Runtime.Core;
 namespace Tools.Behaviour_Tree.Node.Runtime.Action
 {
     [Serializable, NodeMenuItem("Behaviour/Action/Parried")]
-    public class ParriedNode : EnemyActionNode
+    public class ParriedNode : ActionNode
     {
         private string animationName = "Parried";
 

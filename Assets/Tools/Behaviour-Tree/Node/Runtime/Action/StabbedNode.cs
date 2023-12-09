@@ -8,7 +8,7 @@ using Tools.Behaviour_Tree.Node.Runtime.Core;
 namespace Tools.Behaviour_Tree.Node.Runtime.Action
 {
     [Serializable, NodeMenuItem("Behaviour/Action/Stabbed")]
-    public class StabbedNode : EnemyActionNode
+    public class StabbedNode : ActionNode
     {
         private string animationName = "Stabbed";
 

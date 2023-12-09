@@ -7,7 +7,7 @@ namespace Tools.Dialogue_Graph.Node.Runtime
 {
     public class RootNode : DialogueGraphNode
     {
-        [Output("child", false), Vertical] 
+        [Output("child", false), Vertical, HideInInspector] 
         public DialogueGraphLink output;
         
         public override string name => "Root";

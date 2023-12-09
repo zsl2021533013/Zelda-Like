@@ -7,7 +7,7 @@ using UnityEngine;
 namespace Tools.Behaviour_Tree.Node.Runtime.Action
 {
     [Serializable, NodeMenuItem("Behaviour/Action/Break Point")]
-    public class BreakPointNode : EnemyActionNode
+    public class BreakPointNode : ActionNode
     {
         public override void OnStart() {
             Debug.Log("Breakpoint");

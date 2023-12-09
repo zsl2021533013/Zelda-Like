@@ -11,7 +11,7 @@ using UnityEngine;
 namespace Tools.Behaviour_Tree.Node.Runtime.Action
 {
     [Serializable, NodeMenuItem("Behaviour/Action/Alert")]
-    public class AlertNode : EnemyActionNode
+    public class AlertNode : ActionNode
     {
         public override Status OnUpdate()
         {
@@ -20,10 +20,10 @@ namespace Tools.Behaviour_Tree.Node.Runtime.Action
 
             enemys.ForEach(enemy =>
                 {
-                    var property = this.GetModel<IEnemyModel>().GetEnemyStatus(enemy).state;
-                    if (property == EnemyState.Safe)
+                    var state = enemyStatus.state;
+                    if (state == EnemyStatus.State.Safe)
                     {
-                        property.Set(EnemyState.Alert);
+                        state.Set(EnemyStatus.State.Alert);
                     }
                 }
             );

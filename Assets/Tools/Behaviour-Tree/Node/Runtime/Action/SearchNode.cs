@@ -10,7 +10,7 @@ using UnityEngine;
 namespace Tools.Behaviour_Tree.Node.Runtime.Action
 {
     [Serializable, NodeMenuItem("Behaviour/Action/Search")]
-    public class SearchNode : EnemyActionNode
+    public class SearchNode : ActionNode
     {
         private float angle;
         private float distance;
@@ -41,13 +41,13 @@ namespace Tools.Behaviour_Tree.Node.Runtime.Action
         {
             if(IsPlayerInSectorRange(playerTrans.position))
             {
-                this.GetModel<IEnemyModel>().GetEnemyStatus(transform).state.Set(EnemyState.Combat);;
+                enemyStatus.state.Set(EnemyStatus.State.Combat);;
                 return Status.Success;
             }
             
             if (Vector3.Distance(transform.position, targetPos) <= 1f)
             {
-                this.GetModel<IEnemyModel>().GetEnemyStatus(transform).state.Set(EnemyState.Safe);;
+                enemyStatus.state.Set(EnemyStatus.State.Safe);;
                 return Status.Success;
             }
 

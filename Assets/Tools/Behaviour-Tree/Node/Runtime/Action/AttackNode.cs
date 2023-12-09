@@ -11,7 +11,7 @@ using UnityEngine;
 namespace Tools.Behaviour_Tree.Node.Runtime.Action
 {
     [Serializable, NodeMenuItem("Behaviour/Action/Attack")]
-    public class AttackNode : EnemyActionNode
+    public class AttackNode : ActionNode
     {
         private string animationName = "Attack";
         

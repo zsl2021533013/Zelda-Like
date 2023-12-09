@@ -9,7 +9,7 @@ namespace Tools.Dialogue_Graph.Node.Runtime.Core
     [Serializable]
     public class DialogueGraphNode : BaseNode, IDialogueGraphNode, IController
     {
-        [ShowInInspector] 
+        [ShowInInspector, TextArea(4, 10)] 
         public string text;
         
         public IArchitecture GetArchitecture()

@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Linq;
 using System.Text.RegularExpressions;
+using Controller.Combat;
+using Data.Character.Enemy;
 using GraphProcessor;
 using QFramework;
 using Tools.Behaviour_Tree.Utils;
 using UnityEngine;
+using UnityEngine.AI;
 
 namespace Tools.Behaviour_Tree.Node.Runtime.Core
 {
@@ -60,7 +63,7 @@ namespace Tools.Behaviour_Tree.Node.Runtime.Core
         {
             get
             {
-                if (!hasStarted && status == Status.Running)
+                if (!hasStarted)
                 {
                     return _color = GetLerpColor(Color.gray);
                 }
