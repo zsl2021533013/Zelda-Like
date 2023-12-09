@@ -9,11 +9,21 @@ namespace Script.View_Controller.Input_System
     {
         T Value { get; }
         public void Reset();
+        public void Enable();
+        public void Disable();
     }
 
     public class InputProperty<T> : IInputProperty<T>
     {
-        public T Value { get; private set; }
+        private bool enable = true;
+
+        private T value;
+        
+        public T Value
+        {
+            get => enable ? value : default;
+            private set => this.value = value;
+        }
 
         /// <summary>
         /// Create a InputProperty and add it to a InputAction
@@ -37,6 +47,16 @@ namespace Script.View_Controller.Input_System
         public void Reset()
         {
             Value = default;
+        }
+
+        public void Enable()
+        {
+            enable = true;
+        }
+
+        public void Disable()
+        {
+            enable = false;
         }
 
         public static implicit operator T(InputProperty<T> inputProperty) => inputProperty.Value;
@@ -102,6 +122,30 @@ namespace Script.View_Controller.Input_System
                 mControls.Player.ChangeAbility,
                 performedSetter: context => true,
                 canceledSetter: context => false);
+        }
+
+        public void EnablePlayerInput()
+        {
+            move.Enable();
+            rotate.Enable();
+            run.Enable();
+            jump.Enable();
+            attack.Enable();
+            parry.Enable();
+            focus.Enable();
+            changAbility.Enable();
+        }
+        
+        public void DisablePlayerInput()
+        {
+            move.Disable();
+            rotate.Disable();
+            run.Disable();
+            jump.Disable();
+            attack.Disable();
+            parry.Disable();
+            focus.Disable();
+            changAbility.Disable();
         }
     }
 }

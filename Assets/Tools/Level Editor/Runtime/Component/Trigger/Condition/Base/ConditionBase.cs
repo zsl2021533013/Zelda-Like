@@ -1,5 +1,6 @@
 ﻿using System;
 using Sirenix.OdinInspector;
+using UnityEngine;
 
 namespace Level_Editor.Runtime
 {
@@ -20,6 +21,9 @@ namespace Level_Editor.Runtime
     [Serializable]
     public abstract class ConditionBase : ICondition
     {
+        [HideInInspector]
+        public TriggerController controller;
+        
         public virtual void OnEnable() { }
         
         public virtual void OnDisable() { }

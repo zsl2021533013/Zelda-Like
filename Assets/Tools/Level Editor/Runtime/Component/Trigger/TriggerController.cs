@@ -78,6 +78,10 @@ namespace Level_Editor.Runtime
 
         private void OnEnable()
         {
+            triggerEvents.ForEach(@event =>  @event.controller = this);
+            triggerConditions.ForEach(condition => condition.controller = this);
+            triggerActions.ForEach(action =>  action.controller = this);
+            
             triggerEvents.ForEach(@event =>  @event.OnEnable());
             triggerConditions.ForEach(condition => condition.OnEnable());
             triggerActions.ForEach(action =>  action.OnEnable());
@@ -87,6 +91,10 @@ namespace Level_Editor.Runtime
 
         private void OnDisable()
         {
+            triggerEvents.ForEach(@event =>  @event.controller = null);
+            triggerConditions.ForEach(condition => condition.controller = null);
+            triggerActions.ForEach(action =>  action.controller = null);
+            
             triggerEvents.ForEach(@event =>  @event.OnDisable());
             triggerConditions.ForEach(condition => condition.OnDisable());
             triggerActions.ForEach(action =>  action.OnDisable());

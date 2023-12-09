@@ -27,6 +27,9 @@ namespace Level_Editor.Runtime.Action
     [Serializable]
     public abstract class ActionBase : IAction, IController
     {
+        [HideInInspector]
+        public TriggerController controller;
+        
         public ActionState State { get; private set; } = ActionState.Pending;
 
         public virtual void OnEnable() { }

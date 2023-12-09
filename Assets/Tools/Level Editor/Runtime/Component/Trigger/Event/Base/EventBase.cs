@@ -18,6 +18,9 @@ namespace Level_Editor.Runtime.Event
     [Serializable]
     public abstract class EventBase : IEvent
     {
+        [HideInInspector]
+        public TriggerController controller;
+        
         public abstract IEnumerable<UnityEvent> callbacks { get; }
         
         public virtual IEnumerable<Transform> connections { get; }

@@ -5,10 +5,9 @@ namespace Level_Editor.Runtime.Event
 {
     public class TryTriggerEvent : EventBase
     {
-        public TriggerController controller;
+        public TriggerController targetController;
 
         public override IEnumerable<UnityEvent> callbacks
-            => new[] { controller.tryTrigger };
-
+            => new[] { targetController.tryTrigger };
     }
 }

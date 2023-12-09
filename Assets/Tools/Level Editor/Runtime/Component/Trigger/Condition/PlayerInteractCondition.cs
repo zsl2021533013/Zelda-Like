@@ -10,7 +10,7 @@ namespace Level_Editor.Runtime
     public class PlayerInteractCondition : ConditionBase
     {
         public Transform triggerArea;
-        public Transform trigger;
+        public Transform point;
         
         public override void OnEnable()
         {
@@ -23,12 +23,17 @@ namespace Level_Editor.Runtime
                     Gizmos.matrix = Matrix4x4.identity;
                 });
 
-            TriggerManager.Instance.RegisterInteractableTrigger(trigger, PlayerInArea);
+            TriggerManager.Instance.RegisterInteractableTrigger(controller,
+                new TriggerManager.InteractableTriggerInfo()
+                {
+                    interactPoint = point,
+                    condition = PlayerInArea,
+                });
         }
 
         public override void OnDisable()
         {
-            TriggerManager.Instance?.UnregisterInteractableTrigger(trigger);
+            TriggerManager.Instance?.UnregisterInteractableTrigger(controller);
         }
 
         private bool PlayerInArea()

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Level_Editor.Runtime;
 using QFramework;
 using QFramework.Example;
 using UnityEngine;
@@ -13,9 +14,15 @@ public class TriggerManager : MonoSingleton<TriggerManager>
     public UnityEvent onUpdate = new UnityEvent();
 
     #endregion
-
-    public Dictionary<Transform, Func<bool>> interactableTriggers = new Dictionary<Transform, Func<bool>>();
-
+    
+    public class InteractableTriggerInfo
+    {
+        public Transform interactPoint;
+        public Func<bool> condition;
+    }
+    
+    public Dictionary<TriggerController, InteractableTriggerInfo> interactableTriggers = new ();
+    
     private void Start()
     {
         UIKit.OpenPanel<TriggerPanel>();
@@ -31,15 +38,15 @@ public class TriggerManager : MonoSingleton<TriggerManager>
         onUpdate.RemoveAllListeners();
     }
 
-    public void RegisterInteractableTrigger(Transform trigger, Func<bool> condition)
+    public void RegisterInteractableTrigger(TriggerController controller, InteractableTriggerInfo info)
     {
-        interactableTriggers.Add(trigger, condition);
+        interactableTriggers.Add(controller, info);
         
         Debug.Log("Add Trigger");
     }
 
-    public void UnregisterInteractableTrigger(Transform trigger)
+    public void UnregisterInteractableTrigger(TriggerController controller)
     {
-        interactableTriggers.Remove(trigger);
+        interactableTriggers.Remove(controller);
     }
 }
