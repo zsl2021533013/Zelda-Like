@@ -9,7 +9,7 @@ namespace Controller.Character.Enemy
 {
     public partial class EnemyController : MonoBehaviour, IController, IParried, ITimeStop
     {
-        private BehaviourTreeProcess _process;
+        private BehaviourTreeProcess process;
         
         private void OnEnable()
         {
@@ -18,10 +18,10 @@ namespace Controller.Character.Enemy
             agent.angularSpeed = 1000f;
             
             var model = this.GetModel<IEnemyModel>();
-            model.RegisterEnemy(transform, this, animator, agent, weapon, config);
+            model.RegisterEnemy(transform, this, animator, agent, enemyWeapon, capsuleCollider,config);
             
             runtimeGraph = debugMode ? graph : Instantiate(graph);
-            _process = new BehaviourTreeProcess(runtimeGraph);
+            process = new BehaviourTreeProcess(runtimeGraph);
             
             runtimeGraph.nodes.ForEach(node =>
             {
@@ -46,7 +46,7 @@ namespace Controller.Character.Enemy
                 return;
             }
             
-            _process.Update();
+            process.Update();
         }
     
         public void OnAnimatorMove()
@@ -86,7 +86,7 @@ namespace Controller.Character.Enemy
         {
             var model = this.GetModel<IEnemyModel>();
             var status = model.GetEnemyStatus(transform);
-            status.isParried.Set(true);
+            status.isParried.Value = true;
         }
 
         public void TimeStop()

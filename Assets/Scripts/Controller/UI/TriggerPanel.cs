@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Controller.Character.Player.Player;
 using Level_Editor.Runtime;
 using Model.Interface;
 using UnityEngine;
@@ -19,12 +20,14 @@ namespace QFramework.Example
 	{
 		private Transform player;
 		private Camera cam;
+		private PlayerConfig config;
 		private Dictionary<TriggerController, TriggerNoticeController> triggerUIDict = new Dictionary<TriggerController, TriggerNoticeController>();
 
 		protected override void OnInit(IUIData uiData = null)
 		{
 			mData = uiData as TriggerPanelData ?? new TriggerPanelData();
-			// please add init code here
+			
+			config = Resources.Load<PlayerConfig>("Data/Character/Player/Player Config");
 		}
 		
 		protected override void OnOpen(IUIData uiData = null)
@@ -76,7 +79,7 @@ namespace QFramework.Example
 
 				var point = info.interactPoint;
 				var viewportPos = cam.WorldToViewportPoint(point.position);
-				var inDistance = Vector3.Distance(player.position, point.position) < 10f;
+				var inDistance = Vector3.Distance(player.position, point.position) < config.triggerDetectDistance;
 
 				var isVisible = (viewportPos.x is > 0 and < 1 && 
 				                 viewportPos.y is > 0 and < 1 && 

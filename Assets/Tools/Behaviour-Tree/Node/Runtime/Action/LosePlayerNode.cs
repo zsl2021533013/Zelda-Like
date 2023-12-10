@@ -13,7 +13,7 @@ namespace Tools.Behaviour_Tree.Node.Runtime.Action
     {
         public override void OnStart()
         {
-            this.GetModel<IEnemyModel>().GetEnemyStatus(transform).state.Set(EnemyStatus.State.Safe);
+            this.GetModel<IEnemyModel>().GetEnemyStatus(transform).state.Value = EnemyStatus.State.Safe;
         }
 
         public override Status OnUpdate()

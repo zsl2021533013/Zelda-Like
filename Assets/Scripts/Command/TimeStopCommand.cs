@@ -16,7 +16,7 @@ namespace Command
                 .ForEach(controller =>
                 {
                     var status = enemyModel.GetEnemyStatus(controller.transform);
-                    status.isStopped.Set(true);
+                    status.isStopped.Value = true;
                     controller.TimeStop();
                 });
   

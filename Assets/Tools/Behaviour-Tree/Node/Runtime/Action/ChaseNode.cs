@@ -21,6 +21,8 @@ namespace Tools.Behaviour_Tree.Node.Runtime.Action
             agent.updateRotation = true;
             
             playerTrans = this.GetModel<IPlayerModel>().components.Get<Transform>();
+            
+            EnemyWeapon.CloseWeapon();
         }
 
         public override Status OnUpdate()
@@ -34,7 +36,7 @@ namespace Tools.Behaviour_Tree.Node.Runtime.Action
             
             if (Vector3.Distance(transform.position, playerTrans.position) > config.povDist)
             {
-                this.GetModel<IEnemyModel>().GetEnemyStatus(transform).state.Set(EnemyStatus.State.Safe);
+                this.GetModel<IEnemyModel>().GetEnemyStatus(transform).state.Value = EnemyStatus.State.Safe;
                 return Status.Failure;
             }
 

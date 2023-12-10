@@ -39,7 +39,7 @@ namespace Tools.Behaviour_Tree.Node.Runtime.Action
         public override void OnStop()
         {
             var enemyStatus = this.GetModel<IEnemyModel>().GetComponents(transform).Get<EnemyStatus>();
-            enemyStatus.isParried.Reset();
+            enemyStatus.isParried.ResetWithoutEvent();
         }
     }
 }

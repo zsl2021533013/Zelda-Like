@@ -22,5 +22,7 @@ namespace Controller.Character.Player.Player
         [FoldoutGroup("Jump")] public float hardLandSpeed;
         
         [FoldoutGroup("Combat")] public float timeStopDuration;
+
+        [FoldoutGroup("UI")] public float triggerDetectDistance;
     }
 }

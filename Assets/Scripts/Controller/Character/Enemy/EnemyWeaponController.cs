@@ -11,7 +11,7 @@ using UnityEngine;
 
 namespace Controller.Combat
 {
-    public class WeaponController : MonoBehaviour, IController
+    public class EnemyWeaponController : MonoBehaviour, IController
     {
         public bool isWeaponEnable = false;
 
@@ -31,25 +31,24 @@ namespace Controller.Combat
                 var pos2 = detectPoints[i].position;
                 
                 var infos = DetectCollision(pos1, pos2);
-                var detectPlayer = infos.Any(info => info.collider.CompareTag("Player"));
+                var targetInfo = infos.FirstOrDefault(info => info.collider.CompareTag("Player"));
 
-                if (detectPlayer)
+                if (targetInfo.collider)
                 {
                     CloseWeapon();
                     
                     this.SendCommand(new TryHurtPlayerCommand()
                     {
-                        attacker = this.GetModel<IEnemyModel>().enemyDict
-                            .Values
-                            .FirstOrDefault(components => components.Get<WeaponController>() == this)
+                        attacker = this.GetModel<IEnemyModel>().enemyDict.Values
+                            .FirstOrDefault(components => components.Get<EnemyWeaponController>() == this)
                             ?.Get<EnemyController>(),
-                        // type = AttackType.Melee
+                        info = targetInfo
                     });
                     
                     Debug.Log("Attack Player");
                 }
 
-                Debug.DrawLine(pos1, pos2, detectPlayer ? Color.red : Color.green, 0.1f);
+                Debug.DrawLine(pos1, pos2, targetInfo.collider ? Color.red : Color.green, 0.1f);
             }
         }
 
@@ -97,13 +96,13 @@ namespace Controller.Combat
             return hitInfo;
         }
         
-        public WeaponController OpenWeapon()
+        public EnemyWeaponController OpenWeapon()
         { 
             isWeaponEnable = true;
             return this;
         }
         
-        public WeaponController CloseWeapon()
+        public EnemyWeaponController CloseWeapon()
         { 
             isWeaponEnable = false;
             return this;

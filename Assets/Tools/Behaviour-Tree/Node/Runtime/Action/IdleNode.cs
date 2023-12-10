@@ -33,6 +33,8 @@ namespace Tools.Behaviour_Tree.Node.Runtime.Action
             }
             
             animator.CrossFade(animationName, 0.1f);
+            
+            EnemyWeapon.CloseWeapon();
         }
 
         public override Status OnUpdate()

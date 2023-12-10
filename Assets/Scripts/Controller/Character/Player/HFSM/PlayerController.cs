@@ -470,6 +470,8 @@ namespace Controller.Character.Player.Player
                 rb, 
                 sensorController,
                 cam);
+
+            config = Resources.Load<PlayerConfig>("Data/Character/Player/Player Config");
         }
         
         private void OnDisable()

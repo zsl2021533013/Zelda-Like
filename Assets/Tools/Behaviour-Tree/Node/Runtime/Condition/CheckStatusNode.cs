@@ -63,7 +63,7 @@ namespace Tools.Behaviour_Tree.Node.Runtime.Condition
                     case EnemyStatus.StatusProperty.Stabbed:
                         if (enemyStatus.isStabbed)
                         {
-                            enemyStatus.isStabbed.Reset();
+                            enemyStatus.isStabbed.ResetWithoutEvent();
                             return Status.Success;
                         }
                         return Status.Failure;
@@ -76,14 +76,14 @@ namespace Tools.Behaviour_Tree.Node.Runtime.Condition
                     case EnemyStatus.StatusProperty.BackStabbed:
                         if (enemyStatus.isBackStabbed)
                         {
-                            enemyStatus.isBackStabbed.Reset();
+                            enemyStatus.isBackStabbed.ResetWithoutEvent();
                             return Status.Success;
                         }
                         return Status.Failure;
                     case EnemyStatus.StatusProperty.Dead:
                         if (enemyStatus.isDead)
                         {
-                            enemyStatus.isDead.Reset();
+                            enemyStatus.isDead.ResetWithoutEvent();
                             return Status.Success;
                         }
                         return Status.Failure;

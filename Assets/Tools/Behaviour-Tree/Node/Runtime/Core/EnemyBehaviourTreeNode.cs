@@ -11,7 +11,7 @@ namespace Tools.Behaviour_Tree.Node.Runtime.Core
     {
         protected Animator animator;
         protected NavMeshAgent agent;
-        protected WeaponController weapon;
+        protected EnemyWeaponController EnemyWeapon;
         protected EnemyConfig config;
         protected EnemyStatus enemyStatus;
         
@@ -21,7 +21,7 @@ namespace Tools.Behaviour_Tree.Node.Runtime.Core
             
             animator = components.Get<Animator>();
             agent = components.Get<NavMeshAgent>();
-            weapon = components.Get<WeaponController>();
+            EnemyWeapon = components.Get<EnemyWeaponController>();
             config = components.Get<EnemyConfig>();
             enemyStatus = components.Get<EnemyStatus>();
         }

@@ -15,6 +15,8 @@ namespace Tools.Behaviour_Tree.Node.Runtime.Action
     {
         public override Status OnUpdate()
         {
+            enemyStatus.state.Value = EnemyStatus.State.Combat;
+            
             var enemys = this.GetModel<IEnemyModel>().enemyDict.Keys
                 .Where(enemy => Vector3.Distance(transform.position, enemy.position) < config.alertDist);
             
@@ -23,7 +25,7 @@ namespace Tools.Behaviour_Tree.Node.Runtime.Action
                     var state = this.GetModel<IEnemyModel>().GetEnemyStatus(enemy).state;
                     if (state == EnemyStatus.State.Safe)
                     {
-                        state.Set(EnemyStatus.State.Alert);
+                        state.Value = EnemyStatus.State.Alert;
                     }
                     
                     Debug.Log(enemy.name);

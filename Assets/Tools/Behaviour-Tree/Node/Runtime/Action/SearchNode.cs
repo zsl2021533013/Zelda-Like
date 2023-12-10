@@ -41,13 +41,13 @@ namespace Tools.Behaviour_Tree.Node.Runtime.Action
         {
             if(IsPlayerInSectorRange(playerTrans.position))
             {
-                enemyStatus.state.Set(EnemyStatus.State.Combat);;
+                enemyStatus.state.Value = EnemyStatus.State.Combat;
                 return Status.Success;
             }
             
             if (Vector3.Distance(transform.position, targetPos) <= 1f)
             {
-                enemyStatus.state.Set(EnemyStatus.State.Safe);;
+                enemyStatus.state.Value = EnemyStatus.State.Safe;
                 return Status.Success;
             }
 

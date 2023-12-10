@@ -4,6 +4,7 @@ using Sirenix.OdinInspector;
 using Tools.Behaviour_Tree.Runtime.Data;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Serialization;
 
 namespace Controller.Character.Enemy
 {
@@ -19,6 +20,7 @@ namespace Controller.Character.Enemy
         
         [BoxGroup("Components")] public Animator animator;
         [BoxGroup("Components")] public NavMeshAgent agent;
-        [BoxGroup("Components"), ChildGameObjectsOnly] public WeaponController weapon;
+        [FormerlySerializedAs("weapon")] [BoxGroup("Components"), ChildGameObjectsOnly] public EnemyWeaponController enemyWeapon;
+        [BoxGroup("Components")] public CapsuleCollider capsuleCollider;
     }
 }

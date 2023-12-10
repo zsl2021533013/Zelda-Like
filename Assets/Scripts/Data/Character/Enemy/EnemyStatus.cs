@@ -1,4 +1,5 @@
 ﻿using Data.Character.Base;
+using QFramework;
 using UnityEngine;
 
 namespace Data.Character.Enemy
@@ -22,11 +23,11 @@ namespace Data.Character.Enemy
             Combat
         }
         
-        public StatusProperty<bool> isParried = new StatusProperty<bool>();
-        public StatusProperty<bool> isStabbed = new StatusProperty<bool>();
-        public StatusProperty<bool> isStopped = new StatusProperty<bool>();
-        public StatusProperty<bool> isBackStabbed = new StatusProperty<bool>();
-        public StatusProperty<bool> isDead = new StatusProperty<bool>();
-        public StatusProperty<State> state = new StatusProperty<State>();
+        public BindableProperty<bool> isParried = new BindableProperty<bool>();
+        public BindableProperty<bool> isStabbed = new BindableProperty<bool>();
+        public BindableProperty<bool> isStopped = new BindableProperty<bool>();
+        public BindableProperty<bool> isBackStabbed = new BindableProperty<bool>();
+        public BindableProperty<bool> isDead = new BindableProperty<bool>();
+        public BindableProperty<State> state = new BindableProperty<State>();
     }
 }

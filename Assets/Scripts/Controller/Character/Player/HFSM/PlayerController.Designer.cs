@@ -9,7 +9,8 @@ namespace Controller.Character.Player.Player
         public Collider moveCollider;
         public Camera cam;
         public PlayerSensorController sensorController;
-        public PlayerConfig config;
+        
+        private PlayerConfig config;
         
         private static readonly int SpeedXParam = Animator.StringToHash("SpeedX");
         private static readonly int SpeedZParam = Animator.StringToHash("SpeedZ");

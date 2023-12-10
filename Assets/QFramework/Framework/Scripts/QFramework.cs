@@ -722,6 +722,11 @@ namespace QFramework
             mValue = newValue;
         }
 
+        public void ResetWithoutEvent()
+        {
+            mValue = default;
+        }
+
         private Action<T> mOnValueChanged = (v) => { };
 
         public IUnRegister Register(Action<T> onValueChanged)

@@ -36,7 +36,7 @@ namespace Tools.Behaviour_Tree.Node.Runtime.Action
             
             playerTrans = this.GetModel<IPlayerModel>().components.Get<Transform>();
 
-            weapon.OpenWeapon();
+            EnemyWeapon.OpenWeapon();
         }
 
         public override Status OnUpdate()
@@ -50,7 +50,7 @@ namespace Tools.Behaviour_Tree.Node.Runtime.Action
         {
             agent.updateRotation = false;
             
-            weapon.CloseWeapon();
+            EnemyWeapon.CloseWeapon();
         }
     }
 }

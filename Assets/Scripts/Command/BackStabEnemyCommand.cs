@@ -13,8 +13,8 @@ namespace Command
         protected override void OnExecute()
         {
             var enemyStatus = this.GetModel<IEnemyModel>().GetComponents(enemy).Get<EnemyStatus>();
-            enemyStatus.isBackStabbed.Set(true);
-            enemyStatus.isParried.Reset();
+            enemyStatus.isBackStabbed.Value = true;
+            enemyStatus.isParried.ResetWithoutEvent();
             
             var enemyController = this.GetModel<IEnemyModel>().GetComponents(enemy).Get<EnemyController>();
             enemyController.TimeReset();

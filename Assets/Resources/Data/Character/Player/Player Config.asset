@@ -27,3 +27,4 @@ MonoBehaviour:
   jumpForce: 6
   hardLandSpeed: 6
   timeStopDuration: 5
+  triggerDetectDistance: 10

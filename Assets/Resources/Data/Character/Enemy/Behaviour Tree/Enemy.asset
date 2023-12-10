@@ -1982,8 +1982,8 @@ MonoBehaviour:
   exposedParameters: []
   serializedParameterList: []
   stickyNotes: []
-  position: {x: -391.55554, y: -57.77778, z: 0}
-  scale: {x: 0.57175326, y: 0.57175326, z: 1}
+  position: {x: 101.77778, y: 230.22223, z: 0}
+  scale: {x: 0.49717674, y: 0.49717674, z: 1}
   references:
     version: 2
     RefIds: []
