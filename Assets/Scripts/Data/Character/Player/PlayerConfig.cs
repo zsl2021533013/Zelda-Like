@@ -1,5 +1,6 @@
 ﻿using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Controller.Character.Player.Player
 {
@@ -19,7 +20,8 @@ namespace Controller.Character.Player.Player
         [FoldoutGroup("Ground/Slop")] public PhysicMaterial zeroFrictionMat;
 
         [FoldoutGroup("Jump")] public float jumpForce;
-        [FoldoutGroup("Jump")] public float hardLandSpeed;
+        [FoldoutGroup("Jump")] public float hardLandThreshold;
+        [FoldoutGroup("Jump")] public float airMoveSpeed;
         
         [FoldoutGroup("Combat")] public float timeStopDuration;
 

@@ -15,8 +15,8 @@ MonoBehaviour:
   walkSpeed: 1.950353
   runSpeed: 3.942105
   slopDetectFrontOffset: 0.2
-  slopDetectFrontDistance: 2
-  groundDetectDistance: 2
+  slopDetectFrontDistance: 2.5
+  groundDetectDistance: 2.5
   flatGroundMaxAngle: 10
   slopMaxAngle: 45
   groundLayerMask:
@@ -25,6 +25,7 @@ MonoBehaviour:
   fullFrictionMat: {fileID: 13400000, guid: 9b0273fffcaea404ab5954d04d697a3e, type: 2}
   zeroFrictionMat: {fileID: 13400000, guid: 6787c631d780b374687ba4e402e9259d, type: 2}
   jumpForce: 6
-  hardLandSpeed: 6
+  hardLandThreshold: 6
+  airMoveSpeed: 4
   timeStopDuration: 5
   triggerDetectDistance: 10

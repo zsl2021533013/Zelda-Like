@@ -42,7 +42,14 @@ namespace Controller.Character.Player.Player
         public SensorProperty<Collider> backStabSensor;
         
         public SensorProperty<Collider> stabSensor;
-        
+
+        private PlayerConfig config;
+
+        private void OnEnable()
+        {
+            config = Resources.Load<PlayerConfig>("Data/Character/Player/Player Config");
+        }
+
         private void Start()
         {
             groundSensor = new SensorProperty<Collider[]>(
@@ -50,7 +57,7 @@ namespace Controller.Character.Player.Player
                     groundSensorTrans.position,
                     groundSensorTrans.localScale / 2f,
                     Quaternion.identity,
-                    LayerMask.GetMask("Ground")),
+                    config.groundLayerMask),
                 values => values.Length > 0
             );
             

@@ -131,6 +131,39 @@ namespace Controller.Character.Player.Player
                 {
                     _applyRootMotion = true;
                 },
+                onFixedLogic: state =>
+                {
+                    #region Move
+                    
+                    var movement = InputKit.Instance.move.Value.normalized;
+                    var targetSpeed = movement.magnitude * config.airMoveSpeed;
+                    var currentSpeedXZ = rb.velocity;
+                    currentSpeedXZ.y = 0f;
+                    var nextSpeed = 0.1f.Lerp(currentSpeedXZ.magnitude, targetSpeed);
+                    
+                    #endregion
+
+                    var velocity = nextSpeed * transform.forward;
+                    velocity.y = rb.velocity.y;
+
+                    var deltaForce = velocity - rb.velocity;
+
+                    rb.AddForce(deltaForce, ForceMode.VelocityChange);
+                    
+                    #region Rotate
+
+                    if (InputKit.Instance.move.Value.magnitude >= 0.1f)
+                    {
+                        var right = cam.transform.right;
+                        var inputDirection = InputKit.Instance.move.Value.normalized;
+                        var camForward = Vector3.Cross(right, Vector3.up);
+                        var targetDir = right * inputDirection.x + camForward * inputDirection.y;
+                        var targetRotation = Quaternion.LookRotation(targetDir, Vector3.up);
+                        transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, 0.1f);
+                    }
+
+                    #endregion
+                },
                 canExit: state => state.timer.IsAnimatorFinish,
                 needsExitTime: true
             );
@@ -145,6 +178,39 @@ namespace Controller.Character.Player.Player
                 onExit: state =>
                 {
                     _applyRootMotion = true;
+                },
+                onFixedLogic: state =>
+                {
+                    #region Move
+                    
+                    var movement = InputKit.Instance.move.Value.normalized;
+                    var targetSpeed = movement.magnitude * config.airMoveSpeed;
+                    var currentSpeedXZ = rb.velocity;
+                    currentSpeedXZ.y = 0f;
+                    var nextSpeed = 0.1f.Lerp(currentSpeedXZ.magnitude, targetSpeed);
+                    
+                    #endregion
+
+                    var velocity = nextSpeed * transform.forward;
+                    velocity.y = rb.velocity.y;
+
+                    var deltaForce = velocity - rb.velocity;
+
+                    rb.AddForce(deltaForce, ForceMode.VelocityChange);
+                    
+                    #region Rotate
+
+                    if (InputKit.Instance.move.Value.magnitude >= 0.1f)
+                    {
+                        var right = cam.transform.right;
+                        var inputDirection = InputKit.Instance.move.Value.normalized;
+                        var camForward = Vector3.Cross(right, Vector3.up);
+                        var targetDir = right * inputDirection.x + camForward * inputDirection.y;
+                        var targetRotation = Quaternion.LookRotation(targetDir, Vector3.up);
+                        transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, 0.1f);
+                    }
+
+                    #endregion
                 }
             );
             
@@ -286,7 +352,7 @@ namespace Controller.Character.Player.Player
                     
                     animator.SetFloat(SpeedXParam, nextSpeedX);
                     animator.SetFloat(SpeedZParam, nextSpeedZ);
-
+                    
                     #endregion
                     
                     #region Slop Detect
@@ -312,7 +378,7 @@ namespace Controller.Character.Player.Player
                     var rotateQuat = Quaternion.Euler(0f, inputAngle + playerAngle, 0f);
                     var rightQuat = Quaternion.Euler(0f, -90f, 0f);
                     var right = rightQuat * rotateQuat * Vector3.forward;
-            
+                    
                     var slopeNormalPerp = 
                         isRaycastHitFront ? Vector3.Cross(frontHit.normal, right) : transform.forward; 
                     // 在空中就直接向前，不做额外处理
@@ -421,14 +487,14 @@ namespace Controller.Character.Player.Player
             FSM.AddTransition<MoveState, FocusState>
                 (transition => InputKit.Instance.focus);
             
-            FSM.AddTransition<JumpState, FallState>
-                (transition => true);
-            
             FSM.AddTransition<JumpState, MoveState>
                 (transition => sensorController.groundSensor);
             
+            FSM.AddTransition<JumpState, FallState>
+                (transition => true);
+            
             FSM.AddTransition<FallState, LandState>
-                (transition => Mathf.Abs(rb.velocity.y) > config.hardLandSpeed && sensorController.groundSensor);
+                (transition => Mathf.Abs(rb.velocity.y) > config.hardLandThreshold && sensorController.groundSensor);
             
             FSM.AddTransition<FallState, MoveState>
                 (transition => sensorController.groundSensor);
