@@ -10,7 +10,7 @@ namespace Tools.Behaviour_Tree.Node.Runtime.Action
     [Serializable, NodeMenuItem("Behaviour/Action/Stabbed")]
     public class StabbedNode : ActionNode
     {
-        private const string animationName = "Stabbed";
+        private const string AnimationName = "Stabbed";
 
         private AnimationTimer timer;
 
@@ -18,14 +18,14 @@ namespace Tools.Behaviour_Tree.Node.Runtime.Action
         {
             base.OnEnable();
             
-            timer = new AnimationTimer(animator.GetAnimationLength(animationName));
+            timer = new AnimationTimer(animator.GetAnimationLength(AnimationName));
         }
 
         public override void OnStart()
         {
             timer.Reset();
             
-            animator.CrossFade(animationName, 0.1f);
+            animator.CrossFade(AnimationName, 0.1f);
 
             agent.updateRotation = false;
         }

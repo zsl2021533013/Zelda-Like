@@ -13,7 +13,7 @@ namespace Tools.Behaviour_Tree.Node.Runtime.Action
     [Serializable, NodeMenuItem("Behaviour/Action/Parried")]
     public class ParriedNode : ActionNode
     {
-        private const string animationName = "Parried";
+        private const string AnimationName = "Parried";
 
         private AnimationTimer timer;
 
@@ -21,14 +21,14 @@ namespace Tools.Behaviour_Tree.Node.Runtime.Action
         {
             base.OnEnable();
             
-            timer = new AnimationTimer(animator.GetAnimationLength(animationName));
+            timer = new AnimationTimer(animator.GetAnimationLength(AnimationName));
         }
 
         public override void OnStart()
         {
             timer.Reset();
             
-            animator.CrossFade(animationName, 0.1f);
+            animator.CrossFade(AnimationName, 0.1f);
         }
 
         public override Status OnUpdate()

@@ -7,7 +7,7 @@ using UnityEngine.AI;
 
 namespace Tools.Behaviour_Tree.Node.Runtime.Core
 {
-    public class EnemyBehaviourTreeNode : BehaviourTreeNode
+    public abstract class EnemyBehaviourTreeNode : BehaviourTreeNode
     {
         protected Animator animator;
         protected NavMeshAgent agent;
@@ -24,11 +24,6 @@ namespace Tools.Behaviour_Tree.Node.Runtime.Core
             EnemyWeapon = components.Get<EnemyWeaponController>();
             config = components.Get<EnemyConfig>();
             enemyStatus = components.Get<EnemyStatus>();
-        }
-
-        public override Status OnUpdate()
-        {
-            throw new System.NotImplementedException();
         }
     }
 }

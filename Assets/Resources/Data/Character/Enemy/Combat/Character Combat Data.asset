@@ -9,10 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86a63fae8a936594db5d221dabab29ef, type: 3}
-  m_Name: Enemy Config
+  m_Script: {fileID: 11500000, guid: daa3bb9b9aa54d36b9f3515910fd3cdf, type: 3}
+  m_Name: Character Combat Data
   m_EditorClassIdentifier: 
-  povAngle: 90
-  povDist: 6
-  attackDist: 2
-  alertDist: 6
+  attack: 0
+  health: 10

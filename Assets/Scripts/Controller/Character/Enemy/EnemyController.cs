@@ -18,7 +18,15 @@ namespace Controller.Character.Enemy
             agent.angularSpeed = 1000f;
             
             var model = this.GetModel<IEnemyModel>();
-            model.RegisterEnemy(transform, this, animator, agent, enemyWeapon, capsuleCollider,config);
+            model.RegisterEnemy(
+                transform, 
+                this, 
+                animator, 
+                agent,
+                enemyWeapon, 
+                capsuleCollider,
+                config, 
+                combatData.Instantiate());
             
             runtimeGraph = debugMode ? graph : Instantiate(graph);
             process = new BehaviourTreeProcess(runtimeGraph);
@@ -33,6 +41,15 @@ namespace Controller.Character.Enemy
             });
             
             enemyParticleController.Init(transform);
+
+            var status = this.GetModel<IEnemyModel>().GetEnemyStatus(transform);
+            status.isDead.Register(value =>
+            {
+                if (value == true)
+                {
+                    OnDie();
+                }
+            });
         }
         
         private void OnDisable()
@@ -103,6 +120,17 @@ namespace Controller.Character.Enemy
             animator.speed = 1f;
             agent.updateRotation = true;
             enable = true;
+        }
+
+        public void OnDie()
+        {
+            // 最后更新一次，强迫其进入死亡状态，播放相关动画
+            process.Update();
+            
+            enable = false;
+            capsuleCollider.enabled = false;
+            agent.updateRotation = false;
+            enemyWeapon.Disable();
         }
     }
 }

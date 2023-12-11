@@ -17,7 +17,7 @@ namespace Command
     public class TryHurtPlayerCommand : AbstractCommand
     {
         public IParried attacker;
-        public RaycastHit info;
+        public Vector3 attackPoint;
         
         protected override void OnExecute()
         {
@@ -31,7 +31,7 @@ namespace Command
             else
             {
                 var hitParticle = Resources.Load<GameObject>("Art/Particle/Hit");
-                hitParticle.Instantiate().Position(info.point);
+                hitParticle.Instantiate().Position(attackPoint);
             }
         }
     }

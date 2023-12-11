@@ -10,7 +10,7 @@ namespace Tools.Behaviour_Tree.Node.Runtime.Action
     [Serializable, NodeMenuItem("Behaviour/Action/Idle")]
     public class IdleNode : ActionNode
     {
-        private const string animationName = "Idle";
+        private const string AnimationName = "Idle";
         
         private AnimationTimer timer;
 
@@ -27,12 +27,12 @@ namespace Tools.Behaviour_Tree.Node.Runtime.Action
             
             timer.Reset();
 
-            if (animator.GetCurrentAnimatorStateInfo(0).IsName(animationName))
+            if (animator.GetCurrentAnimatorStateInfo(0).IsName(AnimationName))
             {
                 return;
             }
             
-            animator.CrossFade(animationName, 0.1f);
+            animator.CrossFade(AnimationName, 0.1f);
             
             EnemyWeapon.CloseWeapon();
         }

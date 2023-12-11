@@ -42,7 +42,7 @@ namespace Controller.Combat
                         attacker = this.GetModel<IEnemyModel>().enemyDict.Values
                             .FirstOrDefault(components => components.Get<EnemyWeaponController>() == this)
                             ?.Get<EnemyController>(),
-                        info = targetInfo
+                        attackPoint = targetInfo.point
                     });
                     
                     Debug.Log("Attack Player");

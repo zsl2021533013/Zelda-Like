@@ -94,6 +94,7 @@ GameObject:
   - component: {fileID: 7229561309284416231}
   - component: {fileID: 7222745481642739371}
   - component: {fileID: 7212390751544887845}
+  - component: {fileID: 4826813403753024479}
   m_Layer: 0
   m_Name: SM_Wep_Sword_Rapier_01
   m_TagString: Untagged
@@ -112,7 +113,9 @@ Transform:
   m_LocalPosition: {x: 0.097000174, y: 0.018999873, z: 0.027999999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 6847889689443232425}
+  - {fileID: 8391545948554426641}
   m_Father: {fileID: 7420202159829377873}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: -90}
@@ -166,6 +169,22 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &4826813403753024479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7224351538139808447}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41b698957ea2a99419bdc76ed9ced831, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isWeaponEnable: 0
+  detectPoints:
+  - {fileID: 6847889689443232425}
+  - {fileID: 8391545948554426641}
 --- !u!1 &7224915787003698589
 GameObject:
   m_ObjectHideFlags: 0
@@ -247,6 +266,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7224915787224301180}
   - component: {fileID: 7224915787224301181}
+  - component: {fileID: 1623790945}
   m_Layer: 0
   m_Name: Default Camera
   m_TagString: Untagged
@@ -288,7 +308,7 @@ MonoBehaviour:
   m_StreamingVersion: 20170927
   m_Priority: 10
   m_StandbyUpdate: 2
-  m_LookAt: {fileID: 0}
+  m_LookAt: {fileID: 7224915787579627113}
   m_Follow: {fileID: 7224915787579627113}
   m_Lens:
     FieldOfView: 60
@@ -308,6 +328,36 @@ MonoBehaviour:
         m_Calls: []
   m_LegacyBlendHint: 0
   m_ComponentOwner: {fileID: 7224915787900247725}
+--- !u!114 &1623790945
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7224915787224301183}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e501d18bb52cf8c40b1853ca4904654f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_CollideAgainst:
+    serializedVersion: 2
+    m_Bits: 1
+  m_IgnoreTag: Player
+  m_TransparentLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_MinimumDistanceFromTarget: 0.1
+  m_AvoidObstacles: 1
+  m_DistanceLimit: 0
+  m_MinimumOcclusionTime: 0
+  m_CameraRadius: 0.1
+  m_Strategy: 1
+  m_MaximumEffort: 4
+  m_SmoothingTime: 0
+  m_Damping: 0
+  m_DampingWhenOccluded: 0
+  m_OptimalTargetDistance: 0
 --- !u!1 &7224915787502945719
 GameObject:
   m_ObjectHideFlags: 0
@@ -739,6 +789,7 @@ MonoBehaviour:
   rb: {fileID: 7224915788078649037}
   moveCollider: {fileID: 7224915788078649038}
   sensorController: {fileID: 7224915787726558671}
+  weaponController: {fileID: 4826813403753024479}
 --- !u!114 &7224915788078649034
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2951,4 +3002,66 @@ Transform:
   - {fileID: 7419870363170825063}
   m_Father: {fileID: 7414836377345747137}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7710358094732971089
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6847889689443232425}
+  m_Layer: 0
+  m_Name: Weapon Point 0
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6847889689443232425
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7710358094732971089}
+  m_LocalRotation: {x: -0.5000002, y: -0.49999994, z: -0.5000001, w: 0.49999985}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.9999999, y: 0.9999999, z: 0.99999976}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7229561309284416231}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &9129499511219866540
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8391545948554426641}
+  m_Layer: 0
+  m_Name: Weapon Point 1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8391545948554426641
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9129499511219866540}
+  m_LocalRotation: {x: -0.5000002, y: -0.49999994, z: -0.5000001, w: 0.49999985}
+  m_LocalPosition: {x: 0, y: 1.124, z: 0}
+  m_LocalScale: {x: 0.9999999, y: 0.9999999, z: 0.99999976}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7229561309284416231}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

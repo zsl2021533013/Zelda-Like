@@ -13,7 +13,7 @@ namespace Tools.Behaviour_Tree.Node.Runtime.Action
     [Serializable, NodeMenuItem("Behaviour/Action/Wander")]
     public class WanderNode : ActionNode
     {
-        private const string animationName = "Wander";
+        private const string AnimationName = "Wander";
         
         private Transform playerTrans;
 
@@ -23,14 +23,14 @@ namespace Tools.Behaviour_Tree.Node.Runtime.Action
         {
             base.OnEnable();
             
-            timer = new AnimationTimer(animator.GetAnimationLength(animationName));
+            timer = new AnimationTimer(animator.GetAnimationLength(AnimationName));
         }
 
         public override void OnStart()
         {
             timer.Reset();
             
-            animator.CrossFade(animationName, 0.1f);
+            animator.CrossFade(AnimationName, 0.1f);
             
             agent.updateRotation = true;
             

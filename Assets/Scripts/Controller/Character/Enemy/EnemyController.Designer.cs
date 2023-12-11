@@ -1,6 +1,7 @@
 ﻿using Controller.Character.Enemy.Core;
 using Controller.Combat;
 using Data.Character.Enemy;
+using Data.Combat;
 using Sirenix.OdinInspector;
 using Tools.Behaviour_Tree.Runtime.Data;
 using UnityEngine;
@@ -18,6 +19,7 @@ namespace Controller.Character.Enemy
         private BehaviourTreeGraph runtimeGraph;
         
         [BoxGroup("Config")] public EnemyConfig config;
+        [BoxGroup("Config")] public CharacterCombatData combatData;
         
         [BoxGroup("Components")] public Animator animator;
         [BoxGroup("Components")] public NavMeshAgent agent;

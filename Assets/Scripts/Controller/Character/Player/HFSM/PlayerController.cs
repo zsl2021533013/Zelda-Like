@@ -1,6 +1,7 @@
 using System;
 using Command;
 using Controller.Character.Player.Player.State.Ground_State;
+using Data.Combat;
 using DG.Tweening;
 using Model.Interface;
 using QFramework;
@@ -238,6 +239,8 @@ namespace Controller.Character.Player.Player
                     rb.velocity = velocity;
 
                     closestEnemy = sensorController.GetAttackTarget();
+
+                    weaponController.OpenWeapon();
                 },
                 onFixedLogic: state =>
                 {
@@ -252,6 +255,7 @@ namespace Controller.Character.Player.Player
                     var targetRotation = Quaternion.LookRotation(targetDir, Vector3.up);
                     transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, 0.3f);
                 },
+                onExit: state => weaponController.CloseWeapon(),
                 canExit: state => state.timer > 0.65f,
                 needsExitTime: true
             );
@@ -439,6 +443,12 @@ namespace Controller.Character.Player.Player
                     rb.velocity = velocity;
 
                     this.SendCommand(new StabEnemyCommand() { enemy = enemy });
+                    
+                    this.SendCommand(new TryHurtEnemyCommand()
+                    {
+                        enemy = enemy,
+                        attackerData = this.GetModel<IPlayerModel>().components.Get<CharacterCombatData>()
+                    });
                 },
                 canExit: state => state.timer.IsAnimatorFinish,
                 needsExitTime: true
@@ -461,6 +471,12 @@ namespace Controller.Character.Player.Player
                     rb.velocity = velocity;
 
                     this.SendCommand(new BackStabEnemyCommand() { enemy = enemy });
+                    
+                    this.SendCommand(new TryHurtEnemyCommand()
+                    {
+                        enemy = enemy,
+                        attackerData = this.GetModel<IPlayerModel>().components.Get<CharacterCombatData>()
+                    });
                 },
                 canExit: state => state.timer.IsAnimatorFinish,
                 needsExitTime: true
@@ -528,6 +544,9 @@ namespace Controller.Character.Player.Player
 
             cam = Camera.main;
             
+            config = Resources.Load<PlayerConfig>("Data/Character/Player/Player Config");
+            combatData = Resources.Load<CharacterCombatData>("Data/Character/Player/PlayerCombatData");
+            
             var model = this.GetModel<IPlayerModel>();
             model.RegisterPlayer(
                 transform, 
@@ -535,9 +554,8 @@ namespace Controller.Character.Player.Player
                 animator, 
                 rb, 
                 sensorController,
-                cam);
-
-            config = Resources.Load<PlayerConfig>("Data/Character/Player/Player Config");
+                cam,
+                combatData.Instantiate());
         }
         
         private void OnDisable()

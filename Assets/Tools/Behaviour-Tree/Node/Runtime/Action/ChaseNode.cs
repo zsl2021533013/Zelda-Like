@@ -12,11 +12,13 @@ namespace Tools.Behaviour_Tree.Node.Runtime.Action
     [Serializable, NodeMenuItem("Behaviour/Action/Chase")]
     public class ChaseNode : ActionNode
     {
+        private const string AnimationName = "Chase";
+        
         private Transform playerTrans;
 
         public override void OnStart()
         {
-            animator.CrossFade("Chase", 0.1f);
+            animator.CrossFade(AnimationName, 0.1f);
             
             agent.updateRotation = true;
             

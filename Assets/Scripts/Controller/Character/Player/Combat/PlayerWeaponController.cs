@@ -2,6 +2,7 @@
 using System.Linq;
 using Command;
 using Controller.Character.Enemy;
+using Data.Combat;
 using Model.Interface;
 using QFramework;
 using Sirenix.OdinInspector;
@@ -35,12 +36,10 @@ namespace Controller.Character.Player.Combat
                 {
                     CloseWeapon();
                     
-                    this.SendCommand(new TryHurtPlayerCommand()
+                    this.SendCommand(new TryHurtEnemyCommand()
                     {
-                        attacker = this.GetModel<IEnemyModel>().enemyDict.Values
-                            .FirstOrDefault(components => components.Get<PlayerWeaponController>() == this)
-                            ?.Get<EnemyController>(),
-                        info = targetInfo
+                        enemy = targetInfo.transform,
+                        attackerData = this.GetModel<IPlayerModel>().components.Get<CharacterCombatData>()
                     });
                     
                     Debug.Log("Attack Player");
