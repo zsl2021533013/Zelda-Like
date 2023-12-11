@@ -31,6 +31,8 @@ namespace Controller.Character.Enemy
                     treeNode.OnEnable();
                 }
             });
+            
+            enemyParticleController.Init(transform);
         }
         
         private void OnDisable()

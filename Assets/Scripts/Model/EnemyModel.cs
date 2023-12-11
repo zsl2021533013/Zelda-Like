@@ -25,8 +25,6 @@ namespace Model
             var enemyStatus = ScriptableObject.CreateInstance<EnemyStatus>();
             var components = new Components();
             
-            InitEnemyStatus(transform, enemyStatus);
-            
             enemyDict.TryAdd(transform, components);
 
             enemyDict[transform].Add(transform);
@@ -35,46 +33,7 @@ namespace Model
             
             Debug.Log($"{transform.name} Has Been Registered!");
         }
-
-        private void InitEnemyStatus(Transform transform, EnemyStatus enemyStatus)
-        {
-            enemyStatus.isParried.Register(value =>
-            {
-                if (value)
-                {
-                    var questionMark = Resources.Load<GameObject>("Art/Particle/Stun");
-                    questionMark
-                        .Instantiate()
-                        .Parent(transform)
-                        .LocalPosition(new Vector3(0, enemyDict[transform].Get<CapsuleCollider>().height / 2, 0))
-                        .Name("Stun");
-                }
-            });
-            
-            enemyStatus.state.Register(value =>
-            {
-                switch (value)
-                {
-                    case EnemyStatus.State.Alert:
-                        var questionMark = Resources.Load<GameObject>("Art/Particle/QuestionMark");
-                        questionMark
-                            .Instantiate()
-                            .Parent(transform)
-                            .LocalPosition(new Vector3(0, enemyDict[transform].Get<CapsuleCollider>().height / 2, 0))
-                            .Name("QuestionMark");
-                        break;
-                    case EnemyStatus.State.Combat:
-                        var exclamationMark = Resources.Load<GameObject>("Art/Particle/ExclamationMark");
-                        exclamationMark
-                            .Instantiate()
-                            .Parent(transform)
-                            .LocalPosition(new Vector3(0, enemyDict[transform].Get<CapsuleCollider>().height / 2, 0))
-                            .Name("ExclamationMark");;
-                        break;
-                }
-            });
-        }
-
+        
         public void UnregisterEnemy(Transform transform)
         {
             if (enemyDict.ContainsKey(transform))

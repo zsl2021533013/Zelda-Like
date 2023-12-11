@@ -1,4 +1,5 @@
-﻿using Controller.Combat;
+﻿using Controller.Character.Enemy.Core;
+using Controller.Combat;
 using Data.Character.Enemy;
 using Sirenix.OdinInspector;
 using Tools.Behaviour_Tree.Runtime.Data;
@@ -20,7 +21,8 @@ namespace Controller.Character.Enemy
         
         [BoxGroup("Components")] public Animator animator;
         [BoxGroup("Components")] public NavMeshAgent agent;
-        [FormerlySerializedAs("weapon")] [BoxGroup("Components"), ChildGameObjectsOnly] public EnemyWeaponController enemyWeapon;
         [BoxGroup("Components")] public CapsuleCollider capsuleCollider;
+        [BoxGroup("Components"), ChildGameObjectsOnly] public EnemyWeaponController enemyWeapon;
+        [BoxGroup("Components"), ChildGameObjectsOnly] public EnemyParticleControllerBase enemyParticleController;
     }
 }
