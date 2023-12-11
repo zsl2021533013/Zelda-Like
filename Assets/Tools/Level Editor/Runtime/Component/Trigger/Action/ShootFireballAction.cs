@@ -14,7 +14,7 @@ namespace Level_Editor.Runtime.Action
             {
                 position = spawnPoint.position,
                 attacker = controller.transform,
-                target = spawnPoint.forward
+                target = spawnPoint.position + spawnPoint.forward
             });
         }
     }

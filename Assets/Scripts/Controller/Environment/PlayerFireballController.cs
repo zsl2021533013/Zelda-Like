@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Level_Editor.Runtime;
+using QFramework;
 using UnityEngine;
 
 namespace Controller.Environment
@@ -15,8 +16,8 @@ namespace Controller.Environment
             var trigger = colliders.FirstOrDefault(col => col.CompareTag("Trigger"));
             if (trigger)
             {
-                var controller = trigger.transform.GetComponent<TriggerController>();
-                controller.tryTrigger?.Invoke();
+                var controllers = trigger.transform.GetComponents<TriggerController>();
+                controllers.ForEach(controller => controller.tryTrigger?.Invoke());
             }
         }
 

@@ -7,7 +7,9 @@ namespace Controller.Character.Player.Player
         private void OnDrawGizmosSelected()
         {
             Gizmos.color = Color.green;
-            Gizmos.DrawWireCube(transform.position, transform.localScale);
+            Gizmos.matrix = Matrix4x4.TRS(transform.position, transform.rotation, transform.localScale);
+            Gizmos.DrawWireCube(Vector3.zero, Vector3.one);
+            Gizmos.matrix = Matrix4x4.identity;
         }
     }
 }

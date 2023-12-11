@@ -16,7 +16,7 @@ namespace Level_Editor.Runtime
                 {
                     Gizmos.matrix = Matrix4x4.TRS(triggerArea.position, triggerArea.rotation, triggerArea.localScale);
                     Gizmos.color = Satisfied() ? Color.green : Color.red;
-                    Gizmos.DrawWireCube(triggerArea.position, triggerArea.localScale);
+                    Gizmos.DrawWireCube(Vector3.zero, Vector3.one);
                     Gizmos.matrix = Matrix4x4.identity;
                 });
         }
