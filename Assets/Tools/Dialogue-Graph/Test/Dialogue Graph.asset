@@ -27,7 +27,7 @@ MonoBehaviour:
         mscorlib
     - Name: 
       Entry: 12
-      Data: 2
+      Data: 6
     - Name: 
       Entry: 7
       Data: 1|Tools.Dialogue_Graph.Node.Runtime.RootNode, Assembly-CSharp
@@ -36,7 +36,7 @@ MonoBehaviour:
       Data: 
     - Name: GUID
       Entry: 1
-      Data: e3655743-f1c7-419c-8577-27a48bb4e465
+      Data: e289b344-573a-4fe8-86aa-8ed52448e6c1
     - Name: computeOrder
       Entry: 3
       Data: 0
@@ -45,16 +45,16 @@ MonoBehaviour:
       Data: UnityEngine.Rect, UnityEngine.CoreModule
     - Name: 
       Entry: 4
-      Data: 31.5555534
+      Data: 29.4444389
     - Name: 
       Entry: 4
-      Data: 171.266556
+      Data: 0
     - Name: 
       Entry: 4
-      Data: 89.33333
+      Data: 89.3333359
     - Name: 
       Entry: 4
-      Data: 50.22223
+      Data: 50.22222
     - Name: 
       Entry: 8
       Data: 
@@ -68,7 +68,7 @@ MonoBehaviour:
       Entry: 5
       Data: false
     - Name: text
-      Entry: 1
+      Entry: 6
       Data: 
     - Name: output
       Entry: 7
@@ -87,7 +87,7 @@ MonoBehaviour:
       Data: 
     - Name: GUID
       Entry: 1
-      Data: 356b99c9-2da9-4726-b968-f0fc1ac294e0
+      Data: 511d4e29-929c-4805-b854-2b144992f9dd
     - Name: computeOrder
       Entry: 3
       Data: 1
@@ -96,16 +96,16 @@ MonoBehaviour:
       Data: UnityEngine.Rect, UnityEngine.CoreModule
     - Name: 
       Entry: 4
-      Data: 26.2129822
+      Data: 26.777771
     - Name: 
       Entry: 4
-      Data: 323.965576
+      Data: 120
     - Name: 
       Entry: 4
-      Data: 100
+      Data: 94.66667
     - Name: 
       Entry: 4
-      Data: 100
+      Data: 58.22223
     - Name: 
       Entry: 8
       Data: 
@@ -119,8 +119,236 @@ MonoBehaviour:
       Entry: 5
       Data: false
     - Name: text
+      Entry: 1
+      Data: "\u6797\u514B\uFF01\u6797\u514B\uFF01\u5FEB\u9192\u9192\uFF01"
+    - Name: input
+      Entry: 7
+      Data: Tools.Dialogue_Graph.Node.Runtime.Core.DialogueGraphLink, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: output
+      Entry: 7
+      Data: Tools.Dialogue_Graph.Node.Runtime.Core.DialogueGraphLink, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 3|Tools.Dialogue_Graph.Node.Runtime.PlayerNode, Assembly-CSharp
+    - Name: nodeCustomName
       Entry: 6
       Data: 
+    - Name: GUID
+      Entry: 1
+      Data: c6efae2e-2cb2-45f4-8d56-5e5402a81f59
+    - Name: computeOrder
+      Entry: 3
+      Data: 2
+    - Name: position
+      Entry: 7
+      Data: UnityEngine.Rect, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 24.9999924
+    - Name: 
+      Entry: 4
+      Data: 240
+    - Name: 
+      Entry: 4
+      Data: 98.22223
+    - Name: 
+      Entry: 4
+      Data: 58.2222137
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: expanded
+      Entry: 5
+      Data: false
+    - Name: debug
+      Entry: 5
+      Data: false
+    - Name: nodeLock
+      Entry: 5
+      Data: false
+    - Name: text
+      Entry: 1
+      Data: "\u6211\u662F\u8C01\uFF0C\u6211\u54EA\u91CC\uFF1F"
+    - Name: input
+      Entry: 7
+      Data: Tools.Dialogue_Graph.Node.Runtime.Core.DialogueGraphLink, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: output
+      Entry: 7
+      Data: Tools.Dialogue_Graph.Node.Runtime.Core.DialogueGraphLink, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 4|Tools.Dialogue_Graph.Node.Runtime.AsideNode, Assembly-CSharp
+    - Name: nodeCustomName
+      Entry: 6
+      Data: 
+    - Name: GUID
+      Entry: 1
+      Data: 214bad21-dc76-448e-b6d1-cf720244dcfe
+    - Name: computeOrder
+      Entry: 3
+      Data: 3
+    - Name: position
+      Entry: 7
+      Data: UnityEngine.Rect, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 26.7777748
+    - Name: 
+      Entry: 4
+      Data: 360
+    - Name: 
+      Entry: 4
+      Data: 94.6666641
+    - Name: 
+      Entry: 4
+      Data: 58.22223
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: expanded
+      Entry: 5
+      Data: false
+    - Name: debug
+      Entry: 5
+      Data: false
+    - Name: nodeLock
+      Entry: 5
+      Data: false
+    - Name: text
+      Entry: 1
+      Data: "\u4F60\u662F\u6797\u514B\uFF0C\u6211\u7684\u9A91\u58EB"
+    - Name: input
+      Entry: 7
+      Data: Tools.Dialogue_Graph.Node.Runtime.Core.DialogueGraphLink, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: output
+      Entry: 7
+      Data: Tools.Dialogue_Graph.Node.Runtime.Core.DialogueGraphLink, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 5|Tools.Dialogue_Graph.Node.Runtime.PlayerNode, Assembly-CSharp
+    - Name: nodeCustomName
+      Entry: 6
+      Data: 
+    - Name: GUID
+      Entry: 1
+      Data: ea2dc7da-c0b2-434f-b205-ed64de49c107
+    - Name: computeOrder
+      Entry: 3
+      Data: 4
+    - Name: position
+      Entry: 7
+      Data: UnityEngine.Rect, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: -49.1111069
+    - Name: 
+      Entry: 4
+      Data: 480
+    - Name: 
+      Entry: 4
+      Data: 98.22221
+    - Name: 
+      Entry: 4
+      Data: 58.22223
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: expanded
+      Entry: 5
+      Data: false
+    - Name: debug
+      Entry: 5
+      Data: false
+    - Name: nodeLock
+      Entry: 5
+      Data: false
+    - Name: text
+      Entry: 1
+      Data: "\u90A3\u4F60\u5462\uFF1F"
+    - Name: input
+      Entry: 7
+      Data: Tools.Dialogue_Graph.Node.Runtime.Core.DialogueGraphLink, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: output
+      Entry: 7
+      Data: Tools.Dialogue_Graph.Node.Runtime.Core.DialogueGraphLink, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 6|Tools.Dialogue_Graph.Node.Runtime.PlayerNode, Assembly-CSharp
+    - Name: nodeCustomName
+      Entry: 6
+      Data: 
+    - Name: GUID
+      Entry: 1
+      Data: e9cb95e0-d20d-41a2-ac99-be5329dfcf5a
+    - Name: computeOrder
+      Entry: 3
+      Data: 5
+    - Name: position
+      Entry: 7
+      Data: UnityEngine.Rect, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 99.11111
+    - Name: 
+      Entry: 4
+      Data: 480
+    - Name: 
+      Entry: 4
+      Data: 98.22222
+    - Name: 
+      Entry: 4
+      Data: 58.22223
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: expanded
+      Entry: 5
+      Data: false
+    - Name: debug
+      Entry: 5
+      Data: false
+    - Name: nodeLock
+      Entry: 5
+      Data: false
+    - Name: text
+      Entry: 1
+      Data: "\u4E0D..."
     - Name: input
       Entry: 7
       Data: Tools.Dialogue_Graph.Node.Runtime.Core.DialogueGraphLink, Assembly-CSharp
@@ -144,7 +372,7 @@ MonoBehaviour:
       Data: 
     - Name: groups
       Entry: 7
-      Data: 3|System.Collections.Generic.List`1[[GraphProcessor.Group, com.alelievr.NodeGraphProcessor.Runtime]],
+      Data: 7|System.Collections.Generic.List`1[[GraphProcessor.Group, com.alelievr.NodeGraphProcessor.Runtime]],
         mscorlib
     - Name: 
       Entry: 12
@@ -157,10 +385,42 @@ MonoBehaviour:
       Data: 
   serializedNodes: []
   edges:
-  - GUID: 1d1a6462-be1f-402b-8698-7277341d3760
+  - GUID: d8a82314-fe06-4976-8a23-982b3b5c729d
     owner: {fileID: 11400000}
-    inputNodeGUID: 356b99c9-2da9-4726-b968-f0fc1ac294e0
-    outputNodeGUID: e3655743-f1c7-419c-8577-27a48bb4e465
+    inputNodeGUID: 511d4e29-929c-4805-b854-2b144992f9dd
+    outputNodeGUID: e289b344-573a-4fe8-86aa-8ed52448e6c1
+    inputFieldName: input
+    outputFieldName: output
+    inputPortIdentifier: 
+    outputPortIdentifier: 
+  - GUID: e6480d3c-4c8a-4fb8-8186-3725233cd97c
+    owner: {fileID: 11400000}
+    inputNodeGUID: c6efae2e-2cb2-45f4-8d56-5e5402a81f59
+    outputNodeGUID: 511d4e29-929c-4805-b854-2b144992f9dd
+    inputFieldName: input
+    outputFieldName: output
+    inputPortIdentifier: 
+    outputPortIdentifier: 
+  - GUID: 12ce5f4d-deba-4a2c-bfdf-c96214619624
+    owner: {fileID: 11400000}
+    inputNodeGUID: 214bad21-dc76-448e-b6d1-cf720244dcfe
+    outputNodeGUID: c6efae2e-2cb2-45f4-8d56-5e5402a81f59
+    inputFieldName: input
+    outputFieldName: output
+    inputPortIdentifier: 
+    outputPortIdentifier: 
+  - GUID: 6702830c-ac79-4506-a9dc-54ebf5a18b8a
+    owner: {fileID: 11400000}
+    inputNodeGUID: ea2dc7da-c0b2-434f-b205-ed64de49c107
+    outputNodeGUID: 214bad21-dc76-448e-b6d1-cf720244dcfe
+    inputFieldName: input
+    outputFieldName: output
+    inputPortIdentifier: 
+    outputPortIdentifier: 
+  - GUID: 4973747a-432b-4ade-88c6-a5ceeef7c967
+    owner: {fileID: 11400000}
+    inputNodeGUID: e9cb95e0-d20d-41a2-ac99-be5329dfcf5a
+    outputNodeGUID: 214bad21-dc76-448e-b6d1-cf720244dcfe
     inputFieldName: input
     outputFieldName: output
     inputPortIdentifier: 
@@ -170,8 +430,8 @@ MonoBehaviour:
   exposedParameters: []
   serializedParameterList: []
   stickyNotes: []
-  position: {x: 67.111115, y: -112, z: 0}
-  scale: {x: 1.3225, y: 1.3225, z: 1}
+  position: {x: 103.111115, y: 17.777779, z: 0}
+  scale: {x: 0.65751624, y: 0.65751624, z: 1}
   references:
     version: 2
     RefIds: []

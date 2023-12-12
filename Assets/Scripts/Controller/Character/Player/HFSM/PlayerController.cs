@@ -239,8 +239,6 @@ namespace Controller.Character.Player.Player
                     rb.velocity = velocity;
 
                     closestEnemy = sensorController.GetAttackTarget();
-
-                    weaponController.OpenWeapon();
                 },
                 onFixedLogic: state =>
                 {

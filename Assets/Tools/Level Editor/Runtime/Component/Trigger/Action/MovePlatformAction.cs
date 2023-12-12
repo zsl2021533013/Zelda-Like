@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using DG.Tweening;
 using Model.Interface;
 using QFramework;
 using Script.View_Controller.Character_System.HFSM.StateMachine;
@@ -9,50 +10,37 @@ namespace Level_Editor.Runtime.Action
 {
     public class MovePlatformAction : ActionBase
     {
-        public Transform platformArea;
+        private const float Speed = 4f;
         
-        public Animator animator;
+        public Transform platform;
+        public Transform destination;
 
-        public string animationName;
-
-        private AnimationTimer timer;
-
-        private Transform playerTrans;
-
+        private bool isCompleted;
+        
         public override void OnEnter()
         {
-            animator.Play(animationName);
+            platform.DOKill();
             
-            timer = new AnimationTimer(animator.GetAnimationLength(animationName));
-
-            playerTrans = this.GetModel<IPlayerModel>().components.Get<Transform>();
+            var platformPos = platform.position;
+            var destinationPos = destination.position;
             
-            DetectPlayer();
-        }
+            isCompleted = false;
 
-        public override void OnUpdate()
-        {
-            base.OnUpdate();
-            
-            DetectPlayer();
-        }
+            if (Vector3.Distance(platformPos, destinationPos) < 0.1f)
+            {
+                isCompleted = true;
+                return;
+            }
 
-        public override void OnExit()
-        {
-            playerTrans.SetParent(null);
+            var duration = Vector3.Distance(platformPos, destinationPos) / Speed;
+            platform.DOMove(destinationPos, duration)
+                .SetEase(Ease.Linear)
+                .OnComplete(() => isCompleted = true);
         }
 
         public override bool CanExit()
         {
-            return timer.IsAnimatorFinish;
-        }
-
-        private void DetectPlayer()
-        {
-            var colliders = Physics.OverlapBox(platformArea.position, platformArea.localScale / 2f);
-            var player = colliders.FirstOrDefault(collider => collider.CompareTag("Player"));
-
-            playerTrans.SetParent(player ? animator.transform : null);
+            return isCompleted;
         }
     }
 }

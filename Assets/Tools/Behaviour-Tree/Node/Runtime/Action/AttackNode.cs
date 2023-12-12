@@ -35,8 +35,6 @@ namespace Tools.Behaviour_Tree.Node.Runtime.Action
             agent.updateRotation = true;
             
             playerTrans = this.GetModel<IPlayerModel>().components.Get<Transform>();
-
-            EnemyWeapon.OpenWeapon();
         }
 
         public override Status OnUpdate()

@@ -39,7 +39,8 @@ namespace Controller.Character.Player.Combat
                     this.SendCommand(new TryHurtEnemyCommand()
                     {
                         enemy = targetInfo.transform,
-                        attackerData = this.GetModel<IPlayerModel>().components.Get<CharacterCombatData>()
+                        attackerData = this.GetModel<IPlayerModel>().components.Get<CharacterCombatData>(),
+                        /*attackPoint = targetInfo.point*/
                     });
                     
                     Debug.Log("Attack Player");

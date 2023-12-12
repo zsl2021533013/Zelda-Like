@@ -11,9 +11,13 @@ namespace Command
     {
         public Transform enemy;
         public AttackerData attackerData;
+        /*public Vector3 attackPoint;*/
         
         protected override void OnExecute()
         {
+            /*var hitParticle = Resources.Load<GameObject>("Art/Particle/Hit");
+            hitParticle.Instantiate().Position(attackPoint);*/
+            
             var components = this.GetModel<IEnemyModel>().GetComponents(enemy);
             
             var characterCombatData = components.Get<CharacterCombatData>();

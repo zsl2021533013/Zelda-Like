@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd23f83def3f46dfa5df25f5b4b24f2b, type: 3}
   m_Name: Camera Config
   m_EditorClassIdentifier: 
-  cameraSpeedX: 100
-  cameraSpeedY: 60
+  cameraSpeedX: 70
+  cameraSpeedY: 50
   topClamp: 70
   bottomClamp: -30
