@@ -15,6 +15,8 @@ namespace Level_Editor.Runtime.Action
         public Transform bottom;
 
         private Transform player;
+        private Vector3 direction;
+        private Vector3 targetPos;
         private bool isCompleted;
         
         public override void OnEnter()
@@ -28,27 +30,31 @@ namespace Level_Editor.Runtime.Action
             var position = controller.transform.position;
             if (Vector3.Distance(position, topPos) < 0.1f)
             {
-                controller.transform.DOMove(bottomPos, Vector3.Distance(bottomPos, position) / Speed)
-                    .SetEase(Ease.Linear)
-                    .OnComplete(() => isCompleted = true);
+                targetPos = bottomPos;
             }
             else
             {
-                controller.transform.DOMove(topPos, Vector3.Distance(topPos, position) / Speed)
-                    .SetEase(Ease.Linear)
-                    .OnComplete(() => isCompleted = true);
+                targetPos = topPos;
             }
+            direction = (targetPos - position).normalized;
 
             player = this.GetModel<IPlayerModel>().components.Get<Transform>();
         }
 
-        public override void OnUpdate()
+        public override void OnFixedUpdate()
         {
             var colliders =
                 Physics.OverlapBox(platformArea.position, platformArea.localScale / 2f, platformArea.rotation);
             var detectPlayer = colliders.FirstOrDefault(collider => collider.CompareTag("Player"));
             
             player.SetParent(detectPlayer ? controller.transform : null);
+
+            controller.transform.position += direction * Speed * Time.deltaTime;
+
+            if (Vector3.Distance(targetPos, controller.transform.position) < 0.1f)
+            {
+                isCompleted = true;
+            }
         }
 
         public override void OnExit()

@@ -39,6 +39,8 @@ namespace Level_Editor.Runtime.Action
         public virtual void OnEnter() { }
 
         public virtual void OnUpdate() { }
+        
+        public virtual void OnFixedUpdate() { }
 
         public virtual void OnExit() { }
 
@@ -60,6 +62,13 @@ namespace Level_Editor.Runtime.Action
                 .Subscribe(_ =>
                 {
                     OnUpdate();
+                }).AddTo(controller);
+            
+            Observable.EveryFixedUpdate()
+                .TakeUntil(observable)
+                .Subscribe(_ =>
+                {
+                    OnFixedUpdate();
                 }).AddTo(controller);
                 
             observable.Subscribe(_ => 
