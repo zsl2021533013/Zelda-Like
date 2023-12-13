@@ -11,7 +11,7 @@ public class Test : MonoBehaviour, IController
     {
         if (Input.GetKeyDown(KeyCode.T))
         {
-            DialogueManger.Instance.InitGraph(graph);
+            DialogueManger.Instance.StartDialogue(graph);
         }
     }
 

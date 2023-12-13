@@ -67,7 +67,7 @@ namespace Controller.UI
 
 			if (contentNode == null && responseNodes is not { Count: > 0 })
 			{
-				rootCanvasGroup.DOFade(0f, 0.3f).OnComplete(CloseSelf);
+				rootCanvasGroup.DOFade(0f, 0.3f).OnComplete(DialogueManger.Instance.CompleteDialogue);
 				return;
 			}
 

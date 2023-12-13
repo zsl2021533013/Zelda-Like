@@ -11,11 +11,15 @@ namespace Level_Editor.Runtime.Action
     {
         public DialogueGraph graph;
 
+        private bool isComplete;
+
         public override void OnEnter()
         {
             base.OnEnter();
             
-            DialogueManger.Instance.InitGraph(graph);
+            isComplete = false;
+
+            DialogueManger.Instance.StartDialogue(graph, onComplete: () => isComplete = true);
 
             Cursor.lockState = CursorLockMode.None;
             
@@ -24,7 +28,7 @@ namespace Level_Editor.Runtime.Action
 
         public override bool CanExit()
         {
-            return !UIKit.GetPanel<DialoguePanel>();
+            return isComplete;
         }
 
         public override void OnExit()
