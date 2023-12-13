@@ -8,7 +8,7 @@ namespace QFramework.Example
 	// Generate Id:e3b58241-7f71-43cb-b04d-19ee82d17f37
 	public partial class TriggerPanel
 	{
-		public const string Name = "TriggerPanel";
+		public const string Name = "Trigger Panel";
 		
 		
 		private TriggerPanelData mPrivateData = null;

@@ -4894,7 +4894,7 @@ GameObject:
   - component: {fileID: 948594717003353245}
   - component: {fileID: 948594717003353246}
   m_Layer: 0
-  m_Name: QuestionMark
+  m_Name: Question Mark
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

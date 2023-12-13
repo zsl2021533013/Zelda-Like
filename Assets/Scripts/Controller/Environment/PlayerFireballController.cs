@@ -12,6 +12,9 @@ namespace Controller.Environment
         {
             enable = false;
             Destroy(gameObject);
+            
+            var explosionParticle = Resources.Load<GameObject>("Art/Particle/Explosion");
+            explosionParticle.Instantiate().Position(transform.position);
 
             var trigger = colliders.FirstOrDefault(col => col.CompareTag("Trigger"));
             if (trigger)

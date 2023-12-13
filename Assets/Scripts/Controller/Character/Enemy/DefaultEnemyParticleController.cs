@@ -36,20 +36,20 @@ namespace Controller.Character.Enemy
                 switch (value)
                 {
                     case EnemyStatus.State.Alert:
-                        var questionMark = Resources.Load<GameObject>("Art/Particle/QuestionMark");
+                        var questionMark = Resources.Load<GameObject>("Art/Particle/Question Mark");
                         particle = questionMark
                             .Instantiate()
                             .Parent(transform)
                             .LocalPosition(Vector3.zero)
-                            .Name("QuestionMark");
+                            .Name("Question Mark");
                         break;
                     case EnemyStatus.State.Combat:
-                        var exclamationMark = Resources.Load<GameObject>("Art/Particle/ExclamationMark");
+                        var exclamationMark = Resources.Load<GameObject>("Art/Particle/Exclamation Mark");
                         particle = exclamationMark
                             .Instantiate()
                             .Parent(transform)
                             .LocalPosition(Vector3.zero)
-                            .Name("ExclamationMark");
+                            .Name("Exclamation Mark");
                         break;
                 }
             });

@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Command;
+using Controller.Character.Player.Player;
 using Controller.Combat;
+using Model.Interface;
 using QFramework;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -11,7 +13,7 @@ namespace Controller.Environment
 {
     public class EnemyFireballController : FireballBase, IParried
     {
-        [SerializeField, BoxGroup("Config")] private Transform attacker;
+        private Transform attacker;
 
         public override void Init(Vector3 target, params Object[] args)
         {
@@ -21,12 +23,23 @@ namespace Controller.Environment
 
         public override void OnCollision(List<Collider> colliders)
         {
-            enable = false;
             Destroy(gameObject);
 
             if (colliders.FirstOrDefault(col => col.CompareTag("Player")))
             {
-                this.SendCommand(new TryHurtPlayerCommand() { attacker = this });
+                var model = this.GetModel<IPlayerModel>();
+                var status = model.components.Get<PlayerStatus>();
+
+                if (status.isParrying)
+                {
+                    Parried();
+                }
+                else
+                {
+                    var explosionParticle = Resources.Load<GameObject>("Art/Particle/Explosion");
+                    explosionParticle.Instantiate().Position(transform.position);
+                }
+                
                 Debug.Log("Detect Player");
             }
         }

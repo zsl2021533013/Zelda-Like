@@ -543,7 +543,7 @@ namespace Controller.Character.Player.Player
             cam = Camera.main;
             
             config = Resources.Load<PlayerConfig>("Data/Character/Player/Player Config");
-            combatData = Resources.Load<CharacterCombatData>("Data/Character/Player/PlayerCombatData");
+            combatData = Resources.Load<CharacterCombatData>("Data/Character/Player/Player Combat Data");
             
             var model = this.GetModel<IPlayerModel>();
             model.RegisterPlayer(

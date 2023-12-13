@@ -64,10 +64,10 @@ namespace QFramework.Example
 				TriggerNoticeController noticeController = null;
 				if (!triggerUIDict.ContainsKey(controller))
 				{
-					noticeController = Resources.Load<GameObject>("UI Prefab/TriggerNotice")
+					noticeController = Resources.Load<GameObject>("UI Prefab/Trigger Notice")
 						.Instantiate()
 						.Parent(transform)
-						.Name("TriggerNotice")
+						.Name("Trigger Notice")
 						.GetComponent<TriggerNoticeController>();
 					
 					triggerUIDict.Add(controller, noticeController);

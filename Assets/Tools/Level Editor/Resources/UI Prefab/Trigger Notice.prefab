@@ -190,7 +190,7 @@ GameObject:
   - component: {fileID: 6527070072999225412}
   - component: {fileID: 4650298828110583825}
   m_Layer: 0
-  m_Name: TriggerNotice
+  m_Name: Trigger Notice
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

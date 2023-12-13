@@ -12,11 +12,12 @@ namespace Controller.Environment
 {
     public abstract class FireballBase : MonoBehaviour, IController, ITimeStop
     {
-        [SerializeField, BoxGroup("Config")] protected bool enable;
         [SerializeField, BoxGroup("Config")] protected float speed;
         [SerializeField, BoxGroup("Config")] protected Vector3 direction;
 
         protected Vector3 startPos;
+        
+        protected bool enable;
         
         private void OnEnable()
         {
@@ -65,6 +66,7 @@ namespace Controller.Environment
 
         public virtual void Init(Vector3 target, params Object[] args)
         {
+            enable = true;
             direction = (target - transform.position).normalized;
         }
         
