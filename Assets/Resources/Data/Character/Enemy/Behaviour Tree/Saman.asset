@@ -1,0 +1,2172 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aeef43cecd454916a8eca40b1b4a8e0f, type: 3}
+  m_Name: Saman
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: nodes
+      Entry: 7
+      Data: 0|System.Collections.Generic.List`1[[GraphProcessor.BaseNode, com.alelievr.NodeGraphProcessor.Runtime]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 35
+    - Name: 
+      Entry: 7
+      Data: 1|Tools.Behaviour_Tree.Node.Runtime.Root.RootNode, Assembly-CSharp
+    - Name: nodeCustomName
+      Entry: 6
+      Data: 
+    - Name: GUID
+      Entry: 1
+      Data: d99c8b05-ffe0-4b6f-bfb7-347ae2b154a4
+    - Name: computeOrder
+      Entry: 3
+      Data: 0
+    - Name: position
+      Entry: 7
+      Data: UnityEngine.Rect, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 1033.38184
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 92.44446
+    - Name: 
+      Entry: 4
+      Data: 50.22223
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: expanded
+      Entry: 5
+      Data: false
+    - Name: debug
+      Entry: 5
+      Data: false
+    - Name: nodeLock
+      Entry: 5
+      Data: false
+    - Name: child
+      Entry: 7
+      Data: Tools.Behaviour_Tree.Node.Runtime.Core.BehaviourTreeLink, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 2|Tools.Behaviour_Tree.Node.Runtime.Composite.InterruptSelectNode, Assembly-CSharp
+    - Name: nodeCustomName
+      Entry: 6
+      Data: 
+    - Name: GUID
+      Entry: 1
+      Data: 52292ff0-80c9-455f-8053-59716b1fe7a4
+    - Name: computeOrder
+      Entry: 3
+      Data: 1
+    - Name: position
+      Entry: 7
+      Data: UnityEngine.Rect, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 1002.49304
+    - Name: 
+      Entry: 4
+      Data: 120
+    - Name: 
+      Entry: 4
+      Data: 154.222168
+    - Name: 
+      Entry: 4
+      Data: 58.22223
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: expanded
+      Entry: 5
+      Data: false
+    - Name: debug
+      Entry: 5
+      Data: false
+    - Name: nodeLock
+      Entry: 5
+      Data: false
+    - Name: parent
+      Entry: 7
+      Data: Tools.Behaviour_Tree.Node.Runtime.Core.BehaviourTreeLink, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: child
+      Entry: 7
+      Data: Tools.Behaviour_Tree.Node.Runtime.Core.BehaviourTreeLink, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 3|Tools.Behaviour_Tree.Node.Runtime.Composite.SequenceNode, Assembly-CSharp
+    - Name: nodeCustomName
+      Entry: 6
+      Data: 
+    - Name: GUID
+      Entry: 1
+      Data: 1d3cc8c6-656e-4497-a98b-a426ec3c1d9a
+    - Name: computeOrder
+      Entry: 3
+      Data: 2
+    - Name: position
+      Entry: 7
+      Data: UnityEngine.Rect, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 27.55555
+    - Name: 
+      Entry: 4
+      Data: 239.999985
+    - Name: 
+      Entry: 4
+      Data: 123.11113
+    - Name: 
+      Entry: 4
+      Data: 58.2222
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: expanded
+      Entry: 5
+      Data: false
+    - Name: debug
+      Entry: 5
+      Data: false
+    - Name: nodeLock
+      Entry: 5
+      Data: false
+    - Name: parent
+      Entry: 7
+      Data: Tools.Behaviour_Tree.Node.Runtime.Core.BehaviourTreeLink, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: child
+      Entry: 7
+      Data: Tools.Behaviour_Tree.Node.Runtime.Core.BehaviourTreeLink, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 4|Tools.Behaviour_Tree.Node.Runtime.Condition.CheckStatusNode, Assembly-CSharp
+    - Name: nodeCustomName
+      Entry: 6
+      Data: 
+    - Name: GUID
+      Entry: 1
+      Data: 5908dd92-d1a7-4f26-8c5b-b68dc46382a7
+    - Name: computeOrder
+      Entry: 3
+      Data: 3
+    - Name: position
+      Entry: 7
+      Data: UnityEngine.Rect, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: -71.1111145
+    - Name: 
+      Entry: 4
+      Data: 360
+    - Name: 
+      Entry: 4
+      Data: 142.222229
+    - Name: 
+      Entry: 4
+      Data: 50.22223
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: expanded
+      Entry: 5
+      Data: false
+    - Name: debug
+      Entry: 5
+      Data: false
+    - Name: nodeLock
+      Entry: 5
+      Data: false
+    - Name: parent
+      Entry: 7
+      Data: Tools.Behaviour_Tree.Node.Runtime.Core.BehaviourTreeLink, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: mode
+      Entry: 3
+      Data: 1
+    - Name: stateType
+      Entry: 3
+      Data: 0
+    - Name: propertyType
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 5|Tools.Behaviour_Tree.Node.Runtime.Action.StabbedNode, Assembly-CSharp
+    - Name: nodeCustomName
+      Entry: 6
+      Data: 
+    - Name: GUID
+      Entry: 1
+      Data: 3240bcb3-b088-41c5-ba61-16ef44586507
+    - Name: computeOrder
+      Entry: 3
+      Data: 4
+    - Name: position
+      Entry: 7
+      Data: UnityEngine.Rect, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 121.111115
+    - Name: 
+      Entry: 4
+      Data: 360
+    - Name: 
+      Entry: 4
+      Data: 114.222229
+    - Name: 
+      Entry: 4
+      Data: 50.22223
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: expanded
+      Entry: 5
+      Data: false
+    - Name: debug
+      Entry: 5
+      Data: false
+    - Name: nodeLock
+      Entry: 5
+      Data: false
+    - Name: parent
+      Entry: 7
+      Data: Tools.Behaviour_Tree.Node.Runtime.Core.BehaviourTreeLink, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 6|Tools.Behaviour_Tree.Node.Runtime.Composite.SequenceNode, Assembly-CSharp
+    - Name: nodeCustomName
+      Entry: 1
+      Data: 
+    - Name: GUID
+      Entry: 1
+      Data: b038a3f2-eaa1-468a-8c85-219e5a52b8a0
+    - Name: computeOrder
+      Entry: 3
+      Data: 5
+    - Name: position
+      Entry: 7
+      Data: UnityEngine.Rect, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 391.777771
+    - Name: 
+      Entry: 4
+      Data: 239.999985
+    - Name: 
+      Entry: 4
+      Data: 123.111115
+    - Name: 
+      Entry: 4
+      Data: 58.2222
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: expanded
+      Entry: 5
+      Data: false
+    - Name: debug
+      Entry: 5
+      Data: false
+    - Name: nodeLock
+      Entry: 5
+      Data: false
+    - Name: parent
+      Entry: 7
+      Data: Tools.Behaviour_Tree.Node.Runtime.Core.BehaviourTreeLink, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: child
+      Entry: 7
+      Data: Tools.Behaviour_Tree.Node.Runtime.Core.BehaviourTreeLink, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 7|Tools.Behaviour_Tree.Node.Runtime.Composite.SequenceNode, Assembly-CSharp
+    - Name: nodeCustomName
+      Entry: 1
+      Data: 
+    - Name: GUID
+      Entry: 1
+      Data: f86e6245-f49d-4e88-98ca-4ae186eb478e
+    - Name: computeOrder
+      Entry: 3
+      Data: 6
+    - Name: position
+      Entry: 7
+      Data: UnityEngine.Rect, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 1096.77783
+    - Name: 
+      Entry: 4
+      Data: 239.999985
+    - Name: 
+      Entry: 4
+      Data: 123.111145
+    - Name: 
+      Entry: 4
+      Data: 58.2222
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: expanded
+      Entry: 5
+      Data: false
+    - Name: debug
+      Entry: 5
+      Data: false
+    - Name: nodeLock
+      Entry: 5
+      Data: false
+    - Name: parent
+      Entry: 7
+      Data: Tools.Behaviour_Tree.Node.Runtime.Core.BehaviourTreeLink, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: child
+      Entry: 7
+      Data: Tools.Behaviour_Tree.Node.Runtime.Core.BehaviourTreeLink, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 8|Tools.Behaviour_Tree.Node.Runtime.Condition.CheckStatusNode, Assembly-CSharp
+    - Name: nodeCustomName
+      Entry: 1
+      Data: 
+    - Name: GUID
+      Entry: 1
+      Data: 04c49e12-15b0-47f2-8e8a-904171c4ab80
+    - Name: computeOrder
+      Entry: 3
+      Data: 7
+    - Name: position
+      Entry: 7
+      Data: UnityEngine.Rect, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 285.333344
+    - Name: 
+      Entry: 4
+      Data: 360
+    - Name: 
+      Entry: 4
+      Data: 142.222229
+    - Name: 
+      Entry: 4
+      Data: 50.22223
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: expanded
+      Entry: 5
+      Data: false
+    - Name: debug
+      Entry: 5
+      Data: false
+    - Name: nodeLock
+      Entry: 5
+      Data: false
+    - Name: parent
+      Entry: 7
+      Data: Tools.Behaviour_Tree.Node.Runtime.Core.BehaviourTreeLink, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: mode
+      Entry: 3
+      Data: 1
+    - Name: stateType
+      Entry: 3
+      Data: 0
+    - Name: propertyType
+      Entry: 3
+      Data: 4
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 9|Tools.Behaviour_Tree.Node.Runtime.Action.BackStabbedNode, Assembly-CSharp
+    - Name: nodeCustomName
+      Entry: 6
+      Data: 
+    - Name: GUID
+      Entry: 1
+      Data: afb3a383-eb7f-46a8-a979-240f7eebcbd5
+    - Name: computeOrder
+      Entry: 3
+      Data: 8
+    - Name: position
+      Entry: 7
+      Data: UnityEngine.Rect, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 477.555573
+    - Name: 
+      Entry: 4
+      Data: 360
+    - Name: 
+      Entry: 4
+      Data: 145.333344
+    - Name: 
+      Entry: 4
+      Data: 50.22223
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: expanded
+      Entry: 5
+      Data: false
+    - Name: debug
+      Entry: 5
+      Data: false
+    - Name: nodeLock
+      Entry: 5
+      Data: false
+    - Name: parent
+      Entry: 7
+      Data: Tools.Behaviour_Tree.Node.Runtime.Core.BehaviourTreeLink, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 10|Tools.Behaviour_Tree.Node.Runtime.Condition.CheckStatusNode, Assembly-CSharp
+    - Name: nodeCustomName
+      Entry: 6
+      Data: 
+    - Name: GUID
+      Entry: 1
+      Data: 52d404e9-387c-4f1a-9925-10dcd37a47a7
+    - Name: computeOrder
+      Entry: 3
+      Data: 9
+    - Name: position
+      Entry: 7
+      Data: UnityEngine.Rect, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 1000.00006
+    - Name: 
+      Entry: 4
+      Data: 360
+    - Name: 
+      Entry: 4
+      Data: 142.222229
+    - Name: 
+      Entry: 4
+      Data: 50.22223
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: expanded
+      Entry: 5
+      Data: false
+    - Name: debug
+      Entry: 5
+      Data: false
+    - Name: nodeLock
+      Entry: 5
+      Data: false
+    - Name: parent
+      Entry: 7
+      Data: Tools.Behaviour_Tree.Node.Runtime.Core.BehaviourTreeLink, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: mode
+      Entry: 3
+      Data: 1
+    - Name: stateType
+      Entry: 3
+      Data: 0
+    - Name: propertyType
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 11|Tools.Behaviour_Tree.Node.Runtime.Action.ParriedNode, Assembly-CSharp
+    - Name: nodeCustomName
+      Entry: 6
+      Data: 
+    - Name: GUID
+      Entry: 1
+      Data: d726ec09-ebd5-4019-a852-e6a2b3fce4b2
+    - Name: computeOrder
+      Entry: 3
+      Data: 10
+    - Name: position
+      Entry: 7
+      Data: UnityEngine.Rect, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 1192.22229
+    - Name: 
+      Entry: 4
+      Data: 360
+    - Name: 
+      Entry: 4
+      Data: 106.666687
+    - Name: 
+      Entry: 4
+      Data: 50.22223
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: expanded
+      Entry: 5
+      Data: false
+    - Name: debug
+      Entry: 5
+      Data: false
+    - Name: nodeLock
+      Entry: 5
+      Data: false
+    - Name: parent
+      Entry: 7
+      Data: Tools.Behaviour_Tree.Node.Runtime.Core.BehaviourTreeLink, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 12|Tools.Behaviour_Tree.Node.Runtime.Composite.SelectNode, Assembly-CSharp
+    - Name: nodeCustomName
+      Entry: 6
+      Data: 
+    - Name: GUID
+      Entry: 1
+      Data: f1850691-210c-4633-ac09-1063c501a461
+    - Name: computeOrder
+      Entry: 3
+      Data: 11
+    - Name: position
+      Entry: 7
+      Data: UnityEngine.Rect, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 2019.20837
+    - Name: 
+      Entry: 4
+      Data: 239.999969
+    - Name: 
+      Entry: 4
+      Data: 101.77771
+    - Name: 
+      Entry: 4
+      Data: 58.22223
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: expanded
+      Entry: 5
+      Data: false
+    - Name: debug
+      Entry: 5
+      Data: false
+    - Name: nodeLock
+      Entry: 5
+      Data: false
+    - Name: parent
+      Entry: 7
+      Data: Tools.Behaviour_Tree.Node.Runtime.Core.BehaviourTreeLink, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: child
+      Entry: 7
+      Data: Tools.Behaviour_Tree.Node.Runtime.Core.BehaviourTreeLink, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 13|Tools.Behaviour_Tree.Node.Runtime.Composite.SequenceNode, Assembly-CSharp
+    - Name: nodeCustomName
+      Entry: 6
+      Data: 
+    - Name: GUID
+      Entry: 1
+      Data: 51fbb316-6d2e-4d9d-b1db-124fb6a0109d
+    - Name: computeOrder
+      Entry: 3
+      Data: 12
+    - Name: position
+      Entry: 7
+      Data: UnityEngine.Rect, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 1509
+    - Name: 
+      Entry: 4
+      Data: 360
+    - Name: 
+      Entry: 4
+      Data: 123.111084
+    - Name: 
+      Entry: 4
+      Data: 58.22223
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: expanded
+      Entry: 5
+      Data: false
+    - Name: debug
+      Entry: 5
+      Data: false
+    - Name: nodeLock
+      Entry: 5
+      Data: false
+    - Name: parent
+      Entry: 7
+      Data: Tools.Behaviour_Tree.Node.Runtime.Core.BehaviourTreeLink, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: child
+      Entry: 7
+      Data: Tools.Behaviour_Tree.Node.Runtime.Core.BehaviourTreeLink, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 14|Tools.Behaviour_Tree.Node.Runtime.Condition.CheckStatusNode, Assembly-CSharp
+    - Name: nodeCustomName
+      Entry: 6
+      Data: 
+    - Name: GUID
+      Entry: 1
+      Data: 853cd03b-42e6-485f-a6cc-01c98ed0c405
+    - Name: computeOrder
+      Entry: 3
+      Data: 13
+    - Name: position
+      Entry: 7
+      Data: UnityEngine.Rect, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 1348.88892
+    - Name: 
+      Entry: 4
+      Data: 480
+    - Name: 
+      Entry: 4
+      Data: 142.222229
+    - Name: 
+      Entry: 4
+      Data: 50.22223
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: expanded
+      Entry: 5
+      Data: false
+    - Name: debug
+      Entry: 5
+      Data: false
+    - Name: nodeLock
+      Entry: 5
+      Data: false
+    - Name: parent
+      Entry: 7
+      Data: Tools.Behaviour_Tree.Node.Runtime.Core.BehaviourTreeLink, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: mode
+      Entry: 3
+      Data: 0
+    - Name: stateType
+      Entry: 3
+      Data: 0
+    - Name: propertyType
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 15|Tools.Behaviour_Tree.Node.Runtime.Action.IdleNode, Assembly-CSharp
+    - Name: nodeCustomName
+      Entry: 6
+      Data: 
+    - Name: GUID
+      Entry: 1
+      Data: a65c7985-78f0-4ced-9171-be19cc553935
+    - Name: computeOrder
+      Entry: 3
+      Data: 14
+    - Name: position
+      Entry: 7
+      Data: UnityEngine.Rect, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 1541.11108
+    - Name: 
+      Entry: 4
+      Data: 480
+    - Name: 
+      Entry: 4
+      Data: 86.66669
+    - Name: 
+      Entry: 4
+      Data: 50.22223
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: expanded
+      Entry: 5
+      Data: false
+    - Name: debug
+      Entry: 5
+      Data: false
+    - Name: nodeLock
+      Entry: 5
+      Data: false
+    - Name: parent
+      Entry: 7
+      Data: Tools.Behaviour_Tree.Node.Runtime.Core.BehaviourTreeLink, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 16|Tools.Behaviour_Tree.Node.Runtime.Decoration.NotNode, Assembly-CSharp
+    - Name: nodeCustomName
+      Entry: 6
+      Data: 
+    - Name: GUID
+      Entry: 1
+      Data: 841f2e5e-25db-4044-9390-a989f2d4bd94
+    - Name: computeOrder
+      Entry: 3
+      Data: 15
+    - Name: position
+      Entry: 7
+      Data: UnityEngine.Rect, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 1677.778
+    - Name: 
+      Entry: 4
+      Data: 476
+    - Name: 
+      Entry: 4
+      Data: 86.666626
+    - Name: 
+      Entry: 4
+      Data: 58.22223
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: expanded
+      Entry: 5
+      Data: false
+    - Name: debug
+      Entry: 5
+      Data: false
+    - Name: nodeLock
+      Entry: 5
+      Data: false
+    - Name: parent
+      Entry: 7
+      Data: Tools.Behaviour_Tree.Node.Runtime.Core.BehaviourTreeLink, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: child
+      Entry: 7
+      Data: Tools.Behaviour_Tree.Node.Runtime.Core.BehaviourTreeLink, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 17|Tools.Behaviour_Tree.Node.Runtime.Composite.SequenceNode, Assembly-CSharp
+    - Name: nodeCustomName
+      Entry: 6
+      Data: 
+    - Name: GUID
+      Entry: 1
+      Data: b4682ebd-d4cb-49e6-b1d7-aff6f6b0760c
+    - Name: computeOrder
+      Entry: 3
+      Data: 16
+    - Name: position
+      Entry: 7
+      Data: UnityEngine.Rect, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 1659.55554
+    - Name: 
+      Entry: 4
+      Data: 600
+    - Name: 
+      Entry: 4
+      Data: 123.111084
+    - Name: 
+      Entry: 4
+      Data: 58.22223
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: expanded
+      Entry: 5
+      Data: false
+    - Name: debug
+      Entry: 5
+      Data: false
+    - Name: nodeLock
+      Entry: 5
+      Data: false
+    - Name: parent
+      Entry: 7
+      Data: Tools.Behaviour_Tree.Node.Runtime.Core.BehaviourTreeLink, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: child
+      Entry: 7
+      Data: Tools.Behaviour_Tree.Node.Runtime.Core.BehaviourTreeLink, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 18|Tools.Behaviour_Tree.Node.Runtime.Condition.CheckPovNode, Assembly-CSharp
+    - Name: nodeCustomName
+      Entry: 6
+      Data: 
+    - Name: GUID
+      Entry: 1
+      Data: 7c9a24d4-e91d-46f2-bc5b-57cc8875e014
+    - Name: computeOrder
+      Entry: 3
+      Data: 17
+    - Name: position
+      Entry: 7
+      Data: UnityEngine.Rect, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 1577.55566
+    - Name: 
+      Entry: 4
+      Data: 720
+    - Name: 
+      Entry: 4
+      Data: 127.111145
+    - Name: 
+      Entry: 4
+      Data: 50.22229
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: expanded
+      Entry: 5
+      Data: false
+    - Name: debug
+      Entry: 5
+      Data: false
+    - Name: nodeLock
+      Entry: 5
+      Data: false
+    - Name: parent
+      Entry: 7
+      Data: Tools.Behaviour_Tree.Node.Runtime.Core.BehaviourTreeLink, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 19|Tools.Behaviour_Tree.Node.Runtime.Action.AlertNode, Assembly-CSharp
+    - Name: nodeCustomName
+      Entry: 6
+      Data: 
+    - Name: GUID
+      Entry: 1
+      Data: cc64c309-2e0f-4bd0-adce-c13f6433c13e
+    - Name: computeOrder
+      Entry: 3
+      Data: 18
+    - Name: position
+      Entry: 7
+      Data: UnityEngine.Rect, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 1754.66663
+    - Name: 
+      Entry: 4
+      Data: 720
+    - Name: 
+      Entry: 4
+      Data: 92.888916
+    - Name: 
+      Entry: 4
+      Data: 50.22229
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: expanded
+      Entry: 5
+      Data: false
+    - Name: debug
+      Entry: 5
+      Data: false
+    - Name: nodeLock
+      Entry: 5
+      Data: false
+    - Name: parent
+      Entry: 7
+      Data: Tools.Behaviour_Tree.Node.Runtime.Core.BehaviourTreeLink, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 20|Tools.Behaviour_Tree.Node.Runtime.Composite.SequenceNode, Assembly-CSharp
+    - Name: nodeCustomName
+      Entry: 6
+      Data: 
+    - Name: GUID
+      Entry: 1
+      Data: b2303ebd-3c19-4a53-8b1c-dd3962d18a45
+    - Name: computeOrder
+      Entry: 3
+      Data: 19
+    - Name: position
+      Entry: 7
+      Data: UnityEngine.Rect, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 1994.11121
+    - Name: 
+      Entry: 4
+      Data: 360
+    - Name: 
+      Entry: 4
+      Data: 123.111084
+    - Name: 
+      Entry: 4
+      Data: 58.22223
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: expanded
+      Entry: 5
+      Data: false
+    - Name: debug
+      Entry: 5
+      Data: false
+    - Name: nodeLock
+      Entry: 5
+      Data: false
+    - Name: parent
+      Entry: 7
+      Data: Tools.Behaviour_Tree.Node.Runtime.Core.BehaviourTreeLink, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: child
+      Entry: 7
+      Data: Tools.Behaviour_Tree.Node.Runtime.Core.BehaviourTreeLink, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 21|Tools.Behaviour_Tree.Node.Runtime.Condition.CheckStatusNode, Assembly-CSharp
+    - Name: nodeCustomName
+      Entry: 6
+      Data: 
+    - Name: GUID
+      Entry: 1
+      Data: 5eb03edb-6e36-4eea-a8e9-0960b20735b1
+    - Name: computeOrder
+      Entry: 3
+      Data: 20
+    - Name: position
+      Entry: 7
+      Data: UnityEngine.Rect, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 1897.55554
+    - Name: 
+      Entry: 4
+      Data: 480
+    - Name: 
+      Entry: 4
+      Data: 142.22229
+    - Name: 
+      Entry: 4
+      Data: 50.22223
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: expanded
+      Entry: 5
+      Data: false
+    - Name: debug
+      Entry: 5
+      Data: false
+    - Name: nodeLock
+      Entry: 5
+      Data: false
+    - Name: parent
+      Entry: 7
+      Data: Tools.Behaviour_Tree.Node.Runtime.Core.BehaviourTreeLink, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: mode
+      Entry: 3
+      Data: 0
+    - Name: stateType
+      Entry: 3
+      Data: 1
+    - Name: propertyType
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 22|Tools.Behaviour_Tree.Node.Runtime.Action.SearchNode, Assembly-CSharp
+    - Name: nodeCustomName
+      Entry: 6
+      Data: 
+    - Name: GUID
+      Entry: 1
+      Data: db2360ce-d253-40af-8ba9-7f55f2c6e7f9
+    - Name: computeOrder
+      Entry: 3
+      Data: 21
+    - Name: position
+      Entry: 7
+      Data: UnityEngine.Rect, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 2089.77783
+    - Name: 
+      Entry: 4
+      Data: 480
+    - Name: 
+      Entry: 4
+      Data: 105.777832
+    - Name: 
+      Entry: 4
+      Data: 50.22223
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: expanded
+      Entry: 5
+      Data: false
+    - Name: debug
+      Entry: 5
+      Data: false
+    - Name: nodeLock
+      Entry: 5
+      Data: false
+    - Name: parent
+      Entry: 7
+      Data: Tools.Behaviour_Tree.Node.Runtime.Core.BehaviourTreeLink, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 23|Tools.Behaviour_Tree.Node.Runtime.Composite.SequenceNode, Assembly-CSharp
+    - Name: nodeCustomName
+      Entry: 6
+      Data: 
+    - Name: GUID
+      Entry: 1
+      Data: 80efdc66-2528-454c-98f9-826c4fe8f6bc
+    - Name: computeOrder
+      Entry: 3
+      Data: 22
+    - Name: position
+      Entry: 7
+      Data: UnityEngine.Rect, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 2508.08325
+    - Name: 
+      Entry: 4
+      Data: 360
+    - Name: 
+      Entry: 4
+      Data: 123.111206
+    - Name: 
+      Entry: 4
+      Data: 58.22223
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: expanded
+      Entry: 5
+      Data: false
+    - Name: debug
+      Entry: 5
+      Data: false
+    - Name: nodeLock
+      Entry: 5
+      Data: false
+    - Name: parent
+      Entry: 7
+      Data: Tools.Behaviour_Tree.Node.Runtime.Core.BehaviourTreeLink, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: child
+      Entry: 7
+      Data: Tools.Behaviour_Tree.Node.Runtime.Core.BehaviourTreeLink, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 24|Tools.Behaviour_Tree.Node.Runtime.Condition.CheckStatusNode, Assembly-CSharp
+    - Name: nodeCustomName
+      Entry: 6
+      Data: 
+    - Name: GUID
+      Entry: 1
+      Data: 268680e0-664f-4908-9312-3595d3399cdb
+    - Name: computeOrder
+      Entry: 3
+      Data: 23
+    - Name: position
+      Entry: 7
+      Data: UnityEngine.Rect, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 2245.55566
+    - Name: 
+      Entry: 4
+      Data: 480
+    - Name: 
+      Entry: 4
+      Data: 142.222168
+    - Name: 
+      Entry: 4
+      Data: 50.22223
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: expanded
+      Entry: 5
+      Data: false
+    - Name: debug
+      Entry: 5
+      Data: false
+    - Name: nodeLock
+      Entry: 5
+      Data: false
+    - Name: parent
+      Entry: 7
+      Data: Tools.Behaviour_Tree.Node.Runtime.Core.BehaviourTreeLink, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: mode
+      Entry: 3
+      Data: 0
+    - Name: stateType
+      Entry: 3
+      Data: 2
+    - Name: propertyType
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 25|Tools.Behaviour_Tree.Node.Runtime.Composite.SelectNode, Assembly-CSharp
+    - Name: nodeCustomName
+      Entry: 6
+      Data: 
+    - Name: GUID
+      Entry: 1
+      Data: d7cdaa0d-6a48-4c93-a511-a0da94a860a2
+    - Name: computeOrder
+      Entry: 3
+      Data: 24
+    - Name: position
+      Entry: 7
+      Data: UnityEngine.Rect, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 2771.72241
+    - Name: 
+      Entry: 4
+      Data: 476
+    - Name: 
+      Entry: 4
+      Data: 101.777832
+    - Name: 
+      Entry: 4
+      Data: 58.22223
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: expanded
+      Entry: 5
+      Data: false
+    - Name: debug
+      Entry: 5
+      Data: false
+    - Name: nodeLock
+      Entry: 5
+      Data: false
+    - Name: parent
+      Entry: 7
+      Data: Tools.Behaviour_Tree.Node.Runtime.Core.BehaviourTreeLink, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: child
+      Entry: 7
+      Data: Tools.Behaviour_Tree.Node.Runtime.Core.BehaviourTreeLink, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 26|Tools.Behaviour_Tree.Node.Runtime.Composite.SequenceNode, Assembly-CSharp
+    - Name: nodeCustomName
+      Entry: 6
+      Data: 
+    - Name: GUID
+      Entry: 1
+      Data: 04615087-38c2-48b5-94f2-874df75f5f06
+    - Name: computeOrder
+      Entry: 3
+      Data: 25
+    - Name: position
+      Entry: 7
+      Data: UnityEngine.Rect, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 2543.111
+    - Name: 
+      Entry: 4
+      Data: 600
+    - Name: 
+      Entry: 4
+      Data: 123.111206
+    - Name: 
+      Entry: 4
+      Data: 58.22223
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: expanded
+      Entry: 5
+      Data: false
+    - Name: debug
+      Entry: 5
+      Data: false
+    - Name: nodeLock
+      Entry: 5
+      Data: false
+    - Name: parent
+      Entry: 7
+      Data: Tools.Behaviour_Tree.Node.Runtime.Core.BehaviourTreeLink, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: child
+      Entry: 7
+      Data: Tools.Behaviour_Tree.Node.Runtime.Core.BehaviourTreeLink, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 27|Tools.Behaviour_Tree.Node.Runtime.Condition.CheckDistanceNode, Assembly-CSharp
+    - Name: nodeCustomName
+      Entry: 6
+      Data: 
+    - Name: GUID
+      Entry: 1
+      Data: 36691f46-9c50-40c6-9214-c64acc518016
+    - Name: computeOrder
+      Entry: 3
+      Data: 26
+    - Name: position
+      Entry: 7
+      Data: UnityEngine.Rect, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 2437.77783
+    - Name: 
+      Entry: 4
+      Data: 720
+    - Name: 
+      Entry: 4
+      Data: 155.111084
+    - Name: 
+      Entry: 4
+      Data: 50.22229
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: expanded
+      Entry: 5
+      Data: false
+    - Name: debug
+      Entry: 5
+      Data: false
+    - Name: nodeLock
+      Entry: 5
+      Data: false
+    - Name: parent
+      Entry: 7
+      Data: Tools.Behaviour_Tree.Node.Runtime.Core.BehaviourTreeLink, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: type
+      Entry: 3
+      Data: 0
+    - Name: value
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 28|Tools.Behaviour_Tree.Node.Runtime.Action.ChaseNode, Assembly-CSharp
+    - Name: nodeCustomName
+      Entry: 6
+      Data: 
+    - Name: GUID
+      Entry: 1
+      Data: 4833c2e9-b8af-45ea-ac0f-42a24a39d814
+    - Name: computeOrder
+      Entry: 3
+      Data: 27
+    - Name: position
+      Entry: 7
+      Data: UnityEngine.Rect, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 2642.889
+    - Name: 
+      Entry: 4
+      Data: 720
+    - Name: 
+      Entry: 4
+      Data: 102.222168
+    - Name: 
+      Entry: 4
+      Data: 50.22229
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: expanded
+      Entry: 5
+      Data: false
+    - Name: debug
+      Entry: 5
+      Data: false
+    - Name: nodeLock
+      Entry: 5
+      Data: false
+    - Name: parent
+      Entry: 7
+      Data: Tools.Behaviour_Tree.Node.Runtime.Core.BehaviourTreeLink, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 29|Tools.Behaviour_Tree.Node.Runtime.Composite.SequenceNode, Assembly-CSharp
+    - Name: nodeCustomName
+      Entry: 6
+      Data: 
+    - Name: GUID
+      Entry: 1
+      Data: d3ad374d-4b1b-4b37-a755-eb972363b234
+    - Name: computeOrder
+      Entry: 3
+      Data: 28
+    - Name: position
+      Entry: 7
+      Data: UnityEngine.Rect, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 2979.00024
+    - Name: 
+      Entry: 4
+      Data: 600
+    - Name: 
+      Entry: 4
+      Data: 123.111084
+    - Name: 
+      Entry: 4
+      Data: 58.22223
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: expanded
+      Entry: 5
+      Data: false
+    - Name: debug
+      Entry: 5
+      Data: false
+    - Name: nodeLock
+      Entry: 5
+      Data: false
+    - Name: parent
+      Entry: 7
+      Data: Tools.Behaviour_Tree.Node.Runtime.Core.BehaviourTreeLink, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: child
+      Entry: 7
+      Data: Tools.Behaviour_Tree.Node.Runtime.Core.BehaviourTreeLink, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 30|Tools.Behaviour_Tree.Node.Runtime.Condition.CheckDistanceNode, Assembly-CSharp
+    - Name: nodeCustomName
+      Entry: 6
+      Data: 
+    - Name: GUID
+      Entry: 1
+      Data: be3375d6-fdea-41d1-97f0-de43ec82ee64
+    - Name: computeOrder
+      Entry: 3
+      Data: 29
+    - Name: position
+      Entry: 7
+      Data: UnityEngine.Rect, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 2795.111
+    - Name: 
+      Entry: 4
+      Data: 720
+    - Name: 
+      Entry: 4
+      Data: 155.111084
+    - Name: 
+      Entry: 4
+      Data: 50.22229
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: expanded
+      Entry: 5
+      Data: false
+    - Name: debug
+      Entry: 5
+      Data: false
+    - Name: nodeLock
+      Entry: 5
+      Data: false
+    - Name: parent
+      Entry: 7
+      Data: Tools.Behaviour_Tree.Node.Runtime.Core.BehaviourTreeLink, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: type
+      Entry: 3
+      Data: 1
+    - Name: value
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 31|Tools.Behaviour_Tree.Node.Runtime.Action.AttackNode, Assembly-CSharp
+    - Name: nodeCustomName
+      Entry: 6
+      Data: 
+    - Name: GUID
+      Entry: 1
+      Data: 0c3c3a16-8cbd-4dec-b98e-6a1cc03729fd
+    - Name: computeOrder
+      Entry: 3
+      Data: 30
+    - Name: position
+      Entry: 7
+      Data: UnityEngine.Rect, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 3000.22241
+    - Name: 
+      Entry: 4
+      Data: 720
+    - Name: 
+      Entry: 4
+      Data: 103.111084
+    - Name: 
+      Entry: 4
+      Data: 50.22229
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: expanded
+      Entry: 5
+      Data: false
+    - Name: debug
+      Entry: 5
+      Data: false
+    - Name: nodeLock
+      Entry: 5
+      Data: false
+    - Name: parent
+      Entry: 7
+      Data: Tools.Behaviour_Tree.Node.Runtime.Core.BehaviourTreeLink, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 32|Tools.Behaviour_Tree.Node.Runtime.Action.WanderNode, Assembly-CSharp
+    - Name: nodeCustomName
+      Entry: 6
+      Data: 
+    - Name: GUID
+      Entry: 1
+      Data: 6cdda9ca-c612-43d4-a017-54739ddb5662
+    - Name: computeOrder
+      Entry: 3
+      Data: 31
+    - Name: position
+      Entry: 7
+      Data: UnityEngine.Rect, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 3153.33325
+    - Name: 
+      Entry: 4
+      Data: 720
+    - Name: 
+      Entry: 4
+      Data: 110.222412
+    - Name: 
+      Entry: 4
+      Data: 50.22229
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: expanded
+      Entry: 5
+      Data: false
+    - Name: debug
+      Entry: 5
+      Data: false
+    - Name: nodeLock
+      Entry: 5
+      Data: false
+    - Name: parent
+      Entry: 7
+      Data: Tools.Behaviour_Tree.Node.Runtime.Core.BehaviourTreeLink, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 33|Tools.Behaviour_Tree.Node.Runtime.Composite.SequenceNode, Assembly-CSharp
+    - Name: nodeCustomName
+      Entry: 6
+      Data: 
+    - Name: GUID
+      Entry: 1
+      Data: 32c7b271-01e1-463a-ad48-531ad42c8034
+    - Name: computeOrder
+      Entry: 3
+      Data: 32
+    - Name: position
+      Entry: 7
+      Data: UnityEngine.Rect, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 764.2222
+    - Name: 
+      Entry: 4
+      Data: 239.999969
+    - Name: 
+      Entry: 4
+      Data: 123.111145
+    - Name: 
+      Entry: 4
+      Data: 58.22223
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: expanded
+      Entry: 5
+      Data: false
+    - Name: debug
+      Entry: 5
+      Data: false
+    - Name: nodeLock
+      Entry: 5
+      Data: false
+    - Name: parent
+      Entry: 7
+      Data: Tools.Behaviour_Tree.Node.Runtime.Core.BehaviourTreeLink, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: child
+      Entry: 7
+      Data: Tools.Behaviour_Tree.Node.Runtime.Core.BehaviourTreeLink, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 34|Tools.Behaviour_Tree.Node.Runtime.Condition.CheckStatusNode, Assembly-CSharp
+    - Name: nodeCustomName
+      Entry: 6
+      Data: 
+    - Name: GUID
+      Entry: 1
+      Data: c756d42f-8010-4885-9e35-92e732a2663f
+    - Name: computeOrder
+      Entry: 3
+      Data: 33
+    - Name: position
+      Entry: 7
+      Data: UnityEngine.Rect, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 672.8889
+    - Name: 
+      Entry: 4
+      Data: 360
+    - Name: 
+      Entry: 4
+      Data: 142.222229
+    - Name: 
+      Entry: 4
+      Data: 50.2222
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: expanded
+      Entry: 5
+      Data: false
+    - Name: debug
+      Entry: 5
+      Data: false
+    - Name: nodeLock
+      Entry: 5
+      Data: false
+    - Name: parent
+      Entry: 7
+      Data: Tools.Behaviour_Tree.Node.Runtime.Core.BehaviourTreeLink, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: mode
+      Entry: 3
+      Data: 1
+    - Name: stateType
+      Entry: 3
+      Data: 0
+    - Name: propertyType
+      Entry: 3
+      Data: 5
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 35|Tools.Behaviour_Tree.Node.Runtime.Action.DieNode, Assembly-CSharp
+    - Name: nodeCustomName
+      Entry: 6
+      Data: 
+    - Name: GUID
+      Entry: 1
+      Data: 2c886322-48d8-4c95-a26e-c358cc591a5f
+    - Name: computeOrder
+      Entry: 3
+      Data: 34
+    - Name: position
+      Entry: 7
+      Data: UnityEngine.Rect, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 865.111145
+    - Name: 
+      Entry: 4
+      Data: 360
+    - Name: 
+      Entry: 4
+      Data: 84.888916
+    - Name: 
+      Entry: 4
+      Data: 50.22226
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: expanded
+      Entry: 5
+      Data: false
+    - Name: debug
+      Entry: 5
+      Data: false
+    - Name: nodeLock
+      Entry: 5
+      Data: false
+    - Name: parent
+      Entry: 7
+      Data: Tools.Behaviour_Tree.Node.Runtime.Core.BehaviourTreeLink, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: groups
+      Entry: 7
+      Data: 36|System.Collections.Generic.List`1[[GraphProcessor.Group, com.alelievr.NodeGraphProcessor.Runtime]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  serializedNodes: []
+  edges:
+  - GUID: 13b9d864-17e0-446c-a842-66bec972ec4e
+    owner: {fileID: 11400000}
+    inputNodeGUID: 52292ff0-80c9-455f-8053-59716b1fe7a4
+    outputNodeGUID: d99c8b05-ffe0-4b6f-bfb7-347ae2b154a4
+    inputFieldName: parent
+    outputFieldName: child
+    inputPortIdentifier: 
+    outputPortIdentifier: 
+  - GUID: 6c2f1a18-8761-4472-9f9e-1ee1da43999b
+    owner: {fileID: 11400000}
+    inputNodeGUID: 1d3cc8c6-656e-4497-a98b-a426ec3c1d9a
+    outputNodeGUID: 52292ff0-80c9-455f-8053-59716b1fe7a4
+    inputFieldName: parent
+    outputFieldName: child
+    inputPortIdentifier: 
+    outputPortIdentifier: 
+  - GUID: d75d3290-7b57-40f4-a8ce-8ca144f61118
+    owner: {fileID: 11400000}
+    inputNodeGUID: 5908dd92-d1a7-4f26-8c5b-b68dc46382a7
+    outputNodeGUID: 1d3cc8c6-656e-4497-a98b-a426ec3c1d9a
+    inputFieldName: parent
+    outputFieldName: child
+    inputPortIdentifier: 
+    outputPortIdentifier: 
+  - GUID: d70c696d-e95e-4bd3-b30e-e3cc19fcfdea
+    owner: {fileID: 11400000}
+    inputNodeGUID: 3240bcb3-b088-41c5-ba61-16ef44586507
+    outputNodeGUID: 1d3cc8c6-656e-4497-a98b-a426ec3c1d9a
+    inputFieldName: parent
+    outputFieldName: child
+    inputPortIdentifier: 
+    outputPortIdentifier: 
+  - GUID: 7bc1aad7-064d-4717-a855-0314b5ebf15b
+    owner: {fileID: 11400000}
+    inputNodeGUID: b038a3f2-eaa1-468a-8c85-219e5a52b8a0
+    outputNodeGUID: 52292ff0-80c9-455f-8053-59716b1fe7a4
+    inputFieldName: parent
+    outputFieldName: child
+    inputPortIdentifier: 
+    outputPortIdentifier: 
+  - GUID: b0d2a6f9-3cfa-4018-bd2e-78a02552c39a
+    owner: {fileID: 11400000}
+    inputNodeGUID: f86e6245-f49d-4e88-98ca-4ae186eb478e
+    outputNodeGUID: 52292ff0-80c9-455f-8053-59716b1fe7a4
+    inputFieldName: parent
+    outputFieldName: child
+    inputPortIdentifier: 
+    outputPortIdentifier: 
+  - GUID: b4c66208-27b7-475e-8d8e-3ba8abd03bd2
+    owner: {fileID: 11400000}
+    inputNodeGUID: 04c49e12-15b0-47f2-8e8a-904171c4ab80
+    outputNodeGUID: b038a3f2-eaa1-468a-8c85-219e5a52b8a0
+    inputFieldName: parent
+    outputFieldName: child
+    inputPortIdentifier: 
+    outputPortIdentifier: 
+  - GUID: 253bb119-3b85-4d50-b253-f9c610bf37be
+    owner: {fileID: 11400000}
+    inputNodeGUID: afb3a383-eb7f-46a8-a979-240f7eebcbd5
+    outputNodeGUID: b038a3f2-eaa1-468a-8c85-219e5a52b8a0
+    inputFieldName: parent
+    outputFieldName: child
+    inputPortIdentifier: 
+    outputPortIdentifier: 
+  - GUID: 31715f70-bf97-47f9-bad6-9cf88f5e4c66
+    owner: {fileID: 11400000}
+    inputNodeGUID: 52d404e9-387c-4f1a-9925-10dcd37a47a7
+    outputNodeGUID: f86e6245-f49d-4e88-98ca-4ae186eb478e
+    inputFieldName: parent
+    outputFieldName: child
+    inputPortIdentifier: 
+    outputPortIdentifier: 
+  - GUID: 864dc131-0d38-404c-9712-8e8b61ffc754
+    owner: {fileID: 11400000}
+    inputNodeGUID: d726ec09-ebd5-4019-a852-e6a2b3fce4b2
+    outputNodeGUID: f86e6245-f49d-4e88-98ca-4ae186eb478e
+    inputFieldName: parent
+    outputFieldName: child
+    inputPortIdentifier: 
+    outputPortIdentifier: 
+  - GUID: 14d3e639-e1e2-4acc-8472-2dc0d67aecd4
+    owner: {fileID: 11400000}
+    inputNodeGUID: f1850691-210c-4633-ac09-1063c501a461
+    outputNodeGUID: 52292ff0-80c9-455f-8053-59716b1fe7a4
+    inputFieldName: parent
+    outputFieldName: child
+    inputPortIdentifier: 
+    outputPortIdentifier: 
+  - GUID: b8c2350b-3609-42e7-bc88-ad7d8daf1fcb
+    owner: {fileID: 11400000}
+    inputNodeGUID: 51fbb316-6d2e-4d9d-b1db-124fb6a0109d
+    outputNodeGUID: f1850691-210c-4633-ac09-1063c501a461
+    inputFieldName: parent
+    outputFieldName: child
+    inputPortIdentifier: 
+    outputPortIdentifier: 
+  - GUID: 18988582-2474-43f1-a23a-3218cd461748
+    owner: {fileID: 11400000}
+    inputNodeGUID: 853cd03b-42e6-485f-a6cc-01c98ed0c405
+    outputNodeGUID: 51fbb316-6d2e-4d9d-b1db-124fb6a0109d
+    inputFieldName: parent
+    outputFieldName: child
+    inputPortIdentifier: 
+    outputPortIdentifier: 
+  - GUID: d68994dc-73bb-430e-9855-fbf686c286a4
+    owner: {fileID: 11400000}
+    inputNodeGUID: a65c7985-78f0-4ced-9171-be19cc553935
+    outputNodeGUID: 51fbb316-6d2e-4d9d-b1db-124fb6a0109d
+    inputFieldName: parent
+    outputFieldName: child
+    inputPortIdentifier: 
+    outputPortIdentifier: 
+  - GUID: 7e34299d-fa6d-44e1-a775-7b49bd3e4a87
+    owner: {fileID: 11400000}
+    inputNodeGUID: 841f2e5e-25db-4044-9390-a989f2d4bd94
+    outputNodeGUID: 51fbb316-6d2e-4d9d-b1db-124fb6a0109d
+    inputFieldName: parent
+    outputFieldName: child
+    inputPortIdentifier: 
+    outputPortIdentifier: 
+  - GUID: d3d72152-b865-454e-8b79-93b199b469cd
+    owner: {fileID: 11400000}
+    inputNodeGUID: b4682ebd-d4cb-49e6-b1d7-aff6f6b0760c
+    outputNodeGUID: 841f2e5e-25db-4044-9390-a989f2d4bd94
+    inputFieldName: parent
+    outputFieldName: child
+    inputPortIdentifier: 
+    outputPortIdentifier: 
+  - GUID: 3cdd1259-7638-4649-b345-58eb35892c53
+    owner: {fileID: 11400000}
+    inputNodeGUID: 7c9a24d4-e91d-46f2-bc5b-57cc8875e014
+    outputNodeGUID: b4682ebd-d4cb-49e6-b1d7-aff6f6b0760c
+    inputFieldName: parent
+    outputFieldName: child
+    inputPortIdentifier: 
+    outputPortIdentifier: 
+  - GUID: 14696e54-599b-4349-b853-b4f98b20cb3e
+    owner: {fileID: 11400000}
+    inputNodeGUID: cc64c309-2e0f-4bd0-adce-c13f6433c13e
+    outputNodeGUID: b4682ebd-d4cb-49e6-b1d7-aff6f6b0760c
+    inputFieldName: parent
+    outputFieldName: child
+    inputPortIdentifier: 
+    outputPortIdentifier: 
+  - GUID: 7c72f2ba-2585-4e43-a787-c0fd6aa60275
+    owner: {fileID: 11400000}
+    inputNodeGUID: b2303ebd-3c19-4a53-8b1c-dd3962d18a45
+    outputNodeGUID: f1850691-210c-4633-ac09-1063c501a461
+    inputFieldName: parent
+    outputFieldName: child
+    inputPortIdentifier: 
+    outputPortIdentifier: 
+  - GUID: 7f208056-708c-4ba9-b088-224d3a2199a6
+    owner: {fileID: 11400000}
+    inputNodeGUID: 5eb03edb-6e36-4eea-a8e9-0960b20735b1
+    outputNodeGUID: b2303ebd-3c19-4a53-8b1c-dd3962d18a45
+    inputFieldName: parent
+    outputFieldName: child
+    inputPortIdentifier: 
+    outputPortIdentifier: 
+  - GUID: 88194e22-ec84-42cf-8bde-2eff410159e7
+    owner: {fileID: 11400000}
+    inputNodeGUID: db2360ce-d253-40af-8ba9-7f55f2c6e7f9
+    outputNodeGUID: b2303ebd-3c19-4a53-8b1c-dd3962d18a45
+    inputFieldName: parent
+    outputFieldName: child
+    inputPortIdentifier: 
+    outputPortIdentifier: 
+  - GUID: ec60037a-9322-4880-9967-085a6625ab4a
+    owner: {fileID: 11400000}
+    inputNodeGUID: 80efdc66-2528-454c-98f9-826c4fe8f6bc
+    outputNodeGUID: f1850691-210c-4633-ac09-1063c501a461
+    inputFieldName: parent
+    outputFieldName: child
+    inputPortIdentifier: 
+    outputPortIdentifier: 
+  - GUID: 1c01270a-a941-4558-8552-ea21669e09f6
+    owner: {fileID: 11400000}
+    inputNodeGUID: 268680e0-664f-4908-9312-3595d3399cdb
+    outputNodeGUID: 80efdc66-2528-454c-98f9-826c4fe8f6bc
+    inputFieldName: parent
+    outputFieldName: child
+    inputPortIdentifier: 
+    outputPortIdentifier: 
+  - GUID: e51c1abe-3d15-4979-a38c-429388717547
+    owner: {fileID: 11400000}
+    inputNodeGUID: d7cdaa0d-6a48-4c93-a511-a0da94a860a2
+    outputNodeGUID: 80efdc66-2528-454c-98f9-826c4fe8f6bc
+    inputFieldName: parent
+    outputFieldName: child
+    inputPortIdentifier: 
+    outputPortIdentifier: 
+  - GUID: a679b602-74c0-4377-a862-c26ddf574600
+    owner: {fileID: 11400000}
+    inputNodeGUID: 04615087-38c2-48b5-94f2-874df75f5f06
+    outputNodeGUID: d7cdaa0d-6a48-4c93-a511-a0da94a860a2
+    inputFieldName: parent
+    outputFieldName: child
+    inputPortIdentifier: 
+    outputPortIdentifier: 
+  - GUID: 62c6b889-f4bf-4808-99cb-b983a1a05e7f
+    owner: {fileID: 11400000}
+    inputNodeGUID: 36691f46-9c50-40c6-9214-c64acc518016
+    outputNodeGUID: 04615087-38c2-48b5-94f2-874df75f5f06
+    inputFieldName: parent
+    outputFieldName: child
+    inputPortIdentifier: 
+    outputPortIdentifier: 
+  - GUID: a66c232c-f63e-4525-a2a6-495c656c1290
+    owner: {fileID: 11400000}
+    inputNodeGUID: 4833c2e9-b8af-45ea-ac0f-42a24a39d814
+    outputNodeGUID: 04615087-38c2-48b5-94f2-874df75f5f06
+    inputFieldName: parent
+    outputFieldName: child
+    inputPortIdentifier: 
+    outputPortIdentifier: 
+  - GUID: 83322b38-346d-406c-93b4-1cade6a811d5
+    owner: {fileID: 11400000}
+    inputNodeGUID: d3ad374d-4b1b-4b37-a755-eb972363b234
+    outputNodeGUID: d7cdaa0d-6a48-4c93-a511-a0da94a860a2
+    inputFieldName: parent
+    outputFieldName: child
+    inputPortIdentifier: 
+    outputPortIdentifier: 
+  - GUID: 80d686d8-2979-4396-ba64-c2674a49b4ac
+    owner: {fileID: 11400000}
+    inputNodeGUID: be3375d6-fdea-41d1-97f0-de43ec82ee64
+    outputNodeGUID: d3ad374d-4b1b-4b37-a755-eb972363b234
+    inputFieldName: parent
+    outputFieldName: child
+    inputPortIdentifier: 
+    outputPortIdentifier: 
+  - GUID: 2db646d8-bf17-4b74-8be7-93a38f30b0db
+    owner: {fileID: 11400000}
+    inputNodeGUID: 0c3c3a16-8cbd-4dec-b98e-6a1cc03729fd
+    outputNodeGUID: d3ad374d-4b1b-4b37-a755-eb972363b234
+    inputFieldName: parent
+    outputFieldName: child
+    inputPortIdentifier: 
+    outputPortIdentifier: 
+  - GUID: c5fc7098-2a19-4333-b32c-1009794cca4c
+    owner: {fileID: 11400000}
+    inputNodeGUID: 6cdda9ca-c612-43d4-a017-54739ddb5662
+    outputNodeGUID: d3ad374d-4b1b-4b37-a755-eb972363b234
+    inputFieldName: parent
+    outputFieldName: child
+    inputPortIdentifier: 
+    outputPortIdentifier: 
+  - GUID: 47e7e71c-0b1f-416d-8f76-527bdb9eb6af
+    owner: {fileID: 11400000}
+    inputNodeGUID: 32c7b271-01e1-463a-ad48-531ad42c8034
+    outputNodeGUID: 52292ff0-80c9-455f-8053-59716b1fe7a4
+    inputFieldName: parent
+    outputFieldName: child
+    inputPortIdentifier: 
+    outputPortIdentifier: 
+  - GUID: e19898ab-cdf8-4e59-839f-a26f063de622
+    owner: {fileID: 11400000}
+    inputNodeGUID: c756d42f-8010-4885-9e35-92e732a2663f
+    outputNodeGUID: 32c7b271-01e1-463a-ad48-531ad42c8034
+    inputFieldName: parent
+    outputFieldName: child
+    inputPortIdentifier: 
+    outputPortIdentifier: 
+  - GUID: 2f732ac5-3d43-423b-9615-3e8e737ec5c9
+    owner: {fileID: 11400000}
+    inputNodeGUID: 2c886322-48d8-4c95-a26e-c358cc591a5f
+    outputNodeGUID: 32c7b271-01e1-463a-ad48-531ad42c8034
+    inputFieldName: parent
+    outputFieldName: child
+    inputPortIdentifier: 
+    outputPortIdentifier: 
+  stackNodes: []
+  pinnedElements: []
+  exposedParameters: []
+  serializedParameterList: []
+  stickyNotes: []
+  position: {x: 79.55556, y: 351.1111, z: 0}
+  scale: {x: 0.49717674, y: 0.49717674, z: 1}
+  references:
+    version: 2
+    RefIds: []
