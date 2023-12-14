@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Saman
   m_EditorClassIdentifier: 
   povAngle: 90
-  povDist: 10
-  attackDist: 8
-  alertDist: 10
+  povDist: 12
+  attackDist: 14
+  alertDist: 12

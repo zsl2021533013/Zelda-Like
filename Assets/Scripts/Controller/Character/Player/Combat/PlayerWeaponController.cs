@@ -43,7 +43,7 @@ namespace Controller.Character.Player.Combat
                         /*attackPoint = targetInfo.point*/
                     });
                     
-                    Debug.Log("Attack Player");
+                    Debug.Log("Attack Enemy");
                 }
 
                 Debug.DrawLine(pos1, pos2, targetInfo.collider ? Color.red : Color.green, 0.1f);

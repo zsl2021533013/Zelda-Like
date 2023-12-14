@@ -48,7 +48,7 @@ namespace Controller.Character.Enemy
             var status = this.GetModel<IEnemyModel>().GetEnemyStatus(transform);
             status.isDead.Register(value =>
             {
-                if (value == true)
+                if (value)
                 {
                     OnDie();
                 }
