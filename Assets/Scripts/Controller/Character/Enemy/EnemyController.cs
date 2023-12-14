@@ -10,12 +10,15 @@ namespace Controller.Character.Enemy
     public partial class EnemyController : MonoBehaviour, IController, IParried, ITimeStop
     {
         private BehaviourTreeProcess process;
-        
+
         private void OnEnable()
         {
+            agent.velocity = Vector3.zero;
+            agent.nextPosition = agent.transform.position;
             agent.updatePosition = false;
             agent.updateRotation = false;
             agent.angularSpeed = 1000f;
+            
             
             var model = this.GetModel<IEnemyModel>();
             model.RegisterEnemy(
