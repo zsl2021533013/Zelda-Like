@@ -67,7 +67,7 @@ namespace Controller.UI
 
 			if (contentNode == null && responseNodes is not { Count: > 0 })
 			{
-				rootCanvasGroup.DOFade(0f, 0.3f).OnComplete(DialogueManger.Instance.CompleteDialogue);
+				DialogueManger.Instance.CompleteDialogue();
 				return;
 			}
 
@@ -116,6 +116,12 @@ namespace Controller.UI
 				});
 			
 			#endregion
+		}
+
+		public void TryClose()
+		{
+			rootCanvasGroup.DOKill();
+			rootCanvasGroup.DOFade(0f, 0.3f).OnComplete(CloseSelf);
 		}
 	}
 }

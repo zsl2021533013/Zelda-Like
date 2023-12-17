@@ -47,7 +47,7 @@ namespace Tools.Dialogue_Graph.Runtime.Manager
         public void CompleteDialogue()
         {
             this.onComplete?.Invoke();
-            UIKit.ClosePanel<DialoguePanel>();
+            UIKit.GetPanel<DialoguePanel>().TryClose();
         }
         
         public void ProcessNode(DialogueGraphNode node)

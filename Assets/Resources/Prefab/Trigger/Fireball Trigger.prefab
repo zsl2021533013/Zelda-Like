@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4483637373146267404}
-  - component: {fileID: 4483637373146267403}
+  - component: {fileID: 4452463773705619377}
   m_Layer: 0
   m_Name: Trigger Area
   m_TagString: Untagged
@@ -32,7 +32,7 @@ Transform:
   m_Father: {fileID: 4479247414808916388}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4483637373146267403
+--- !u!114 &4452463773705619377
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,9 +41,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 4483637373146267405}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b6379c29fd1d4b04a57f903cb7ef9f26, type: 3}
+  m_Script: {fileID: 11500000, guid: 277df0637de444bba44b0f12b4807eb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  detectTag: 1
+  collisionTag: Player
+  detectLayer: 0
+  collisionLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  onTriggerEnter:
+    m_PersistentCalls:
+      m_Calls: []
+  onTriggerStay:
+    m_PersistentCalls:
+      m_Calls: []
+  onTriggerExit:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &4483637373422075706
 GameObject:
   m_ObjectHideFlags: 0
@@ -103,7 +118,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4485311814410145456}
-  m_LocalRotation: {x: 0.00000004470349, y: 0.70710677, z: -0.000000029802326, w: 0.70710677}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -9.599152, y: -1.6141653, z: 12.249451}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
@@ -217,6 +232,7 @@ MonoBehaviour:
       type: {class: DestroyAction, ns: Level_Editor.Runtime.Action, asm: Assembly-CSharp}
       data:
         controller: {fileID: 0}
+        type: 0
         gameObject: {fileID: 4485311814410145456}
 --- !u!114 &4483637374018454643
 MonoBehaviour:
@@ -233,9 +249,8 @@ MonoBehaviour:
   triggerForever: 1
   triggerAmount: 1
   triggerEvents:
-  - rid: 5479990407452950528
-  triggerConditions:
-  - rid: 5479990407452950529
+  - rid: 5479990541345619968
+  triggerConditions: []
   triggerActions:
   - rid: 4402488797798596612
   - rid: 5479990407452950530
@@ -256,17 +271,13 @@ MonoBehaviour:
       data:
         controller: {fileID: 0}
         spawnPoint: {fileID: 4483637373422075705}
-    - rid: 5479990407452950528
-      type: {class: TriggerUpdateEvent, ns: Level_Editor.Runtime.Event, asm: Assembly-CSharp}
-      data:
-        controller: {fileID: 0}
-    - rid: 5479990407452950529
-      type: {class: PlayerInAreaCondition, ns: Level_Editor.Runtime, asm: Assembly-CSharp}
-      data:
-        controller: {fileID: 0}
-        triggerArea: {fileID: 4483637373146267404}
     - rid: 5479990407452950530
       type: {class: WaitForSecondsAction, ns: Level_Editor.Runtime.Action, asm: Assembly-CSharp}
       data:
         controller: {fileID: 0}
         duration: 3
+    - rid: 5479990541345619968
+      type: {class: TriggerStayEvent, ns: Level_Editor.Runtime.Event, asm: Assembly-CSharp}
+      data:
+        controller: {fileID: 0}
+        trigger: {fileID: 4452463773705619377}
