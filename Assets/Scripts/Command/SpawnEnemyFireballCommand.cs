@@ -15,9 +15,7 @@ namespace Command
         protected override void OnExecute()
         {
             var fireball = Resources.Load<GameObject>("Prefab/Enemy Fireball")
-                .Instantiate()
-                .Position(position)
-                .Rotation(rotation)
+                .Instantiate(position, rotation)
                 .Name("Fireball");
 
             var controller = this.GetModel<IFireballModel>()

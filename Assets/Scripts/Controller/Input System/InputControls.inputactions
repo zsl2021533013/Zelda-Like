@@ -56,16 +56,7 @@
                     "id": "603db84e-1d82-4c85-ba70-ae653cd03c7b",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Focus",
-                    "type": "Button",
-                    "id": "ed07d09b-4b64-4fcc-aec5-5e3f47ca100b",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "Hold",
+                    "interactions": "Tap",
                     "initialStateCheck": false
                 },
                 {
@@ -78,13 +69,22 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "ChangeAbility",
-                    "type": "Value",
-                    "id": "12d99e8d-30a3-4cef-89e8-73bbfe8f9aaf",
-                    "expectedControlType": "Axis",
+                    "name": "Fireball",
+                    "type": "Button",
+                    "id": "ed07d09b-4b64-4fcc-aec5-5e3f47ca100b",
+                    "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
+                    "interactions": "Hold",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "TimeStop",
+                    "type": "Button",
+                    "id": "5583b1a7-deca-49fc-a79c-a2cbb9b032c2",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Hold",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -288,17 +288,6 @@
                 },
                 {
                     "name": "",
-                    "id": "feac6388-fa47-49f3-bb3b-f8eb84a146fb",
-                    "path": "<Mouse>/rightButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Focus",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "5aa0d8bf-35b1-4b06-ab32-56417b57ca12",
                     "path": "<Mouse>/rightButton",
                     "interactions": "",
@@ -310,12 +299,23 @@
                 },
                 {
                     "name": "",
-                    "id": "2b38babe-8d63-416d-9ee3-277bfc3f7769",
-                    "path": "<Mouse>/scroll/y",
+                    "id": "7130b845-5c02-4ded-8067-5d79c2ebdbb7",
+                    "path": "<Mouse>/rightButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "ChangeAbility",
+                    "action": "TimeStop",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "feac6388-fa47-49f3-bb3b-f8eb84a146fb",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Fireball",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

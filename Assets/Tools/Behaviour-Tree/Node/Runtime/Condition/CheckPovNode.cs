@@ -41,15 +41,24 @@ namespace Tools.Behaviour_Tree.Node.Runtime.Condition
 
         private bool IsPlayerInSectorRange(Vector3 tarPos)
         {
-            var toTarVec = tarPos - transform.position;
-            var deltaAngle = Vector3.Angle(transform.forward, toTarVec);
+            var origin = transform.position + Vector3.up;
+            var direction = tarPos - origin;
+            var deltaAngle = Vector3.Angle(transform.forward, direction);
             
             if (deltaAngle < angle)
             {
-                var dist = Vector3.Distance(transform.position, tarPos);
+                var dist = Vector3.Distance(origin, tarPos);
                 if (dist < distance)
                 {
-                    return true;
+                    // 判断有无遮挡
+                    var ray = new Ray(origin, direction);
+                    if (Physics.Raycast(ray, out var info, Vector3.Distance(tarPos, origin)))
+                    {
+                        if (info.collider.CompareTag("Player"))
+                        {
+                            return true;
+                        }
+                    }
                 }
             }
             

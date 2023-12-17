@@ -13,9 +13,7 @@ namespace Command
         protected override void OnExecute()
         {
             var fireball = Resources.Load<GameObject>("Prefab/Player Fireball")
-                .Instantiate()
-                .Position(position)
-                .Rotation(rotation)
+                .Instantiate(position, rotation)
                 .Name("Fireball");
             
             fireball.GetComponent<PlayerFireballController>().Init(target);

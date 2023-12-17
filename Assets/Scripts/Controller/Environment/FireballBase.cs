@@ -37,8 +37,6 @@ namespace Controller.Environment
         private void OnDisable()
         {
             this.GetModel<IFireballModel>().UnregisterFireball(transform);
-            
-            Debug.Log("Fireball Unregister");
         }
 
         public void Update()

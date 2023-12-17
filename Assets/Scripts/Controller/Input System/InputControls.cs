@@ -78,16 +78,7 @@ public partial class @InputControls : IInputActionCollection2, IDisposable
                     ""id"": ""603db84e-1d82-4c85-ba70-ae653cd03c7b"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Focus"",
-                    ""type"": ""Button"",
-                    ""id"": ""ed07d09b-4b64-4fcc-aec5-5e3f47ca100b"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": ""Hold"",
+                    ""interactions"": ""Tap"",
                     ""initialStateCheck"": false
                 },
                 {
@@ -100,13 +91,22 @@ public partial class @InputControls : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""ChangeAbility"",
-                    ""type"": ""Value"",
-                    ""id"": ""12d99e8d-30a3-4cef-89e8-73bbfe8f9aaf"",
-                    ""expectedControlType"": ""Axis"",
+                    ""name"": ""Fireball"",
+                    ""type"": ""Button"",
+                    ""id"": ""ed07d09b-4b64-4fcc-aec5-5e3f47ca100b"",
+                    ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": true
+                    ""interactions"": ""Hold"",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""TimeStop"",
+                    ""type"": ""Button"",
+                    ""id"": ""5583b1a7-deca-49fc-a79c-a2cbb9b032c2"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Hold"",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -310,17 +310,6 @@ public partial class @InputControls : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""feac6388-fa47-49f3-bb3b-f8eb84a146fb"",
-                    ""path"": ""<Mouse>/rightButton"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Focus"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""5aa0d8bf-35b1-4b06-ab32-56417b57ca12"",
                     ""path"": ""<Mouse>/rightButton"",
                     ""interactions"": """",
@@ -332,12 +321,23 @@ public partial class @InputControls : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""2b38babe-8d63-416d-9ee3-277bfc3f7769"",
-                    ""path"": ""<Mouse>/scroll/y"",
+                    ""id"": ""7130b845-5c02-4ded-8067-5d79c2ebdbb7"",
+                    ""path"": ""<Mouse>/rightButton"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""ChangeAbility"",
+                    ""action"": ""TimeStop"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""feac6388-fa47-49f3-bb3b-f8eb84a146fb"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Fireball"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -382,9 +382,9 @@ public partial class @InputControls : IInputActionCollection2, IDisposable
         m_Player_Rotate = m_Player.FindAction("Rotate", throwIfNotFound: true);
         m_Player_Zoom = m_Player.FindAction("Zoom", throwIfNotFound: true);
         m_Player_Attack = m_Player.FindAction("Attack", throwIfNotFound: true);
-        m_Player_Focus = m_Player.FindAction("Focus", throwIfNotFound: true);
         m_Player_Parry = m_Player.FindAction("Parry", throwIfNotFound: true);
-        m_Player_ChangeAbility = m_Player.FindAction("ChangeAbility", throwIfNotFound: true);
+        m_Player_Fireball = m_Player.FindAction("Fireball", throwIfNotFound: true);
+        m_Player_TimeStop = m_Player.FindAction("TimeStop", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -450,9 +450,9 @@ public partial class @InputControls : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Rotate;
     private readonly InputAction m_Player_Zoom;
     private readonly InputAction m_Player_Attack;
-    private readonly InputAction m_Player_Focus;
     private readonly InputAction m_Player_Parry;
-    private readonly InputAction m_Player_ChangeAbility;
+    private readonly InputAction m_Player_Fireball;
+    private readonly InputAction m_Player_TimeStop;
     public struct PlayerActions
     {
         private @InputControls m_Wrapper;
@@ -463,9 +463,9 @@ public partial class @InputControls : IInputActionCollection2, IDisposable
         public InputAction @Rotate => m_Wrapper.m_Player_Rotate;
         public InputAction @Zoom => m_Wrapper.m_Player_Zoom;
         public InputAction @Attack => m_Wrapper.m_Player_Attack;
-        public InputAction @Focus => m_Wrapper.m_Player_Focus;
         public InputAction @Parry => m_Wrapper.m_Player_Parry;
-        public InputAction @ChangeAbility => m_Wrapper.m_Player_ChangeAbility;
+        public InputAction @Fireball => m_Wrapper.m_Player_Fireball;
+        public InputAction @TimeStop => m_Wrapper.m_Player_TimeStop;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -493,15 +493,15 @@ public partial class @InputControls : IInputActionCollection2, IDisposable
                 @Attack.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAttack;
                 @Attack.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAttack;
                 @Attack.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAttack;
-                @Focus.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFocus;
-                @Focus.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFocus;
-                @Focus.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFocus;
                 @Parry.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnParry;
                 @Parry.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnParry;
                 @Parry.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnParry;
-                @ChangeAbility.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnChangeAbility;
-                @ChangeAbility.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnChangeAbility;
-                @ChangeAbility.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnChangeAbility;
+                @Fireball.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFireball;
+                @Fireball.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFireball;
+                @Fireball.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFireball;
+                @TimeStop.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTimeStop;
+                @TimeStop.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTimeStop;
+                @TimeStop.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTimeStop;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -524,15 +524,15 @@ public partial class @InputControls : IInputActionCollection2, IDisposable
                 @Attack.started += instance.OnAttack;
                 @Attack.performed += instance.OnAttack;
                 @Attack.canceled += instance.OnAttack;
-                @Focus.started += instance.OnFocus;
-                @Focus.performed += instance.OnFocus;
-                @Focus.canceled += instance.OnFocus;
                 @Parry.started += instance.OnParry;
                 @Parry.performed += instance.OnParry;
                 @Parry.canceled += instance.OnParry;
-                @ChangeAbility.started += instance.OnChangeAbility;
-                @ChangeAbility.performed += instance.OnChangeAbility;
-                @ChangeAbility.canceled += instance.OnChangeAbility;
+                @Fireball.started += instance.OnFireball;
+                @Fireball.performed += instance.OnFireball;
+                @Fireball.canceled += instance.OnFireball;
+                @TimeStop.started += instance.OnTimeStop;
+                @TimeStop.performed += instance.OnTimeStop;
+                @TimeStop.canceled += instance.OnTimeStop;
             }
         }
     }
@@ -563,8 +563,8 @@ public partial class @InputControls : IInputActionCollection2, IDisposable
         void OnRotate(InputAction.CallbackContext context);
         void OnZoom(InputAction.CallbackContext context);
         void OnAttack(InputAction.CallbackContext context);
-        void OnFocus(InputAction.CallbackContext context);
         void OnParry(InputAction.CallbackContext context);
-        void OnChangeAbility(InputAction.CallbackContext context);
+        void OnFireball(InputAction.CallbackContext context);
+        void OnTimeStop(InputAction.CallbackContext context);
     }
 }

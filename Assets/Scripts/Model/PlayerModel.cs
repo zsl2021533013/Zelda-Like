@@ -7,6 +7,12 @@ namespace Model
 {
     public class PlayerModel : AbstractModel, IPlayerModel
     {
+        public enum AbilityType
+        {
+            Fireball,
+            TimeStop
+        }
+        
         public Components components { get; private set; } = new Components();
         
         protected override void OnInit()

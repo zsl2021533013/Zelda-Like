@@ -6,6 +6,7 @@ using QFramework;
 using Tools.Behaviour_Tree.Node.Runtime.Action.Base;
 using Tools.Behaviour_Tree.Node.Runtime.Core;
 using UnityEngine;
+using UnityEngine.AI;
 
 namespace Tools.Behaviour_Tree.Node.Runtime.Action
 {
@@ -29,6 +30,13 @@ namespace Tools.Behaviour_Tree.Node.Runtime.Action
 
         public override Status OnUpdate()
         {
+            var path = new NavMeshPath();
+            agent.CalculatePath(playerTrans.position, path);
+            if (path.status != NavMeshPathStatus.PathComplete)
+            {
+                return Status.Failure;
+            }
+            
             agent.SetDestination(playerTrans.position);
                 
             if (Vector3.Distance(transform.position, playerTrans.position) <= config.attackDist - 0.1f)

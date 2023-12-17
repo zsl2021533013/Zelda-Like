@@ -3,8 +3,10 @@ using Command;
 using Controller.Character.Player.Player.State.Ground_State;
 using Data.Combat;
 using DG.Tweening;
+using Model;
 using Model.Interface;
 using QFramework;
+using QFramework.Example;
 using Script.View_Controller.Character_System.HFSM.StateMachine;
 using Script.View_Controller.Input_System;
 using UniRx;
@@ -287,57 +289,25 @@ namespace Controller.Character.Player.Player
                 needsExitTime: true
             );
             
-            FSM.AddState<FocusState>(
+            var abilityType = PlayerModel.AbilityType.Fireball;
+            FSM.AddState<SpecialAbilityState>(
                 animator,
                 "Focus",
                 onEnter: state =>
                 {
                     _applyRootMotion = false;
                     animator.ResetTrigger(Boost);
-                },
-                onLogic: state =>
-                {
-                    if (InputKit.Instance.changAbility)
-                    {
-                        InputKit.Instance.changAbility.Reset();
 
-                        var status = this.GetModel<IPlayerModel>().components.Get<PlayerStatus>(); 
-                        if (status.specialAbility == SpecialAbilityType.Fireball)
-                        {
-                            status.specialAbility.Set(SpecialAbilityType.TimeStop);
-                            Debug.Log("Time Stop Ability");
-                        }
-                        else
-                        {
-                            status.specialAbility.Set(SpecialAbilityType.Fireball);
-                            Debug.Log("Fireball Ability");
-                        }
-                    }
-                    
-                    if (InputKit.Instance.attack)
+                    if (InputKit.Instance.fireball)
                     {
-                        InputKit.Instance.attack.Reset();
-                        
-                        var status = this.GetModel<IPlayerModel>().components.Get<PlayerStatus>(); 
-                        if (status.specialAbility == SpecialAbilityType.Fireball)
-                        {
-                            this.SendCommand(new SpawnPlayerFireballCommand()
-                            {
-                                position = transform.position + transform.forward,
-                                rotation = cam.transform.rotation,
-                                target = sensorController.FocusCameraRaycast()
-                            });
-                        }
-                        else
-                        {
-                            this.SendCommand(new TimeStopCommand());
-                            
-                            Observable
-                                .Timer(TimeSpan.FromSeconds(config.timeStopDuration))
-                                .Subscribe(_ => this.SendCommand(new TimeResetCommand()))
-                                .AddTo(this);
-                        }
+                        abilityType = PlayerModel.AbilityType.Fireball;
                     }
+                    else if (InputKit.Instance.timeStop)
+                    {
+                        abilityType = PlayerModel.AbilityType.TimeStop;
+                    }
+
+                    UIKit.OpenPanel<CrossHairPanel>();
                 },
                 onFixedLogic: state =>
                 {
@@ -418,6 +388,27 @@ namespace Controller.Character.Player.Player
                 },
                 onExit: state =>
                 {
+                    UIKit.ClosePanel<CrossHairPanel>();
+                    
+                    if (abilityType == PlayerModel.AbilityType.Fireball)
+                    {
+                        this.SendCommand(new SpawnPlayerFireballCommand()
+                        {
+                            position = cam.transform.position + 2 * cam.transform.forward,
+                            rotation = cam.transform.rotation,
+                            target = sensorController.FocusCameraRaycast()
+                        });
+                    }
+                    else if (abilityType == PlayerModel.AbilityType.TimeStop)
+                    {
+                        this.SendCommand(new TimeStopCommand());
+                            
+                        Observable
+                            .Timer(TimeSpan.FromSeconds(config.timeStopDuration))
+                            .Subscribe(_ => this.SendCommand(new TimeResetCommand()))
+                            .AddTo(this);
+                    }
+
                     animator.SetFloat(SpeedXParam, 0f);
                     animator.SetFloat(SpeedZParam, 0f);
 
@@ -498,8 +489,8 @@ namespace Controller.Character.Player.Player
             FSM.AddTransition<MoveState, AttackState>
                 (transition => InputKit.Instance.attack);
                 
-            FSM.AddTransition<MoveState, FocusState>
-                (transition => InputKit.Instance.focus);
+            FSM.AddTransition<MoveState, SpecialAbilityState>
+                (transition => InputKit.Instance.fireball || InputKit.Instance.timeStop);
             
             FSM.AddTransition<JumpState, MoveState>
                 (transition => sensorController.groundSensor);
@@ -526,8 +517,8 @@ namespace Controller.Character.Player.Player
             FSM.AddTransition<ParryState, MoveState>
                 (transition => true);
             
-            FSM.AddTransition<FocusState, MoveState>
-                (transition => !InputKit.Instance.focus);
+            FSM.AddTransition<SpecialAbilityState, MoveState>
+                (transition => !InputKit.Instance.fireball && !InputKit.Instance.timeStop);
             
             FSM.AddTransition<BackStabState, MoveState>
                 (transition => true);

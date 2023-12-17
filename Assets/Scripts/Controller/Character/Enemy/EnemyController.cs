@@ -19,7 +19,6 @@ namespace Controller.Character.Enemy
             agent.updateRotation = false;
             agent.angularSpeed = 1000f;
             
-            
             var model = this.GetModel<IEnemyModel>();
             model.RegisterEnemy(
                 transform, 

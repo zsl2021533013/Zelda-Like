@@ -108,7 +108,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enable: 1
-  debugMode: 1
+  debugMode: 0
   graph: {fileID: 11400000, guid: 4de82e2fd686da24bb2550b60fa284fc, type: 2}
   config: {fileID: 11400000, guid: 00e052473dbd6c044a542e3d12675411, type: 2}
   combatData: {fileID: 11400000, guid: 619fe4afdafca304b8b15903591ef089, type: 2}

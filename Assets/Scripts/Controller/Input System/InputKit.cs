@@ -72,8 +72,8 @@ namespace Script.View_Controller.Input_System
         public InputProperty<bool> jump;
         public InputProperty<bool> attack;
         public InputProperty<bool> parry;
-        public InputProperty<bool> focus;
-        public InputProperty<bool> changAbility;
+        public InputProperty<bool> fireball;
+        public InputProperty<bool> timeStop;
         
         private InputKit() {}
         
@@ -113,13 +113,13 @@ namespace Script.View_Controller.Input_System
                 performedSetter: context => true,
                 canceledSetter: context => false);
             
-            focus = new InputProperty<bool>(
-                mControls.Player.Focus,
+            fireball = new InputProperty<bool>(
+                mControls.Player.Fireball,
                 performedSetter: context => true,
                 canceledSetter: context => false);
             
-            changAbility = new InputProperty<bool>(
-                mControls.Player.ChangeAbility,
+            timeStop = new InputProperty<bool>(
+                mControls.Player.TimeStop,
                 performedSetter: context => true,
                 canceledSetter: context => false);
         }
@@ -132,8 +132,8 @@ namespace Script.View_Controller.Input_System
             jump.Enable();
             attack.Enable();
             parry.Enable();
-            focus.Enable();
-            changAbility.Enable();
+            fireball.Enable();
+            timeStop.Enable();
         }
         
         public void DisablePlayerInput()
@@ -144,8 +144,8 @@ namespace Script.View_Controller.Input_System
             jump.Disable();
             attack.Disable();
             parry.Disable();
-            focus.Disable();
-            changAbility.Disable();
+            fireball.Disable();
+            timeStop.Disable();
         }
     }
 }

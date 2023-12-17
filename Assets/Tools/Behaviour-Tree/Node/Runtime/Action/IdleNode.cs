@@ -1,6 +1,7 @@
 ﻿using System;
 using GraphProcessor;
 using Script.View_Controller.Character_System.HFSM.Util;
+using Sirenix.OdinInspector;
 using Tools.Behaviour_Tree.Node.Runtime.Action.Base;
 using Tools.Behaviour_Tree.Node.Runtime.Core;
 using UnityEngine;
@@ -10,6 +11,12 @@ namespace Tools.Behaviour_Tree.Node.Runtime.Action
     [Serializable, NodeMenuItem("Behaviour/Action/Idle")]
     public class IdleNode : ActionNode
     {
+        [GraphProcessor.ShowInInspector]
+        public bool needExitTime;
+
+        [GraphProcessor.ShowInInspector, ShowIf("needExitTime", true)]
+        public float exitTime;
+        
         private const string AnimationName = "Idle";
         
         private AnimationTimer timer;
@@ -41,12 +48,14 @@ namespace Tools.Behaviour_Tree.Node.Runtime.Action
         {
             agent.SetDestination(transform.position);
 
-            if (timer > 0.2f) // 需要等待动画转态完成，否则不断的请求会导致卡住
+            if (needExitTime) // 需要等待动画转态完成，否则不断的请求会导致卡住
             {
-                return Status.Success;
+                return timer > exitTime ? Status.Success : Status.Running;
             }
-            
-            return Status.Running;
+            else
+            {
+                return timer > 0.2f ? Status.Success : Status.Running;
+            }
         }
     }
 }

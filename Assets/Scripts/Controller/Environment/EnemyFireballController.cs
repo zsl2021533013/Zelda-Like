@@ -33,15 +33,14 @@ namespace Controller.Environment
                 if (status.isParrying)
                 {
                     Parried();
+                    return;
                 }
-                else
-                {
-                    var explosionParticle = Resources.Load<GameObject>("Art/Particle/Explosion");
-                    explosionParticle.Instantiate().Position(transform.position);
-                }
-                
+
                 Debug.Log("Detect Player");
             }
+            
+            var explosionParticle = Resources.Load<GameObject>("Art/Particle/Explosion");
+            explosionParticle.Instantiate().Position(transform.position);
         }
 
         public void Parried()

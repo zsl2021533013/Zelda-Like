@@ -170,7 +170,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enable: 1
   debugMode: 0
-  graph: {fileID: 11400000, guid: 56fe30884cc3d39408d6f1db317d99c7, type: 2}
+  graph: {fileID: 11400000, guid: 4de82e2fd686da24bb2550b60fa284fc, type: 2}
   config: {fileID: 11400000, guid: 82edad4efd377c14db7fe7865ff6f671, type: 2}
   combatData: {fileID: 11400000, guid: 590aa8c1a249bc6489a4ad92df701feb, type: 2}
   animator: {fileID: 2729054363335911822}
