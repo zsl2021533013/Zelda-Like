@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using GraphProcessor;
 using Model.Interface;
 using QFramework;
@@ -51,13 +52,12 @@ namespace Tools.Behaviour_Tree.Node.Runtime.Condition
                 if (dist < distance)
                 {
                     // 判断有无遮挡
-                    var ray = new Ray(origin, direction);
-                    if (Physics.Raycast(ray, out var info, Vector3.Distance(tarPos, origin)))
+                    var infos = Physics.RaycastAll(origin, direction, Vector3.Distance(tarPos, origin));
+                    infos = infos.Where(info => info.collider.CompareTag("Enemy") || 
+                                                info.collider.CompareTag("Player")).ToArray();
+                    if (infos.Length > 0)
                     {
-                        if (info.collider.CompareTag("Player"))
-                        {
-                            return true;
-                        }
+                        return true;
                     }
                 }
             }
