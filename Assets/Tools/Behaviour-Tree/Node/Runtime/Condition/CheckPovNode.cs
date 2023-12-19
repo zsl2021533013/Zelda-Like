@@ -53,9 +53,8 @@ namespace Tools.Behaviour_Tree.Node.Runtime.Condition
                 {
                     // 判断有无遮挡
                     var infos = Physics.RaycastAll(origin, direction, Vector3.Distance(tarPos, origin));
-                    infos = infos.Where(info => info.collider.CompareTag("Enemy") || 
-                                                info.collider.CompareTag("Player")).ToArray();
-                    if (infos.Length > 0)
+                    infos = infos.Where(info => !(info.collider.CompareTag("Enemy") || info.collider.CompareTag("Player"))).ToArray();
+                    if (infos.Length <= 0)
                     {
                         return true;
                     }
